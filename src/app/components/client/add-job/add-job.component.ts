@@ -1,40 +1,49 @@
-import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-add-job',
   templateUrl: './add-job.component.html',
-  styleUrls: ['./add-job.component.css']
+  styleUrls: ['./add-job.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AddJobComponent implements OnInit {
-  form = new FormGroup({
-    title: new FormControl('', Validators.required),
-    period: new FormGroup({
-      start: new FormGroup({
-        date: new FormControl('', Validators.required),
-        time: new FormControl('', Validators.required)
-      }),
-      end: new FormGroup({
-        date: new FormControl('', Validators.required),
-        time: new FormControl('', Validators.required)
-      })
-    }),
-    hours: new FormGroup({
-      perDay: new FormControl('', Validators.required),
-      perWeek: new FormControl('', Validators.required)
-    }),
-    noOfNeededPersons: new FormControl('', Validators.required),
-    description: new FormControl('')
-  });
+  form: FormGroup;
 
-  constructor() {
+  constructor(private formBuilder: FormBuilder) {
   }
 
   ngOnInit() {
+    this.buildForm();
   }
+
 
   onSubmit() {
+
   }
 
+  buildForm() {
+    this.form = this.formBuilder.group(
+      {
+        title: ['', Validators.required],
+        period: this.formBuilder.group({
+          start: this.formBuilder.group({
+            date: ['', Validators.required],
+            time: ['', Validators.required]
+          }),
+          end: this.formBuilder.group({
+            date: ['', Validators.required],
+            time: ['', Validators.required]
+          })
+        }),
+        hours: this.formBuilder.group({
+          perDay: ['', Validators.required],
+          perWeek: ['', Validators.required]
+        }),
+        noOfNeededPersons: ['', Validators.required],
+        description: ['']
+      }
+    );
+  }
 }
 

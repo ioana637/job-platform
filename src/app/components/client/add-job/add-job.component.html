@@ -1,80 +1,79 @@
-{{ form.value | json }}
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <div class="row d-flex">
-    <div class="col-4" s>
-      <label>Titlu</label>
-      <input type="email" formControlName="title" placeholder="Titlu" class="form-control">
-    </div>
-  </div>
-  <div class="row">
-    <label class="col-12">Perioadă de începere</label>
-  </div>
-  <div class="form-row" formGroupName="period">
-    <div class="form-group col-2" formGroupName="start">
-      <p-calendar
-        placeholder="Data"
-        showIcon="true"
-        dateFormat="dd/mm/yy"
-        showTime="true"
-        hourFormat="24"
-        formControlName="date"
-      ></p-calendar>
-    </div>
-    <div class="form-group col-2" formGroupName="start">
-      <p-calendar
-        placeholder="Ora"
-        dateFormat="dd/mm/yy"
-        timeOnly="true"
-        hourFormat="24"
-        formControlName="time"
-      ></p-calendar>
-    </div>
-  </div>
-  <div class="row">
-    <label class="col-12">Perioadă de încheiere</label>
-  </div>
-  <div class="form-row" formGroupName="period">
-    <div class="form-group col-2" formGroupName="end">
-      <p-calendar
-        placeholder="Data"
-        showIcon="true"
-        dateFormat="dd/mm/yy"
-        showTime="true"
-        hourFormat="24"
-        formControlName="date"
-      ></p-calendar>
-    </div>
-    <div class="form-group col-2" formGroupName="end">
-      <p-calendar
-        placeholder="Ora"
-        dateFormat="dd/mm/yy"
-        timeOnly="true"
-        hourFormat="24"
-        formControlName="time"
-      ></p-calendar>
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-2" formGroupName="hours">
-      <label>Ore de lucru</label>
-      <div class="row">
-        <div class="col-6"><input type="number" class="form-control" formControlName="perDay" placeholder="ore/zi">
-        </div>
-        <div class="col-6"><input type="number" class="form-control" formControlName="perDay" placeholder="ore/zi">
+
+<div class="row justify-content-center">
+  <p-card class="col-4">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-row m-3">
+        <div class="col">
+          <input type="text" name="title" class="ui-input" formControlName="title" placeholder="Titlu"
+                 required="required">
         </div>
       </div>
-    </div>
-    <div class="form-group col-2">
-      <label>Nr. persoane necesare</label>
-      <input type="number" class="form-control" formControlName="noOfNeededPersons" placeholder="ore/zi">
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="col-12">
-      <label>Scurtă descriere</label>
-      <textarea pInputTextarea class="form-control" rows="7" autoResize="true" cols="70" formControlName="description"
-                class="ui-inputgroup"></textarea>
-    </div>
-  </div>
-  <button type="submit">Adaugă</button>
-</form>
+      <div class="form-row m-3" formGroupName="period">
+        <div class="col-6" formGroupName="start">
+          <p-calendar
+            placeholder="Dată începere"
+            dateFormat="dd/mm/yy"
+            formControlName="date"
+          ></p-calendar>
+        </div>
+        <div class="col-6" formGroupName="start">
+          <p-calendar
+            placeholder="Oră începere"
+            dateFormat="dd/mm/yy"
+            timeOnly="true"
+            hourFormat="24"
+            formControlName="time"
+          ></p-calendar>
+        </div>
+      </div>
+      <div class="form-row m-3" formGroupName="period">
+        <div class="col-6" formGroupName="end">
+          <p-calendar
+            placeholder="Dată încheiere"
+            dateFormat="dd/mm/yy"
+            hourFormat="24"
+            formControlName="date"
+          ></p-calendar>
+        </div>
+        <div class="col-6" formGroupName="end">
+          <p-calendar
+            placeholder="Oră încheiere"
+            dateFormat="dd/mm/yy"
+            timeOnly="true"
+            hourFormat="24"
+            formControlName="time"
+          ></p-calendar>
+        </div>
+      </div>
+      <div class="form-row m-3" formGroupName="hours">
+        <div class="col-6">
+          <input type="number" class="ui-input" formControlName="perDay" placeholder="Ore lucru/zi">
+        </div>
+        <div class="col-6">
+          <input type="number" class="ui-input" formControlName="perDay"
+                 placeholder="Ore lucru/săptămână">
+        </div>
+
+      </div>
+      <div class="form-row m-3">
+        <div class="col">
+          <input type="number" class="ui-input" formControlName="noOfNeededPersons"
+                 placeholder="Număr persoane necesare">
+        </div>
+      </div>
+      <div class="form-row m-3">
+        <div class="col">
+          <textarea pInputTextarea class="ui-input" autoResize="true" [rows]="5"
+                    placeholder="Scurtă descriere"
+                    formControlName="description"></textarea>
+        </div>
+      </div>
+      <div class="form-row m-3">
+        <div class="col">
+          <p-button type="submit" class="ui-button-primary" label="Adaugă"></p-button>
+        </div>
+      </div>
+    </form>
+  </p-card>
+</div>
+

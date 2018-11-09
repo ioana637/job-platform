@@ -5,6 +5,8 @@ import {AddJobComponent} from './add-job/add-job.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CalendarModule, InputTextareaModule} from 'primeng/primeng';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {CardModule} from 'primeng/card';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -14,7 +16,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     FormsModule,
     ReactiveFormsModule,
     CalendarModule,
-    InputTextareaModule
+    InputTextareaModule,
+    CardModule,
+    SharedModule
   ],
   declarations: [AddJobComponent],
   exports: [AddJobComponent]
