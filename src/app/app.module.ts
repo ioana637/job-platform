@@ -3,6 +3,36 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {ClientModule} from './components/client/client.module';
+import {RouterModule, Routes} from '@angular/router';
+import {AddJobComponent} from './components/client/add-job/add-job.component';
+import {LoginComponent} from './components/shared/auth/login/login.component';
+import {RegisterComponent} from './components/shared/auth/register/register.component';
+import {AbilitiesComponent} from './components/shared/auth/abilities/abilities.component';
+
+
+const routes: Routes = [
+  {
+    path: 'addJob',
+    component: AddJobComponent
+  },
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: 'register/abilities',
+    component: AbilitiesComponent
+  }
+];
 
 @NgModule({
   declarations: [
@@ -10,9 +40,14 @@ import {ClientModule} from './components/client/client.module';
   ],
   imports: [
     BrowserModule,
-    ClientModule
+    ClientModule,
+    RouterModule.forRoot(routes)
+  ],
+  exports: [
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
