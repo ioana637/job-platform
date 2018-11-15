@@ -1,7 +1,7 @@
 <div class="col-md-4 login-card-root">
   <p-card class="col-4">
     <div class="title-container">
-      <img src="assets/Logo.png">
+      <div class='logo'></div>
       <h3 class="app-title">Jobify</h3>
     </div>
     <form name="form"
@@ -17,7 +17,7 @@
                placeholder="Email"
                required />
         <div *ngIf="f.submitted && !username.valid"
-             class="help-block">Username is required</div>
+             class="help-block">Campul trebuie completat</div>
       </div>
       <div class="form-group"
            [ngClass]="{ 'has-error': f.submitted && !password.valid }">
@@ -29,7 +29,7 @@
                placeholder="Parola"
                required />
         <div *ngIf="f.submitted && !password.valid"
-             class="help-block">Password is required</div>
+             class="help-block">Campul trebuie completat</div>
       </div>
 
       <div class="ui-fluid">
@@ -47,9 +47,9 @@
                   label="Logare cu Facebook"></p-button>
       </div>
       <div class="bottom-text">
-        <p>Nu ai cont?</p>
-        <span> </span>
-        <a class="register-link"> Creeaza cont</a>
+        <p>Nu ai cont? <a class="register-link"> Creeaza cont</a></p>
+        <br>
+
       </div>
     </form>
   </p-card>
