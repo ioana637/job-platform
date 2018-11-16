@@ -8,6 +8,9 @@ import {AddJobComponent} from './components/client/add-job/add-job.component';
 import {LoginComponent} from './components/shared/auth/login/login.component';
 import {RegisterComponent} from './components/shared/auth/register/register.component';
 import {AbilitiesComponent} from './components/shared/auth/abilities/abilities.component';
+import {HttpClientModule} from '@angular/common/http';
+import {LoginService} from './services/login.service';
+import {JobService} from './services/job.service';
 
 
 const routes: Routes = [
@@ -41,12 +44,13 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     ClientModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
   exports: [
     RouterModule
   ],
-  providers: [],
+  providers: [LoginService, JobService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

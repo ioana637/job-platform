@@ -1,5 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {JobService} from '../../../services/job.service';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-add-job',
@@ -9,8 +11,9 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class AddJobComponent implements OnInit {
   form: FormGroup;
+  abilities = [{code: 'code1', display: 'Abilitate 1', level: 'ELEMENTAR'}];
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private jobService: JobService, private messageService: MessageService) {
   }
 
   ngOnInit() {
@@ -19,7 +22,13 @@ export class AddJobComponent implements OnInit {
 
 
   onSubmit() {
-
+    this.jobService.add({...this.form.value, abilities: this.abilities}).subscribe(success => {
+        this.messageService.add({severity: 'success', summary: 'Success', detail: 'Jobul a fost adaugat cu succes!'});
+        this.form.reset();
+      },
+      error => {
+        this.messageService.add({severity: 'error', summary: 'Eroare', detail: error});
+      });
   }
 
   buildForm() {
