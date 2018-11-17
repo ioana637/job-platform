@@ -11,6 +11,7 @@ import {AbilitiesComponent} from './components/shared/auth/abilities/abilities.c
 import {HttpClientModule} from '@angular/common/http';
 import {LoginService} from './services/login.service';
 import {JobService} from './services/job.service';
+import {SharedModule} from './components/shared/shared.module';
 
 
 const routes: Routes = [
@@ -45,12 +46,16 @@ const routes: Routes = [
     BrowserModule,
     ClientModule,
     HttpClientModule,
+    SharedModule,
     RouterModule.forRoot(routes)
   ],
   exports: [
     RouterModule
   ],
-  providers: [LoginService, JobService],
+  providers: [
+    LoginService,
+    JobService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

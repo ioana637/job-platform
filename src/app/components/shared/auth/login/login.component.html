@@ -1,3 +1,57 @@
-<p>
-  login works!
-</p>
+<div class="col-md-4 login-card-root">
+  <p-card class="col-4">
+    <div class="title-container">
+      <div class='logo'></div>
+      <h3 class="app-title">Jobify</h3>
+    </div>
+    <form name="form"
+          (ngSubmit)="login()"
+          #f="ngForm">
+      <div class="form-group"
+           [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+        <input type="text"
+               class="form-control"
+               name="username"
+               [(ngModel)]="model.username"
+               #username="ngModel"
+               placeholder="Email"
+               required />
+        <div *ngIf="f.submitted && !username.valid"
+             class="help-block">Campul trebuie completat</div>
+      </div>
+      <div class="form-group"
+           [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+        <input type="password"
+               class="form-control"
+               name="password"
+               [(ngModel)]="model.password"
+               #password="ngModel"
+               placeholder="Parola"
+               required />
+        <div *ngIf="f.submitted && !password.valid"
+             class="help-block">Campul trebuie completat</div>
+      </div>
+
+      <div class="ui-fluid">
+        <p-button type="submit"
+                  class="login-button"
+                  label="Logare"></p-button>
+      </div>
+
+      <p class="alternative-text">or</p>
+
+      <div class="ui-fluid">
+        <p-button type="submit"
+                  icon="fa fa-facebook-official"
+                  class="facebook-login-button"
+                  label="Logare cu Facebook"></p-button>
+      </div>
+      <div class="bottom-text">
+        <p>Nu ai cont? <a class="register-link"> Creeaza cont</a></p>
+        <br>
+
+      </div>
+    </form>
+  </p-card>
+
+</div>

@@ -1,0 +1,61 @@
+.toolbar {
+    margin-bottom: 0;
+    padding-top: 0;
+    height: 85px;
+    background-color: #87CEFA
+  }
+  
+  .row-md-1{
+    background-color:	#0000CD;
+  }
+  .jobify{
+      color: white;
+      font-size: 40px;
+  }
+ 
+  img{
+    padding: 5px;
+    width: 60px;
+    float: left;
+   
+  }
+  button{
+    /* height: 40px; */
+    background-color:	#87CEFA;
+    border: none;
+    padding: 17px 20px;
+    text-align: right;
+    /* font-size: 10px; */
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    float: left;
+    border-right: 0.5px solid #0000CD;
+  }
+
+   .repaired-header{
+    top: 0;
+    right: 0;
+    position: absolute;
+    }
+
+    @media screen and (max-width: 600px) {
+      .dissapear-header{
+        visibility: hidden;
+      }
+    }
+
+    
+    @media screen and (min-width: 768px) {
+      @media screen and (max-width:816px) {
+        .repaired-header{
+          margin-top: -0.5%;
+          font-size: 80%;
+        }
+        .btnLogout{
+          margin-top: -6.2%;
+        }
+      }
+    }
+

@@ -6,8 +6,8 @@ import {Injectable} from '@angular/core';
 export class LoginService {
   user = {
     'id': '1',
-    'username': 'a',
-    'password': 'a',
+    'username': 'g',
+    'password': 'g',
     'role': 'CLIENT',
     'firstName': 'sdads',
     'address': 'wfdsf',
@@ -17,11 +17,11 @@ export class LoginService {
   constructor() {
   }
 
-  login() {
+  public login() {
     localStorage.setItem('user', JSON.stringify(this.user));
   }
 
-  getUser() {
+  public getUser() {
     return JSON.parse(localStorage.getItem('user'));
   }
 }
