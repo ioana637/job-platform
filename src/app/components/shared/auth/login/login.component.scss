@@ -4,6 +4,21 @@
 
 }
 .title-container{
+
+  .logo{
+    height: 100px;
+    width: 100px;
+    // padding: 10px;
+    display: block;
+    margin: 0;
+    background:url('../../../../assets/Logo.png') no-repeat center center;
+  }
+
+  .app-title{
+    position: relative;
+    top:30px;
+  }
+
   display: flex;
   justify-content: center;
   margin: 10px;
@@ -13,12 +28,16 @@
   margin-top: 5px;
   width: 100%;
 }
-.facebook-login-button{
-  color: #343f91 !important;
-  width: 100%;
-  display: flex;
-  justify-content: center;
+.ui-fluid{
+
+  .facebook-login-button{
+    background-color: #343f91 !important;
+    // width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 }
+
 .alternative-text{
   display: flex;
   justify-content: center;
