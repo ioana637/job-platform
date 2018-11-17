@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {FormGroup, FormBuilder} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
+import {LoginService} from '../../../../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -15,17 +16,19 @@ export class LoginComponent implements OnInit {
   returnUrl: string;
 
   constructor(
+    private loginService: LoginService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router) {
+  }
 
   ngOnInit() {
     // reset login status
-
+    this.login();
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   login() {
-
+    this.loginService.login();
   }
 }
