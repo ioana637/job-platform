@@ -6,6 +6,7 @@ import { AbilitiesComponent } from './auth/abilities/abilities.component';
 import { CardModule } from 'primeng/card';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/primeng';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,13 @@ import { ButtonModule } from 'primeng/primeng';
     ButtonModule,
     FormsModule
   ],
-  declarations: [LoginComponent, RegisterComponent, AbilitiesComponent],
+  declarations: [
+    LoginComponent,
+    RegisterComponent,
+    AbilitiesComponent,
+    ToolbarComponent],
+  exports: [ToolbarComponent]
 })
 export class SharedModule {
 }
+
