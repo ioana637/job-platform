@@ -12,6 +12,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {LoginService} from './services/login.service';
 import {JobService} from './services/job.service';
 import {SharedModule} from './components/shared/shared.module';
+import {AbilityService} from './services/ability.service';
 
 
 const routes: Routes = [
@@ -54,7 +55,8 @@ const routes: Routes = [
   ],
   providers: [
     LoginService,
-    JobService
+    JobService,
+    AbilityService,
   ],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,7 @@
 <p-toast position="top-right"></p-toast>
+<div class="row justify-content-center m-5" style="color: #384A50;font-size: 24px;font-family: 'Open Sans'">Adaugă un
+  job
+</div>
 <div class="row justify-content-center">
   <p-card class="col-4">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
@@ -50,7 +53,7 @@
           <input type="number" class="ui-input" formControlName="perDay" placeholder="Ore lucru/zi">
         </div>
         <div class="col-6">
-          <input type="number" class="ui-input" formControlName="perDay"
+          <input type="number" class="ui-input" formControlName="perWeek"
                  placeholder="Ore lucru/săptămână">
         </div>
 
@@ -68,6 +71,20 @@
                     formControlName="description"></textarea>
         </div>
       </div>
+      <div class="form-row m-3" style="color: #384A50;font-family: 'Open Sans';font-size: 14px">
+        <div class="col">
+          Adaugă abilități pentru a ușura gasirea unui potențial angajat
+        </div>
+      </div>
+      <div class="form-row m-3" style="color: #384A50;font-family: 'Open Sans';font-size: 14px">
+        <div class="col-11">
+          <ng-template #abilities></ng-template>
+        </div>
+        <div class="col">
+          <p-button icon="fa fa-plus" (onClick)="add()"></p-button>
+        </div>
+      </div>
+      <div></div>
       <div class="form-row m-3">
         <div class="col">
           <p-button type="submit" class="ui-button-primary" label="Adaugă"></p-button>
