@@ -1,12 +1,15 @@
-import {Component, OnInit, ViewContainerRef} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {AbilityService} from '../../../../services/ability.service';
 
 @Component({
-  selector: 'app-abilities',
-  templateUrl: './abilities.component.html',
-  styleUrls: ['./abilities.component.css']
+  selector: 'app-ability',
+  templateUrl: './ability.component.html',
+  styleUrls: ['./ability.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
-export class AbilitiesComponent implements OnInit {
+export class AbilityComponent implements OnInit {
+  @Input() number;
+  @Output() deleted = new EventEmitter();
   selectedAbility;
   abilities;
   selectedLevel;
@@ -34,7 +37,7 @@ export class AbilitiesComponent implements OnInit {
   filterLevel(event) {
     const query = event.query;
     this.abilityService.fetchLevels().subscribe(levels => {
-      this.filteredLevels = this.filter(query, levels, 'display');
+      this.filteredLevels = this.filter(query, levels, 'levelName');
     });
   }
 
@@ -47,5 +50,9 @@ export class AbilitiesComponent implements OnInit {
       }
     );
     return filtered;
+  }
+
+  delete() {
+    this.deleted.emit(true);
   }
 }

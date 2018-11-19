@@ -27,4 +27,6 @@ p-button{
 }
 body .ui-button{
   width: inherit;
+  padding: 1px;
 }
+

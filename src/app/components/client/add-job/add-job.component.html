@@ -12,14 +12,14 @@
         </div>
       </div>
       <div class="form-row m-3" formGroupName="period">
-        <div class="col-6" formGroupName="start">
+        <div class="col-6 ui-fluid" formGroupName="start">
           <p-calendar
             placeholder="Dată începere"
             dateFormat="dd/mm/yy"
             formControlName="date"
           ></p-calendar>
         </div>
-        <div class="col-6" formGroupName="start">
+        <div class="col-6 ui-fluid" formGroupName="start">
           <p-calendar
             placeholder="Oră începere"
             dateFormat="dd/mm/yy"
@@ -30,7 +30,7 @@
         </div>
       </div>
       <div class="form-row m-3" formGroupName="period">
-        <div class="col-6" formGroupName="end">
+        <div class="col-6 ui-fluid" formGroupName="end">
           <p-calendar
             placeholder="Dată încheiere"
             dateFormat="dd/mm/yy"
@@ -38,7 +38,7 @@
             formControlName="date"
           ></p-calendar>
         </div>
-        <div class="col-6" formGroupName="end">
+        <div class="col-6 ui-fluid" formGroupName="end">
           <p-calendar
             placeholder="Oră încheiere"
             dateFormat="dd/mm/yy"
@@ -72,17 +72,18 @@
         </div>
       </div>
       <div class="form-row m-3" style="color: #384A50;font-family: 'Open Sans';font-size: 14px">
-        <div class="col">
+        <div class="col"  style="color: #29B3F6;font-family: 'Open Sans';font-size: 14px">
           Adaugă abilități pentru a ușura gasirea unui potențial angajat
         </div>
       </div>
       <div class="form-row m-3" style="color: #384A50;font-family: 'Open Sans';font-size: 14px">
-        <div class="col-11">
+        <div class="col">
           <ng-template #abilities></ng-template>
         </div>
-        <div class="col">
-          <p-button icon="fa fa-plus" (onClick)="add()"></p-button>
-        </div>
+
+      </div>
+      <div class="form-row m-3">
+        <div class="col" style="color: #29B3F6;font-family: 'Open Sans';font-size: 14px" (click)="addAbilityComponent()">Adaugă abilitate</div>
       </div>
       <div></div>
       <div class="form-row m-3">
