@@ -2,10 +2,10 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {LoginComponent} from './auth/login/login.component';
 import {RegisterComponent} from './auth/register/register.component';
-import {AbilitiesComponent} from './auth/abilities/abilities.component';
+import {AbilityComponent} from './auth/abilities/ability.component';
 import {CardModule} from 'primeng/card';
 import {FormsModule} from '@angular/forms';
-import {ButtonModule} from 'primeng/primeng';
+import {AutoCompleteModule, ButtonModule} from 'primeng/primeng';
 import {ToolbarComponent} from './toolbar/toolbar.component';
 import {UserInterceptor} from './user.interceptor.';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
@@ -15,12 +15,13 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
     CommonModule,
     CardModule,
     ButtonModule,
-    FormsModule
+    FormsModule,
+    AutoCompleteModule
   ],
   declarations: [
     LoginComponent,
     RegisterComponent,
-    AbilitiesComponent,
+    AbilityComponent,
     ToolbarComponent],
   providers: [
     {
@@ -29,8 +30,9 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
       multi: true
     }
   ],
+  entryComponents: [AbilityComponent],
 
-  exports: [ToolbarComponent]
+  exports: [ToolbarComponent, AbilityComponent]
 })
 export class SharedModule {
 }

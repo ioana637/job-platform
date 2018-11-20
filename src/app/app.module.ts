@@ -7,11 +7,12 @@ import {RouterModule, Routes} from '@angular/router';
 import {AddJobComponent} from './components/client/add-job/add-job.component';
 import {LoginComponent} from './components/shared/auth/login/login.component';
 import {RegisterComponent} from './components/shared/auth/register/register.component';
-import {AbilitiesComponent} from './components/shared/auth/abilities/abilities.component';
+import {AbilityComponent} from './components/shared/auth/abilities/ability.component';
 import {HttpClientModule} from '@angular/common/http';
 import {LoginService} from './services/login.service';
 import {JobService} from './services/job.service';
 import {SharedModule} from './components/shared/shared.module';
+import {AbilityService} from './services/ability.service';
 
 
 const routes: Routes = [
@@ -34,7 +35,7 @@ const routes: Routes = [
   },
   {
     path: 'register/abilities',
-    component: AbilitiesComponent
+    component: AbilityComponent
   }
 ];
 
@@ -54,7 +55,8 @@ const routes: Routes = [
   ],
   providers: [
     LoginService,
-    JobService
+    JobService,
+    AbilityService,
   ],
   bootstrap: [AppComponent]
 })
