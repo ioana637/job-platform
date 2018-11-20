@@ -24,7 +24,16 @@ export class AbilityComponent implements OnInit {
   }
 
   getAbility() {
-    return {ability: this.selectedAbility, level: this.selectedLevel};
+    if (this.selectedLevel && this.selectedAbility) {
+      if (this.selectedAbility instanceof Object) {
+        return {...this.selectedAbility, level: this.selectedLevel.levelName.toUpperCase()};
+      } else {
+        return {display: this.selectedAbility, code: this.selectedAbility, level: this.selectedLevel.levelName.toUpperCase()};
+      }
+    } else {
+      return null;
+    }
+
   }
 
   filterAbilities(event) {
@@ -44,7 +53,7 @@ export class AbilityComponent implements OnInit {
   filter(query, entities, prop) {
     let filtered = [];
     entities.forEach(entity => {
-        if (entity[prop].toLowerCase().indexOf(query.toLowerCase()) === 0) {
+        if (entity[prop] && entity[prop].toLowerCase().indexOf(query.toLowerCase()) === 0) {
           filtered.push(entity);
         }
       }

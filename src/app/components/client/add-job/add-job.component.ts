@@ -15,6 +15,8 @@ import {MessageService} from 'primeng/api';
 import {AbilityService} from '../../../services/ability.service';
 import {AbilityComponent} from '../../shared/auth/abilities/ability.component';
 import {abilityUrl} from '../../../../assets/urls';
+import {convertTimestampToDate, convertTimestampToTime} from '../../../services/utils';
+import {LoginService} from '../../../services/login.service';
 
 @Component({
   selector: 'app-add-job',
@@ -25,14 +27,14 @@ import {abilityUrl} from '../../../../assets/urls';
 export class AddJobComponent implements OnInit {
   form: FormGroup;
   abilityNumber = 1;
-  abilities = [{code: 'code1', display: 'Abilitate 1', level: 'ELEMENTAR'}];
   @ViewChild('abilities', {read: ViewContainerRef}) viewContainerRef: ViewContainerRef;
   abilityComponents: ComponentRef<AbilityComponent>[] = [];
 
   constructor(private formBuilder: FormBuilder,
               private jobService: JobService,
               private messageService: MessageService,
-              private factoryResolver: ComponentFactoryResolver) {
+              private factoryResolver: ComponentFactoryResolver,
+              private loginService: LoginService) {
   }
 
   ngOnInit() {
@@ -66,48 +68,59 @@ export class AddJobComponent implements OnInit {
 
   getAbilities() {
     let abilities = [];
-    this.abilityComponents.forEach(component => abilities.push(component.instance.getAbility()));
+    this.abilityComponents.forEach(component => {
+      const ability = component.instance.getAbility();
+      if (ability) {
+        abilities.push(ability);
+      }
+    });
+
     return abilities;
   }
 
   onSubmit() {
-
-    this.jobService.add({...this.form.value, abilities: this.getAbilities()}).subscribe(success => {
-        this.messageService.add({severity: 'success', summary: 'Success', detail: 'Jobul a fost adaugat cu succes!'});
-        this.form.reset();
-        this.abilityComponents.forEach(component => this.destroy(component));
-        this.abilityNumber = 1;
-        this.addAbilityComponent();
-      },
-      error => {
-        this.messageService.add({severity: 'error', summary: 'Eroare', detail: error});
-      });
+    if (this.form.valid) {
+      let job = {
+        ...this.form.value,
+        startTime: convertTimestampToTime(this.form.value.startTime),
+        endTime: convertTimestampToTime(this.form.value.endTime),
+        periodStart: convertTimestampToDate(this.form.value.periodStart),
+        periodEnd: convertTimestampToDate(this.form.value.periodEnd),
+        abilities: this.getAbilities(),
+        idClient: this.loginService.getUser().id
+      };
+      Object.keys(job).forEach(key => job[key] = job[key] === '' ? null : job[key]);
+      this.jobService.add(job).subscribe(success => {
+          this.messageService.add({severity: 'success', summary: 'Success', detail: 'Jobul a fost adaugat cu succes!'});
+          this.form.reset();
+          this.abilityComponents.forEach(component => this.destroy(component));
+          this.abilityComponents = [];
+          this.abilityNumber = 1;
+          this.addAbilityComponent();
+        },
+        error => {
+          this.messageService.add({severity: 'error', summary: 'Eroare', detail: error.message});
+        });
+    } else {
+      this.messageService.add({severity: 'error', summary: 'Eroare', detail: 'Trebuie să completați câmpurile obligatorii!'});
+    }
   }
 
   buildForm() {
     this.form = this.formBuilder.group(
       {
         title: ['', Validators.required],
-        period: this.formBuilder.group({
-          start: this.formBuilder.group({
-            date: ['', Validators.required],
-            time: ['', Validators.required]
-          }),
-          end: this.formBuilder.group({
-            date: ['', Validators.required],
-            time: ['', Validators.required]
-          })
-        }),
-        hours: this.formBuilder.group({
-          perDay: ['', Validators.required],
-          perWeek: ['', Validators.required]
-        }),
-        noOfNeededPersons: ['', Validators.required],
-        description: ['']
+        description: [''],
+        endTime: ['', Validators.required],
+        startTime: ['', Validators.required],
+        periodStart: ['', Validators.required],
+        periodEnd: ['', Validators.required],
+        hoursPerWeek: [''],
+        hoursPerDay: [''],
+        peopleRequired: ['', Validators.required],
       }
     );
   }
-
 
 }
 
