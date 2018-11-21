@@ -17,7 +17,7 @@ export class LoginService {
   constructor() {
   }
 
-  public login() {
+  public login(user) {
     localStorage.setItem('user', JSON.stringify(this.user));
   }
 

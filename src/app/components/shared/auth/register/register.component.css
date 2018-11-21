@@ -1,0 +1,36 @@
+.register-card-root{
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.title-container{
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.register-button{
+  margin-top: 5px;
+  width: 100%;
+}
+.facebook-register-button{
+  color: #343f91 !important;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.alternative-text{
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.bottom-text{
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.register-link{
+  color: #396dce !important;
+}
