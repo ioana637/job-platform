@@ -8,6 +8,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CardModule} from 'primeng/card';
 import {SharedModule} from '../shared/shared.module';
 import {ToastModule} from 'primeng/toast';
+import { ClientJobsComponent } from './client-jobs/client-jobs.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,7 @@ import {ToastModule} from 'primeng/toast';
     SharedModule,
     ToastModule
   ],
-  declarations: [AddJobComponent],
+  declarations: [AddJobComponent, ClientJobsComponent],
   exports: [AddJobComponent],
   providers: [MessageService]
 })
