@@ -51,7 +51,7 @@ export class AddJobComponent implements OnInit {
       if (value) {
         this.abilityComponents.splice(this.abilityComponents.indexOf(ref), 1);
         ref.destroy();
-        for (let i = 0; i < this.abilityNumber; i++) {
+        for (let i = 0; i < this.abilityNumber - 2; i++) {
           this.abilityComponents[i].instance.number = i + 1;
         }
         this.abilityNumber--;
