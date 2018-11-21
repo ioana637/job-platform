@@ -13,12 +13,12 @@
       <div class="col-6 ui-fluid">
         <p-autoComplete [(ngModel)]="selectedAbility" [suggestions]="filteredAbilities"
                         (completeMethod)="filterAbilities($event)" field="display" [size]="50"
-                        placeholder="Abilitate" [minLength]="1" [forceSelection]="true" [dropdown]="true"></p-autoComplete>
+                        placeholder="Abilitate" [minLength]="1"  [dropdown]="true"></p-autoComplete>
       </div>
       <div class="col-6 ui-fluid">
         <p-autoComplete [(ngModel)]="selectedLevel" [suggestions]="filteredLevels"
                         (completeMethod)="filterLevel($event)" field="levelName" [size]="10"
-                        placeholder="Nivel" [minLength]="1" [forceSelection]="true" [dropdown]="true"></p-autoComplete>
+                        placeholder="Nivel" [minLength]="1" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
       </div>
     </div>
   </div>

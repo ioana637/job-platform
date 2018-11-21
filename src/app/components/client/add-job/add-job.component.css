@@ -29,4 +29,9 @@ body .ui-button{
   width: inherit;
   padding: 1px;
 }
-
+input.ng-invalid{
+  border-left: 3px solid #FF5D5D !important;
+}
+p-calendar.ng-invalid input{
+  border-left: 3px solid #FF5D5D !important;
+}

@@ -4,63 +4,63 @@
 </div>
 <div class="row justify-content-center">
   <p-card class="col-4">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <div class="form-row m-3">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" style="margin-right: 0">
+      <div class="form-row m-3 mr-0">
         <div class="col">
-          <input type="text" name="title" class="ui-input" formControlName="title" placeholder="Titlu"
-                 required="required">
+          <input   type="text" name="title" class="ui-input" formControlName="title" placeholder="Titlu"
+          required="required">
         </div>
       </div>
-      <div class="form-row m-3" formGroupName="period">
-        <div class="col-6 ui-fluid" formGroupName="start">
+      <div class="form-row m-3">
+        <div class="col-6 ui-fluid" >
           <p-calendar
             placeholder="Dată începere"
             dateFormat="dd/mm/yy"
-            formControlName="date"
+            formControlName="periodStart"
           ></p-calendar>
         </div>
-        <div class="col-6 ui-fluid" formGroupName="start">
+        <div class="col-6 ui-fluid">
           <p-calendar
             placeholder="Oră începere"
             dateFormat="dd/mm/yy"
             timeOnly="true"
             hourFormat="24"
-            formControlName="time"
+            formControlName="startTime"
           ></p-calendar>
         </div>
       </div>
-      <div class="form-row m-3" formGroupName="period">
-        <div class="col-6 ui-fluid" formGroupName="end">
+      <div class="form-row m-3">
+        <div class="col-6 ui-fluid">
           <p-calendar
             placeholder="Dată încheiere"
             dateFormat="dd/mm/yy"
             hourFormat="24"
-            formControlName="date"
+            formControlName="periodEnd"
           ></p-calendar>
         </div>
-        <div class="col-6 ui-fluid" formGroupName="end">
+        <div class="col-6 ui-fluid">
           <p-calendar
             placeholder="Oră încheiere"
             dateFormat="dd/mm/yy"
             timeOnly="true"
             hourFormat="24"
-            formControlName="time"
+            formControlName="endTime"
           ></p-calendar>
         </div>
       </div>
-      <div class="form-row m-3" formGroupName="hours">
+      <div class="form-row m-3">
         <div class="col-6">
-          <input type="number" class="ui-input" formControlName="perDay" placeholder="Ore lucru/zi">
+          <input type="number" class="ui-input" formControlName="hoursPerDay" placeholder="Ore lucru/zi">
         </div>
         <div class="col-6">
-          <input type="number" class="ui-input" formControlName="perWeek"
+          <input type="number" class="ui-input" formControlName="hoursPerWeek"
                  placeholder="Ore lucru/săptămână">
         </div>
 
       </div>
       <div class="form-row m-3">
         <div class="col">
-          <input type="number" class="ui-input" formControlName="noOfNeededPersons"
+          <input type="number" class="ui-input" formControlName="peopleRequired"
                  placeholder="Număr persoane necesare">
         </div>
       </div>
@@ -88,7 +88,7 @@
       <div></div>
       <div class="form-row m-3">
         <div class="col">
-          <p-button type="submit" class="ui-button-primary" label="Adaugă"></p-button>
+          <p-button type="submit"  class="ui-button-primary" label="Adaugă"></p-button>
         </div>
       </div>
     </form>
