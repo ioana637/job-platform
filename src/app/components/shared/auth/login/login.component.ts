@@ -3,6 +3,7 @@ import {FormGroup, FormBuilder} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {LoginService} from '../../../../services/login.service';
 import {User} from '../../model';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private loginService: LoginService,
+    private messageService: MessageService,
     private route: ActivatedRoute,
     private router: Router) {
   }
@@ -39,7 +41,7 @@ export class LoginComponent implements OnInit {
         }
       },
       (error) => {
-        // TODO: add toast for error
+        this.messageService.add({severity: 'error', summary: 'Eroare', detail: error.error.message});
         console.log(error.error.message);
       }
     );
