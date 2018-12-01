@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ProviderComponent } from './provider/provider.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ProviderComponent} from './provider/provider.component';
 import {ProviderRoutingModule} from './provider-routing.module';
 
 @NgModule({
@@ -8,6 +8,10 @@ import {ProviderRoutingModule} from './provider-routing.module';
     CommonModule,
     ProviderRoutingModule
   ],
-  declarations: [ProviderComponent]
+  declarations: [ProviderComponent],
+  entryComponents: [
+    ProviderComponent
+  ]
 })
-export class ProviderModule { }
+export class ProviderModule {
+}

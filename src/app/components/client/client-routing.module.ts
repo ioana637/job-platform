@@ -5,11 +5,11 @@ import {ClientComponent} from './client/client.component';
 
 const routes = [
   {
-    path: 'addJob',
+    path: 'client/addJob',
     component: AddJobComponent
   },
   {
-    path: '',
+    path: 'client',
     component: ClientComponent
   }
 ];

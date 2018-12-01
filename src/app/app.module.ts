@@ -9,6 +9,7 @@ import {JobService} from './services/job.service';
 import {SharedModule} from './components/shared/shared.module';
 import {AbilityService} from './services/ability.service';
 import {AppRoutingModule} from './app-routing.module';
+import {ProviderModule} from './components/provider/provider.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {AppRoutingModule} from './app-routing.module';
   imports: [
     BrowserModule,
     ClientModule,
+    ProviderModule,
     HttpClientModule,
     SharedModule,
     AppRoutingModule

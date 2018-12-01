@@ -29,8 +29,9 @@ import {ClientRoutingModule} from './client-routing.module';
   ],
   exports: [],
   providers: [MessageService],
-  entryComponents: [ClientComponent,
-    AddJobComponent]
+  entryComponents: [
+    AddJobComponent
+  ]
 })
 export class ClientModule {
 }

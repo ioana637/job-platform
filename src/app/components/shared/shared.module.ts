@@ -9,6 +9,7 @@ import {RegisterComponent} from './auth/register/register.component';
 import {CardModule} from 'primeng/card';
 import {FormsModule} from '@angular/forms';
 import {UserInterceptor} from './user.interceptor';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import {UserInterceptor} from './user.interceptor';
     ButtonModule,
     FormsModule,
     AutoCompleteModule,
-    CalendarModule
+    CalendarModule,
+    RouterModule,
   ],
   declarations: [
     LoginComponent,
@@ -32,7 +34,6 @@ import {UserInterceptor} from './user.interceptor';
     }
   ],
   entryComponents: [AbilityComponent],
-
   exports: [ToolbarComponent, AbilityComponent]
 })
 export class SharedModule {

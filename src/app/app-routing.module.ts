@@ -19,16 +19,12 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path: 'register/abilities',
-    component: AbilityComponent
-  },
-  {
     path: 'client',
     loadChildren: './components/client/client-routing.module#ClientRoutingModule'
   },
   {
     path: 'provider',
-    loadChildren: './components/provider/provider.module#ProviderModule'
+    loadChildren: './components/provider/provider-routing.module#ProviderRoutingModule'
   }
 ];
 
