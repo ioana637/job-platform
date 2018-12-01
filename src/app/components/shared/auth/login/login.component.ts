@@ -12,7 +12,7 @@ import {User} from '../../model';
 export class LoginComponent implements OnInit {
   form: FormGroup;
 
-  model: User = {};
+  model: User = {username: '', password: ''};
   loading = false;
   returnUrl: string;
 
@@ -31,13 +31,16 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.loginService.login(this.model).subscribe(
-      (user) => {
-        console.log(user);
+      (user: User) => {
         if (user.role === 'CLIENT') {
           this.router.navigate(['/client']);
         } else {
-          this.router.navigateByUrl('/provider');
+          this.router.navigate(['/provider']);
         }
+      },
+      (error) => {
+        // TODO: add toast for error
+        console.log(error.error.message);
       }
     );
   }
