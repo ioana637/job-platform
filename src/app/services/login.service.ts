@@ -1,5 +1,15 @@
 import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
+import {of} from 'rxjs';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {loginUrl} from '../../assets/urls';
+import {User} from '../components/shared/model';
+import {map} from 'rxjs/operators';
+
+// const httpHeaders = {
+//   headers: new HttpHeaders({
+//     'Content-Type': 'application/json',
+//   })
+// };
 
 @Injectable({
   providedIn: 'root'
@@ -14,13 +24,21 @@ export class LoginService {
     'address': 'wfdsf',
     'birthDate': '2018-11-22'
   };
+  httpHeaders: HttpHeaders;
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
-  public login(user) {
-    localStorage.setItem('user', JSON.stringify(this.user));
-    return of(this.user);
+  public login(user: User) {
+    this.httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': JSON.stringify(user)
+    });
+    return this.http.get(loginUrl, {headers: this.httpHeaders})
+      .pipe(map((data) => {
+        localStorage.setItem('user', JSON.stringify(data));
+        return data;
+      }));
   }
 
   public getUser() {

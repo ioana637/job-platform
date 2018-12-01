@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormBuilder} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {LoginService} from '../../../../services/login.service';
+import {User} from '../../model';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import {LoginService} from '../../../../services/login.service';
 export class LoginComponent implements OnInit {
   form: FormGroup;
 
-  model: any = {};
+  model: User = {};
   loading = false;
   returnUrl: string;
 
