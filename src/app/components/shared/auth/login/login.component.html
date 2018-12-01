@@ -15,9 +15,10 @@
                [(ngModel)]="model.username"
                #username="ngModel"
                placeholder="Email"
-               required />
+               required/>
         <div *ngIf="f.submitted && !username.valid"
-             class="help-block">Campul trebuie completat</div>
+             class="help-block">Campul trebuie completat
+        </div>
       </div>
       <div class="form-group"
            [ngClass]="{ 'has-error': f.submitted && !password.valid }">
@@ -27,9 +28,10 @@
                [(ngModel)]="model.password"
                #password="ngModel"
                placeholder="Parola"
-               required />
+               required/>
         <div *ngIf="f.submitted && !password.valid"
-             class="help-block">Campul trebuie completat</div>
+             class="help-block">Campul trebuie completat
+        </div>
       </div>
 
       <div class="ui-fluid">
@@ -47,7 +49,9 @@
                   label="Logare cu Facebook"></p-button>
       </div>
       <div class="bottom-text">
-        <p>Nu ai cont? <a class="register-link"> Creeaza cont</a></p>
+        <nav>Nu ai cont?
+          <a class="register-link" routerLink='../register'>Creeaza cont</a>
+        </nav>
         <br>
 
       </div>
@@ -55,3 +59,5 @@
   </p-card>
 
 </div>
+
+

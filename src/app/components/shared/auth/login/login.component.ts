@@ -23,12 +23,21 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     // reset login status
-    this.login();
+    // this.login();
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   login() {
-    this.loginService.login();
+    this.loginService.login(this.model).subscribe(
+      (user) => {
+        console.log(user);
+        if (user.role === 'CLIENT') {
+          this.router.navigate(['/client']);
+        } else {
+          this.router.navigateByUrl('/provider');
+        }
+      }
+    );
   }
 }

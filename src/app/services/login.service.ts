@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {Observable, of} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,7 @@ export class LoginService {
 
   public login(user) {
     localStorage.setItem('user', JSON.stringify(this.user));
+    return of(this.user);
   }
 
   public getUser() {

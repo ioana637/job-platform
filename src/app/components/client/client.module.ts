@@ -8,13 +8,14 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CardModule} from 'primeng/card';
 import {SharedModule} from '../shared/shared.module';
 import {ToastModule} from 'primeng/toast';
+import {ClientComponent} from './client/client.component';
+import {ClientRoutingModule} from './client-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    BrowserModule,
-    BrowserAnimationsModule,
     FormsModule,
+    ClientRoutingModule,
     ReactiveFormsModule,
     CalendarModule,
     InputTextareaModule,
@@ -22,9 +23,15 @@ import {ToastModule} from 'primeng/toast';
     SharedModule,
     ToastModule
   ],
-  declarations: [AddJobComponent],
-  exports: [AddJobComponent],
-  providers: [MessageService]
+  declarations: [
+    AddJobComponent,
+    ClientComponent
+  ],
+  exports: [],
+  providers: [MessageService],
+  entryComponents: [
+    AddJobComponent
+  ]
 })
 export class ClientModule {
 }
