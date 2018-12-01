@@ -10,6 +10,8 @@ import {CardModule} from 'primeng/card';
 import {FormsModule} from '@angular/forms';
 import {UserInterceptor} from './user.interceptor';
 import {RouterModule} from '@angular/router';
+import {ToastModule} from 'primeng/toast';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
@@ -20,6 +22,8 @@ import {RouterModule} from '@angular/router';
     AutoCompleteModule,
     CalendarModule,
     RouterModule,
+    ToastModule,
+    BrowserAnimationsModule,
   ],
   declarations: [
     LoginComponent,

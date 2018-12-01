@@ -1,26 +1,32 @@
 import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
+import {of} from 'rxjs';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {loginUrl} from '../../assets/urls';
+import {User} from '../components/shared/model';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  user = {
-    'id': '1',
-    'username': 'g',
-    'password': 'g',
-    'role': 'CLIENT',
-    'firstName': 'sdads',
-    'address': 'wfdsf',
-    'birthDate': '2018-11-22'
-  };
+  httpHeaders: HttpHeaders;
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
-  public login(user) {
-    localStorage.setItem('user', JSON.stringify(this.user));
-    return of(this.user);
+  public login(user: User) {
+    this.httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Basic ${btoa(`${user.username}:${user.password}`)}`
+    });
+    return this.http.get(loginUrl, {headers: this.httpHeaders})
+      .pipe(map((data: any) => {
+        if (data.role) {
+          localStorage.setItem('user', JSON.stringify(data));
+        }
+        // console.log(data);
+        return data;
+      }));
   }
 
   public getUser() {

@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormBuilder} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {LoginService} from '../../../../services/login.service';
+import {User} from '../../model';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-login',
@@ -11,12 +13,13 @@ import {LoginService} from '../../../../services/login.service';
 export class LoginComponent implements OnInit {
   form: FormGroup;
 
-  model: any = {};
+  model: User = {username: '', password: ''};
   loading = false;
   returnUrl: string;
 
   constructor(
     private loginService: LoginService,
+    private messageService: MessageService,
     private route: ActivatedRoute,
     private router: Router) {
   }
@@ -30,13 +33,16 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.loginService.login(this.model).subscribe(
-      (user) => {
-        console.log(user);
+      (user: User) => {
         if (user.role === 'CLIENT') {
           this.router.navigate(['/client']);
         } else {
-          this.router.navigateByUrl('/provider');
+          this.router.navigate(['/provider']);
         }
+      },
+      (error) => {
+        this.messageService.add({severity: 'error', summary: 'Eroare', detail: error.error.message});
+        console.log(error.error.message);
       }
     );
   }

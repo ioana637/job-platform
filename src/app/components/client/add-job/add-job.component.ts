@@ -1,20 +1,8 @@
-import {
-  AfterViewInit,
-  Component,
-  ComponentFactoryResolver, ComponentRef,
-  OnInit,
-  QueryList,
-  ViewChild,
-  ViewChildren,
-  ViewContainerRef,
-  ViewEncapsulation
-} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {Component, ComponentFactoryResolver, ComponentRef, OnInit, ViewChild, ViewContainerRef, ViewEncapsulation} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {JobService} from '../../../services/job.service';
 import {MessageService} from 'primeng/api';
-import {AbilityService} from '../../../services/ability.service';
 import {AbilityComponent} from '../../shared/auth/abilities/ability.component';
-import {abilityUrl} from '../../../../assets/urls';
 import {convertTimestampToDate, convertTimestampToTime} from '../../../services/utils';
 import {LoginService} from '../../../services/login.service';
 
@@ -67,7 +55,7 @@ export class AddJobComponent implements OnInit {
   }
 
   getAbilities() {
-    let abilities = [];
+    const abilities = [];
     this.abilityComponents.forEach(component => {
       const ability = component.instance.getAbility();
       if (ability) {
@@ -80,7 +68,7 @@ export class AddJobComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      let job = {
+      const job = {
         ...this.form.value,
         startTime: convertTimestampToTime(this.form.value.startTime),
         endTime: convertTimestampToTime(this.form.value.endTime),
