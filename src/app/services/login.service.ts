@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {of} from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {loginUrl} from '../../assets/urls';
 import {User} from '../components/shared/model';
@@ -31,5 +31,16 @@ export class LoginService {
 
   public getUser() {
     return JSON.parse(localStorage.getItem('user'));
+  }
+
+  public logout(): Observable<boolean> {
+    const user: User = this.getUser();
+    if (user) {
+      localStorage.removeItem('user');
+      // logout was succefully made
+      return of(true);
+    }
+    // logout was unsuccefully made
+    return of(false);
   }
 }
