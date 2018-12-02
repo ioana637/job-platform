@@ -26,4 +26,17 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
+## Design 
+
+Please do respect as much as possible the design specs:
+
+Adobe XD design specs: https://xd.adobe.com/spec/1f3e05ff-995b-4f03-588d-f3ebeeeac092-690f/
+Adobe XD prototype: 
+https://xd.adobe.com/view/6be51aac-dac1-4432-7366-938bb4823239-1dd4/
+Zeplin design specs:
+https://app.zeplin.io/project/5c03f9aff68db5017b1f9cfd/dashboard
+
+P.S. Zeplin also provides you the css code.
+![alt text](https://imgur.com/kb5dGaS)
+
 # job-platform
