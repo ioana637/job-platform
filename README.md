@@ -30,11 +30,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 Please do respect as much as possible the design specs:
 
-Adobe XD design specs: https://xd.adobe.com/spec/1f3e05ff-995b-4f03-588d-f3ebeeeac092-690f/
-Adobe XD prototype: 
-https://xd.adobe.com/view/6be51aac-dac1-4432-7366-938bb4823239-1dd4/
-Zeplin design specs:
-https://app.zeplin.io/project/5c03f9aff68db5017b1f9cfd/dashboard
+1. Adobe XD design specs: https://xd.adobe.com/spec/1f3e05ff-995b-4f03-588d-f3ebeeeac092-690f/
+2. Adobe XD prototype: https://xd.adobe.com/view/6be51aac-dac1-4432-7366-938bb4823239-1dd4/
+3. Zeplin design specs: https://app.zeplin.io/project/5c03f9aff68db5017b1f9cfd/dashboard
 
 P.S. Zeplin also provides you the css code.
 ![alt text](https://imgur.com/kb5dGaS)
