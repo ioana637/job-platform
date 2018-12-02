@@ -35,6 +35,6 @@ Please do respect as much as possible the design specs:
 3. Zeplin design specs: https://app.zeplin.io/project/5c03f9aff68db5017b1f9cfd/dashboard
 
 P.S. Zeplin also provides you the css code.
-!(https://imgur.com/kb5dGaS)
+![Zeplin css code](https://i.imgur.com/kb5dGaS.jpg)
 
 # job-platform
