@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {abilityUrl, levelUrl} from '../../assets/urls';
+import {Ability, Level} from '../components/shared/model';
+import {Observable} from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -16,10 +18,11 @@ export class AbilityService {
   constructor(private http: HttpClient) {
   }
 
-  fetch() {
-    return this.http.get(abilityUrl, httpOptions);
+  fetch(): Observable<Ability[]> {
+    return <Observable<Ability[]>> this.http.get(abilityUrl, httpOptions);
   }
-  fetchLevels() {
-    return this.http.get(levelUrl, httpOptions);
+
+  fetchLevels(): Observable<Level[]> {
+    return <Observable<Level[]>> this.http.get(levelUrl, httpOptions);
   }
 }

@@ -10,6 +10,7 @@ import {SharedModule} from '../shared/shared.module';
 import {ToastModule} from 'primeng/toast';
 import {ClientComponent} from './client/client.component';
 import {ClientRoutingModule} from './client-routing.module';
+import {EditJobComponent} from './edit-job/edit-job.component';
 
 @NgModule({
   imports: [
@@ -25,12 +26,14 @@ import {ClientRoutingModule} from './client-routing.module';
   ],
   declarations: [
     AddJobComponent,
+    EditJobComponent,
     ClientComponent
   ],
   exports: [],
   providers: [MessageService],
   entryComponents: [
-    AddJobComponent
+    AddJobComponent,
+    EditJobComponent
   ]
 })
 export class ClientModule {

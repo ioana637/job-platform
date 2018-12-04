@@ -1,0 +1,106 @@
+<p-toast position="top-right"></p-toast>
+<div class="row justify-content-center m-5" style="color: #384A50;font-size: 24px;font-family: 'Open Sans'">Editează un
+  job
+</div>
+<div class="row justify-content-center">
+  <p-card class="col-4">
+    <form [formGroup]="form" style="margin-right: 0">
+      <div class="form-row m-3 mr-0">
+        <div class="col">
+          <label class="label-input">Titlu</label>
+          <input type="text" name="title" class="ui-input" formControlName="title"
+                 required="required">
+        </div>
+      </div>
+      <div class="form-row m-3">
+        <div class="col-6 ui-fluid">
+          <label class="label-input">Dată începere</label>
+          <p-calendar
+            dateFormat="dd/mm/yy"
+            formControlName="periodStart"
+          ></p-calendar>
+        </div>
+        <div class="col-6 ui-fluid">
+          <label class="label-input">Oră începere</label>
+          <p-calendar
+            dateFormat="dd/mm/yy"
+            timeOnly="true"
+            hourFormat="24"
+            formControlName="startTime"
+          ></p-calendar>
+        </div>
+      </div>
+      <div class="form-row m-3">
+        <div class="col-6 ui-fluid">
+          <label class="label-input">Dată încheiere</label>
+          <p-calendar
+            dateFormat="dd/mm/yy"
+            hourFormat="24"
+            formControlName="periodEnd"
+          ></p-calendar>
+        </div>
+        <div class="col-6 ui-fluid">
+          <label class="label-input">Oră încheiere</label>
+          <p-calendar
+            dateFormat="dd/mm/yy"
+            timeOnly="true"
+            hourFormat="24"
+            formControlName="endTime"
+          ></p-calendar>
+        </div>
+      </div>
+      <div class="form-row m-3">
+        <div class="col-6">
+          <label class="label-input">Ore lucru/zi</label>
+          <input type="number" class="ui-input" formControlName="hoursPerDay">
+        </div>
+        <div class="col-6">
+          <label class="label-input">Ore lucru/săptămână</label>
+          <input type="number" class="ui-input" formControlName="hoursPerWeek">
+        </div>
+
+      </div>
+      <div class="form-row m-3">
+        <div class="col">
+          <label class="label-input">Număr persoane necesare</label>
+          <input type="number" class="ui-input" formControlName="peopleRequired">
+        </div>
+      </div>
+      <div class="form-row m-3">
+        <div class="col">
+          <label class="label-input" s>Scurtă descriere</label>
+          <textarea pInputTextarea class="ui-input" autoResize="true" [rows]="5"
+                    formControlName="description"></textarea>
+        </div>
+      </div>
+      <div class="form-row m-3" style="color: #384A50;font-family: 'Open Sans';font-size: 14px">
+        <div class="col" style="color: #29B3F6;font-family: 'Open Sans';font-size: 14px">
+          Adaugă abilități pentru a ușura gasirea unui potențial angajat
+        </div>
+      </div>
+      <div class="form-row m-3" style="color: #384A50;font-family: 'Open Sans';font-size: 14px">
+        <div class="col">
+          <ng-template #abilities></ng-template>
+        </div>
+
+      </div>
+      <div class="form-row m-3">
+        <div class="col" style="color: #29B3F6;font-family: 'Open Sans';font-size: 14px"
+             (click)="addAbilityComponent()">Adaugă abilitate
+        </div>
+      </div>
+      <div></div>
+    </form>
+    <div class="form-row m-3">
+      <div class="col">
+        <p-button type="cancel" class="btn-cancel" (onClick)="onCancel()" label="Anulează"></p-button>
+      </div>
+      <div class="col">
+        <p-button type="submit" class="ui-button-primary" (onClick)="onSubmit()" label="Salvează"></p-button>
+      </div>
+
+    </div>
+
+  </p-card>
+</div>
+

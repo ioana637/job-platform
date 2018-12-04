@@ -1,4 +1,4 @@
-import {AbilityComponent} from './auth/abilities/ability.component';
+import {AbilityComponent} from './abilities/ability.component';
 import {AutoCompleteModule, ButtonModule, CalendarModule} from 'primeng/primeng';
 import {ToolbarComponent} from './toolbar/toolbar.component';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';

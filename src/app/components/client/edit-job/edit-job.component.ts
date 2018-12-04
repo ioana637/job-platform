@@ -1,21 +1,34 @@
-import {Component, ComponentFactoryResolver, ComponentRef, OnInit, ViewChild, ViewContainerRef, ViewEncapsulation} from '@angular/core';
+import {
+  Component,
+  ComponentFactoryResolver,
+  ComponentRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+  ViewContainerRef,
+  ViewEncapsulation
+} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {JobService} from '../../../services/job.service';
 import {MessageService} from 'primeng/api';
 import {AbilityComponent} from '../../shared/abilities/ability.component';
-import {convertTimestampToDate, convertTimestampToTime} from '../../../services/utils';
+import {convertTimestampToDate, convertTimestampToTime, convertTimeToTimestamp} from '../../../services/utils';
 import {LoginService} from '../../../services/login.service';
-import {Job} from '../../shared/model';
+import {ActivatedRoute} from '@angular/router';
+import {Ability, Job} from '../../shared/model';
 
 @Component({
-  selector: 'app-add-job',
-  templateUrl: './add-job.component.html',
-  styleUrls: ['./add-job.component.css'],
+  selector: 'app-edit-job',
+  templateUrl: './edit-job.component.html',
+  styleUrls: ['./edit-job.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class AddJobComponent implements OnInit {
+export class EditJobComponent implements OnInit, OnDestroy {
   form: FormGroup;
   abilityNumber = 1;
+  jobId;
+  job: Job;
+  subscriptions = [];
   @ViewChild('abilities', {read: ViewContainerRef}) viewContainerRef: ViewContainerRef;
   abilityComponents: ComponentRef<AbilityComponent>[] = [];
 
@@ -23,19 +36,32 @@ export class AddJobComponent implements OnInit {
               private jobService: JobService,
               private messageService: MessageService,
               private factoryResolver: ComponentFactoryResolver,
-              private loginService: LoginService) {
+              private loginService: LoginService,
+              private route: ActivatedRoute) {
+    this.jobId = this.route.snapshot.paramMap.get('id');
   }
 
   ngOnInit() {
+    this.subscriptions.push(this.jobService.get(this.jobId).subscribe(job => {
+      this.job = job;
+      if (this.job.abilities) {
+        this.job.abilities.forEach(ability => this.addAbilityComponent(ability));
+      } else {
+        this.addAbilityComponent();
+      }
+    }));
     this.buildForm();
-    this.addAbilityComponent();
   }
 
-  addAbilityComponent() {
+  addAbilityComponent(ability?: Ability) {
     const factory = this.factoryResolver.resolveComponentFactory(AbilityComponent);
     const ref = this.viewContainerRef.createComponent(factory);
     const instance = ref.instance;
     instance.number = this.abilityNumber;
+    if (ability) {
+      instance.selectedAbility = ability;
+      instance.selectedLevel = {levelName: ability.level};
+    }
     instance.deleted.subscribe(value => {
       if (value) {
         this.abilityComponents.splice(this.abilityComponents.indexOf(ref), 1);
@@ -69,7 +95,7 @@ export class AddJobComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      const job = <Job>{
+      const job = {
         ...this.form.value,
         startTime: convertTimestampToTime(this.form.value.startTime),
         endTime: convertTimestampToTime(this.form.value.endTime),
@@ -79,17 +105,12 @@ export class AddJobComponent implements OnInit {
         idClient: this.loginService.getUser().id
       };
       Object.keys(job).forEach(key => job[key] = job[key] === '' ? null : job[key]);
-      this.jobService.add(job).subscribe(success => {
-          this.messageService.add({severity: 'success', summary: 'Success', detail: 'Jobul a fost adaugat cu succes!'});
-          this.form.reset();
-          this.abilityComponents.forEach(component => this.destroy(component));
-          this.abilityComponents = [];
-          this.abilityNumber = 1;
-          this.addAbilityComponent();
+      this.subscriptions.push(this.jobService.update(job).subscribe(success => {
+          this.messageService.add({severity: 'success', summary: 'Success', detail: 'Jobul a fost modificat cu succes!'});
         },
         error => {
           this.messageService.add({severity: 'error', summary: 'Eroare', detail: error.message});
-        });
+        }));
     } else {
       this.messageService.add({severity: 'error', summary: 'Eroare', detail: 'Trebuie să completați câmpurile obligatorii!'});
     }
@@ -98,18 +119,28 @@ export class AddJobComponent implements OnInit {
   buildForm() {
     this.form = this.formBuilder.group(
       {
-        title: ['', Validators.required],
-        description: [''],
-        endTime: ['', Validators.required],
-        startTime: ['', Validators.required],
-        periodStart: ['', Validators.required],
-        periodEnd: ['', Validators.required],
-        hoursPerWeek: [''],
-        hoursPerDay: [''],
-        peopleRequired: ['', Validators.required],
+        title: [this.job.title, Validators.required],
+        description: [this.job.description],
+        endTime: [convertTimeToTimestamp(this.job.endTime), Validators.required],
+        startTime: [convertTimeToTimestamp(this.job.startTime), Validators.required],
+        periodStart: [new Date(this.job.periodStart), Validators.required],
+        periodEnd: [new Date(this.job.periodEnd), Validators.required],
+        hoursPerWeek: [this.job.hoursPerWeek],
+        hoursPerDay: [this.job.hoursPerDay],
+        peopleRequired: [this.job.peopleRequired, Validators.required],
       }
     );
   }
 
+  onCancel() {
+    this.messageService.add({severity: 'info', summary: 'Info', detail: 'Modificările au fost anulate!'});
+    this.buildForm();
+  }
+
+
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());
+  }
 }
 
