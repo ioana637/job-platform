@@ -13,6 +13,7 @@ import {LoginService} from './services/login.service';
 import {JobService} from './services/job.service';
 import {SharedModule} from './components/shared/shared.module';
 import {AbilityService} from './services/ability.service';
+import {ClientJobsComponent} from './components/client/client-jobs/client-jobs.component';
 
 
 const routes: Routes = [
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'register/abilities',
     component: AbilityComponent
+  },
+  {
+    path: 'client-jobs',
+    component: ClientJobsComponent
   }
 ];
 
