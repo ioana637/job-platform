@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+
 @Component({
-  selector: 'app-toolbar',
-  templateUrl: './toolbar.component.html',
-  styleUrls: ['./toolbar.component.css']
+  selector: 'app-toolbar-provider',
+  templateUrl: './toolbar-provider.component.html',
+  styleUrls: ['./toolbar-provider.component.css']
 })
-export class ToolbarComponent implements OnInit {
+export class ToolbarProviderComponent implements OnInit {
 
   constructor() { }
 

@@ -1,61 +1,75 @@
-.toolbar {
-    margin-bottom: 0;
-    padding-top: 0;
-    height: 85px;
-    background-color: #87CEFA
-  }
-  
-  .row-md-1{
-    background-color:	#0000CD;
-  }
-  .jobify{
-      color: white;
-      font-size: 40px;
-  }
+
+
+.navbar {
+  overflow: hidden;
+  background-color: rgb(79, 116, 216);  
+  /* position: fixed; */
+  bottom: 0;
+  /* height: 50px; */
+  width: 100%;
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+.navbar a{
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 10px;
+}
+
+img{
+  padding: 5px;
+  width: 60px;
+  float: left;
  
-  img{
-    padding: 5px;
-    width: 60px;
-    float: left;
-   
+}
+
+
+.navbar .left{
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: rgb(151, 165, 241);
+  color: black;
+}
+
+.navbar a.active {
+  /* background-color: #4CAF50; */
+  color: white;
+}
+
+.navbar .icon {
+  display: none;
+  color: white;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar a:not(:first-child) {display: none;}
+  .navbar a.icon {
+    float: right;
+    display: block;
   }
-  button{
-    /* height: 40px; */
-    background-color:	#87CEFA;
-    border: none;
-    padding: 17px 20px;
-    text-align: right;
-    /* font-size: 10px; */
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    float: left;
-    border-right: 0.5px solid #0000CD;
+}
+
+@media screen and (max-width: 600px) {
+
+  .navbar.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
   }
 
-   .repaired-header{
-    top: 0;
-    right: 0;
-    position: absolute;
-    }
-
-    @media screen and (max-width: 600px) {
-      .dissapear-header{
-        visibility: hidden;
-      }
-    }
-
-    
-    @media screen and (min-width: 768px) {
-      @media screen and (max-width:816px) {
-        .repaired-header{
-          margin-top: -0.5%;
-          font-size: 80%;
-        }
-        .btnLogout{
-          margin-top: -6.2%;
-        }
-      }
-    }
-
+}
