@@ -1,6 +1,5 @@
-import {AbilityComponent} from './abilities/ability.component';
-import {AutoCompleteModule, ButtonModule, CalendarModule} from 'primeng/primeng';
-import {ToolbarComponent} from './toolbar/toolbar.component';
+
+
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
@@ -12,6 +11,10 @@ import {UserInterceptor} from './user.interceptor';
 import {RouterModule} from '@angular/router';
 import {ToastModule} from 'primeng/toast';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ButtonModule} from 'primeng/button';
+import {AutoCompleteModule, CalendarModule, ToolbarModule} from 'primeng/primeng';
+import {AbilityComponent} from './abilities/ability.component';
+import {ToolbarComponent} from './toolbar/toolbar.component';
 
 @NgModule({
   imports: [
@@ -24,12 +27,14 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     RouterModule,
     ToastModule,
     BrowserAnimationsModule,
+    ToolbarModule
   ],
   declarations: [
     LoginComponent,
     RegisterComponent,
     AbilityComponent,
-    ToolbarComponent],
+    ToolbarComponent
+    ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
@@ -38,7 +43,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     }
   ],
   entryComponents: [AbilityComponent],
-  exports: [ToolbarComponent, AbilityComponent]
+  exports: [ AbilityComponent]
 })
 export class SharedModule {
 }
