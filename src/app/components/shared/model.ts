@@ -35,7 +35,7 @@ export interface Job {
   id?: string;
   title: string;
   description: string;
-  idClient: number;
+  idClient?: number;
   periodStart: string;
   periodEnd: string;
   startTime: string;

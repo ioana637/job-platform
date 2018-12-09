@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   Component,
   ComponentFactoryResolver,
   ComponentRef,
@@ -44,14 +45,15 @@ export class EditJobComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscriptions.push(this.jobService.get(this.jobId).subscribe(job => {
       this.job = job;
+      this.buildForm();
       if (this.job.abilities) {
         this.job.abilities.forEach(ability => this.addAbilityComponent(ability));
       } else {
         this.addAbilityComponent();
       }
     }));
-    this.buildForm();
   }
+
 
   addAbilityComponent(ability?: Ability) {
     const factory = this.factoryResolver.resolveComponentFactory(AbilityComponent);
@@ -70,7 +72,6 @@ export class EditJobComponent implements OnInit, OnDestroy {
           this.abilityComponents[i].instance.number = i + 1;
         }
         this.abilityNumber--;
-        console.log(this.abilityComponents);
       }
     });
     this.abilityNumber++;
@@ -138,9 +139,10 @@ export class EditJobComponent implements OnInit, OnDestroy {
   }
 
 
-
   ngOnDestroy(): void {
     this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
+
+
 }
 

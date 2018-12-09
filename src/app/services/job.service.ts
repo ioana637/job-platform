@@ -28,42 +28,43 @@ export class JobService {
   }
 
   get(id: string): Observable<Job> {
-    const job = <Job>{
-      id: '10',
-      title: 'wertyuiop',
-      idClient: 1,
-      periodStart: '2018-12-05',
-      periodEnd: '2018-12-05',
-      description: 'sdfsrgh',
-      peopleRequired: 3,
-      startTime: '14:31:09',
-      endTime: '14:31:09',
-      hoursPerDay: 3,
-      hoursPerWeek: 3,
-      status: 'AVAILABLE',
-      abilities: [
-        {
-          code: 'sds',
-          display: 'sds',
-          level: 'independent'
-        },
-        {
-          display: 'aaaaaaaa',
-          code: 'aaaaaaaa',
-          level: 'elementar'
-        },
-        {
-          display: 'aaw',
-          code: 'aaw',
-          level: 'experimentat'
-        },
-        {
-          code: 'sfddsfds',
-          display: 'sfddsfds',
-          level: 'experimentat'
-        }]
-    };
-    return of(job);
+    return <Observable<Job>>this.http.get(`${jobUrl}/id=${id}`, httpOptions);
+    // const job = <Job>{
+    //   id: '10',
+    //   title: 'wertyuiop',
+    //   idClient: 1,
+    //   periodStart: '2018-12-05',
+    //   periodEnd: '2018-12-05',
+    //   description: 'sdfsrgh',
+    //   peopleRequired: 3,
+    //   startTime: '14:31:09',
+    //   endTime: '14:31:09',
+    //   hoursPerDay: 3,
+    //   hoursPerWeek: 3,
+    //   status: 'AVAILABLE',
+    //   abilities: [
+    //     {
+    //       code: 'sds',
+    //       display: 'sds',
+    //       level: 'independent'
+    //     },
+    //     {
+    //       display: 'aaaaaaaa',
+    //       code: 'aaaaaaaa',
+    //       level: 'elementar'
+    //     },
+    //     {
+    //       display: 'aaw',
+    //       code: 'aaw',
+    //       level: 'experimentat'
+    //     },
+    //     {
+    //       code: 'sfddsfds',
+    //       display: 'sfddsfds',
+    //       level: 'experimentat'
+    //     }]
+    // };
+    // return of(job);
   }
 
 
