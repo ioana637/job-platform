@@ -37,4 +37,10 @@ Please do respect as much as possible the design specs:
 P.S. Zeplin also provides you the css code.
 ![Zeplin css code](https://i.imgur.com/kb5dGaS.jpg)
 
+## API documentation
+
+Exemples for most of the requests can be found in the postman collection (Proiect_Colectiv.postman_collection.json).
+You can also find a version on the server repo which might be more up to date. [link to the file](https://github.com/ioana637/jobs-server/blob/master/Proiect_Colectiv.postman_collection.json)
+
+
 # job-platform
