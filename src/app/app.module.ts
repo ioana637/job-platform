@@ -10,8 +10,7 @@ import {SharedModule} from './components/shared/shared.module';
 import {AbilityService} from './services/ability.service';
 import {AppRoutingModule} from './app-routing.module';
 import {ProviderModule} from './components/provider/provider.module';
-import { ToolbarModule } from 'primeng/primeng';
-
+import {ToolbarModule} from 'primeng/primeng';
 
 @NgModule({
   declarations: [

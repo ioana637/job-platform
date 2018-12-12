@@ -1,8 +1,9 @@
+<app-toolbar-client></app-toolbar-client>
 <p-toast position="top-right"></p-toast>
 <div class="row justify-content-center m-5" style="color: #384A50;font-size: 24px;font-family: 'Open Sans'">Editează un
   job
 </div>
-<div class="row justify-content-center">
+<div *ngIf="job" class="row justify-content-center">
   <p-card class="col-4">
     <form *ngIf="job" [formGroup]="form" style="margin-right: 0">
       <div class="form-row m-3 mr-0">

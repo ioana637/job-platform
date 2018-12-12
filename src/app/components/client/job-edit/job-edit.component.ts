@@ -15,16 +15,16 @@ import {MessageService} from 'primeng/api';
 import {AbilityComponent} from '../../shared/abilities/ability.component';
 import {convertTimestampToDate, convertTimestampToTime, convertTimeToTimestamp} from '../../../services/utils';
 import {LoginService} from '../../../services/login.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Ability, Job} from '../../shared/model';
 
 @Component({
   selector: 'app-edit-job',
-  templateUrl: './edit-job.component.html',
-  styleUrls: ['./edit-job.component.css'],
+  templateUrl: './job-edit.component.html',
+  styleUrls: ['./job-edit.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class EditJobComponent implements OnInit, OnDestroy {
+export class JobEditComponent implements OnInit, OnDestroy {
   form: FormGroup;
   abilityNumber = 1;
   jobId;
@@ -38,7 +38,8 @@ export class EditJobComponent implements OnInit, OnDestroy {
               private messageService: MessageService,
               private factoryResolver: ComponentFactoryResolver,
               private loginService: LoginService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private router: Router) {
     this.jobId = this.route.snapshot.paramMap.get('id');
   }
 
@@ -96,7 +97,7 @@ export class EditJobComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     if (this.form.valid) {
-      const job = {
+      Object.assign(this.job, {
         ...this.form.value,
         startTime: convertTimestampToTime(this.form.value.startTime),
         endTime: convertTimestampToTime(this.form.value.endTime),
@@ -104,12 +105,14 @@ export class EditJobComponent implements OnInit, OnDestroy {
         periodEnd: convertTimestampToDate(this.form.value.periodEnd),
         abilities: this.getAbilities(),
         idClient: this.loginService.getUser().id
-      };
-      Object.keys(job).forEach(key => job[key] = job[key] === '' ? null : job[key]);
-      this.subscriptions.push(this.jobService.update(job).subscribe(success => {
-          this.messageService.add({severity: 'success', summary: 'Success', detail: 'Jobul a fost modificat cu succes!'});
+      });
+      Object.keys(this.job).forEach(key => this.job[key] = this.job[key] === '' ? null : this.job[key]);
+      this.subscriptions.push(this.jobService.update(this.job).subscribe(success => {
+          this.router.navigate(['../'], {relativeTo: this.route});
+          // this.messageService.add({severity: 'success', summary: 'Success', detail: 'Jobul a fost modificat cu succes!'});
         },
         error => {
+          // this.router.navigate(['./']');
           this.messageService.add({severity: 'error', summary: 'Eroare', detail: error.message});
         }));
     } else {

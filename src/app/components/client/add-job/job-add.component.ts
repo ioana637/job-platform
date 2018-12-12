@@ -9,11 +9,11 @@ import {Job} from '../../shared/model';
 
 @Component({
   selector: 'app-add-job',
-  templateUrl: './add-job.component.html',
-  styleUrls: ['./add-job.component.css'],
+  templateUrl: './job-add.component.html',
+  styleUrls: ['./job-add.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class AddJobComponent implements OnInit {
+export class JobAddComponent implements OnInit {
   form: FormGroup;
   abilityNumber = 1;
   @ViewChild('abilities', {read: ViewContainerRef}) viewContainerRef: ViewContainerRef;

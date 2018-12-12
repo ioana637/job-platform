@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
-import {AddJobComponent} from './add-job/add-job.component';
+import {JobAddComponent} from './add-job/job-add.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CalendarModule, InputTextareaModule, MessageService, ToolbarModule} from 'primeng/primeng';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -10,8 +10,9 @@ import {SharedModule} from '../shared/shared.module';
 import {ToastModule} from 'primeng/toast';
 import {ClientComponent} from './client/client.component';
 import {ClientRoutingModule} from './client-routing.module';
-import {EditJobComponent} from './edit-job/edit-job.component';
-import { ToolbarClientComponent } from './toolbar-client/toolbar-client.component';
+import {JobEditComponent} from './job-edit/job-edit.component';
+import {ToolbarClientComponent} from './toolbar-client/toolbar-client.component';
+import {JobListComponent} from './job-list/job-list.component';
 
 @NgModule({
   imports: [
@@ -27,17 +28,19 @@ import { ToolbarClientComponent } from './toolbar-client/toolbar-client.componen
     ToastModule
   ],
   declarations: [
-    AddJobComponent,
-    EditJobComponent,
+    JobAddComponent,
+    JobEditComponent,
     ClientComponent,
     ToolbarClientComponent,
+    JobListComponent
   ],
   exports: [ToolbarClientComponent],
   providers: [MessageService],
   entryComponents: [
-    AddJobComponent,
-    EditJobComponent,
+    JobAddComponent,
+    JobEditComponent,
     ToolbarClientComponent,
+    JobListComponent
   ]
 })
 export class ClientModule {
