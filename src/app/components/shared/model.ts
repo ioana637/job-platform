@@ -18,3 +18,31 @@ export interface User {
   subscribed?: boolean;
   twitter?: string;
 }
+
+
+export interface Ability {
+  code: string;
+  display: string;
+  level: string;
+}
+
+
+export interface Level {
+  levelName: string;
+}
+
+export interface Job {
+  id?: string;
+  title: string;
+  description: string;
+  idClient?: number;
+  periodStart: string;
+  periodEnd: string;
+  startTime: string;
+  endTime: string;
+  peopleRequired: number;
+  status: string;
+  abilities?: Ability[];
+  hoursPerDay?: number;
+  hoursPerWeek?: number;
+}
