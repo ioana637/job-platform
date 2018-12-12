@@ -1,0 +1,28 @@
+<app-toolbar></app-toolbar>
+<div class="row" style="margin-bottom: 1rem;">
+  <div class="col">
+    <div class="row" style="margin-bottom: 0.5rem">
+      <div class="col-8" style="color: #384A50;font-size: 16px;font-family: 'Open Sans';font-weight: bolder">Abilitate
+        #{{number}}
+      </div>
+      <div class="col-4 justify-content-end"
+           style="color: #FF5D5D;font-family: 'Open Sans';font-size: 12px;text-align: end" (click)="delete() ">
+        Șterge
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 ui-fluid">
+        <p-autoComplete [(ngModel)]="selectedAbility" [suggestions]="filteredAbilities"
+                        (completeMethod)="filterAbilities($event)" field="display" [size]="50"
+                        placeholder="Abilitate" [minLength]="1"  [dropdown]="true"></p-autoComplete>
+      </div>
+      <div class="col-6 ui-fluid">
+        <p-autoComplete [(ngModel)]="selectedLevel" [suggestions]="filteredLevels"
+                        (completeMethod)="filterLevel($event)" field="levelName" [size]="10"
+                        placeholder="Nivel" [minLength]="1" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+      </div>
+    </div>
+  </div>
+</div>
+
+
