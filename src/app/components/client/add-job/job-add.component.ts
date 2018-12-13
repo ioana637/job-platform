@@ -2,17 +2,18 @@ import {Component, ComponentFactoryResolver, ComponentRef, OnInit, ViewChild, Vi
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {JobService} from '../../../services/job.service';
 import {MessageService} from 'primeng/api';
-import {AbilityComponent} from '../../shared/auth/abilities/ability.component';
+import {AbilityComponent} from '../../shared/abilities/ability.component';
 import {convertTimestampToDate, convertTimestampToTime} from '../../../services/utils';
 import {LoginService} from '../../../services/login.service';
+import {Job} from '../../shared/model';
 
 @Component({
   selector: 'app-add-job',
-  templateUrl: './add-job.component.html',
-  styleUrls: ['./add-job.component.css'],
+  templateUrl: './job-add.component.html',
+  styleUrls: ['./job-add.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class AddJobComponent implements OnInit {
+export class JobAddComponent implements OnInit {
   form: FormGroup;
   abilityNumber = 1;
   @ViewChild('abilities', {read: ViewContainerRef}) viewContainerRef: ViewContainerRef;
@@ -68,7 +69,7 @@ export class AddJobComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      const job = {
+      const job = <Job>{
         ...this.form.value,
         startTime: convertTimestampToTime(this.form.value.startTime),
         endTime: convertTimestampToTime(this.form.value.endTime),

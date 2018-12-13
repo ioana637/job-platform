@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {jobUrl} from '../../assets/urls';
+import {Observable, of} from 'rxjs';
+import {Job} from '../components/shared/model';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -16,8 +18,16 @@ export class JobService {
   constructor(private http: HttpClient) {
   }
 
-  add(job) {
-    return this.http.post(jobUrl, job, httpOptions);
+  add(job: Job): Observable<Job> {
+    return <Observable<Job>>this.http.post(jobUrl, job, httpOptions);
+  }
+
+  update(job: Job): Observable<Job> {
+    return <Observable<Job>>this.http.post(jobUrl, job, httpOptions);
+  }
+
+  get(id: string): Observable<Job> {
+    return <Observable<Job>>this.http.get(`${jobUrl}/id=${id}`, httpOptions);
   }
 
 

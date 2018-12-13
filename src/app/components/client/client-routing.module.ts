@@ -1,13 +1,24 @@
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
-import {AddJobComponent} from './add-job/add-job.component';
+import {JobAddComponent} from './add-job/job-add.component';
 import {ClientComponent} from './client/client.component';
 import { ProviderListComponent } from './provider-list/provider-list.component';
+import {JobEditComponent} from './job-edit/job-edit.component';
+import {JobListComponent} from './job-list/job-list.component';
+
 
 const routes = [
   {
-    path: 'client/addJob',
-    component: AddJobComponent
+    path: 'client/job/add',
+    component: JobAddComponent
+  },
+  {
+    path: 'client/job/:id',
+    component: JobEditComponent
+  },
+  {
+    path: 'client/job',
+    component: JobListComponent
   },
   {
     path: 'client',

@@ -1,0 +1,84 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Proiect_Colectiv",
+		"_postman_id": "8bed542b-b3c7-ea98-b3f8-91c6dcd4f3d6",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ADD_JOB",
+			"request": {
+				"url": "http://localhost:8080/job",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic bHVjaWFuOmx1Y2lhbg==",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \r\n   \"title\":\"Job title\",\r\n   \"description\":\"Cea mai description ever\",\r\n   \"endTime\":\"15:13:59\",\r\n   \"startTime\":\"14:00:23\",\r\n   \"periodStart\":\"2018-10-10\",\r\n   \"periodEnd\":\"2018-11-06\",\r\n   \"hoursPerWeek\":3,\r\n   \"hoursPerDay\":3,\r\n   \"peopleRequired\":3,\r\n   \"abilities\":[  \r\n      {  \r\n         \"display\":\"ability1\",\r\n         \"code\":\"23\",\r\n         \"level\":\"INDEPENDENT\"\r\n      },\r\n      {  \r\n         \"display\":\"ability2\",\r\n         \"code\":\"123\",\r\n         \"level\":\"INDEPENDENT\"\r\n      }\r\n   ],\r\n   \"idClient\":\"1\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET_ABILITIES",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "lucian",
+						"password": "lucian",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "http://localhost:8080/ability",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic bHVjaWFuOmx1Y2lhbg==",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET_LEVELS",
+			"request": {
+				"url": "http://localhost:8080/ability/levels",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET_JOB_BY_ID",
+			"request": {
+				"url": "http://localhost:8080/job/id=16",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

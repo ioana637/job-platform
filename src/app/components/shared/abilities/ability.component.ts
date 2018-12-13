@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
-import {AbilityService} from '../../../../services/ability.service';
+import {AbilityService} from '../../../services/ability.service';
+import {Ability, Level} from '../model';
 
 @Component({
   selector: 'app-ability',
@@ -10,12 +11,10 @@ import {AbilityService} from '../../../../services/ability.service';
 export class AbilityComponent implements OnInit {
   @Input() number;
   @Output() deleted = new EventEmitter();
-  selectedAbility;
-  abilities;
-  selectedLevel;
-  levels;
-  filteredAbilities;
-  filteredLevels;
+  selectedAbility: Ability;
+  selectedLevel: Level;
+  filteredAbilities: Ability[];
+  filteredLevels: Level[];
 
   constructor(private abilityService: AbilityService) {
   }
@@ -26,7 +25,8 @@ export class AbilityComponent implements OnInit {
   getAbility() {
     if (this.selectedLevel && this.selectedAbility) {
       if (this.selectedAbility instanceof Object) {
-        return {...this.selectedAbility, level: this.selectedLevel.levelName.toUpperCase()};
+        const {code, display} = this.selectedAbility;
+        return {code, display, level: this.selectedLevel.levelName.toUpperCase()};
       } else {
         return {display: this.selectedAbility, code: this.selectedAbility, level: this.selectedLevel.levelName.toUpperCase()};
       }
