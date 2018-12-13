@@ -1,20 +1,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <div class="navbar" id="myNavbar">
-      <form class="navbar-form navbar-left">
+<div class="navbar" id="myNavbar">
+  <form class="navbar-form navbar-left">
     <img class="logo " src="assets/Logo_Icon.png">
-    <h2  class="left disabled">Jobify</h2>
-      </form>
-      <form class="navbar-form navbar-right">
-    <a  class="disabled">Nume</a>
-    <a href="#">Log Out</a>
-    <a  href="#">Recomandari</a>
-    <a  href="client/providerList">Provideri</a>
+    <h2 class="left disabled">Jobify</h2>
+  </form>
+  <form class="navbar-form navbar-right">
+    <a *ngIf='currentUser' class="disabled">{{this.currentUser.username}}</a>
 
-    <a  href="client/job/add">Adauga Job</a>
+    <a href="logout">Log Out</a>
+    <a href="#">Recomandari</a>
+    <a href="client/providerList">Provideri</a>
+
+    <a href="client/job/add">Adauga Job</a>
     <a style="font-size:10px;" class="icon" (click)="open()">&#9776;</a>
-   
-    </form>
 
-  </div>
+  </form>
+
+</div>
 

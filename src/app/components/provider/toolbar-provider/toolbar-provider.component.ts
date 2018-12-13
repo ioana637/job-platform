@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {LoginService} from '../../../services/login.service';
+import {User} from '../../shared/model';
 
 @Component({
   selector: 'app-toolbar-provider',
@@ -7,18 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolbarProviderComponent implements OnInit {
 
-  constructor() { }
+  currentUser: User = null;
+
+  constructor(private loginService: LoginService) {
+  }
 
   ngOnInit() {
+    this.currentUser = this.loginService.getUser();
   }
 
   open() {
-    var x = document.getElementById("myNavbar");
-    console.log(x.className)
-    if (x.className === "navbar") {
-        x.className += " responsive";
+    const x = document.getElementById('myNavbar');
+    console.log(x.className);
+    if (x.className === 'navbar') {
+      x.className += ' responsive';
     } else {
-        x.className = "navbar";
+      x.className = 'navbar';
     }
   }
 }

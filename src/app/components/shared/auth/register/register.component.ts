@@ -42,11 +42,10 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    console.log(this.model);
     this.model.birthDate = this.date.getFullYear() + '-' +
       (this.date.getMonth() + 1) + '-' + this.date.getDate();
     this.service.register(this.model).subscribe((user) => {
-      console.log(user);
+      this.router.navigate(['../login']);
     });
   }
 }

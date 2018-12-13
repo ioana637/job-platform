@@ -6,7 +6,7 @@
     <h2  class="left disabled">Jobify</h2>
       </form>
       <form class="navbar-form navbar-right">
-    <a  class="disabled">Nume</a>
+    <a  *ngIf='currentUser' class="disabled">{{this.currentUser.username}}</a>
     <a href="#">Review-uri</a>
     <a  href="#">Cereri</a>
 
