@@ -10,9 +10,13 @@ import {SharedModule} from '../shared/shared.module';
 import {ToastModule} from 'primeng/toast';
 import {ClientComponent} from './client/client.component';
 import {ClientRoutingModule} from './client-routing.module';
+import { ToolbarClientComponent } from './toolbar-client/toolbar-client.component';
+import { ProviderListComponent } from './provider-list/provider-list.component';
+import { ProviderCardComponent } from './provider-card/provider-card.component';
 import {JobEditComponent} from './job-edit/job-edit.component';
 import {ToolbarClientComponent} from './toolbar-client/toolbar-client.component';
 import {JobListComponent} from './job-list/job-list.component';
+
 
 @NgModule({
   imports: [
@@ -28,6 +32,9 @@ import {JobListComponent} from './job-list/job-list.component';
     ToastModule
   ],
   declarations: [
+    AddJobComponent,
+    ProviderListComponent,
+    ProviderCardComponent,
     JobAddComponent,
     JobEditComponent,
     ClientComponent,
@@ -40,6 +47,9 @@ import {JobListComponent} from './job-list/job-list.component';
     JobAddComponent,
     JobEditComponent,
     ToolbarClientComponent,
+    AddJobComponent,
+    ProviderListComponent,
+    ProviderCardComponent,
     JobListComponent
   ]
 })
