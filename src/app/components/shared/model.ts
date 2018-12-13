@@ -11,10 +11,10 @@ export interface User {
   email?: string;
   facebook?: string;
   instagram?: string;
-  last_name?: string;
+  lastName?: string;
   phone?: string;
-  postal_code?: string;
-  star_avg?: number;
+  postalCode?: string;
+  starAvg?: string;
   subscribed?: boolean;
   twitter?: string;
 }

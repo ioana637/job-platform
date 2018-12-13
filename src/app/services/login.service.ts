@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {of} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {loginUrl} from '../../assets/urls';
+import {loginUrl, registerUrl} from '../../assets/urls';
 import {User} from '../components/shared/model';
 import {map} from 'rxjs/operators';
 
@@ -31,5 +31,15 @@ export class LoginService {
 
   public getUser() {
     return JSON.parse(localStorage.getItem('user'));
+  }
+
+  public register(user: User) {
+    this.httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    return this.http.post(registerUrl, JSON.stringify(user), {headers: this.httpHeaders})
+      .pipe(map((data: any) => {
+        return data;
+      }));
   }
 }
