@@ -47,9 +47,9 @@ export class JobEditComponent implements OnInit, OnDestroy {
     this.subscriptions.push(this.jobService.get(this.jobId).subscribe(job => {
       this.job = job;
       this.buildForm();
-      if (this.job.abilities) {
+      if (this.job && this.job.abilities) {
         this.job.abilities.forEach(ability => this.addAbilityComponent(ability));
-      } else {
+      } else if (this.job) {
         this.addAbilityComponent();
       }
     }));

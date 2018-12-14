@@ -6,7 +6,8 @@ export function convertTimestampToDate(ts: Date) {
 
 export function convertTimestampToTime(ts: Date) {
   const minutes = Number(ts.getMinutes()) > 9 ? ts.getMinutes() : `0${ts.getMinutes()}`;
-  return `${ts.getHours()}:${minutes}:00`;
+  const hours = Number(ts.getHours()) > 9 ? ts.getHours() : `0${ts.getHours()}`;
+  return `${hours}:${minutes}:00`;
 }
 
 export function convertTimeToTimestamp(time: string) {
