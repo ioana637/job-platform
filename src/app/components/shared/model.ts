@@ -24,6 +24,7 @@ export interface Ability {
   code: string;
   display: string;
   level: string;
+  id?: string;
 }
 
 
