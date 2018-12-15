@@ -27,8 +27,4 @@ export class ToolbarClientComponent implements OnInit {
       x.className = 'navbar';
     }
   }
-
-  logout() {
-    console.log('logout');
-  }
 }

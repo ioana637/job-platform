@@ -3,6 +3,7 @@ import {FormControl, FormGroup, FormBuilder} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {User} from '../../model';
 import {LoginService} from '../../../../services/login.service';
+import {convertDateToString} from '../../../../services/utils';
 
 @Component({
   selector: 'app-register',
@@ -42,8 +43,7 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    this.model.birthDate = this.date.getFullYear() + '-' +
-      (this.date.getMonth() + 1) + '-' + this.date.getDate();
+    this.model.birthDate = convertDateToString(this.date);
     this.service.register(this.model).subscribe((user) => {
       this.router.navigate(['../login']);
     });
