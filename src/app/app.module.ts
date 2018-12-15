@@ -25,7 +25,6 @@ import {ToolbarModule} from 'primeng/primeng';
     SharedModule,
     AppRoutingModule
   ],
-  
   providers: [
     LoginService,
     JobService,

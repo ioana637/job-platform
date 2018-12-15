@@ -15,6 +15,7 @@ import {ButtonModule} from 'primeng/button';
 import {AutoCompleteModule, CalendarModule, ToolbarModule} from 'primeng/primeng';
 import {AbilityComponent} from './abilities/ability.component';
 import {ToolbarComponent} from './toolbar/toolbar.component';
+import { LogoutComponent } from './auth/logout/logout.component';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import {ToolbarComponent} from './toolbar/toolbar.component';
     LoginComponent,
     RegisterComponent,
     AbilityComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    LogoutComponent
     ],
   providers: [
     {

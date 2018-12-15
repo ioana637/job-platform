@@ -1,0 +1,51 @@
+.card-property {
+    display: inline-block;
+    margin: 20px;
+    margin-right: 5px;
+    margin-left: 10%;
+
+}
+
+.firstLabel{
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10%;
+    font-size: 0.8rem;
+}
+
+.secondLabel{
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10%;
+    font-size: 0.8rem;
+}
+
+.ability{
+    display: inline-block;
+    margin: 10px;
+}
+
+.initials {
+    display: inline-block;
+    color: #ffffff;
+    font-weight: 600;
+    background-color: #00b3f7;
+    border-radius: 12px;
+    height: auto;
+    width: 2%;
+    text-align: center;
+    margin-right: 15px;
+    margin-left: 30px;
+
+}
+
+.provider-card-root{
+    height: 45%;
+}
+
+.fullname{
+    display: inline-block;  
+    font-size: 1.1rem;
+}
