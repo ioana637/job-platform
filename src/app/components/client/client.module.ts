@@ -13,6 +13,7 @@ import {ProviderCardComponent} from './provider-card/provider-card.component';
 import {JobEditComponent} from './job-edit/job-edit.component';
 import {ToolbarClientComponent} from './toolbar-client/toolbar-client.component';
 import {JobListComponent} from './job-list/job-list.component';
+import { ClientSettingsComponent } from './client-settings/client-settings.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import {JobListComponent} from './job-list/job-list.component';
     JobEditComponent,
     ClientComponent,
     ToolbarClientComponent,
-    JobListComponent
+    JobListComponent,
+    ClientSettingsComponent
   ],
   exports: [ToolbarClientComponent],
   providers: [MessageService],
