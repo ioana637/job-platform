@@ -18,6 +18,7 @@ export class JobAddComponent implements OnInit {
   abilityNumber = 1;
   @ViewChild('abilities', {read: ViewContainerRef}) viewContainerRef: ViewContainerRef;
   abilityComponents: ComponentRef<AbilityComponent>[] = [];
+  categories = [];
 
   constructor(private formBuilder: FormBuilder,
               private jobService: JobService,
@@ -27,6 +28,7 @@ export class JobAddComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.categories = this.jobService.getCategories();
     this.buildForm();
     this.addAbilityComponent();
   }
@@ -107,6 +109,8 @@ export class JobAddComponent implements OnInit {
         hoursPerWeek: [''],
         hoursPerDay: [''],
         peopleRequired: ['', Validators.required],
+        category: ['', Validators.required],
+        location: ['', Validators.required],
       }
     );
   }
