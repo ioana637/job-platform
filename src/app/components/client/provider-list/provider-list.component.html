@@ -6,10 +6,12 @@
     <div class="row page-subtitle">Selecteaza unul sau mai multi provideri pentru job
     </div>
     
-    <div class="row card-container">
+    <div class="row card-container"
+        *ngFor="let provider of providers">
         <app-provider-card class="provider-card" 
-                            [fullName]="'Marian Iulian'" 
-                            [label1]="'Limba Engleza'" [abilitate1]="'Experimentat'" [label2]="'Programare'" [abilitate2]="'Experimentat'"
+                            [fullName]="provider.username" 
+                            [abilitati]="provider.abilities"
+                            [rating]="provider.starAvg"
                             ></app-provider-card>
     
     </div>
@@ -18,5 +20,9 @@
     <div class="row bottom-buttons">
         <button pButton class="ui-button-danger" label="Anuleaza"></button>
         <button pButton class="ui-button-primary" label="Asigneaza"></button>
+    </div>
+    <div class="row navigate-buttons">
+        <a *ngIf="fromPage !== 0" class="previous-button" (click)="getPreviousProviders()">Prev</a>
+        <a class="next-button" (click)="getNextProvidersPage()">Next</a>
     </div>
 </div>

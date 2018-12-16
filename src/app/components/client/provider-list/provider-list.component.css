@@ -45,4 +45,19 @@ button {
 .card-container{
     justify-content: center;
     height: 7%;
+    margin: 2%;
+}
+.navigate-buttons{
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.next-button{
+    position: absolute;
+    right: 0;
+    margin-right: 15%;
+}
+.previous-button{
+    position: absolute;
+    left: 0;
+    margin-left: 15%;
 }

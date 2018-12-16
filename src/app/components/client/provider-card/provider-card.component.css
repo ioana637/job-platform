@@ -10,21 +10,36 @@
     display: inline-block;
     margin-top: 20px;
     margin-bottom: 20px;
-    margin-left: 10%;
+    position: relative;
+    left: 13%;
     font-size: 0.8rem;
+    text-transform: capitalize;
+}
+.provider-card-root{
+    margin: 5px;
 }
 
 .secondLabel{
     display: inline-block;
     margin-top: 20px;
     margin-bottom: 20px;
-    margin-left: 10%;
+    position: absolute;
+    right: 45%;
     font-size: 0.8rem;
+    text-transform: capitalize;
 }
 
-.ability{
+.ability1{
     display: inline-block;
-    margin: 10px;
+    position: absolute;
+    left: 40%;
+    margin-top: 17px;
+}
+.ability2{
+    display: inline-block;
+    position: absolute;
+    right: 38%;
+    margin-top: 17px;
 }
 
 .initials {
@@ -48,4 +63,25 @@
 .fullname{
     display: inline-block;  
     font-size: 1.1rem;
+    width: 10%;
+}
+
+.rating-star{
+    display: inline-block;
+    position: absolute;
+    right: 20%;
+    margin-top:10px;
+
+}
+.rating-icon{
+    color:#ffc722 !important;
+    background: #ffffff !important;
+    border-color: #ffffff !important;
+    margin: 0 !important;
+}
+.rating-text{
+    display: inline-block;
+    position: absolute;
+    right: 18%;
+    margin-top:15px;
 }

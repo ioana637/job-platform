@@ -1,10 +1,69 @@
 <div class="provider-card-root">
     <div class="initials">MI</div>
     <div class="fullname">{{fullName}}</div>
-    <div class="firstLabel">{{label1}}: </div>
-    <div class="ability">{{abilitate1}}</div>
-    <div class="secondLabel">{{label2}}: </div>
-    <div class="ability">{{abilitate2}}</div>
+    <div *ngIf="abilitati[0]" class="firstLabel">{{abilitati[0].display}}: </div>
+    <div *ngIf="abilitati[0]" class="ability1">{{abilitati[0].level}}</div>
+    <div *ngIf="abilitati[1]" class="secondLabel">{{abilitati[1].display}}: </div>
+    <div *ngIf="abilitati[1]" class="ability2">{{abilitati[1].level}}</div>
+    <div class="rating-star">
+        <div *ngIf="rating === '0.5'">
+            <button pButton class="rating-icon" icon="fa fa-star-half"></button>
+        </div>
+        <div *ngIf="rating === '1.5'">
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star-half"></button>
+        </div>
+        <div *ngIf="rating === '1'">
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+        </div>
+        <div *ngIf="rating === '1.5'">
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star-half"></button>
+        </div>
+        <div *ngIf="rating === '2.5'">
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star-half"></button>
+        </div>
+        <div *ngIf="rating === '3.0'">
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+        </div>
+        <div *ngIf="rating === '3.5'">
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star-half"></button>
+        </div>
+        <div *ngIf="rating === '3.0'">
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+        </div>
+        <div *ngIf="rating === '4.0'">
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+        </div>
+        <div *ngIf="rating === '4.5'">
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star-half"></button>
+        </div>
+        <div *ngIf="rating === '5.0'">
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>            
+        </div>
+    </div>
+    <div class="rating-text">
+            {{rating}}
+    </div>
 
     <!-- <div><p-checkbox name="group1"></p-checkbox></div> -->
 </div>

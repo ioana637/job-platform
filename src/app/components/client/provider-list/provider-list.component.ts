@@ -11,17 +11,54 @@ import {ProviderService} from '../../../services/provider.service';
 })
 
 export class ProviderListComponent implements OnInit {
+
+  protected providers: any[] = [];
+  protected fromPage: number = 0;
+  protected toPage: number = 9;
+  protected selectedProviders: string[] = [];
+
   constructor(private providerService: ProviderService) {
   }
 
   ngOnInit() {
-    this.providerService.getProviders(10, 0).subscribe(
+    this.providerService.getProviders(this.toPage, this.fromPage)
+    .subscribe(
       (result) => {
-        console.log(result);
+        this.providers = result;
       },
       (error) => {
         console.log(error);
       }
     );
+  }
+
+  protected getNextProvidersPage(): void{
+    this.providerService.getProviders(this.fromPage, this.toPage).subscribe(
+      (result) => {
+        this.fromPage = this.fromPage + 10;
+        this.toPage = this.toPage + 10;
+        this.providers = result;
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+  }
+
+  protected getPreviousProviders(): void{
+    this.providerService.getProviders(this.fromPage, this.toPage).subscribe(
+      (result) => {
+        this.fromPage = this.fromPage - 10;
+        this.toPage = this.toPage - 10;
+        this.providers = result;
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+  }
+
+  protected assignJob(): void{
+    
   }
 }

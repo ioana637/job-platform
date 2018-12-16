@@ -1,4 +1,4 @@
-import { ViewEncapsulation, Component, Input } from "@angular/core";
+import { ViewEncapsulation, Component, Input, OnInit } from "@angular/core";
 import {CheckboxModule} from 'primeng/checkbox';
 
 
@@ -9,13 +9,14 @@ import {CheckboxModule} from 'primeng/checkbox';
     encapsulation: ViewEncapsulation.None
 })
 
-export class ProviderCardComponent{
+export class ProviderCardComponent implements OnInit{
 
     @Input() public fullName: string = '';
-    @Input() public abilitate1: string = '';
-    @Input() public label1: string = '';
-    @Input() public abilitate2: string = '';
-    @Input() public label2: string = '';
     @Input() public status: string = '';
+    @Input() public rating: string = '';
+    @Input() public abilitati: any[] = [];
     
+
+    public ngOnInit(){
+    }
 }
