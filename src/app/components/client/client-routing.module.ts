@@ -32,7 +32,7 @@ const routes = [
   {
     path: 'client/account-settings',
     component: ClientSettingsComponent
-  }
+  },
 ];
 
 @NgModule({
