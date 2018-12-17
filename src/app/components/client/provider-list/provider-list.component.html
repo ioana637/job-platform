@@ -13,16 +13,18 @@
                             [abilitati]="provider.abilities"
                             [rating]="provider.starAvg"
                             ></app-provider-card>
+        <input (click)="onCheckboxClick(provider.id)" class="check" type="checkbox">
+
     
     </div>
     
     
     <div class="row bottom-buttons">
         <button pButton class="ui-button-danger" label="Anuleaza"></button>
-        <button pButton class="ui-button-primary" label="Asigneaza"></button>
+        <button (click)="assignJob()" pButton class="ui-button-primary" label="Asigneaza"></button>
     </div>
     <div class="row navigate-buttons">
-        <a *ngIf="fromPage !== 0" class="previous-button" (click)="getPreviousProviders()">Prev</a>
-        <a class="next-button" (click)="getNextProvidersPage()">Next</a>
+        <div *ngIf="fromPage !== 0" class="previous-button" (click)="getPreviousProviders()">Prev</div>
+        <div class="next-button" (click)="getNextProvidersPage()">Next</div>
     </div>
 </div>

@@ -59,6 +59,23 @@ export class ProviderListComponent implements OnInit {
   }
 
   protected assignJob(): void{
-    
+    let jobId = '1';
+    this.providerService.assingJob(jobId, this.selectedProviders).subscribe(
+      (result) =>{
+        console.log(result);
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+  }
+
+  protected onCheckboxClick(providerId: string) {
+    if(this.selectedProviders.indexOf('5') === -1){
+      console.log('good');
+      this.selectedProviders.push(providerId);
+    }else{
+      this.selectedProviders = this.selectedProviders.filter(id => id !== providerId);
+    }
   }
 }
