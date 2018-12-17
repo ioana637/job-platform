@@ -1,9 +1,11 @@
-<div style="position: absolute; top: 30%; left: 30%; width: 485px; height: 400px; z-index: 60;background-color:white;border-radius: 5px;border-style:solid;border-width: 1px;border-color: black">
+<app-toolbar-client></app-toolbar-client>
+
+<div class="main-div">
 <div style="margin-left: 10px;">
-  <div ><h3 align="center">Adauga o recomandare</h3></div>
+  <div><h4 class="title" align="center">Adauga o recomandare</h4></div>
 
   <div>
-    <select style="border-style: solid; width:449px; height: 40px;border-color: #999999">
+    <select class="selecter">
        <option value="Provider1">Provider1</option>
        <option value="Provider2">Provider2</option>
     </select>
@@ -12,7 +14,7 @@
 
 
 <div>
-    <select style="border-style: solid; width:449px; height: 40px; border-color: #999999 ">
+    <select class="selecter">
       <option value="Client1">Client1</option>
       <option value="Client2">Client2</option>
     </select>
@@ -20,14 +22,14 @@
   <p></p>
 
       <div>
-        <input style="width:448px; height: 150px;display: inline;float: top; " type="text" placeholder="Mesaj"/>
+        <input class="mesaj" type="text" placeholder="Mesaj"/>
         <p></p>
       </div>
 
 
-      <div aria-atomic="true">
-        <input type="button" value="Anuleaza" style="width: 46%; height:30px;font-weight: bold; background-color: #f2f2f2;color: #FF6868; border-color: #FF6868"/>
-        <input type="submit" value="Adauga" style="width: 46%; height:30px;color: #f7f7f7; font-weight: bold; background-color: #00b3f7;border-color: #00b3f7"/>
+      <div style="align-content: space-evenly">
+        <input type="button" class="anuleaza" value="Anuleaza" />
+        <input type="submit" class="adauga" value="Adauga" />
       </div>
 </div>
 </div>

@@ -1,0 +1,57 @@
+.main-div{
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  width: 485px;
+  height: 400px;
+  z-index: 60;
+  background-color:white;
+  border-radius: 5px;
+  border-style:solid;
+  border-width: 1px;
+  border-color: black;
+}
+
+.anuleaza{
+  width: 46%;
+  height:30px;
+  margin-right: 10px;
+  font-weight: bold;
+  background-color: #f2f2f2;
+  color: #FF6868;
+  border-color: #FF6868
+}
+
+.adauga{
+  width: 46%;
+  height:30px;
+  margin: 5px;
+  color: #f7f7f7;
+  font-weight: bold;
+  background-color:#00b3f7;
+  border-color: #00b3f7;
+}
+
+.selecter{
+  border-style: solid;
+  width:449px;
+  height: 40px;
+  border-color: #999999;
+}
+
+.title{
+  margin:10px;
+  font-family: "Open Sans";
+  align-self:center;
+  font-size: 16px;
+  color: #384A50;
+}
+
+.mesaj{
+  width: 448px;
+  height: 150px;
+  display: inline;
+  float: top;
+
+}
+
