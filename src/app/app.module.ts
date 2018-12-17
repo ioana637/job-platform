@@ -14,7 +14,7 @@ import {ToolbarModule} from 'primeng/primeng';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     ToolbarModule,

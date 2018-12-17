@@ -14,6 +14,7 @@ import {JobEditComponent} from './job-edit/job-edit.component';
 import {ToolbarClientComponent} from './toolbar-client/toolbar-client.component';
 import {JobListComponent} from './job-list/job-list.component';
 import { ClientSettingsComponent } from './client-settings/client-settings.component';
+import {RecommandationAddComponent} from './recommandation-add/recommandation-add.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { ClientSettingsComponent } from './client-settings/client-settings.compo
     ClientComponent,
     ToolbarClientComponent,
     JobListComponent,
-    ClientSettingsComponent
+    ClientSettingsComponent,
+    RecommandationAddComponent
   ],
   exports: [ToolbarClientComponent],
   providers: [MessageService],
@@ -48,7 +50,8 @@ import { ClientSettingsComponent } from './client-settings/client-settings.compo
     ToolbarClientComponent,
     ProviderListComponent,
     ProviderCardComponent,
-    JobListComponent
+    JobListComponent,
+    RecommandationAddComponent
   ]
 })
 export class ClientModule {
