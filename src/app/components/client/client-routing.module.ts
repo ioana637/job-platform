@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
-import {JobAddComponent} from './add-job/job-add.component';
+import {JobAddComponent} from './job-add/job-add.component';
 import {ClientComponent} from './client/client.component';
 import { ProviderListComponent } from './provider-list/provider-list.component';
 import {JobEditComponent} from './job-edit/job-edit.component';

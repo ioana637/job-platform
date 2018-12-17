@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {JobAddComponent} from './add-job/job-add.component';
+import {JobAddComponent} from './job-add/job-add.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {CalendarModule, InputTextareaModule, MessageService, ToolbarModule} from 'primeng/primeng';
+import {CalendarModule, DropdownModule, InputTextareaModule, MessageService, ToolbarModule} from 'primeng/primeng';
 import {CardModule} from 'primeng/card';
 import {SharedModule} from '../shared/shared.module';
 import {ToastModule} from 'primeng/toast';
@@ -27,7 +27,8 @@ import { ClientSettingsComponent } from './client-settings/client-settings.compo
     InputTextareaModule,
     CardModule,
     SharedModule,
-    ToastModule
+    ToastModule,
+    DropdownModule
   ],
   declarations: [
     ProviderListComponent,

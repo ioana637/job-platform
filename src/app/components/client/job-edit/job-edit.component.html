@@ -3,7 +3,7 @@
 <div class="row justify-content-center m-5" style="color: #384A50;font-size: 24px;font-family: 'Open Sans'">Editează un
   job
 </div>
-<div *ngIf="job" class="row justify-content-center">
+<div  class="row justify-content-center">
   <p-card class="col-4">
     <form *ngIf="job" [formGroup]="form" style="margin-right: 0">
       <div class="form-row m-3 mr-0">
@@ -65,6 +65,16 @@
         <div class="col">
           <label class="label-input">Număr persoane necesare</label>
           <input type="number" class="ui-input" formControlName="peopleRequired">
+        </div>
+        <div class="col">
+          <label class="label-input">Categorie</label>
+          <p-dropdown [options]="categories" formControlName="category"></p-dropdown>
+        </div>
+      </div>
+      <div class="form-row m-3">
+        <div class="col">
+          <label class="label-input">Locație</label>
+          <input type="text" class="ui-input" formControlName="location">
         </div>
       </div>
       <div class="form-row m-3">

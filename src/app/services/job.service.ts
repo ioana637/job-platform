@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {jobUrl} from '../../assets/urls';
 import {Observable, of} from 'rxjs';
-import {Job} from '../components/shared/model';
+import {Category, Job} from '../components/shared/model';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -30,5 +30,14 @@ export class JobService {
     return <Observable<Job>>this.http.get(`${jobUrl}/id=${id}`, httpOptions);
   }
 
+  getCategories() {
+    const map: { label: string; value: string }[] = [];
+    for (const n in Category) {
+      if (typeof Category[n] === 'string') {
+        map.push({label: Category[n], value: n});
+      }
+    }
+    return map;
+  }
 
 }
