@@ -13,6 +13,9 @@ import {ProviderCardComponent} from './provider-card/provider-card.component';
 import {JobEditComponent} from './job-edit/job-edit.component';
 import {ToolbarClientComponent} from './toolbar-client/toolbar-client.component';
 import {JobListComponent} from './job-list/job-list.component';
+import { RecomandariCardComponent } from './recomandari-card/recomandari-card.component';
+import { ListaRecomandariDateComponent } from './lista-recomandari-date/lista-recomandari-date.component';
+import { ListaRecomandariPrimiteComponent } from './lista-recomandari-primite/lista-recomandari-primite.component';
 
 
 @NgModule({
@@ -36,7 +39,10 @@ import {JobListComponent} from './job-list/job-list.component';
     JobEditComponent,
     ClientComponent,
     ToolbarClientComponent,
-    JobListComponent
+    JobListComponent,
+    RecomandariCardComponent,
+    ListaRecomandariDateComponent,
+    ListaRecomandariPrimiteComponent
   ],
   exports: [ToolbarClientComponent],
   providers: [MessageService],

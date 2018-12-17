@@ -5,6 +5,8 @@ import {ClientComponent} from './client/client.component';
 import { ProviderListComponent } from './provider-list/provider-list.component';
 import {JobEditComponent} from './job-edit/job-edit.component';
 import {JobListComponent} from './job-list/job-list.component';
+import { ListaRecomandariDateComponent } from './lista-recomandari-date/lista-recomandari-date.component';
+import { ListaRecomandariPrimiteComponent } from './lista-recomandari-primite/lista-recomandari-primite.component';
 
 
 const routes = [
@@ -27,6 +29,14 @@ const routes = [
   {
     path: 'client/providerList',
     component: ProviderListComponent
+  },
+  {
+    path: 'client/listaRecomandariDate',
+    component: ListaRecomandariDateComponent
+  },
+  {
+    path: 'client/listaRecomandariPrimite',
+    component: ListaRecomandariPrimiteComponent
   }
 ];
 
