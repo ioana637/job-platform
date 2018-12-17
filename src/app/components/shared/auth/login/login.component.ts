@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormBuilder} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
-import {LoginService} from '../../../../services/login.service';
+import {UserService} from '../../../../services/user.service';
 import {User} from '../../model';
 import {MessageService} from 'primeng/api';
 
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   returnUrl: string;
 
   constructor(
-    private loginService: LoginService,
+    private loginService: UserService,
     private messageService: MessageService,
     private route: ActivatedRoute,
     private router: Router) {

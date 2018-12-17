@@ -52,7 +52,7 @@ input[type=submit]:hover {
 .float-container {
   border: solid 1px #ccc;
   position: relative;
-  padding: 0 8px;
+
 }
 
 .float-container input {
@@ -69,3 +69,35 @@ label {
   font-size: 14px;
   position: absolute;
 }
+
+.float-container > input.ng-invalid {
+  border-left: 3px solid #FF5D5D !important;
+}
+
+p-calendar.ng-invalid input {
+  border-left: 3px solid #FF5D5D !important;
+}
+
+p-button {
+  width: 100%;
+}
+
+body .ui-button {
+  width: inherit;
+  padding: 1px;
+}
+
+body .btn-cancel > .ui-button {
+  border: 1px solid #FF6868 !important;
+  background: white !important ;
+  color: #FF5D5D !important;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px !important;
+}
+
+body .btn-cancel > .ui-button:enabled:hover {
+  background: white !important;
+  color: #FF5D5D !important;
+}
+
+

@@ -1,14 +1,14 @@
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {loginUrl, registerUrl} from '../../assets/urls';
-import {User} from '../components/shared/model';
+import {jobUrl, loginUrl, registerUrl} from '../../assets/urls';
+import {Job, User} from '../components/shared/model';
 import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class UserService {
   httpHeaders: HttpHeaders;
 
   constructor(private http: HttpClient) {
@@ -29,6 +29,10 @@ export class LoginService {
       }));
   }
 
+  public putUser(user: User) {
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+
   public getUser() {
     return JSON.parse(localStorage.getItem('user'));
   }
@@ -41,6 +45,15 @@ export class LoginService {
       .pipe(map((data: any) => {
         return data;
       }));
+  }
+
+  updateUser(user: User) {
+    this.httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    return of(user);
+    // return <Observable<User>>this.http.post(registerUrl, user, {headers: this.httpHeaders});
+
   }
 
   public logout(): Observable<boolean> {

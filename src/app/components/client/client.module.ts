@@ -51,7 +51,9 @@ import {RecommandationAddComponent} from './recommandation-add/recommandation-ad
     ProviderListComponent,
     ProviderCardComponent,
     JobListComponent,
-    RecommandationAddComponent
+    RecommandationAddComponent,
+    ClientSettingsComponent,
+
   ]
 })
 export class ClientModule {

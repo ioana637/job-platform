@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {LoginService} from '../../../services/login.service';
+import {UserService} from '../../../services/user.service';
 import {User} from '../../shared/model';
 
 @Component({
@@ -11,7 +11,7 @@ export class ToolbarProviderComponent implements OnInit {
 
   currentUser: User = null;
 
-  constructor(private loginService: LoginService) {
+  constructor(private loginService: UserService) {
   }
 
   ngOnInit() {
