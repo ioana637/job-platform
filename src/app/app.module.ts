@@ -11,10 +11,12 @@ import {AbilityService} from './services/ability.service';
 import {AppRoutingModule} from './app-routing.module';
 import {ProviderModule} from './components/provider/provider.module';
 import {ToolbarModule} from 'primeng/primeng';
+import { RecommandationAddComponent } from './components/client/recommandation-add/recommandation-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    RecommandationAddComponent,
   ],
   imports: [
     ToolbarModule,
