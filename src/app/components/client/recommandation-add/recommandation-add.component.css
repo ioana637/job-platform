@@ -52,6 +52,7 @@
   height: 150px;
   display: inline;
   float: top;
+  resize: none;
 
 }
 
