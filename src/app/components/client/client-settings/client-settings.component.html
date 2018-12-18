@@ -1,5 +1,5 @@
 <app-toolbar-client></app-toolbar-client>
-
+<p-toast position="top-right"></p-toast>
 <div class="container-fluid my-div-class">
   <div class="row mb-3 mt-3">
     <div class="col text-center">
@@ -8,8 +8,9 @@
       </h3>
     </div>
   </div>
-  <form [formGroup]="form">
-    <div class="container-fluid my-border mb-4">
+  <div class="container-fluid my-border mb-4">
+    <form [formGroup]="form">
+
       <div class="row mt-4 form-group mx-1">
         <div class="col-md-12">
           <div class="float-container">
@@ -35,18 +36,18 @@
       </div>
 
       <!--<div class="row form-group mx-1">-->
-        <!--<div class="col-md-6">-->
-          <!--<div class="float-container">-->
-            <!--<label for="prenume2">Prenume</label>-->
-            <!--<input class="my-inputs" id="prenume2" type="text" name="prenume2"/>-->
-          <!--</div>-->
-        <!--</div>-->
-        <!--<div class="col-md-6">-->
-          <!--<div class="float-container">-->
-            <!--<label for="prenume3">Prenume</label>-->
-            <!--<input class="my-inputs" id="prenume3" type="text" name="prenume3"/>-->
-          <!--</div>-->
-        <!--</div>-->
+      <!--<div class="col-md-6">-->
+      <!--<div class="float-container">-->
+      <!--<label for="prenume2">Prenume</label>-->
+      <!--<input class="my-inputs" id="prenume2" type="text" name="prenume2"/>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-md-6">-->
+      <!--<div class="float-container">-->
+      <!--<label for="prenume3">Prenume</label>-->
+      <!--<input class="my-inputs" id="prenume3" type="text" name="prenume3"/>-->
+      <!--</div>-->
+      <!--</div>-->
       <!--</div>-->
 
       <div class="row form-group mx-1">
@@ -80,38 +81,46 @@
       </div>
 
       <hr>
-
-      <div class="row form-group mx-1">
-        <div class="col">
-          <p class="mt-2" style="color: #00b3f7">
-            Schimba parola:
-          </p>
-        </div>
-      </div>
-
-      <div class="row form-group mx-1">
-        <div class="col-md-8">
-          <input name="parola-veche" class="my-inputs" type="text" placeholder="Parola veche"/>
-        </div>
-      </div>
-      <div class="row form-group mx-1">
-        <div class="col-md-8">
-          <input name="parola-noua" class="my-inputs" type="text" placeholder="Parola noua"/>
-        </div>
-      </div>
-      <div class="row form-group mx-1">
-        <div class="col-md-8">
-          <input name="parola-noua-again" class="my-inputs" type="text" placeholder="Confirma parola noua"/>
-        </div>
-      </div>
-      <div class="row form-group mx-1">
-        <div class="col-md-6">
-          <p-button type="cancel" class="btn-cancel" (onClick)="onCancel()" label="Anulează"></p-button>
-        </div>
-        <div class="col-md-6">
-          <p-button type="submit" class="ui-button-primary" (onClick)="onSubmit()" label="Salvează"></p-button>
-        </div>
+    </form>
+    <div class="row form-group mx-1">
+      <div class="col">
+        <p class="mt-2" style="color: #00b3f7">
+          Schimba parola:
+        </p>
       </div>
     </div>
-  </form>
+
+    <div class="row form-group mx-1">
+      <div class="col-md-8">
+        <input name="parola-veche" class="my-inputs" type="password" [(ngModel)]="this.passwords.oldPassword"
+               placeholder="Parola veche"/>
+      </div>
+      <i *ngIf="this.passwords.oldPassword && this.user.password!==this.passwords.oldPassword"
+         class="fa fa-2x fa-times icon"></i>
+    </div>
+    <div class="row form-group mx-1">
+      <div class="col-md-8">
+        <input name="parola-noua" class="my-inputs" type="password" [(ngModel)]="this.passwords.newPassword"
+               placeholder="Parola noua"/>
+      </div>
+    </div>
+    <div class="row form-group mx-1">
+      <div class="col-md-8">
+        <input name="parola-noua-again" class="my-inputs" type="password" [(ngModel)]="this.passwords.confirmedPassword"
+               placeholder="Confirma parola noua"/>
+      </div>
+      <i
+        *ngIf="this.passwords.newPassword && this.passwords.confirmedPassword&& this.passwords.newPassword!==this.passwords.confirmedPassword"
+        class="fa fa-times fa-2x icon" ></i>
+    </div>
+    <div class="row form-group mx-1">
+      <div class="col-md-6">
+        <p-button type="cancel" class="btn-cancel" (onClick)="onCancel()" label="Anulează"></p-button>
+      </div>
+      <div class="col-md-6">
+        <p-button type="submit" class="ui-button-primary" (onClick)="onSubmit()" label="Salvează"></p-button>
+      </div>
+    </div>
+  </div>
+
 </div>

@@ -39,12 +39,15 @@ input[type=submit]:hover {
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #d1d1d1;
 }
+
 ::-moz-placeholder { /* Firefox 19+ */
   color: #d1d1d1;
 }
+
 :-ms-input-placeholder { /* IE 10+ */
   color: #d1d1d1;
 }
+
 :-moz-placeholder { /* Firefox 18- */
   color: #d1d1d1;
 }
@@ -89,7 +92,7 @@ body .ui-button {
 
 body .btn-cancel > .ui-button {
   border: 1px solid #FF6868 !important;
-  background: white !important ;
+  background: white !important;
   color: #FF5D5D !important;
   font-family: "Open Sans", sans-serif;
   font-size: 14px !important;
@@ -100,4 +103,10 @@ body .btn-cancel > .ui-button:enabled:hover {
   color: #FF5D5D !important;
 }
 
+
+.icon {
+  color: #FF5D5D !important;
+  align-items: center;
+  display: flex;
+}
 

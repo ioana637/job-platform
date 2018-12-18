@@ -4,6 +4,7 @@ import {User} from '../../shared/model';
 import {JobService} from '../../../services/job.service';
 import {convertTimestampToDate, convertTimestampToTime, convertTimeToTimestamp} from '../../../services/utils';
 import {UserService} from '../../../services/user.service';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-client-settings',
@@ -16,11 +17,13 @@ export class ClientSettingsComponent implements OnInit, OnDestroy {
   form: FormGroup;
   user: User;
   subscriptions = [];
+  passwords = {oldPassword: undefined, newPassword: undefined, confirmedPassword: undefined};
 
 
   constructor(private formBuilder: FormBuilder,
               private jobService: JobService,
-              private userService: UserService) {
+              private userService: UserService,
+              private messageService: MessageService) {
   }
 
   ngOnInit() {
@@ -31,32 +34,25 @@ export class ClientSettingsComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     if (this.form.valid) {
-      this.subscriptions.push(this.userService.updateUser(this.form.value).subscribe(user => {
+      const userToUpdate = {...this.user, ...this.form.value};
+      if (this.passwords.oldPassword && this.user.password === this.passwords.oldPassword) {
+        if (this.passwords.newPassword && this.passwords.newPassword === this.passwords.confirmedPassword) {
+          userToUpdate.password = this.passwords.newPassword;
+        } else {
+          this.messageService.add({severity: 'error', summary: 'Eroare', detail: 'Parolele nu coincid!'});
+          return;
+        }
+      }
+      this.subscriptions.push(this.userService.updateUser(userToUpdate).subscribe(user => {
           this.user = user;
           this.userService.putUser(user);
-        }
+          this.passwords = {oldPassword: undefined, newPassword: undefined, confirmedPassword: undefined};
+          this.buildForm();
+          this.messageService.add({severity: 'info', summary: 'Informare', detail: 'Datele au fost modificate cu succes!'});
+        }, error => this.messageService.add({severity: 'error', summary: 'Erroare', detail: error})
       ));
-
-      //   Object.assign(this.job, {
-      //     ...this.form.value,
-      //     startTime: convertTimestampToTime(this.form.value.startTime),
-      //     endTime: convertTimestampToTime(this.form.value.endTime),
-      //     periodStart: convertTimestampToDate(this.form.value.periodStart),
-      //     periodEnd: convertTimestampToDate(this.form.value.periodEnd),
-      //     abilities: this.getAbilities(),
-      //     idClient: this.loginService.getUser().id
-      //   });
-      //   Object.keys(this.job).forEach(key => this.job[key] = this.job[key] === '' ? null : this.job[key]);
-      //   this.subscriptions.push(this.jobService.update(this.job).subscribe(success => {
-      //       this.router.navigate(['../'], {relativeTo: this.route});
-      //       // this.messageService.add({severity: 'success', summary: 'Success', detail: 'Jobul a fost modificat cu succes!'});
-      //     },
-      //     error => {
-      //       // this.router.navigate(['./']');
-      //       this.messageService.add({severity: 'error', summary: 'Eroare', detail: error.message});
-      //     }));
     } else {
-      // /this.messageService.add({severity: 'error', summary: 'Eroare', detail: 'Trebuie să completați câmpurile obligatorii!'});
+      this.messageService.add({severity: 'error', summary: 'Eroare', detail: 'Trebuie să completați câmpurile obligatorii!'});
     }
   }
 
@@ -75,8 +71,9 @@ export class ClientSettingsComponent implements OnInit, OnDestroy {
   }
 
   onCancel() {
-    // this.messageService.add({severity: 'info', summary: 'Info', detail: 'Modificările au fost anulate!'});
-    // this.buildForm();
+    this.messageService.add({severity: 'info', summary: 'Info', detail: 'Modificările au fost anulate!'});
+    this.passwords = {oldPassword: undefined, newPassword: undefined, confirmedPassword: undefined};
+    this.buildForm();
   }
 
 

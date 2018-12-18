@@ -51,8 +51,8 @@ export class UserService {
     this.httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-    return of(user);
-    // return <Observable<User>>this.http.post(registerUrl, user, {headers: this.httpHeaders});
+    // return of(user);
+    return <Observable<User>>this.http.post(registerUrl, user, {headers: this.httpHeaders});
 
   }
 
