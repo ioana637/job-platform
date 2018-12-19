@@ -44,8 +44,8 @@ import { LogoutComponent } from './auth/logout/logout.component';
       multi: true
     }
   ],
-  entryComponents: [AbilityComponent],
-  exports: [ AbilityComponent]
+  entryComponents: [AbilityComponent, LogoutComponent],
+  exports: [ AbilityComponent, LogoutComponent]
 })
 export class SharedModule {
 }
