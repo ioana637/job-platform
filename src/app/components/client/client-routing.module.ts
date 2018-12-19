@@ -1,10 +1,12 @@
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
-import {JobAddComponent} from './add-job/job-add.component';
+import {JobAddComponent} from './job-add/job-add.component';
 import {ClientComponent} from './client/client.component';
 import { ProviderListComponent } from './provider-list/provider-list.component';
 import {JobEditComponent} from './job-edit/job-edit.component';
 import {JobListComponent} from './job-list/job-list.component';
+import {ClientSettingsComponent} from './client-settings/client-settings.component';
+import {RecommandationAddComponent} from './recommandation-add/recommandation-add.component';
 
 
 const routes = [
@@ -27,7 +29,15 @@ const routes = [
   {
     path: 'client/providerList',
     component: ProviderListComponent
-  }
+  },
+  {
+    path: 'client/recommandation/add',
+    component: RecommandationAddComponent
+  },
+  {
+    path: 'client/account-settings',
+    component: ClientSettingsComponent
+  },
 ];
 
 @NgModule({

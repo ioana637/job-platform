@@ -32,6 +32,7 @@ export class JobEditComponent implements OnInit, OnDestroy {
   subscriptions = [];
   @ViewChild('abilities', {read: ViewContainerRef}) viewContainerRef: ViewContainerRef;
   abilityComponents: ComponentRef<AbilityComponent>[] = [];
+  categories = [];
 
   constructor(private formBuilder: FormBuilder,
               private jobService: JobService,
@@ -45,6 +46,7 @@ export class JobEditComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscriptions.push(this.jobService.get(this.jobId).subscribe(job => {
+      this.categories = this.jobService.getCategories();
       this.job = job;
       this.buildForm();
       if (this.job && this.job.abilities) {
@@ -132,6 +134,8 @@ export class JobEditComponent implements OnInit, OnDestroy {
         hoursPerWeek: [this.job.hoursPerWeek],
         hoursPerDay: [this.job.hoursPerDay],
         peopleRequired: [this.job.peopleRequired, Validators.required],
+        category: [this.job.category, Validators.required],
+        location: [this.job.location, Validators.required],
       }
     );
   }

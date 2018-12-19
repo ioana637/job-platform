@@ -66,6 +66,16 @@
           <label class="label-input">Număr persoane necesare</label>
           <input type="number" class="ui-input" formControlName="peopleRequired">
         </div>
+        <div class="col">
+          <label class="label-input">Categorie</label>
+          <p-dropdown [options]="categories" formControlName="category"></p-dropdown>
+        </div>
+      </div>
+      <div class="form-row m-3">
+        <div class="col">
+          <label class="label-input">Locație</label>
+          <input type="text" class="ui-input" formControlName="location">
+        </div>
       </div>
       <div class="form-row m-3">
         <div class="col">
