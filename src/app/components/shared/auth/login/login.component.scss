@@ -3,6 +3,7 @@
   margin-right: auto;
 
 }
+
 .title-container{
 
   .logo{
@@ -52,4 +53,30 @@
 
 .register-link{
   color: #396dce !important;
+}
+
+
+.ui-dialog-titlebar {
+  background: #29b3f6 !important;
+}
+
+.ui-dialog-titlebar-close {
+  color: white !important;
+}
+
+.ui-dialog-title {
+  color: white;
+}
+
+.ui-dialog {
+  background: #29b3f6 !important;
+}
+
+.borderless-disable-input {
+  border: none !important;
+  border-color: transparent !important;
+}
+
+.fa {
+  margin-right: 12px;
 }

@@ -63,15 +63,27 @@ export interface Job {
   title: string;
   description: string;
   idClient?: number;
-  periodStart: string;
-  periodEnd: string;
-  startTime: string;
-  endTime: string;
-  peopleRequired: number;
-  status: string;
+  periodStart?: string;
+  periodEnd?: string;
+  startTime?: string;
+  endTime?: string;
+  peopleRequired?: number;
+  status?: string;
   abilities?: Ability[];
   hoursPerDay?: number;
   hoursPerWeek?: number;
-  location: string;
-  category: string;
+  location?: string;
+  category?: string;
+}
+
+export interface Request {
+  id?: string;
+  userFrom?: User;
+  userTo?: User;
+  job?: Job;
+}
+
+export interface RequestDialog {
+  userFromFullName?: string;
+  userFromFullLocation?: string;
 }

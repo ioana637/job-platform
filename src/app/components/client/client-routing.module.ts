@@ -7,6 +7,7 @@ import {JobEditComponent} from './job-edit/job-edit.component';
 import {JobListComponent} from './job-list/job-list.component';
 import {ClientSettingsComponent} from './client-settings/client-settings.component';
 import {RecommandationAddComponent} from './recommandation-add/recommandation-add.component';
+import {CereriComponent} from '../provider/cereri/cereri.component';
 
 
 const routes = [
@@ -29,6 +30,10 @@ const routes = [
   {
     path: 'client/providerList',
     component: ProviderListComponent
+  },
+  {
+    path: 'provider/cereri',
+    component: CereriComponent
   },
   {
     path: 'client/recommandation/add',

@@ -52,7 +52,7 @@
       </div>
       <div class="bottom-text">
         <nav>Nu ai cont?
-          <a class="register-link" routerLink='../register'>Creeaza cont</a>
+          <a class="register-link" routerLink='../provider/cereri'>Creeaza cont</a>
         </nav>
         <br>
 
@@ -62,4 +62,43 @@
   <p-toast position="top-right"></p-toast>
 </div>
 
-
+<p-dialog header="Plimbat caine" [(visible)]="display" widgetVar="dlg2" [modal]="true" [responsive]="false"
+          [width]="450" [height]="300">
+<span>The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
+His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
+Through Michael's life the naturey.</span>
+  <div class="ui-g">
+    <div class="ui-g-6" >
+      <i class="fa fa-user"></i>
+      <input type="text"
+             class="borderless-disable-input"
+             [disabled]="true"
+             [(ngModel)]="requestdialog.userFromFullName"/>
+    </div>
+    <div class="ui-g-6">
+      <i class="fa fa-phone"></i>
+      <input type="text"
+             class="borderless-disable-input"
+             [disabled]="true"
+             [(ngModel)]="request.userFrom.phone"/>
+    </div>
+  </div>
+  <div class="ui-g">
+    <div class="ui-g-6">
+      <i class="fa fa-envelope"></i>
+      <input type="text"
+             class="borderless-disable-input"
+             [disabled]="true"
+             [(ngModel)]="request.userFrom.email"/>
+    </div>
+    <div class="ui-g-6">
+      <i class="fa fa-map-marker"></i>
+      <input type="text"
+             class="borderless-disable-input"
+             [disabled]="true"
+             [(ngModel)]="requestdialog.userFromFullLocation"/>
+    </div>
+  </div>
+</p-dialog>
+<button type="button" (click)="showDialog()" pButton icon="pi pi-info-circle"
+        label="Show"></button>

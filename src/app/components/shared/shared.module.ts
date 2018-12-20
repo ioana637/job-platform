@@ -16,9 +16,11 @@ import {AutoCompleteModule, CalendarModule, ToolbarModule} from 'primeng/primeng
 import {AbilityComponent} from './abilities/ability.component';
 import {ToolbarComponent} from './toolbar/toolbar.component';
 import { LogoutComponent } from './auth/logout/logout.component';
+import {DialogModule} from 'primeng/dialog';
 
 @NgModule({
   imports: [
+    DialogModule,
     CommonModule,
     CardModule,
     ButtonModule,
