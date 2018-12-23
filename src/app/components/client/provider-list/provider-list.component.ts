@@ -61,22 +61,19 @@ export class ProviderListComponent implements OnInit {
     )
   }
 
-  protected assignJob(): void{
-    // let jobId = '1';
-    this.display = true;
-    // this.providerService.assingJob(jobId, this.selectedProviders).subscribe(
-    //   (result) =>{
-    //     console.log(result);
-    //   },
-    //   (error) => {
-    //     console.log(error);
-    //   }
-    // )
+  protected onJobAssign(jobId: string): void{
+    this.providerService.assingJob(jobId, this.selectedProviders).subscribe(
+      (result) =>{
+        this.displaySuccess();
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
   }
 
   protected onCheckboxClick(providerId: string) {
     if(this.selectedProviders.indexOf('5') === -1){
-      console.log('good');
       this.selectedProviders.push(providerId);
     }else{
       this.selectedProviders = this.selectedProviders.filter(id => id !== providerId);
@@ -89,8 +86,6 @@ export class ProviderListComponent implements OnInit {
       this.displayWarning();
     } else {
       this.display = true;
-      console.log("Display", this.display);
-
     }
   }
 
@@ -100,5 +95,9 @@ export class ProviderListComponent implements OnInit {
 
   private displayWarning() {
     this.messageService.add({severity:'warn', summary:'Asignare anulata', detail:'Selecteaza un provider'});
+  }
+
+  private displaySuccess() {
+    this.messageService.add({severity:'success', summary:'Job assigned', detail: 'Job was assigned'});
   }
 }
