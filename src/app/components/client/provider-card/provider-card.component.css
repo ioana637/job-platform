@@ -8,8 +8,7 @@
 
 .firstLabel{
     display: inline-block;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 17px;
     position: relative;
     left: 13%;
     font-size: 0.8rem;
@@ -64,6 +63,7 @@
     display: inline-block;  
     font-size: 1.1rem;
     width: 10%;
+    margin-top: 17px;
 }
 
 .rating-star{

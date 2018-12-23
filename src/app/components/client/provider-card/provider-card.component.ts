@@ -19,4 +19,9 @@ export class ProviderCardComponent implements OnInit{
 
     public ngOnInit(){
     }
+
+    protected getInitials(fullname: string) : string {
+        return fullname[0] + fullname[fullname.indexOf(' ') + 1];
+    }
+
 }

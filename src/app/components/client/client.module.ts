@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {JobAddComponent} from './add-job/job-add.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {CalendarModule, InputTextareaModule, MessageService, ToolbarModule} from 'primeng/primeng';
+import {CalendarModule, InputTextareaModule, MessageService, ToolbarModule, DialogModule, AutoCompleteModule} from 'primeng/primeng';
 import {CardModule} from 'primeng/card';
 import {SharedModule} from '../shared/shared.module';
 import {ToastModule} from 'primeng/toast';
@@ -13,6 +13,7 @@ import {ProviderCardComponent} from './provider-card/provider-card.component';
 import {JobEditComponent} from './job-edit/job-edit.component';
 import {ToolbarClientComponent} from './toolbar-client/toolbar-client.component';
 import {JobListComponent} from './job-list/job-list.component';
+import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 
 
 @NgModule({
@@ -26,11 +27,14 @@ import {JobListComponent} from './job-list/job-list.component';
     InputTextareaModule,
     CardModule,
     SharedModule,
-    ToastModule
+    ToastModule,
+    DialogModule,
+    AutoCompleteModule,
   ],
   declarations: [
     ProviderListComponent,
     ProviderCardComponent,
+    DialogBoxComponent,
     JobAddComponent,
     JobEditComponent,
     ClientComponent,
@@ -45,6 +49,7 @@ import {JobListComponent} from './job-list/job-list.component';
     ToolbarClientComponent,
     ProviderListComponent,
     ProviderCardComponent,
+    DialogBoxComponent,
     JobListComponent
   ]
 })

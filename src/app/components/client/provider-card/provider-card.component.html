@@ -1,10 +1,12 @@
 <div class="provider-card-root">
-    <div class="initials">MI</div>
+    <div class="initials">{{getInitials(fullName)}}</div>
     <div class="fullname">{{fullName}}</div>
-    <div *ngIf="abilitati[0]" class="firstLabel">{{abilitati[0].display}}: </div>
-    <div *ngIf="abilitati[0]" class="ability1">{{abilitati[0].level}}</div>
-    <div *ngIf="abilitati[1]" class="secondLabel">{{abilitati[1].display}}: </div>
-    <div *ngIf="abilitati[1]" class="ability2">{{abilitati[1].level}}</div>
+    <div *ngIf="abilitati.length > 0 && abilitati[0].display" class="firstLabel">{{abilitati[0].display}}: </div>
+    <div *ngIf="abilitati.length > 0 && !abilitati[0].display" class="firstLabel">Unknown: </div>
+    <div *ngIf="abilitati.length > 0 && abilitati[0].level" class="ability1">{{abilitati[0].level}}</div>
+    <div *ngIf="abilitati.length > 0 && abilitati[1].display" class="secondLabel">{{abilitati[1].display}}: </div>
+    <div *ngIf="abilitati.length > 0 && !abilitati[1].display" class="secondLabel">Unknown: </div>    
+    <div *ngIf="abilitati.length > 0 && abilitati[1].level" class="ability2">{{abilitati[1].level}}</div>
     <div class="rating-star">
         <div *ngIf="rating === '0.5'">
             <button pButton class="rating-icon" icon="fa fa-star-half"></button>
@@ -61,8 +63,11 @@
             <button pButton class="rating-icon" icon="fa fa-star"></button>            
         </div>
     </div>
-    <div class="rating-text">
-            {{rating}}
+    <div *ngIf="rating" class="rating-text">
+        {{rating}}
+    </div>
+    <div *ngIf="!rating" class="rating-text">
+        0.0
     </div>
 
 </div>

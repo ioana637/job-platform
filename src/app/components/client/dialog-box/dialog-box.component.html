@@ -1,0 +1,7 @@
+<p-dialog header="Alege jobul pentru asignare" [(visible)]="display" modal="modal" [responsive]="true">
+    <div class="ui-fluid dialog-container">
+        <p-autoComplete  field="display" [size]="10"
+        placeholder="Joburi" [minLength]="1"  [dropdown]="true"></p-autoComplete>
+        <button pButton class="ui-button-primary" label="Asigneaza"></button>
+    </div>
+</p-dialog>

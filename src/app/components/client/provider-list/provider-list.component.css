@@ -4,6 +4,7 @@ html, body{
 .page-container{
     background-color: #f7f7f7;
     height: 100%;
+    margin: 20px;
 }
 
 .provider-card{
@@ -50,6 +51,7 @@ button {
 .navigate-buttons{
     margin-left: 15%;
     margin-right: 15%;
+    width: 80%;
 }
 .next-button{
     position: absolute;

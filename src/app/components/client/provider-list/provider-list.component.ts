@@ -1,6 +1,7 @@
 import {ViewEncapsulation, Component, OnInit} from '@angular/core';
 import {ButtonModule} from 'primeng/button';
 import {ProviderService} from '../../../services/provider.service';
+import { MessageService } from 'primeng/api';
 
 
 @Component({
@@ -13,15 +14,19 @@ import {ProviderService} from '../../../services/provider.service';
 export class ProviderListComponent implements OnInit {
 
   protected providers: any[] = [];
-  protected fromPage: number = 0;
-  protected toPage: number = 9;
+  protected limit: number = 7;
+  protected pageNumber: number = 0;
   protected selectedProviders: string[] = [];
+  protected display: boolean = false;
 
-  constructor(private providerService: ProviderService) {
+  constructor(
+    private providerService: ProviderService,
+    private messageService: MessageService,) {
   }
 
   ngOnInit() {
-    this.providerService.getProviders(this.toPage, this.fromPage)
+    this.pageNumber = 0;
+    this.providerService.getProviders(this.limit, this.pageNumber)
     .subscribe(
       (result) => {
         this.providers = result;
@@ -33,10 +38,9 @@ export class ProviderListComponent implements OnInit {
   }
 
   protected getNextProvidersPage(): void{
-    this.providerService.getProviders(this.fromPage, this.toPage).subscribe(
+    this.pageNumber += 1;
+    this.providerService.getProviders(this.limit, this.pageNumber).subscribe(
       (result) => {
-        this.fromPage = this.fromPage + 10;
-        this.toPage = this.toPage + 10;
         this.providers = result;
       },
       (error) => {
@@ -46,10 +50,9 @@ export class ProviderListComponent implements OnInit {
   }
 
   protected getPreviousProviders(): void{
-    this.providerService.getProviders(this.fromPage, this.toPage).subscribe(
+    this.pageNumber -= 1;
+    this.providerService.getProviders(this.limit, this.pageNumber).subscribe(
       (result) => {
-        this.fromPage = this.fromPage - 10;
-        this.toPage = this.toPage - 10;
         this.providers = result;
       },
       (error) => {
@@ -59,15 +62,16 @@ export class ProviderListComponent implements OnInit {
   }
 
   protected assignJob(): void{
-    let jobId = '1';
-    this.providerService.assingJob(jobId, this.selectedProviders).subscribe(
-      (result) =>{
-        console.log(result);
-      },
-      (error) => {
-        console.log(error);
-      }
-    )
+    // let jobId = '1';
+    this.display = true;
+    // this.providerService.assingJob(jobId, this.selectedProviders).subscribe(
+    //   (result) =>{
+    //     console.log(result);
+    //   },
+    //   (error) => {
+    //     console.log(error);
+    //   }
+    // )
   }
 
   protected onCheckboxClick(providerId: string) {
@@ -77,5 +81,24 @@ export class ProviderListComponent implements OnInit {
     }else{
       this.selectedProviders = this.selectedProviders.filter(id => id !== providerId);
     }
+  }
+
+
+  private showDialog(): void{
+    if(this.selectedProviders.length < 1){
+      this.displayWarning();
+    } else {
+      this.display = true;
+      console.log("Display", this.display);
+
+    }
+  }
+
+  private onDialogClose(event): void {
+    this.display = event;
+  }
+
+  private displayWarning() {
+    this.messageService.add({severity:'warn', summary:'Asignare anulata', detail:'Selecteaza un provider'});
   }
 }

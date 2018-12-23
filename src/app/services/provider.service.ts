@@ -19,7 +19,7 @@ export class ProviderService {
   constructor(private http: HttpClient) {
   }
 
-  public getProviders(count: number = 10, indexStart: number = 0): Observable<any> {
+  public getProviders(count: number, indexStart: number): Observable<any> {
     return <Observable<any>> this.http.get(`${providerUrl}/limit=${count}&start=${indexStart}`,
       httpOptions);
   }

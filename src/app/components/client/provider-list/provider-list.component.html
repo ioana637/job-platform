@@ -9,7 +9,7 @@
     <div class="row card-container"
         *ngFor="let provider of providers">
         <app-provider-card class="provider-card" 
-                            [fullName]="provider.username" 
+                            [fullName]="provider.firstName ? provider.firstName + ' ' + provider.lastName : provider.username" 
                             [abilitati]="provider.abilities"
                             [rating]="provider.starAvg"
                             ></app-provider-card>
@@ -21,10 +21,13 @@
     
     <div class="row bottom-buttons">
         <button pButton class="ui-button-danger" label="Anuleaza"></button>
-        <button (click)="assignJob()" pButton class="ui-button-primary" label="Asigneaza"></button>
+        <button (click)="showDialog()" pButton class="ui-button-primary" label="Asigneaza"></button>
     </div>
     <div class="row navigate-buttons">
-        <div *ngIf="fromPage !== 0" class="previous-button" (click)="getPreviousProviders()">Prev</div>
+        <div *ngIf="pageNumber !== 0" class="previous-button" (click)="getPreviousProviders()">Prev</div>
         <div class="next-button" (click)="getNextProvidersPage()">Next</div>
     </div>
+
+    <app-dialog-box [display]="display" (displayChange)="onDialogClose($event)"></app-dialog-box>
+    <p-toast class="ui-toast-top-left"></p-toast>
 </div>
