@@ -1,5 +1,3 @@
-
-
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
@@ -15,7 +13,7 @@ import {ButtonModule} from 'primeng/button';
 import {AutoCompleteModule, CalendarModule, DropdownModule, ToolbarModule} from 'primeng/primeng';
 import {AbilityComponent} from './abilities/ability.component';
 import {ToolbarComponent} from './toolbar/toolbar.component';
-import { LogoutComponent } from './auth/logout/logout.component';
+import {LogoutComponent} from './auth/logout/logout.component';
 
 @NgModule({
   imports: [

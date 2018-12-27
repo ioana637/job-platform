@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { LoginService } from '../../../../services/login.service';
-import { Router } from '@angular/router';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Router} from '@angular/router';
+import {UserService} from '../../../../services/user.service';
 
 @Component({
   selector: 'app-logout',
@@ -13,7 +13,7 @@ export class LogoutComponent implements OnInit {
   layoutSuccess: boolean = null;
   layoutError: boolean = null;
 
-  constructor(private loginService: LoginService,
+  constructor(private loginService: UserService,
               public router: Router) {
   }
 

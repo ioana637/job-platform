@@ -1,8 +1,8 @@
-import { ViewEncapsulation, Component, Input, OnInit, EventEmitter, Output } from "@angular/core";
-import { Job, User } from "../../shared/model";
-import { LoginService } from "src/app/services/login.service";
-import { JobService } from "src/app/services/job.service";
-import { Observable } from "rxjs";
+import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
+import {Job, User} from '../../shared/model';
+import {JobService} from 'src/app/services/job.service';
+import {Observable} from 'rxjs';
+import {UserService} from '../../../services/user.service';
 
 
 @Component({
@@ -22,7 +22,7 @@ export class DialogBoxComponent implements OnInit{
     private user: User | null = null;
 
     constructor(
-      private loginService: LoginService,
+      private loginService: UserService,
       private jobService: JobService
       ){}
   

@@ -40,7 +40,8 @@ const routes = [
   {
     path: 'client/listaRecomandariPrimite',
     component: ListaRecomandariPrimiteComponent
-  }
+  },
+  {
     path: 'client/recommendation/add',
     component: RecommandationAddComponent
   },
