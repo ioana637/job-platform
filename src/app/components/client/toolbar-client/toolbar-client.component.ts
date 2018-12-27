@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../../shared/model';
-import {LoginService} from '../../../services/login.service';
+import {UserService} from '../../../services/user.service';
 
 @Component({
   selector: 'app-toolbar-client',
@@ -11,7 +11,7 @@ export class ToolbarClientComponent implements OnInit {
 
   currentUser: User = null;
 
-  constructor(private loginService: LoginService) {
+  constructor(private loginService: UserService) {
   }
 
   ngOnInit() {

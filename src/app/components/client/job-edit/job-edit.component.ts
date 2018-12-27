@@ -14,7 +14,7 @@ import {JobService} from '../../../services/job.service';
 import {MessageService} from 'primeng/api';
 import {AbilityComponent} from '../../shared/abilities/ability.component';
 import {convertTimestampToDate, convertTimestampToTime, convertTimeToTimestamp} from '../../../services/utils';
-import {LoginService} from '../../../services/login.service';
+import {UserService} from '../../../services/user.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Ability, Job} from '../../shared/model';
 
@@ -38,7 +38,7 @@ export class JobEditComponent implements OnInit, OnDestroy {
               private jobService: JobService,
               private messageService: MessageService,
               private factoryResolver: ComponentFactoryResolver,
-              private loginService: LoginService,
+              private loginService: UserService,
               private route: ActivatedRoute,
               private router: Router) {
     this.jobId = this.route.snapshot.paramMap.get('id');

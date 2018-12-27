@@ -7,6 +7,9 @@ import {JobEditComponent} from './job-edit/job-edit.component';
 import {JobListComponent} from './job-list/job-list.component';
 import { ListaRecomandariDateComponent } from './lista-recomandari-date/lista-recomandari-date.component';
 import { ListaRecomandariPrimiteComponent } from './lista-recomandari-primite/lista-recomandari-primite.component';
+import {ClientSettingsComponent} from './client-settings/client-settings.component';
+import {RecommandationAddComponent} from './recommandation-add/recommandation-add.component';
+
 
 
 const routes = [
@@ -37,6 +40,13 @@ const routes = [
   {
     path: 'client/listaRecomandariPrimite',
     component: ListaRecomandariPrimiteComponent
+  }
+    path: 'client/recommendation/add',
+    component: RecommandationAddComponent
+  },
+  {
+    path: 'client/account-settings',
+    component: ClientSettingsComponent
   }
 ];
 

@@ -2,7 +2,15 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {JobAddComponent} from './job-add/job-add.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {CalendarModule, DropdownModule, InputTextareaModule, MessageService, ToolbarModule} from 'primeng/primeng';
+import {
+  CalendarModule,
+  DialogModule,
+  DropdownModule,
+  InputTextareaModule,
+  MessageService,
+  PasswordModule,
+  ToolbarModule
+} from 'primeng/primeng';
 import {CardModule} from 'primeng/card';
 import {SharedModule} from '../shared/shared.module';
 import {ToastModule} from 'primeng/toast';
@@ -16,6 +24,8 @@ import {JobListComponent} from './job-list/job-list.component';
 import { RecomandariCardComponent } from './recomandari-card/recomandari-card.component';
 import { ListaRecomandariDateComponent } from './lista-recomandari-date/lista-recomandari-date.component';
 import { ListaRecomandariPrimiteComponent } from './lista-recomandari-primite/lista-recomandari-primite.component';
+import { ClientSettingsComponent } from './client-settings/client-settings.component';
+import {RecommandationAddComponent} from './recommandation-add/recommandation-add.component';
 
 
 @NgModule({
@@ -30,7 +40,9 @@ import { ListaRecomandariPrimiteComponent } from './lista-recomandari-primite/li
     CardModule,
     SharedModule,
     ToastModule,
-    DropdownModule
+    DropdownModule,
+    PasswordModule,
+    DialogModule
   ],
   declarations: [
     ProviderListComponent,
@@ -43,6 +55,8 @@ import { ListaRecomandariPrimiteComponent } from './lista-recomandari-primite/li
     RecomandariCardComponent,
     ListaRecomandariDateComponent,
     ListaRecomandariPrimiteComponent
+    ClientSettingsComponent,
+    RecommandationAddComponent
   ],
   exports: [ToolbarClientComponent],
   providers: [MessageService],
@@ -52,7 +66,10 @@ import { ListaRecomandariPrimiteComponent } from './lista-recomandari-primite/li
     ToolbarClientComponent,
     ProviderListComponent,
     ProviderCardComponent,
-    JobListComponent
+    JobListComponent,
+    RecommandationAddComponent,
+    ClientSettingsComponent,
+
   ]
 })
 export class ClientModule {

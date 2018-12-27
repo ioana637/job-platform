@@ -75,3 +75,11 @@ export interface Job {
   location: string;
   category: string;
 }
+
+export interface Recommendation {
+  id?: string;
+  recommender: string;
+  recommendedProvider: string;
+  description: string;
+  date: string;
+}

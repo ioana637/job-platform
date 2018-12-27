@@ -5,12 +5,12 @@ import {
   HttpEvent,
   HttpInterceptor
 } from '@angular/common/http';
-import {LoginService} from '../../services/login.service';
+import {UserService} from '../../services/user.service';
 import {Observable, of} from 'rxjs';
 
 @Injectable()
 export class UserInterceptor implements HttpInterceptor {
-  constructor(public auth: LoginService) {
+  constructor(public auth: UserService) {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
