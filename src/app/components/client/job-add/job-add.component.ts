@@ -4,7 +4,7 @@ import {JobService} from '../../../services/job.service';
 import {MessageService} from 'primeng/api';
 import {AbilityComponent} from '../../shared/abilities/ability.component';
 import {convertTimestampToDate, convertTimestampToTime} from '../../../services/utils';
-import {LoginService} from '../../../services/login.service';
+import {UserService} from '../../../services/user.service';
 import {Job} from '../../shared/model';
 
 @Component({
@@ -18,15 +18,17 @@ export class JobAddComponent implements OnInit {
   abilityNumber = 1;
   @ViewChild('abilities', {read: ViewContainerRef}) viewContainerRef: ViewContainerRef;
   abilityComponents: ComponentRef<AbilityComponent>[] = [];
+  categories = [];
 
   constructor(private formBuilder: FormBuilder,
               private jobService: JobService,
               private messageService: MessageService,
               private factoryResolver: ComponentFactoryResolver,
-              private loginService: LoginService) {
+              private loginService: UserService) {
   }
 
   ngOnInit() {
+    this.categories = this.jobService.getCategories();
     this.buildForm();
     this.addAbilityComponent();
   }
@@ -107,6 +109,8 @@ export class JobAddComponent implements OnInit {
         hoursPerWeek: [''],
         hoursPerDay: [''],
         peopleRequired: ['', Validators.required],
+        category: ['', Validators.required],
+        location: ['', Validators.required],
       }
     );
   }

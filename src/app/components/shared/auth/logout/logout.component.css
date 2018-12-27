@@ -1,0 +1,26 @@
+.header{
+  font-weight: bold;
+
+}
+.icon{
+  font-size: 5.5em;
+  color: #11ce0c;
+}
+.icon.fail{
+  color: #FF5D5D;
+}
+
+.ui-card-header{
+  padding: 20px;
+}
+
+p-card{
+  height: 400px;
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 20px;
+}

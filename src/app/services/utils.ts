@@ -18,3 +18,9 @@ export function convertTimeToTimestamp(time: string) {
   date.setSeconds(Number(times[2]));
   return date;
 }
+
+export function convertDateToString(date: Date): string {
+  const months = Number(date.getMonth() + 1) > 9 ? (date.getMonth() + 1) : `0${(date.getMonth() + 1)}`;
+  const days = Number(date.getDate()) > 9 ? (date.getDate()) : `0${(date.getDate())}`;
+  return `${date.getFullYear()}-${months}-${days}`;
+}

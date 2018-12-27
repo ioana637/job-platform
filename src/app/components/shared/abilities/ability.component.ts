@@ -25,8 +25,8 @@ export class AbilityComponent implements OnInit {
   getAbility() {
     if (this.selectedLevel && this.selectedAbility) {
       if (this.selectedAbility instanceof Object) {
-        const {code, display} = this.selectedAbility;
-        return {code, display, level: this.selectedLevel.levelName.toUpperCase()};
+        const {id, code, display} = this.selectedAbility;
+        return {id, code, display, level: this.selectedLevel.levelName.toUpperCase()};
       } else {
         return {display: this.selectedAbility, code: this.selectedAbility, level: this.selectedLevel.levelName.toUpperCase()};
       }

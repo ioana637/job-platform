@@ -1,0 +1,43 @@
+<app-toolbar-client></app-toolbar-client>
+<p-toast position="top-right"></p-toast>
+
+<div class="main-div">
+  <div style="margin-left: 10px; margin-right: 10px">
+    <div><h4 class="title" align="center">Adauga o recomandare</h4></div>
+    <form [formGroup]="form">
+      <div class="row">
+        <div class="col">
+          <p-dropdown placeholder="Selectează un provider" optionLabel="username" [options]="providers"
+                      formControlName="recommendedProvider"></p-dropdown>
+        </div>
+
+      </div>
+      <p></p>
+
+
+      <div class="row">
+        <div class="col">
+          <p-dropdown placeholder="Selectează un client" optionLabel="username" [options]="clients"
+                      formControlName="recommender"></p-dropdown>
+        </div>
+
+
+      </div>
+      <p></p>
+
+      <div class="row">
+        <div class="col">
+           <textarea class="form-control" class="mesaj" formControlName="description" rows="4" type="text"
+                     placeholder="Mesaj"></textarea>
+        </div>
+
+        <p></p>
+      </div>
+
+    </form>
+    <div style="align-content: space-evenly">
+      <input type="button" class="anuleaza" value="Anuleaza" (click)="onCancel()"/>
+      <input type="submit" class="adauga" value="Adauga"  (click)="onSubmit()"/>
+    </div>
+  </div>
+</div>
