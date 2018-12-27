@@ -31,7 +31,7 @@ const routes = [
     component: ProviderListComponent
   },
   {
-    path: 'client/recommandation/add',
+    path: 'client/recommendation/add',
     component: RecommandationAddComponent
   },
   {

@@ -4,7 +4,7 @@ import {JobService} from '../../../services/job.service';
 import {MessageService} from 'primeng/api';
 import {AbilityComponent} from '../../shared/abilities/ability.component';
 import {convertTimestampToDate, convertTimestampToTime} from '../../../services/utils';
-import {LoginService} from '../../../services/login.service';
+import {UserService} from '../../../services/user.service';
 import {Job} from '../../shared/model';
 
 @Component({
@@ -24,7 +24,7 @@ export class JobAddComponent implements OnInit {
               private jobService: JobService,
               private messageService: MessageService,
               private factoryResolver: ComponentFactoryResolver,
-              private loginService: LoginService) {
+              private loginService: UserService) {
   }
 
   ngOnInit() {

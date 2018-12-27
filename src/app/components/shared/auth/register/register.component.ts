@@ -2,7 +2,7 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormControl, FormGroup, FormBuilder} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {User} from '../../model';
-import {LoginService} from '../../../../services/login.service';
+import {UserService} from '../../../../services/user.service';
 import {convertDateToString} from '../../../../services/utils';
 
 @Component({
@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private service: LoginService,
+    private service: UserService,
     private router: Router) {
   }
 

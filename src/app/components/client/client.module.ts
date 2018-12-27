@@ -2,7 +2,15 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {JobAddComponent} from './job-add/job-add.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {CalendarModule, DropdownModule, InputTextareaModule, MessageService, ToolbarModule} from 'primeng/primeng';
+import {
+  CalendarModule,
+  DialogModule,
+  DropdownModule,
+  InputTextareaModule,
+  MessageService,
+  PasswordModule,
+  ToolbarModule
+} from 'primeng/primeng';
 import {CardModule} from 'primeng/card';
 import {SharedModule} from '../shared/shared.module';
 import {ToastModule} from 'primeng/toast';
@@ -29,7 +37,9 @@ import {RecommandationAddComponent} from './recommandation-add/recommandation-ad
     CardModule,
     SharedModule,
     ToastModule,
-    DropdownModule
+    DropdownModule,
+    PasswordModule,
+    DialogModule
   ],
   declarations: [
     ProviderListComponent,
@@ -51,7 +61,9 @@ import {RecommandationAddComponent} from './recommandation-add/recommandation-ad
     ProviderListComponent,
     ProviderCardComponent,
     JobListComponent,
-    RecommandationAddComponent
+    RecommandationAddComponent,
+    ClientSettingsComponent,
+
   ]
 })
 export class ClientModule {
