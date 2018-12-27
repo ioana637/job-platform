@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation, Input} from '@angular/core';
 
 @Component({
   selector: 'app-recomandari-card',
@@ -8,21 +8,20 @@ import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 })
 export class RecomandariCardComponent implements OnInit {
 
-  @Input() public fullName: string = '';
-  @Input() public abilitate1: string = '';
-  @Input() public label1: string = '';
-  @Input() public abilitate2: string = '';
-  @Input() public label2: string = '';
-  @Input() public status: string = '';
-  @Input() public numeRecomandat: string = '';
-  @Input() public mesaj: string = '';
-  @Input() public rating: string = '';
- 
-  constructor() { }
+  @Input() public fullName = '';
+  @Input() public abilitate1 = '';
+  @Input() public label1 = '';
+  @Input() public abilitate2 = '';
+  @Input() public label2 = '';
+  @Input() public status = '';
+  @Input() public numeRecomandat = '';
+  @Input() public mesaj = '';
+  @Input() public rating = '';
+
+  constructor() {
+  }
 
   ngOnInit() {
-
-  
   }
 
 }
