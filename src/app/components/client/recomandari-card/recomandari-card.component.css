@@ -1,0 +1,71 @@
+ .card-property {
+    display: inline-block;
+    margin: 20px;
+    margin-right: 60px;
+    margin-left: 10%;
+
+}
+
+.firstLabel{
+    display: inline-block;
+  
+    margin-top: 8px;
+    margin-bottom: 5px;
+    margin-left: 3%;
+    font-size: 0.8rem;
+}
+
+.ability{
+    display: inline-block;
+    margin: 8px;
+    font-size: 0.8rem;
+}
+
+.mesaj{
+    margin-left: 8px;
+    margin-right: 8px;
+    /* margin: 8px; */
+    font-size: 0.8rem;
+}
+
+.secondLabel{
+    display: inline-block;
+    margin-top: 8px;
+    margin-bottom: 5px;
+    margin-left: 10%;
+    font-size: 0.8rem;
+}
+
+.star{
+    display: inline-block;
+    margin-left: 40%;
+    width: 20px;
+   
+  }
+
+
+
+.initials {
+    display: inline-block;
+    color: #ffffff;
+    font-weight: 600;
+    background-color: #00b3f7;
+    border-radius: 12px;
+    height: auto;
+    width: 7%;
+    text-align: center;
+    margin-right: 15px;
+    margin-left: 30px;
+    margin-top: 5%;
+
+}
+
+.provider-card-root{
+    height: 45%;
+}
+
+.fullname{
+    display: inline-block;  
+    font-size: 1.1rem;
+
+} 
