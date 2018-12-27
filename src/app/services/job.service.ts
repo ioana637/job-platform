@@ -30,6 +30,10 @@ export class JobService {
     return <Observable<Job>>this.http.get(`${jobUrl}/id=${id}`, httpOptions);
   }
 
+  public getJobsForUser(idUser: string, limit: number, pageNumber: number): Observable<Job[]> {
+    return <Observable<Job[]>>this.http.get(`${jobUrl}/user=${idUser}&limit=${limit}&start=${pageNumber}`, httpOptions);
+  }
+
   getCategories() {
     const map: { label: string; value: string }[] = [];
     for (const n in Category) {
@@ -39,5 +43,6 @@ export class JobService {
     }
     return map;
   }
+
 
 }
