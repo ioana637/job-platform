@@ -16,18 +16,23 @@ export class RegisterComponent implements OnInit {
   model: User = <User>{
     address: '',
     city: '',
-    role: '',
+    role: 'CLIENT',
     birthDate: '',
     phone: '',
     lastName: '',
     firstName: '',
     password: '',
     username: '',
-    email: ''
+    email: '',
+    subscribed: false
   };
   date = new Date();
   loading = false;
   returnUrl: string;
+  roles: any[] = [
+    {label: 'Client', value: 'CLIENT'},
+    {label: 'Provider', value: 'PROVIDER'}
+  ];
 
   constructor(
     private route: ActivatedRoute,
