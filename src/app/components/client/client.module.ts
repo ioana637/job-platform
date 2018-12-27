@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {JobAddComponent} from './job-add/job-add.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {CalendarModule, InputTextareaModule, MessageService, ToolbarModule, DialogModule, AutoCompleteModule} from 'primeng/primeng';
 import {
   CalendarModule,
   DialogModule,
@@ -21,6 +22,7 @@ import {ProviderCardComponent} from './provider-card/provider-card.component';
 import {JobEditComponent} from './job-edit/job-edit.component';
 import {ToolbarClientComponent} from './toolbar-client/toolbar-client.component';
 import {JobListComponent} from './job-list/job-list.component';
+import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 import { ClientSettingsComponent } from './client-settings/client-settings.component';
 import {RecommandationAddComponent} from './recommandation-add/recommandation-add.component';
 
@@ -37,6 +39,7 @@ import {RecommandationAddComponent} from './recommandation-add/recommandation-ad
     CardModule,
     SharedModule,
     ToastModule,
+    AutoCompleteModule,
     DropdownModule,
     PasswordModule,
     DialogModule
@@ -44,6 +47,7 @@ import {RecommandationAddComponent} from './recommandation-add/recommandation-ad
   declarations: [
     ProviderListComponent,
     ProviderCardComponent,
+    DialogBoxComponent,
     JobAddComponent,
     JobEditComponent,
     ClientComponent,
@@ -60,10 +64,10 @@ import {RecommandationAddComponent} from './recommandation-add/recommandation-ad
     ToolbarClientComponent,
     ProviderListComponent,
     ProviderCardComponent,
-    JobListComponent,
+    DialogBoxComponent,
+    JobListComponent
     RecommandationAddComponent,
     ClientSettingsComponent,
-
   ]
 })
 export class ClientModule {

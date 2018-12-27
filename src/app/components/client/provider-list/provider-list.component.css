@@ -4,6 +4,7 @@ html, body{
 .page-container{
     background-color: #f7f7f7;
     height: 100%;
+    margin: 20px;
 }
 
 .provider-card{
@@ -45,4 +46,26 @@ button {
 .card-container{
     justify-content: center;
     height: 7%;
+    margin: 2%;
+}
+.navigate-buttons{
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 80%;
+}
+.next-button{
+    position: absolute;
+    right: 0;
+    margin-right: 15%;
+}
+.previous-button{
+    position: absolute;
+    left: 0;
+    margin-left: 15%;
+}
+.check{
+    display: inline-block;
+    position: absolute;
+    right: 16%;
+    margin-top:25px;
 }
