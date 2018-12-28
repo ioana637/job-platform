@@ -1,12 +1,10 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {User} from '../../shared/model';
-import {forkJoin, Observable} from 'rxjs';
+import {forkJoin} from 'rxjs';
 import {RecommendationService} from '../../../services/recommendation.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {JobService} from '../../../services/job.service';
 import {UserService} from '../../../services/user.service';
 import {MessageService} from 'primeng/api';
-import {convertTimestampToDate} from '../../../services/utils';
 
 @Component({
   selector: 'app-recommandation-add',
@@ -22,6 +20,7 @@ export class RecommandationAddComponent implements OnInit {
 
   constructor(private service: RecommendationService,
               private formBuilder: FormBuilder,
+              private userService: UserService,
               private messageService: MessageService) {
   }
 
@@ -31,7 +30,6 @@ export class RecommandationAddComponent implements OnInit {
       this.clients = results[0];
       this.providers = results[1];
     });
-
   }
 
 
@@ -42,11 +40,13 @@ export class RecommandationAddComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      const {recommender, recommendedProvider, description} = this.form.value;
+      const {userFor, recommendedProvider, description} = this.form.value;
       const date = new Date().toJSON();
+      const user = this.userService.getUser();
       this.service.addRecommendation({
-        recommender,
+        recommender: user,
         recommendedProvider,
+        userFor,
         description,
         date: date.slice(0, date.length - 2)
       }).subscribe(
@@ -65,7 +65,7 @@ export class RecommandationAddComponent implements OnInit {
     this.form = this.formBuilder.group(
       {
         recommendedProvider: ['', Validators.required],
-        recommender: ['', Validators.required],
+        userFor: ['', Validators.required],
         description: ['', Validators.required],
       }
     );
