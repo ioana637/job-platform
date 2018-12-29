@@ -43,6 +43,7 @@ export interface User {
   starAvg?: string;
   subscribed?: boolean;
   twitter?: string;
+  abilities?: Ability[];
 }
 
 
@@ -78,9 +79,12 @@ export interface Job {
 
 export interface Recommendation {
   id?: string;
-  recommender: number; /*se completeaza cu idul userului corespunzator*/
-  recommendedProvider: number; /*se completeaza cu idul userului corespunzator*/
-  userFor: number; /*se completeaza cu idul userului corespunzator*/
+  recommender: number;
+  /*se completeaza cu idul userului corespunzator*/
+  recommendedProvider: number;
+  /*se completeaza cu idul userului corespunzator*/
+  userFor: number;
+  /*se completeaza cu idul userului corespunzator*/
   description?: string;
   date: string;
 }

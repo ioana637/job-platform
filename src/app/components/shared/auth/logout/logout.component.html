@@ -1,6 +1,5 @@
 <app-toolbar></app-toolbar>
 <p-card *ngIf="layoutSuccess" class="logout-card">
-
   <p-header class="header">
     <div><i class="fa fa-check icon"></i></div>
     <span>Te-ai delogat cu succes! <br> Mergi inapoi la login!</span>
@@ -8,7 +7,6 @@
   <div class="content">
     <p-button class="login-button" label="Logare" (click)="redirectToLogIn()"></p-button>
   </div>
-
 </p-card>
 <p-card *ngIf="layoutError">
   <p-header class="header">
@@ -16,5 +14,6 @@
     <span>Nu te-ai delogat!</span>
   </p-header>
 </p-card>
+<router-outlet></router-outlet>
 
 

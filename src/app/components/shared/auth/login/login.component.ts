@@ -35,9 +35,9 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.model).subscribe(
       (user: User) => {
         if (user.role === 'CLIENT') {
-          this.router.navigate(['/client/job']);
+          this.router.navigate(['client/job']);
         } else {
-          this.router.navigate(['/provider']);
+          this.router.navigate(['provider']);
         }
       },
       (error) => {

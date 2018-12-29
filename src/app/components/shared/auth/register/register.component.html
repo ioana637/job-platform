@@ -1,7 +1,5 @@
 <app-toolbar></app-toolbar>
-<br>
-<br>
-<div class="row justify-content-center">
+<div class="row justify-content-center mt-4">
   <p-card class="col-4">
     <div class="title-container">
       <div class='logo'></div>
@@ -220,7 +218,22 @@
         <label class="form-check-label" for="checkBoxSubscribed">Subscribed</label>
       </div>
 
+      <div *ngIf="model.role==='PROVIDER'">
+        <div class="form-row m-3" style="color: #384A50;font-family: 'Open Sans';font-size: 14px">
+          <div class="col"  style="color: #29B3F6;font-family: 'Open Sans';font-size: 14px">
+            Adaugă abilități pentru a ușura gasirea unui potențial angajator
+          </div>
+        </div>
+        <div class="form-row m-3" style="color: #384A50;font-family: 'Open Sans';font-size: 14px">
+          <div class="col">
+            <ng-template #abilities></ng-template>
+          </div>
 
+        </div>
+        <div class="form-row m-3">
+          <div class="col" style="color: #29B3F6;font-family: 'Open Sans';font-size: 14px" (click)="addAbilityComponent()">Adaugă abilitate</div>
+        </div>
+      </div>
       <div class="ui-fluid">
         <p-button type="submit"
                   class="register-button"
