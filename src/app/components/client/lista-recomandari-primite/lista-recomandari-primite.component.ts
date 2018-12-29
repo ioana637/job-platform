@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Recommendation } from '../../shared/model';
+import { Observable } from 'rxjs';
+import { RecommendationService } from 'src/app/services/recommendation.service';
 
 @Component({
   selector: 'app-lista-recomandari-primite',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaRecomandariPrimiteComponent implements OnInit {
 
-  constructor() { }
+  public listaRecomandariPrimite : Observable<Recommendation[]>;
+  constructor(private recommendationSerivce :RecommendationService) { }
 
   ngOnInit() {
+    this.recommendationSerivce.getRecivedRecommendation().subscribe(resp => {
+      this.listaRecomandariPrimite=this.recommendationSerivce.getRecivedRecommendation();
+    })
+   
   }
 
+
+ 
 }
