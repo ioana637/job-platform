@@ -1,11 +1,16 @@
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {ProviderComponent} from './provider/provider.component';
+import {ProviderSettingsComponent} from './provider-settings/provider-settings.component';
 
 const routes = [
   {
     path: 'provider',
     component: ProviderComponent
+  },
+  {
+    path: 'provider/account-settings',
+    component: ProviderSettingsComponent
   }
 ];
 
