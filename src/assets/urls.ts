@@ -5,6 +5,6 @@ export const registerUrl = `${baseUrl}/register`;
 export const abilityUrl = `${baseUrl}/ability`;
 export const levelUrl = `${abilityUrl}/levels`;
 export const providerUrl = `${baseUrl}`;
-
+export const requestUrl = `${baseUrl}/request/provider/1`;
 
 

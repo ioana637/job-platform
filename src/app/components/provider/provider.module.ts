@@ -4,6 +4,7 @@ import {ProviderComponent} from './provider/provider.component';
 import {ProviderRoutingModule} from './provider-routing.module';
 import { ToolbarModule } from 'primeng/primeng';
 import { ToolbarProviderComponent } from './toolbar-provider/toolbar-provider.component';
+import {RequestListComponent} from './request-list/request-list.component';
 
 @NgModule({
   imports: [
@@ -11,9 +12,11 @@ import { ToolbarProviderComponent } from './toolbar-provider/toolbar-provider.co
     ProviderRoutingModule,
     ToolbarModule
   ],
-  declarations: [ProviderComponent, ToolbarProviderComponent],
+  declarations: [ProviderComponent, ToolbarProviderComponent, RequestListComponent],
+  exports: [ToolbarProviderComponent],
   entryComponents: [
-    ProviderComponent
+    ProviderComponent,
+    RequestListComponent
   ]
 })
 export class ProviderModule {
