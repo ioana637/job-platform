@@ -5,12 +5,14 @@ import {ProviderRoutingModule} from './provider-routing.module';
 import { ToolbarModule } from 'primeng/primeng';
 import { ToolbarProviderComponent } from './toolbar-provider/toolbar-provider.component';
 import {RequestListComponent} from './request-list/request-list.component';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   imports: [
     CommonModule,
     ProviderRoutingModule,
-    ToolbarModule
+    ToolbarModule,
+    TableModule
   ],
   declarations: [ProviderComponent, ToolbarProviderComponent, RequestListComponent],
   exports: [ToolbarProviderComponent],
