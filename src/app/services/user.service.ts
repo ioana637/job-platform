@@ -33,7 +33,7 @@ export class UserService {
     localStorage.setItem('user', JSON.stringify(user));
   }
 
-  public getUser() {
+  public getUser(): User {
     return JSON.parse(localStorage.getItem('user'));
   }
 

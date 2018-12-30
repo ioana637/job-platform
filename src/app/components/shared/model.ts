@@ -25,8 +25,8 @@ export enum Category {
 }
 
 export interface User {
-  username: string;
-  password: string;
+  username?: string;
+  password?: string;
   role?: string;
   id?: string;
   firstName?: string;
@@ -79,12 +79,9 @@ export interface Job {
 
 export interface Recommendation {
   id?: string;
-  recommender: number;
-  /*se completeaza cu idul userului corespunzator*/
-  recommendedProvider: number;
-  /*se completeaza cu idul userului corespunzator*/
-  userFor: number;
-  /*se completeaza cu idul userului corespunzator*/
+  recommender: User;
+  recommendedProvider: User;
+  userFor: User;
   description?: string;
   date: string;
 }

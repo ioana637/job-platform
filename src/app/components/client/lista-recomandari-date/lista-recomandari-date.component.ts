@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Recommendation } from '../../shared/model';
-import { RecommendationService } from 'src/app/services/recommendation.service';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
+import {Recommendation} from '../../shared/model';
+import {RecommendationService} from 'src/app/services/recommendation.service';
+import {UserService} from '../../../services/user.service';
 
 @Component({
   selector: 'app-lista-recomandari-date',
@@ -9,14 +10,17 @@ import { RecommendationService } from 'src/app/services/recommendation.service';
   styleUrls: ['./lista-recomandari-date.component.css']
 })
 export class ListaRecomandariDateComponent implements OnInit {
-  
-  public listaRecomandariDate : Observable<Recommendation[]>;
-  constructor(private recommendationSerivce :RecommendationService) { }
+
+  public listaRecomandariDate: Recommendation[];
+
+  constructor(private recommendationSerivce: RecommendationService,
+              private userService: UserService) {
+  }
 
   ngOnInit() {
-    this.recommendationSerivce.getGivenRecommendation().subscribe(resp => {
-      this.listaRecomandariDate=this.recommendationSerivce.getGivenRecommendation();
-  })
-}
+    this.recommendationSerivce.getGivenRecommendations(this.userService.getUser().id).subscribe(resp => {
+      this.listaRecomandariDate = resp;
+    });
+  }
 
 }

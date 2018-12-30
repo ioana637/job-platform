@@ -3,7 +3,7 @@ import {Observable} from 'rxjs';
 import {Job, Recommendation, User} from '../components/shared/model';
 import {baseUrl, recommendationUrl} from '../../assets/urls';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { UserService } from './user.service';
+import {UserService} from './user.service';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -16,9 +16,8 @@ const httpOptions = {
 })
 export class RecommendationService {
 
-  constructor(private http: HttpClient,
-              private userService: UserService) 
-              {}
+  constructor(private http: HttpClient) {
+  }
 
   public getClients(): Observable<User[]> {
     return <Observable<User[]>>this.http.get(`${baseUrl}/clients`, httpOptions);
@@ -32,14 +31,11 @@ export class RecommendationService {
     return <Observable<Recommendation>>this.http.post(recommendationUrl, recommendation, httpOptions);
   }
 
-  public getRecivedRecommendation(): Observable<Recommendation[]> {
-    var userFrom = this.userService.getUser().id;
-    return <Observable<Recommendation[]>>this.http.get(`${recommendationUrl}/recommended/${userFrom}`);
+  public getReceivedRecommendations(userFor: string): Observable<Recommendation[]> {
+    return <Observable<Recommendation[]>>this.http.get(`${recommendationUrl}/recommended/${userFor}`);
   }
 
-  
-  public getGivenRecommendation(): Observable<Recommendation[]> {
-    var recommender = this.userService.getUser().id;
+  public getGivenRecommendations(recommender: string): Observable<Recommendation[]> {
     return <Observable<Recommendation[]>>this.http.get(`${recommendationUrl}/recommender/${recommender}`, httpOptions);
   }
 }

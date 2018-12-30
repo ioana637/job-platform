@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Recommendation } from '../../shared/model';
-import { Observable } from 'rxjs';
-import { RecommendationService } from 'src/app/services/recommendation.service';
+import {Component, OnInit} from '@angular/core';
+import {Recommendation} from '../../shared/model';
+import {Observable} from 'rxjs';
+import {RecommendationService} from 'src/app/services/recommendation.service';
+import {UserService} from '../../../services/user.service';
 
 @Component({
   selector: 'app-lista-recomandari-primite',
@@ -10,16 +11,19 @@ import { RecommendationService } from 'src/app/services/recommendation.service';
 })
 export class ListaRecomandariPrimiteComponent implements OnInit {
 
-  public listaRecomandariPrimite : Observable<Recommendation[]>;
-  constructor(private recommendationSerivce :RecommendationService) { }
+  public listaRecomandariPrimite: Recommendation[];
+
+  constructor(private recommendationSerivce: RecommendationService,
+              private userService: UserService
+  ) {
+  }
 
   ngOnInit() {
-    this.recommendationSerivce.getRecivedRecommendation().subscribe(resp => {
-      this.listaRecomandariPrimite=this.recommendationSerivce.getRecivedRecommendation();
-    })
-   
+    this.recommendationSerivce.getReceivedRecommendations(this.userService.getUser().id).subscribe(resp => {
+      this.listaRecomandariPrimite = resp;
+    });
+
   }
 
 
- 
 }
