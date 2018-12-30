@@ -1,6 +1,7 @@
 import {ViewEncapsulation, OnInit, Component} from '@angular/core';
 import {RequestService} from '../../../services/request.service';
-
+import {UserService} from '../../../services/user.service';
+import {Request} from '../../shared/model';
 
 @Component({
     selector: 'app-request-list',
@@ -9,15 +10,18 @@ import {RequestService} from '../../../services/request.service';
     encapsulation: ViewEncapsulation.None
 })
 export class RequestListComponent implements OnInit {
-  constructor(private requestService: RequestService) {
+  constructor(private requestService: RequestService, private userService: UserService) {
   }
+
   requests: Request[];
   request: Request;
   ability: String;
+
   ngOnInit() {
     this.requests = [];
     this.ability = '';
-    this.requestService.getRequests().subscribe(
+
+    this.requestService.getRequests(this.userService.getUser().id).subscribe(
       (result) => {
         Object.values(result).forEach(req => {
           req.job.abilities.forEach(
@@ -40,10 +44,3 @@ export class RequestListComponent implements OnInit {
   }
 }
 
-export interface Request {
-  nrCerere;
-  job;
-  angajator;
-  peopleRequired;
-  abilities;
-}
