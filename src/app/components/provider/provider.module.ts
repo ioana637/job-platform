@@ -15,7 +15,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     CommonModule,
     ProviderRoutingModule,
     ToolbarModule,
-    TableModule
+    TableModule,
+    ToastModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ButtonModule,
   ],
   declarations: [ProviderComponent, ToolbarProviderComponent, RequestListComponent, ProviderSettingsComponent],
   exports: [ToolbarProviderComponent,
