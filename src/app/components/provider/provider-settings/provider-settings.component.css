@@ -103,10 +103,21 @@ body .btn-cancel > .ui-button:enabled:hover {
   color: #FF5D5D !important;
 }
 
-
 .icon {
   color: #FF5D5D !important;
   align-items: center;
   display: flex;
+}
+
+.abilities {
+  color: #384A50;
+  font-family: 'Open Sans';
+  font-size: 14px
+}
+
+.add-ability {
+  color: #29B3F6;
+  font-family: 'Open Sans';
+  font-size: 14px
 }
 

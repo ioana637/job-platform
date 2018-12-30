@@ -1,4 +1,4 @@
-<app-toolbar-client></app-toolbar-client>
+<app-toolbar-provider></app-toolbar-provider>
 <p-toast position="top-right"></p-toast>
 <div class="container-fluid my-div-class">
   <div class="row mb-3 mt-3">
@@ -67,6 +67,21 @@
 
       <hr>
     </form>
+    <div class="form-row m-3" class="abilities">
+      <div class="col" class="add-ability">
+        Adaugă abilități pentru a ușura gasirea unui potențial angajator
+      </div>
+    </div>
+    <div class="form-row m-3" class="abilities">
+      <div class="col">
+        <ng-template #abilities></ng-template>
+      </div>
+    </div>
+    <div class="form-row m-3">
+      <div class="col" class="add-ability" (click)="addAbilityComponent()">
+        Adaugă abilitate
+      </div>
+    </div>
     <div class="row form-group mx-1">
       <div class="col">
         <p class="mt-2" style="color: #00b3f7">
@@ -96,7 +111,7 @@
       </div>
       <i
         *ngIf="this.passwords.newPassword && this.passwords.confirmedPassword&& this.passwords.newPassword!==this.passwords.confirmedPassword"
-        class="fa fa-times fa-2x icon" ></i>
+        class="fa fa-times fa-2x icon"></i>
     </div>
     <div class="row form-group mx-1">
       <div class="col-md-6">

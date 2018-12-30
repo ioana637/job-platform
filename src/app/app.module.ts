@@ -4,7 +4,7 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {ClientModule} from './components/client/client.module';
 import {HttpClientModule} from '@angular/common/http';
-import {LoginService} from './services/login.service';
+import {UserService} from './services/user.service';
 import {JobService} from './services/job.service';
 import {SharedModule} from './components/shared/shared.module';
 import {AbilityService} from './services/ability.service';
@@ -27,7 +27,7 @@ import {RequestService} from './services/request.service';
     AppRoutingModule
   ],
   providers: [
-    LoginService,
+    UserService,
     JobService,
     AbilityService,
     RequestService,

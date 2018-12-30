@@ -6,9 +6,9 @@
     <h2 class="left disabled">Jobify</h2>
   </form>
   <form class="navbar-form navbar-right">
-    <a *ngIf='currentUser' class="disabled">{{this.currentUser.username}}</a>
 
     <a href="logout">Log Out</a>
+    <a *ngIf='currentUser' href="client/account-settings">{{this.currentUser.username}}</a>
     <a href="#">Recomandari</a>
     <a href="client/providerList">Provideri</a>
 
