@@ -4,34 +4,15 @@
   <div class="row page-title">Recomandari Primite
   </div>
   <div class="row card-container">
-      <app-recomandari-card class="provider-card" 
+    <app-recomandari-card class="provider-card" *ngFor = "let recomandare of listaRecomandariPrimite | async"
         [fullName]="'Marian Iulian'"
-        [rating]="'3.45'" 
-        [label1]="'Limba Engleza'" 
-        [abilitate1]="'Experimentat'" 
-        [label2]="'Programare'" 
+        [rating]="'3.45'"
+        [label1]="'Limba Engleza'"
+        [abilitate1]="'Experimentat'"
+        [label2]="'Programare'"
         [abilitate2]="'Experimentat'"
-        [numeRecomandat]="'Popescu Ion'" 
-        [mesaj]="'Lorem ipsum dolor sit amet, ex saepe nusquam voluptatum sea, nullam numquam scaevola an sed. Eros accumsan concludaturque id eos, at dolores reprimique qui. Est quem tractatos voluptatum an. Omittam deleniti at sed, quo sint insolens democritum eu, id consul probatus interpretaris vix. Eum aliquip invidunt voluptaria no.'"></app-recomandari-card>
-                          
-      <app-recomandari-card class="provider-card" 
-        [fullName]="'Marian Iulian'" 
-        [rating]="'3.45'" 
-        [label1]="'Limba Engleza'" 
-        [abilitate1]="'Experimentat'" 
-        [label2]="'Programare'" 
-        [abilitate2]="'Experimentat'"
-        [numeRecomandat]="'Popescu Ion'" 
-        [mesaj]="'Lorem ipsum dolor sit amet, ex saepe nusquam voluptatum sea, nullam numquam scaevola an sed. Eros accumsan concludaturque id eos, at dolores reprimique qui. Est quem tractatos voluptatum an. Omittam deleniti at sed, quo sint insolens democritum eu, id consul probatus interpretaris vix. Eum aliquip invidunt voluptaria no.'"></app-recomandari-card>
-                              
-      <app-recomandari-card class="provider-card" 
-        [fullName]="'Marian Iulian'" 
-        [rating]="'3.45'" 
-        [label1]="'Limba Engleza'" 
-        [abilitate1]="'Experimentat'" 
-        [label2]="'Programare'" 
-        [abilitate2]="'Experimentat'"
-        [numeRecomandat]="'Popescu Ion'" 
-        [mesaj]="'Lorem ipsum dolor sit amet, ex saepe nusquam voluptatum sea, nullam numquam scaevola an sed. Eros accumsan concludaturque id eos, at dolores reprimique qui. Est quem tractatos voluptatum an. Omittam deleniti at sed, quo sint insolens democritum eu, id consul probatus interpretaris vix. Eum aliquip invidunt voluptaria no.'"></app-recomandari-card>
+        [numeRecomandat]="'Popescu Ion'"
+        [mesaj]=recomandare.description></app-recomandari-card>
+      
   </div>
 </div>
