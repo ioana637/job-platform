@@ -1,3 +1,14 @@
 <app-toolbar-provider></app-toolbar-provider>
 
-<h1>It works</h1>
+<div class="page-container">
+    <div class="row page-title">Lista Joburilor
+    </div>
+    <div class="card-jobs-container">
+        <div class="card-container" *ngFor="let job of availableJobs">
+            <app-job-card [jobTitle]="job.title" [jobDescription]="job.description">
+                
+            </app-job-card>
+        </div>
+    </div>
+
+</div>

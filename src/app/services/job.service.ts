@@ -40,7 +40,7 @@ export class JobService {
     return map;
   }
 
-  public getJobsForUser(idUser: string, limit: string, pageNumber: string): Observable<Job[]> {
+  public getJobsForUser(idUser: string, limit: number, pageNumber: number): Observable<Job[]> {
     return <Observable<Job[]>>this.http.get(`${jobUrl}/user=${idUser}&limit=${limit}&start=${pageNumber}`, httpOptions);
   }
 
