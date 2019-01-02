@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {AbilityService} from '../../../services/ability.service';
 import {Ability, Level} from '../model';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-ability',
@@ -16,7 +17,7 @@ export class AbilityComponent implements OnInit {
   filteredAbilities: Ability[];
   filteredLevels: Level[];
 
-  constructor(private abilityService: AbilityService) {
+  constructor(private abilityService: AbilityService, private messageService: MessageService,) {
   }
 
   ngOnInit() {
@@ -40,14 +41,14 @@ export class AbilityComponent implements OnInit {
     const query = event.query;
     this.abilityService.fetch().subscribe(abilities => {
       this.filteredAbilities = this.filter(query, abilities, 'display');
-    });
+    }, error => this.messageService.add({severity: 'error', summary: 'Eroare', detail: "A aparut o eroare, incercati din nou mai tarziu"}))
   }
 
   filterLevel(event) {
     const query = event.query;
     this.abilityService.fetchLevels().subscribe(levels => {
       this.filteredLevels = this.filter(query, levels, 'levelName');
-    });
+    }, error => this.messageService.add({severity: 'error', summary: 'Eroare', detail: "A aparut o eroare, incercati din nou mai tarziu"}));
   }
 
   filter(query, entities, prop) {
