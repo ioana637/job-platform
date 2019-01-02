@@ -67,7 +67,7 @@ export class ProviderListComponent implements OnInit {
         this.displaySuccess();
       },
       (error) => {
-        this.messageService.add({severity: 'error', summary: 'Eroare', detail: "A aparut o eroare, incercati din nou."});
+        this.messageService.add({severity: 'error', summary: 'Eroare', detail: "A aparut o eroare, incercati din nou mai tarziu"});
       }
     )
   }

@@ -44,7 +44,7 @@ export class DialogBoxComponent implements OnInit{
       this.getJobs().subscribe((currentJobs) =>{
         this.jobs = currentJobs;
       console.log('Jobs: ', this.jobs);
-      },  error => this.messageService.add({severity: 'error', summary: 'Erroare', detail: "A aparut o eroare, incercati din nou"}) );
+      },  error => this.messageService.add({severity: 'error', summary: 'Erroare', detail: "A aparut o eroare, incercati din nou mai tarziu"}) );
     }
 
     private getJobs(): Observable<Job[]>{
