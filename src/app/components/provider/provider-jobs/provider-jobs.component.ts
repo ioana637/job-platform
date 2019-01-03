@@ -35,4 +35,8 @@ export class ProviderJobsComponent implements OnInit {
   private loadData(): Observable<Job[]>{
     return this.jobService.getJobsForUser(this.userId, this.limit, this.pageNumber);
   }
+
+  private onClickAssign(event: string): void {
+    this.jobService.assignJob(this.userId, event);
+  }
 }

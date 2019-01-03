@@ -5,7 +5,12 @@
     </div>
     <div class="card-jobs-container">
         <div class="card-container" *ngFor="let job of availableJobs">
-            <app-job-card [jobTitle]="job.title" [jobDescription]="job.description">
+            <app-job-card
+                (assignedClick)="onClickAssign($event)"
+                [jobTitle]="job.title"
+                [jobDescription]="job.description"
+                [jobId]="job.id"
+                [jobStatus]="job.status">
                 
             </app-job-card>
         </div>

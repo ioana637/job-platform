@@ -44,4 +44,8 @@ export class JobService {
     return <Observable<Job[]>>this.http.get(`${jobUrl}/user=${idUser}&limit=${limit}&start=${pageNumber}`, httpOptions);
   }
 
+  public assignJob(idUser: string, idJob: string):void {
+    
+  }
+
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-job-card',
@@ -9,9 +9,17 @@ export class JobCardComponent implements OnInit {
 
     @Input() jobTitle: string = '';
     @Input() jobDescription: string = '';
+    @Input() jobId: string = '';
+    @Input() jobStatus: string = '';
+
+    @Output() assignedClick = new EventEmitter();
 
     ngOnInit(){
 
+    }
+
+    private onBtnClick(): void{
+      this.assignedClick.emit(this.jobId);
     }
 
 }
