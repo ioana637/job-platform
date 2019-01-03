@@ -1,0 +1,48 @@
+<p-dialog header="Detalii cerere"
+          [width]="600"
+          [(visible)]="display"
+          (onHide)="onHide()"
+          (onShow)="onShow()"
+          modal="modal"
+          [responsive]="true">
+  <div class="ui-fluid dialog-container">
+
+    <input type="text"
+           class="borderless-disable-input"
+           [(ngModel)]="model.description"
+           [disabled]="true"/>
+
+    <div class="ui-g">
+      <div class="ui-g-6">
+        <i class="fa fa-user"></i>
+        <input type="text"
+               class="borderless-disable-input"
+               [(ngModel)]="model.userFrom"
+               [disabled]="true"/>
+      </div>
+      <div class="ui-g-6">
+        <i class="fa fa-phone"></i>
+        <input type="text"
+               class="borderless-disable-input"
+               [(ngModel)]="model.phoneNumber"
+               [disabled]="true"/>
+      </div>
+    </div>
+    <div class="ui-g">
+      <div class="ui-g-6">
+        <i class="fa fa-envelope"></i>
+        <input type="text"
+               class="borderless-disable-input"
+               [(ngModel)]="model.email"
+               [disabled]="true"/>
+      </div>
+      <div class="ui-g-6">
+        <i class="fa fa-map-marker"></i>
+        <input type="text"
+               class="borderless-disable-input"
+               [(ngModel)]="model.location"
+               [disabled]="true"/>
+      </div>
+    </div>
+</div>
+</p-dialog>

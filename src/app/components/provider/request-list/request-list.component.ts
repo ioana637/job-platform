@@ -1,4 +1,4 @@
-import {ViewEncapsulation, OnInit, Component} from '@angular/core';
+import {ViewEncapsulation, OnInit, Component, Output, EventEmitter} from '@angular/core';
 import {RequestService} from '../../../services/request.service';
 import {UserService} from '../../../services/user.service';
 import {Request} from '../../shared/model';
@@ -13,14 +13,15 @@ export class RequestListComponent implements OnInit {
   constructor(private requestService: RequestService, private userService: UserService) {
   }
 
+  protected display: boolean = false;
   requests: Request[];
   request: Request;
   ability: String;
+  selectedRequest: string = null;
 
   ngOnInit() {
     this.requests = [];
     this.ability = '';
-
     this.requestService.getRequests(this.userService.getUser().id).subscribe(
       (result) => {
         Object.values(result).forEach(req => {
@@ -41,6 +42,20 @@ export class RequestListComponent implements OnInit {
         console.log(error);
       });
     console.log(this.requests);
+  }
+
+  showDialog(event) {
+    console.log(event.data)
+    this.display = true;
+  }
+
+  private onDialogClose(event): void {
+    this.display = event.currentTarget;
+  }
+
+  onRowClicked() {
+    console.log(this.selectedRequest);
+    this.display = true;
   }
 }
 

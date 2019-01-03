@@ -2,13 +2,14 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ProviderComponent} from './provider/provider.component';
 import {ProviderRoutingModule} from './provider-routing.module';
-import {ButtonModule, ToolbarModule} from 'primeng/primeng';
+import {ButtonModule, DialogModule, ToolbarModule} from 'primeng/primeng';
 import { ToolbarProviderComponent } from './toolbar-provider/toolbar-provider.component';
 import {RequestListComponent} from './request-list/request-list.component';
 import {TableModule} from 'primeng/table';
 import { ProviderSettingsComponent } from './provider-settings/provider-settings.component';
 import {ToastModule} from 'primeng/toast';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { RequestDetailsDialogComponent } from './request-details-dialog/request-details-dialog.component';
 
 @NgModule({
   imports: [
@@ -20,8 +21,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     ButtonModule,
+    DialogModule
   ],
-  declarations: [ProviderComponent, ToolbarProviderComponent, RequestListComponent, ProviderSettingsComponent],
+  declarations: [ProviderComponent, ToolbarProviderComponent, RequestListComponent, ProviderSettingsComponent, RequestDetailsDialogComponent],
   exports: [ToolbarProviderComponent,
     ToastModule,
     FormsModule,

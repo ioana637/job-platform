@@ -96,3 +96,11 @@ export interface Recommendation {
   description?: string;
   date: string;
 }
+
+export interface RequestForDialog {
+  description?: String;
+  userFrom?: String;
+  phoneNumber?: String;
+  email?: String;
+  location?: String;
+}

@@ -20,4 +20,9 @@ export class RequestService {
     return this.http.get(`${requestUrl}/${id}`,
       httpOptions);
   }
+
+  public getRequestById(id) {
+    return this.http.get(`http://localhost:8080/request/id=${id}`,
+      httpOptions);
+  }
 }
