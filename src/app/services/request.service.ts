@@ -17,12 +17,12 @@ export class RequestService {
   }
 
   public getRequests(id) {
-    return this.http.get(`${requestUrl}/${id}`,
+    return this.http.get(`${requestUrl}/provider/${id}`,
       httpOptions);
   }
 
   public getRequestById(id) {
-    return this.http.get(`http://localhost:8080/request/id=${id}`,
+    return this.http.get(`${requestUrl}/id=${id}`,
       httpOptions);
   }
 }

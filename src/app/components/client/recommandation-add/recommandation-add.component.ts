@@ -54,7 +54,7 @@ export class RecommandationAddComponent implements OnInit {
           this.messageService.add({severity: 'info', summary: 'Informare', detail: 'Recomandarea a fost adaugata cu succes!'});
           this.form.reset();
         },
-        error => this.messageService.add({severity: 'error', summary: 'Eroare', detail: error})
+        error => this.messageService.add({severity: 'error', summary: 'Eroare', detail: "A aparut o eroare, incercati din nou mai tarziu"})
       );
     } else {
       this.messageService.add({severity: 'error', summary: 'Eroare', detail: 'Trebuie să completați câmpurile obligatorii!'});

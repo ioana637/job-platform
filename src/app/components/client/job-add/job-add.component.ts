@@ -90,7 +90,7 @@ export class JobAddComponent implements OnInit {
           this.addAbilityComponent();
         },
         error => {
-          this.messageService.add({severity: 'error', summary: 'Eroare', detail: error.message});
+          this.messageService.add({severity: 'error', summary: 'Eroare', detail: "A aparut o eroare, incercati din nou mai tarziu"});
         });
     } else {
       this.messageService.add({severity: 'error', summary: 'Eroare', detail: 'Trebuie să completați câmpurile obligatorii!'});
