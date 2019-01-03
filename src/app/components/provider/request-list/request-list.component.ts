@@ -20,7 +20,7 @@ export class RequestListComponent implements OnInit {
   ngOnInit() {
     this.requests = [];
     this.ability = '';
-
+    console.log(this.userService.getUser());
     this.requestService.getRequests(this.userService.getUser().id).subscribe(
       (result) => {
         Object.values(result).forEach(req => {

@@ -17,7 +17,7 @@ export class RequestService {
   }
 
   public getRequests(id) {
-    return this.http.get(`${requestUrl}/${id}`,
+    return this.http.get(`${requestUrl}/provider/${id}`,
       httpOptions);
   }
 }

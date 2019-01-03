@@ -10,7 +10,7 @@ const routes = [
     component: ProviderComponent
   },
   {
-    path: 'request/provider',
+    path: 'provider/request',
     component: RequestListComponent
   },
   {
