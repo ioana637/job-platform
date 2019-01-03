@@ -1,3 +1,29 @@
+export enum Category {
+  Administratie = 'Administratie',
+  Alimentatie = 'Alimentatie',
+  Arta = 'Arta',
+  Asigurari = 'Asigurari',
+  Banci = 'Banci',
+  Comert = 'Comert',
+  Constructii = 'Constructii',
+  Educatie = 'Educatie',
+  Imobiliare = 'Imobiliare',
+  It = 'IT',
+  LemnPvc = 'Lemn si PVC',
+  Masini = 'Masini',
+  Media = 'Media',
+  Sanatate = 'Sanatate',
+  Aeronautica = 'Aeronautica',
+  PazaProtectie = 'Paza si Protectie',
+  Servicii = 'Servicii',
+  PublicitateMarketing = 'Publicitate si Marketing',
+  SportFrumusete = 'Sport si Frumusete',
+  Logistica = 'Logistica',
+  Turism = 'Turism',
+  MarochinarieTextile = 'Marochinarie si Textile',
+  Altele = 'Altele'
+}
+
 export interface User {
   username: string;
   password: string;
@@ -24,6 +50,7 @@ export interface Ability {
   code: string;
   display: string;
   level: string;
+  id?: string;
 }
 
 
@@ -45,4 +72,14 @@ export interface Job {
   abilities?: Ability[];
   hoursPerDay?: number;
   hoursPerWeek?: number;
+  location: string;
+  category: string;
+}
+
+export interface Recommendation {
+  id?: string;
+  recommender: string;
+  recommendedProvider: string;
+  description: string;
+  date: string;
 }

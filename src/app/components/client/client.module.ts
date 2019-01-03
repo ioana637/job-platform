@@ -1,8 +1,17 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {JobAddComponent} from './add-job/job-add.component';
+import {JobAddComponent} from './job-add/job-add.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CalendarModule, InputTextareaModule, MessageService, ToolbarModule, DialogModule, AutoCompleteModule} from 'primeng/primeng';
+import {
+  CalendarModule,
+  DialogModule,
+  DropdownModule,
+  InputTextareaModule,
+  MessageService,
+  PasswordModule,
+  ToolbarModule
+} from 'primeng/primeng';
 import {CardModule} from 'primeng/card';
 import {SharedModule} from '../shared/shared.module';
 import {ToastModule} from 'primeng/toast';
@@ -14,6 +23,8 @@ import {JobEditComponent} from './job-edit/job-edit.component';
 import {ToolbarClientComponent} from './toolbar-client/toolbar-client.component';
 import {JobListComponent} from './job-list/job-list.component';
 import { DialogBoxComponent } from './dialog-box/dialog-box.component';
+import { ClientSettingsComponent } from './client-settings/client-settings.component';
+import {RecommandationAddComponent} from './recommandation-add/recommandation-add.component';
 
 
 @NgModule({
@@ -28,8 +39,10 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
     CardModule,
     SharedModule,
     ToastModule,
-    DialogModule,
     AutoCompleteModule,
+    DropdownModule,
+    PasswordModule,
+    DialogModule
   ],
   declarations: [
     ProviderListComponent,
@@ -39,7 +52,9 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
     JobEditComponent,
     ClientComponent,
     ToolbarClientComponent,
-    JobListComponent
+    JobListComponent,
+    ClientSettingsComponent,
+    RecommandationAddComponent
   ],
   exports: [ToolbarClientComponent],
   providers: [MessageService],
@@ -51,6 +66,8 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
     ProviderCardComponent,
     DialogBoxComponent,
     JobListComponent
+    RecommandationAddComponent,
+    ClientSettingsComponent,
   ]
 })
 export class ClientModule {
