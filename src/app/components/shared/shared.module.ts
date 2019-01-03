@@ -14,6 +14,8 @@ import {AutoCompleteModule, CalendarModule, DropdownModule, ToolbarModule} from 
 import {AbilityComponent} from './abilities/ability.component';
 import {ToolbarComponent} from './toolbar/toolbar.component';
 import {LogoutComponent} from './auth/logout/logout.component';
+import {ReviewListComponent} from './review-list/review-list.component';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   imports: [
@@ -28,14 +30,16 @@ import {LogoutComponent} from './auth/logout/logout.component';
     ToastModule,
     BrowserAnimationsModule,
     ToolbarModule,
-    DropdownModule
+    DropdownModule,
+    TableModule
   ],
   declarations: [
     LoginComponent,
     RegisterComponent,
     AbilityComponent,
     ToolbarComponent,
-    LogoutComponent
+    LogoutComponent,
+    ReviewListComponent
     ],
   providers: [
     {
@@ -44,8 +48,8 @@ import {LogoutComponent} from './auth/logout/logout.component';
       multi: true
     }
   ],
-  entryComponents: [AbilityComponent, LogoutComponent],
-  exports: [ AbilityComponent, LogoutComponent]
+  entryComponents: [AbilityComponent, LogoutComponent, ReviewListComponent],
+  exports: [ AbilityComponent, LogoutComponent, ReviewListComponent]
 })
 export class SharedModule {
 }

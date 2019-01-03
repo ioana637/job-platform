@@ -28,6 +28,8 @@ import {ListaRecomandariPrimiteComponent} from './lista-recomandari-primite/list
 import {DialogBoxComponent} from './dialog-box/dialog-box.component';
 import {ClientSettingsComponent} from './client-settings/client-settings.component';
 import {RecommandationAddComponent} from './recommandation-add/recommandation-add.component';
+import { ReceivedReviewListComponent } from './received-review-list/received-review-list.component';
+import { AddedReviewListComponent } from './added-review-list/added-review-list.component';
 
 
 @NgModule({
@@ -60,7 +62,9 @@ import {RecommandationAddComponent} from './recommandation-add/recommandation-ad
     ListaRecomandariDateComponent,
     ListaRecomandariPrimiteComponent,
     ClientSettingsComponent,
-    RecommandationAddComponent
+    RecommandationAddComponent,
+    ReceivedReviewListComponent,
+    AddedReviewListComponent
   ],
   exports: [ToolbarClientComponent],
   providers: [MessageService],

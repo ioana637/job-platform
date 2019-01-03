@@ -11,6 +11,7 @@ import {AbilityService} from './services/ability.service';
 import {AppRoutingModule} from './app-routing.module';
 import {ProviderModule} from './components/provider/provider.module';
 import {ToolbarModule} from 'primeng/primeng';
+import {ReviewService} from './services/review.service';
 import {RequestService} from './services/request.service';
 
 @NgModule({
@@ -31,6 +32,7 @@ import {RequestService} from './services/request.service';
     JobService,
     AbilityService,
     RequestService,
+    ReviewService
   ],
   bootstrap: [AppComponent]
 })

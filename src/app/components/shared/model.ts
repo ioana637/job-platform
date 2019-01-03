@@ -104,3 +104,13 @@ export interface RequestForDialog {
   email?: String;
   location?: String;
 }
+
+export interface Review {
+  id?: string;
+  stars?: string;
+  userFrom: User;
+  userFor: User  ;
+  job: Job  ;
+  description: string;
+  date: string;
+}
