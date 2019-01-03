@@ -3,7 +3,7 @@ import {Job, User} from '../../shared/model';
 import {JobService} from 'src/app/services/job.service';
 import {Observable} from 'rxjs';
 import {UserService} from '../../../services/user.service';
-
+import {MessageService} from 'primeng/api';
 
 @Component({
     selector: 'app-dialog-box',
@@ -23,7 +23,8 @@ export class DialogBoxComponent implements OnInit{
 
     constructor(
       private loginService: UserService,
-      private jobService: JobService
+      private jobService: JobService,
+      private messageService: MessageService
       ){}
   
     onClose(){
@@ -43,7 +44,7 @@ export class DialogBoxComponent implements OnInit{
       this.getJobs().subscribe((currentJobs) =>{
         this.jobs = currentJobs;
       console.log('Jobs: ', this.jobs);
-      });
+      },  error => this.messageService.add({severity: 'error', summary: 'Erroare', detail: "A aparut o eroare, incercati din nou mai tarziu"}) );
     }
 
     private getJobs(): Observable<Job[]>{

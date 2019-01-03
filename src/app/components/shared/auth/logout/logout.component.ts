@@ -27,7 +27,6 @@ export class LogoutComponent implements OnInit {
       },
       (error => {
         this.layoutError = true;
-        console.log(error);
       }));
   }
 

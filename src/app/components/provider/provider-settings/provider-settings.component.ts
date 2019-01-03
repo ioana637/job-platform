@@ -67,7 +67,7 @@ export class ProviderSettingsComponent implements OnInit, OnDestroy {
           this.abilityNumber = 1;
           this.addAbilityComponent();
           this.messageService.add({severity: 'info', summary: 'Informare', detail: 'Datele au fost modificate cu succes!'});
-        }, error => this.messageService.add({severity: 'error', summary: 'Erroare', detail: error})
+        }, error => this.messageService.add({severity: 'error', summary: 'Erroare', detail: "A aparut o eroare, incercati din nou mai tarziu"})
       ));
     } else {
       this.messageService.add({severity: 'error', summary: 'Eroare', detail: 'Trebuie să completați câmpurile obligatorii!'});
@@ -129,7 +129,7 @@ export class ProviderSettingsComponent implements OnInit, OnDestroy {
         this.abilityNumber--;
         console.log(this.abilityComponents);
       }
-    });
+    }, error => this.messageService.add({severity: 'error', summary: 'Eroare', detail: "A aparut o eroare, incercati din nou mai tarziu"}));
     this.abilityNumber++;
     this.abilityComponents.push(ref);
   }
