@@ -5,6 +5,25 @@
     </div>
     <div class="row page-subtitle">Selecteaza unul sau mai multi provideri pentru job
     </div>
+    <div class="row page-subtitle">
+        Filtreaza
+    </div>
+
+    <form>
+    <div class="row filters-container">
+        <div class="form-row m-3" style="color: #384A50;font-family: 'Open Sans';font-size: 14px">
+            <div class="col">
+                <ng-template #abilities></ng-template>
+            </div>
+        </div>
+        <div class="m-3">
+            <div class="col" style="color: #29B3F6;font-family: 'Open Sans';font-size: 14px" (click)="addAbilityComponent()">Adaugă abilitate</div>
+        </div>
+    </div>
+    <div class="row filters-container">
+        <button (click)="applyFilters()" pButton class="ui-button-primary" label="Filtreaza"></button>
+    </div>
+    </form>
     
     <div class="row card-container"
         *ngFor="let provider of providers">
@@ -14,11 +33,8 @@
                             [rating]="provider.starAvg"
                             ></app-provider-card>
         <input (click)="onCheckboxClick(provider.id)" class="check" type="checkbox">
-
-    
     </div>
-    (
-    
+
     <div class="row bottom-buttons">
         <button pButton class="ui-button-danger" label="Anuleaza"></button>
         <button (click)="showDialog()" pButton class="ui-button-primary" label="Asigneaza"></button>

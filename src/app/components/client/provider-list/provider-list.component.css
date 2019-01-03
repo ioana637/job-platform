@@ -34,6 +34,10 @@ html, body{
     justify-content: center;
 }
 
+.filters-container{
+    justify-content: center;
+}
+
 .bottom-buttons{
     justify-content: center;
 }
@@ -69,3 +73,4 @@ button {
     right: 16%;
     margin-top:25px;
 }
+
