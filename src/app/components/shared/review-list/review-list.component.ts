@@ -1,5 +1,11 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation} from '@angular/core';
 import {Review} from '../model';
+import {convertTimestampToDate} from '../../../services/utils';
+
+const Type = {
+  Received: 'received',
+  Added: 'added'
+};
 
 @Component({
   selector: 'app-review-list',
@@ -9,6 +15,7 @@ import {Review} from '../model';
 })
 export class ReviewListComponent implements OnInit, OnChanges {
   @Input() reviews: Review[] = [];
+  @Input() type: string;
   reviewsList = [];
   cols: any[];
   stars = [];
@@ -18,12 +25,12 @@ export class ReviewListComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.initReviewsList(this.reviews);
-
     this.cols = [
       {field: 'job', header: 'Job'},
-      {field: 'userFor', header: 'Utilizator'},
-      {field: 'userForType', header: 'Tip utilizator'},
+      {field: 'user', header: 'Utilizator'},
+      {field: 'userType', header: 'Tip utilizator'},
       {field: 'description', header: 'Review'},
+      {field: 'date', header: 'Data'},
     ];
   }
 
@@ -36,18 +43,36 @@ export class ReviewListComponent implements OnInit, OnChanges {
 
   initReviewsList(reviews: Review[]) {
     this.reviewsList = [];
-    reviews.forEach(review => {
-      let type = 'Angajat';
-      if (review.userFor.role === 'CLIENT') {
-        type = 'Angajator';
-      }
-      this.reviewsList.push({
-        ...review,
-        userFor: review.userFor.username,
-        job: review.job.title,
-        stars: Number(review.stars),
-        userForType: type
+    if (this.type === Type.Added) {
+      reviews.forEach(review => {
+        let type = 'Angajat';
+        if (review.userFor.role === 'CLIENT') {
+          type = 'Angajator';
+        }
+        this.reviewsList.push({
+          ...review,
+          user: review.userFor.username,
+          job: review.job.title,
+          stars: Number(review.stars),
+          userType: type,
+          date: review.date.split('T')[0]
+        });
       });
-    });
+    } else if (this.type === Type.Received) {
+      reviews.forEach(review => {
+        let type = 'Angajat';
+        if (review.userFrom.role === 'CLIENT') {
+          type = 'Angajator';
+        }
+        this.reviewsList.push({
+          ...review,
+          user: review.userFrom.username,
+          job: review.job.title,
+          stars: Number(review.stars),
+          userType: type,
+          date: review.date.split('T')[0]
+        });
+      });
+    }
   }
 }

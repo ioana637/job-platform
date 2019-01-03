@@ -100,7 +100,7 @@ export interface Recommendation {
 export interface Review {
   id?: string;
   stars?: string;
-  idUser: number;
+  userFrom: User;
   userFor: User  ;
   job: Job  ;
   description: string;
