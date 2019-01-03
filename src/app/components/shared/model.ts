@@ -77,6 +77,14 @@ export interface Job {
   category: string;
 }
 
+export interface Request {
+  nrCerere;
+  job;
+  angajator;
+  peopleRequired;
+  abilities;
+}
+
 export interface Recommendation {
   id?: string;
   recommender: number;
