@@ -7,5 +7,8 @@ export const levelUrl = `${abilityUrl}/levels`;
 export const providerUrl = `${baseUrl}`;
 export const requestUrl = `${baseUrl}/request`;
 export const recommendationUrl = `${baseUrl}/recommendation`;
+export const reviewForUserUrl = `${baseUrl}/review/forUser`;
+export const reviewAddedByUserUrl = `${baseUrl}/review`;
+export const reviewRatingUrl = `${baseUrl}/review/forUserMean`;
 
 
