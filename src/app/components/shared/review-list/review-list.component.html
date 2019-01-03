@@ -1,0 +1,26 @@
+<div class="row" style="margin-bottom: 1rem;">
+  <p-table [value]="reviews" [paginator]="true" [rows]="10">
+    <ng-template pTemplate="header">
+      <tr>
+        <th *ngFor="let col of cols">
+          {{col.header}}
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-review>
+      <tr>
+        <td *ngFor="let col of cols">
+          {{review[col.field]}}
+        </td>
+      </tr>
+
+    </ng-template>
+    <p-column field="stars" header="Stars" >
+      <ng-template let-rowdata="rowData" pTemplate="body">
+        <i *ngIf="rowdata?.stars" class="fa fa-gift" aria-hidden="true"></i>
+      </ng-template>
+    </p-column>
+  </p-table>
+</div>
+
+

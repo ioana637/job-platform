@@ -88,3 +88,13 @@ export interface Recommendation {
   description?: string;
   date: string;
 }
+
+export interface Review {
+  id?: string;
+  start?: string;
+  idUser: number;
+  userFor: User  ;
+  job: Job  ;
+  description: string;
+  date: string;
+}

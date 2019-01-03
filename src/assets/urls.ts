@@ -6,6 +6,7 @@ export const abilityUrl = `${baseUrl}/ability`;
 export const levelUrl = `${abilityUrl}/levels`;
 export const providerUrl = `${baseUrl}`;
 export const recommendationUrl = `${baseUrl}/recommendation`;
+export const reviewForUserUrl = `${baseUrl}/review/forUser`;
 
 
 
