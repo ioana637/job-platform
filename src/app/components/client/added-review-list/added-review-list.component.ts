@@ -1,16 +1,17 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Review} from '../../shared/model';
-import {ReviewService} from '../../../services/review.service';
 import {Subscription} from 'rxjs';
+import {ReviewService} from '../../../services/review.service';
 import {UserService} from '../../../services/user.service';
 
 @Component({
-  selector: 'app-received-review-list',
-  templateUrl: './received-review-list.component.html',
-  styleUrls: ['./received-review-list.component.css']
+  selector: 'app-added-review-list',
+  templateUrl: './added-review-list.component.html',
+  styleUrls: ['./added-review-list.component.css']
 })
-export class ReceivedReviewListComponent implements OnInit, OnDestroy {
-  receivedReviews: Review[] = [];
+export class AddedReviewListComponent implements OnInit, OnDestroy {
+
+  addedReviews: Review[] = [];
   subscriptions: Subscription[] = [];
 
   constructor(private reviewService: ReviewService, private userService: UserService) {
@@ -18,8 +19,8 @@ export class ReceivedReviewListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscriptions.push(
-      this.reviewService.getReviewForUser(
-        this.userService.getUser().id).subscribe(reviews => this.receivedReviews = reviews));
+      this.reviewService.getReviewAddedByUser(
+        this.userService.getUser().id).subscribe(reviews => this.addedReviews = reviews));
   }
 
 

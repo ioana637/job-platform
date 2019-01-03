@@ -14,6 +14,7 @@ import {User} from '../../model';
 import {UserService} from '../../../../services/user.service';
 import {convertDateToString} from '../../../../services/utils';
 import {AbilityComponent} from '../../abilities/ability.component';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-register',
@@ -52,7 +53,8 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     private route: ActivatedRoute,
     private service: UserService,
     private factoryResolver: ComponentFactoryResolver,
-    private router: Router) {
+    private router: Router,
+    private messageService: MessageService) {
   }
 
   ngOnInit() {
@@ -75,9 +77,8 @@ export class RegisterComponent implements OnInit, AfterViewInit {
         }
         this.router.navigate(['../login']);
       },
-      (error => {
-        console.log(error);
-      }));
+      (error => this.messageService.add({severity: 'error', summary: 'Eroare', detail: "A aparut o eroare, incercati din nou mai tarziu"})
+      ));
   }
 
   destroy(ref) {

@@ -29,6 +29,7 @@ import {DialogBoxComponent} from './dialog-box/dialog-box.component';
 import {ClientSettingsComponent} from './client-settings/client-settings.component';
 import {RecommandationAddComponent} from './recommandation-add/recommandation-add.component';
 import { ReceivedReviewListComponent } from './received-review-list/received-review-list.component';
+import { AddedReviewListComponent } from './added-review-list/added-review-list.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { ReceivedReviewListComponent } from './received-review-list/received-rev
     ListaRecomandariPrimiteComponent,
     ClientSettingsComponent,
     RecommandationAddComponent,
-    ReceivedReviewListComponent
+    ReceivedReviewListComponent,
+    AddedReviewListComponent
   ],
   exports: [ToolbarClientComponent],
   providers: [MessageService],

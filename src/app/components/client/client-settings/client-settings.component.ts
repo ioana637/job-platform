@@ -49,7 +49,7 @@ export class ClientSettingsComponent implements OnInit, OnDestroy {
           this.passwords = {oldPassword: undefined, newPassword: undefined, confirmedPassword: undefined};
           this.buildForm();
           this.messageService.add({severity: 'info', summary: 'Informare', detail: 'Datele au fost modificate cu succes!'});
-        }, error => this.messageService.add({severity: 'error', summary: 'Erroare', detail: error})
+        }, error => this.messageService.add({severity: 'error', summary: 'Erroare', detail: "A aparut o eroare, incercati din nou mai tarziu"})
       ));
     } else {
       this.messageService.add({severity: 'error', summary: 'Eroare', detail: 'Trebuie să completați câmpurile obligatorii!'});

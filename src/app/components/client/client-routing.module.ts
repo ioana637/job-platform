@@ -11,6 +11,7 @@ import {ClientSettingsComponent} from './client-settings/client-settings.compone
 import {RecommandationAddComponent} from './recommandation-add/recommandation-add.component';
 import {ReviewListComponent} from '../shared/review-list/review-list.component';
 import {ReceivedReviewListComponent} from './received-review-list/received-review-list.component';
+import {AddedReviewListComponent} from './added-review-list/added-review-list.component';
 
 
 
@@ -50,6 +51,10 @@ const routes = [
   {
     path: 'client/review/received',
     component: ReceivedReviewListComponent
+  },
+  {
+    path: 'client/review/added',
+    component: AddedReviewListComponent
   },
   {
     path: 'client/account-settings',

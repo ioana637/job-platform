@@ -1,25 +1,31 @@
-<div class="row" style="margin-bottom: 1rem;">
-  <p-table [value]="reviews" [paginator]="true" [rows]="10">
+<div class="row justify-content-center">
+  <p-table [value]="reviewsList" [paginator]="true" [rows]="5">
     <ng-template pTemplate="header">
       <tr>
+        <th>Număr review</th>
         <th *ngFor="let col of cols">
           {{col.header}}
         </th>
+        <th>Scor</th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-review>
+    <ng-template pTemplate="body" let-review let-rowIndex="rowIndex">
       <tr>
+        <td >
+          {{rowIndex+1}}
+        </td>
         <td *ngFor="let col of cols">
           {{review[col.field]}}
+        </td>
+        <td>
+          <span *ngFor="let item of [].constructor(review.stars);">
+            <i class="fa fa-star" aria-hidden="true"></i>
+          </span>
         </td>
       </tr>
 
     </ng-template>
-    <p-column field="stars" header="Stars" >
-      <ng-template let-rowdata="rowData" pTemplate="body">
-        <i *ngIf="rowdata?.stars" class="fa fa-gift" aria-hidden="true"></i>
-      </ng-template>
-    </p-column>
+
   </p-table>
 </div>
 
