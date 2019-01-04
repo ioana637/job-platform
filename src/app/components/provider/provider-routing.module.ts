@@ -3,6 +3,7 @@ import {RouterModule} from '@angular/router';
 import {ProviderComponent} from './provider/provider.component';
 import {RequestListComponent} from './request-list/request-list.component';
 import {ProviderSettingsComponent} from './provider-settings/provider-settings.component';
+import { NewReviewComponent } from './new-review/new-review.component';
 
 const routes = [
   {
@@ -17,6 +18,10 @@ const routes = [
     path: 'provider/account-settings',
     component: ProviderSettingsComponent
   },
+  {
+    path: 'provider/review',
+    component: NewReviewComponent
+  }
 ];
 
 

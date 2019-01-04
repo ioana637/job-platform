@@ -1,0 +1,32 @@
+<app-toolbar-provider></app-toolbar-provider>
+
+<div class="main-container">
+  <div class="table-container">
+    <p>Alege un job!</p>
+      <p-table [value]="jobs">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Nr Job</th>
+            <th>Job</th>
+            <th>Angajator</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-request>
+          <tr>
+            <!--<td>{{request.nrCerere}}</td>-->
+            <!--<td>{{request.job}}</td>-->
+            <!--<td>{{request.angajator}}</td>-->
+            <!--<td>{{request.peopleRequired}}</td>-->
+            <!--<td>{{request.abilities}}</td>-->
+          </tr>
+        </ng-template>
+      </p-table>
+  </div>
+  <div class="review-container">
+    <p> Adauga un review!</p>
+      <textarea pInputTextarea></textarea>
+    <p>Da o nota jobului!</p>
+    <p-rating [(ngModel)]="ratingValue" (onRate)="handleRate($event)" [cancel]="false"></p-rating>
+    <p-button label="Salveaza"></p-button>
+  </div>
+</div>

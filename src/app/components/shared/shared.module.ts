@@ -10,7 +10,13 @@ import {RouterModule} from '@angular/router';
 import {ToastModule} from 'primeng/toast';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ButtonModule} from 'primeng/button';
-import {AutoCompleteModule, CalendarModule, DropdownModule, ToolbarModule} from 'primeng/primeng';
+import {
+  AutoCompleteModule,
+  CalendarModule,
+  DropdownModule,
+  InputTextareaModule,
+  ToolbarModule
+} from 'primeng/primeng';
 import {AbilityComponent} from './abilities/ability.component';
 import {ToolbarComponent} from './toolbar/toolbar.component';
 import {LogoutComponent} from './auth/logout/logout.component';
@@ -28,7 +34,8 @@ import {LogoutComponent} from './auth/logout/logout.component';
     ToastModule,
     BrowserAnimationsModule,
     ToolbarModule,
-    DropdownModule
+    DropdownModule,
+    InputTextareaModule
   ],
   declarations: [
     LoginComponent,
