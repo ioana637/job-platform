@@ -39,8 +39,8 @@ export class AbilityComponent implements OnInit {
   getAbilityOnly(){
     if (this.selectedAbility) {
       if (this.selectedAbility instanceof Object) {
-        const {code, display} = this.selectedAbility;
-        return {code, display, level: ''};
+        const {id, code, display} = this.selectedAbility;
+        return {id, code, display, level: ''};
       } else {
         return {display: this.selectedAbility, code: this.selectedAbility, level: ''};
       }

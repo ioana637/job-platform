@@ -92,12 +92,12 @@ export class ProviderListComponent implements OnInit {
 
   protected applyFilters() {
     const abilitati: any[] = this.getAbilities();
+    const ids = abilitati.map((abl) => abl.id);
     if(abilitati.length > 0){
       this.pageNumber = 0;
-      this.providerService.getProviders(this.limit, this.pageNumber).subscribe(
+      this.providerService.getFilteredProviders(ids).subscribe(
         (result) => {
-          this.providers = result.filter(provider => {
-            return this.compareAbilities(provider.abilities, abilitati);})
+          this.providers = result;
         },
         (error) => {
           console.log(error);
