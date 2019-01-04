@@ -36,9 +36,10 @@ import {SharedModule} from '../shared/shared.module';
     RequestListComponent,
     ProviderSettingsComponent,
     AddedReviewListComponent,
-    ReceivedReviewListComponent
+    ReceivedReviewListComponent,
+    NewReviewComponent
   ],
-  declarations: [ProviderComponent, ToolbarProviderComponent, RequestListComponent, ProviderSettingsComponent, NewReviewComponent],
+  // declarations: [ProviderComponent, ToolbarProviderComponent, RequestListComponent, ProviderSettingsComponent, ],
   exports: [ToolbarProviderComponent,
     ToastModule,
     FormsModule,
