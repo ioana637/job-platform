@@ -14,8 +14,16 @@ import {AutoCompleteModule, CalendarModule, DropdownModule, ToolbarModule} from 
 import {AbilityComponent} from './abilities/ability.component';
 import {ToolbarComponent} from './toolbar/toolbar.component';
 import {LogoutComponent} from './auth/logout/logout.component';
+import { StatisticiLeftComponent } from './statistici-left/statistici-left.component';
+import {
+  RoundProgressModule,
+  // RoundProgressConfig,
+  ROUND_PROGRESS_DEFAULTS
+  } from 'angular-svg-round-progressbar';
 
+  
 @NgModule({
+  
   imports: [
     CommonModule,
     CardModule,
@@ -28,18 +36,24 @@ import {LogoutComponent} from './auth/logout/logout.component';
     ToastModule,
     BrowserAnimationsModule,
     ToolbarModule,
-    DropdownModule
+    DropdownModule,
+    RoundProgressModule
   ],
   declarations: [
     LoginComponent,
     RegisterComponent,
     AbilityComponent,
     ToolbarComponent,
-    LogoutComponent
+    LogoutComponent,
+    StatisticiLeftComponent
     ],
   providers: [
     {
-      provide: HTTP_INTERCEPTORS,
+      provide: HTTP_INTERCEPTORS, 
+      useValue: {
+        color: '#f00',
+        background: '#0f0'
+      },
       useClass: UserInterceptor,
       multi: true
     }
