@@ -30,6 +30,7 @@ import {ClientSettingsComponent} from './client-settings/client-settings.compone
 import {RecommandationAddComponent} from './recommandation-add/recommandation-add.component';
 import { ReceivedReviewListComponent } from './received-review-list/received-review-list.component';
 import { AddedReviewListComponent } from './added-review-list/added-review-list.component';
+import { NewReviewComponent } from './new-review/new-review.component';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { AddedReviewListComponent } from './added-review-list/added-review-list.
     ClientSettingsComponent,
     RecommandationAddComponent,
     ReceivedReviewListComponent,
-    AddedReviewListComponent
+    AddedReviewListComponent,
+    NewReviewComponent,
   ],
   exports: [ToolbarClientComponent],
   providers: [MessageService],
