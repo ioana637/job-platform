@@ -4,6 +4,8 @@ import {ProviderComponent} from './provider/provider.component';
 import {RequestListComponent} from './request-list/request-list.component';
 import {ProviderSettingsComponent} from './provider-settings/provider-settings.component';
 import { NewReviewComponent } from './new-review/new-review.component';
+import {AddedReviewListComponent} from './added-review-list/added-review-list.component';
+import {ReceivedReviewListComponent} from './received-review-list/received-review-list.component';
 
 const routes = [
   {
@@ -17,6 +19,14 @@ const routes = [
   {
     path: 'provider/account-settings',
     component: ProviderSettingsComponent
+  },
+  {
+    path: 'provider/review/added',
+    component: AddedReviewListComponent
+  },
+  {
+    path: 'provider/review/received',
+    component: ReceivedReviewListComponent
   },
   {
     path: 'provider/review',
