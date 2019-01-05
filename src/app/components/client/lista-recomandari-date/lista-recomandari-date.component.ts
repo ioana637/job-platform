@@ -18,8 +18,10 @@ export class ListaRecomandariDateComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.recommendationSerivce.getGivenRecommendations(this.userService.getUser().id).subscribe(resp => {
+    // this.userService.getUser().id
+    this.recommendationSerivce.getGivenRecommendations("5").subscribe(resp => {
       this.listaRecomandariDate = resp;
+      console.log(this.listaRecomandariDate)
     });
   }
 
