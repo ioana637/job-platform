@@ -1,0 +1,23 @@
+<app-toolbar-provider></app-toolbar-provider>
+
+<p>Cererile tale</p>
+<p-table [value]="requests">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Nr Cerere</th>
+      <th>Job</th>
+      <th>Angajator</th>
+      <th>Numar oameni</th>
+      <th>Abilitati</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-request>
+    <tr>
+      <td>{{request.nrCerere}}</td>
+      <td>{{request.job}}</td>
+      <td>{{request.angajator}}</td>
+      <td>{{request.peopleRequired}}</td>
+      <td>{{request.abilities}}</td>
+    </tr>
+  </ng-template>
+</p-table>

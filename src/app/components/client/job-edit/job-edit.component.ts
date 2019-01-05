@@ -54,7 +54,7 @@ export class JobEditComponent implements OnInit, OnDestroy {
       } else if (this.job) {
         this.addAbilityComponent();
       }
-    }));
+    }, error => this.messageService.add({severity: 'error', summary: 'Eroare', detail: "Datele nu au putut fi incarcate"})));
   }
 
 
@@ -76,7 +76,7 @@ export class JobEditComponent implements OnInit, OnDestroy {
         }
         this.abilityNumber--;
       }
-    });
+    }, error => this.messageService.add({severity: 'error', summary: 'Eroare', detail: "A aparut o eroare, incercati din nou mai tarziu"}));
     this.abilityNumber++;
     this.abilityComponents.push(ref);
   }

@@ -15,6 +15,8 @@ import {AbilityComponent} from './abilities/ability.component';
 import {ToolbarComponent} from './toolbar/toolbar.component';
 import {LogoutComponent} from './auth/logout/logout.component';
 import {StatisticsComponent} from './statistics/statistics.component';
+import {ReviewListComponent} from './review-list/review-list.component';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   imports: [
@@ -29,7 +31,8 @@ import {StatisticsComponent} from './statistics/statistics.component';
     ToastModule,
     BrowserAnimationsModule,
     ToolbarModule,
-    DropdownModule
+    DropdownModule,
+    TableModule
   ],
   declarations: [
     LoginComponent,
@@ -37,7 +40,8 @@ import {StatisticsComponent} from './statistics/statistics.component';
     AbilityComponent,
     ToolbarComponent,
     LogoutComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    ReviewListComponent
     ],
   providers: [
     {
@@ -46,8 +50,8 @@ import {StatisticsComponent} from './statistics/statistics.component';
       multi: true
     }
   ],
-  entryComponents: [AbilityComponent, LogoutComponent, StatisticsComponent],
-  exports: [ AbilityComponent, LogoutComponent, StatisticsComponent]
+  entryComponents: [AbilityComponent, LogoutComponent, ReviewListComponent, StatisticsComponent],
+  exports: [ AbilityComponent, LogoutComponent, ReviewListComponent, StatisticsComponent]
 })
 export class SharedModule {
 }

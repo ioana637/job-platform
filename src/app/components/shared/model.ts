@@ -77,6 +77,14 @@ export interface Job {
   category: string;
 }
 
+export interface Request {
+  nrCerere;
+  job;
+  angajator;
+  peopleRequired;
+  abilities;
+}
+
 export interface Recommendation {
   id?: string;
   recommender: number;
@@ -86,5 +94,15 @@ export interface Recommendation {
   userFor: number;
   /*se completeaza cu idul userului corespunzator*/
   description?: string;
+  date: string;
+}
+
+export interface Review {
+  id?: string;
+  stars?: string;
+  userFrom: User;
+  userFor: User  ;
+  job: Job  ;
+  description: string;
   date: string;
 }

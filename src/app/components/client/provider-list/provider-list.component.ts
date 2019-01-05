@@ -32,7 +32,7 @@ export class ProviderListComponent implements OnInit {
         this.providers = result;
       },
       (error) => {
-        console.log(error);
+        this.messageService.add({severity: 'error', summary: 'Eroare', detail: "Datele nu au putut fi incarcate."});
       }
     );
   }
@@ -44,7 +44,7 @@ export class ProviderListComponent implements OnInit {
         this.providers = result;
       },
       (error) => {
-        console.log(error);
+        this.messageService.add({severity: 'error', summary: 'Eroare', detail: "Datele nu au putut fi incarcate."});
       }
     )
   }
@@ -56,7 +56,7 @@ export class ProviderListComponent implements OnInit {
         this.providers = result;
       },
       (error) => {
-        console.log(error);
+        this.messageService.add({severity: 'error', summary: 'Eroare', detail: "Datele nu au putut fi incarcate."});
       }
     )
   }
@@ -67,7 +67,7 @@ export class ProviderListComponent implements OnInit {
         this.displaySuccess();
       },
       (error) => {
-        console.log(error);
+        this.messageService.add({severity: 'error', summary: 'Eroare', detail: "A aparut o eroare, incercati din nou mai tarziu"});
       }
     )
   }
