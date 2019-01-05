@@ -14,6 +14,7 @@ import {AutoCompleteModule, CalendarModule, DropdownModule, ToolbarModule} from 
 import {AbilityComponent} from './abilities/ability.component';
 import {ToolbarComponent} from './toolbar/toolbar.component';
 import {LogoutComponent} from './auth/logout/logout.component';
+import {StatisticsComponent} from './statistics/statistics.component';
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import {LogoutComponent} from './auth/logout/logout.component';
     RegisterComponent,
     AbilityComponent,
     ToolbarComponent,
-    LogoutComponent
+    LogoutComponent,
+    StatisticsComponent
     ],
   providers: [
     {
@@ -44,8 +46,8 @@ import {LogoutComponent} from './auth/logout/logout.component';
       multi: true
     }
   ],
-  entryComponents: [AbilityComponent, LogoutComponent],
-  exports: [ AbilityComponent, LogoutComponent]
+  entryComponents: [AbilityComponent, LogoutComponent, StatisticsComponent],
+  exports: [ AbilityComponent, LogoutComponent, StatisticsComponent]
 })
 export class SharedModule {
 }
