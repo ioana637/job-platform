@@ -1,33 +1,33 @@
 <app-toolbar-client></app-toolbar-client>
 <div class="page-container">
 
-    <div class="row page-title">Provider
-    </div>
-    <div class="row page-subtitle">Selecteaza unul sau mai multi provideri pentru job
-    </div>
-    
-    <div class="row card-container"
-        *ngFor="let provider of providers">
-        <app-provider-card class="provider-card" 
-                            [fullName]="provider.firstName ? provider.firstName + ' ' + provider.lastName : provider.username" 
-                            [abilitati]="provider.abilities"
-                            [rating]="provider.starAvg"
-                            ></app-provider-card>
-        <input (click)="onCheckboxClick(provider.id)" class="check" type="checkbox">
+  <div class="row page-title">Provider
+  </div>
+  <div class="row page-subtitle">Selecteaza unul sau mai multi provideri pentru job
+  </div>
 
-    
-    </div>
-    (
-    
-    <div class="row bottom-buttons">
-        <button pButton class="ui-button-danger" label="Anuleaza"></button>
-        <button (click)="showDialog()" pButton class="ui-button-primary" label="Asigneaza"></button>
-    </div>
-    <div class="row navigate-buttons">
-        <div *ngIf="pageNumber !== 0" class="previous-button" (click)="getPreviousProviders()">Prev</div>
-        <div class="next-button" (click)="getNextProvidersPage()">Next</div>
-    </div>
+  <div class="row card-container"
+       *ngFor="let provider of providers">
+    <app-provider-card class="provider-card"
+                       [fullName]="provider.firstName ? provider.firstName + ' ' + provider.lastName : provider.username"
+                       [abilitati]="provider.abilities"
+                       [rating]="provider.starAvg"
+    ></app-provider-card>
+    <input (click)="onCheckboxClick(provider.id)" class="check" type="checkbox">
 
-    <app-dialog-box [display]="display" (displayChange)="onDialogClose($event)" (jobAssigned)="onJobAssign()"></app-dialog-box>
-    <p-toast class="ui-toast-top-left"></p-toast>
+
+  </div>
+
+  <div class="row bottom-buttons">
+    <button pButton class="ui-button-danger" label="Anuleaza"></button>
+    <button (click)="showDialog()" pButton class="ui-button-primary" label="Asigneaza"></button>
+  </div>
+  <div class="row navigate-buttons">
+    <div *ngIf="pageNumber !== 0" class="previous-button" (click)="getPreviousProviders()">Prev</div>
+    <div class="next-button" (click)="getNextProvidersPage()">Next</div>
+  </div>
+
+  <app-dialog-box [(display)]="display" (displayChange)="onDialogClose($event)"
+                  (jobAssigned)="onJobAssign()"></app-dialog-box>
+  <p-toast class="ui-toast-top-left"></p-toast>
 </div>

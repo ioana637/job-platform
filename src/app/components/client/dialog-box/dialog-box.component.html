@@ -1,7 +1,12 @@
 <p-dialog header="Alege jobul pentru asignare" [(visible)]="display" modal="modal" [responsive]="true">
-    <div class="ui-fluid dialog-container">
-        <p-autoComplete  [(ngModel)]="jobs" field="display" [size]="10"
-        placeholder="Joburi" [minLength]="1"  [dropdown]="true"></p-autoComplete>
-        <button pButton (click)="onAssignClick()"class="ui-button-primary" label="Asigneaza"></button>
-    </div>
+  <div class="ui-fluid dialog-container">
+    <p-autoComplete [(ngModel)]="jobSelected" field="display" [size]="10"
+                    [suggestions]="jobs"
+                    placeholder="Joburi" [minLength]="1" [dropdown]="true">
+      <ng-template let-value pTemplate="selectedItem">
+        <span style="font-size:18px">>{{value.id}} {{value.title}} {{value.category}}</span>
+      </ng-template>
+    </p-autoComplete>
+    <button pButton (click)="onAssignClick()" class="ui-button-primary" label="Asigneaza"></button>
+  </div>
 </p-dialog>

@@ -44,5 +44,9 @@ export class JobService {
     return map;
   }
 
+  assignJob(idUser: string, idJob: string) {
+
+  }
+
 
 }

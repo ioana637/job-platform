@@ -1,7 +1,7 @@
 import {ViewEncapsulation, Component, OnInit} from '@angular/core';
 import {ButtonModule} from 'primeng/button';
 import {ProviderService} from '../../../services/provider.service';
-import { MessageService } from 'primeng/api';
+import {MessageService} from 'primeng/api';
 
 
 @Component({
@@ -27,65 +27,66 @@ export class ProviderListComponent implements OnInit {
   ngOnInit() {
     this.pageNumber = 0;
     this.providerService.getProviders(this.limit, this.pageNumber)
-    .subscribe(
-      (result) => {
-        this.providers = result;
-      },
-      (error) => {
-        this.messageService.add({severity: 'error', summary: 'Eroare', detail: "Datele nu au putut fi incarcate."});
-      }
-    );
+      .subscribe(
+        (result) => {
+          this.providers = result;
+        },
+        (error) => {
+          this.messageService.add({severity: 'error', summary: 'Eroare', detail: 'Datele nu au putut fi incarcate.'});
+        }
+      );
   }
 
-  protected getNextProvidersPage(): void{
+  protected getNextProvidersPage(): void {
     this.pageNumber += 1;
     this.providerService.getProviders(this.limit, this.pageNumber).subscribe(
       (result) => {
         this.providers = result;
       },
       (error) => {
-        this.messageService.add({severity: 'error', summary: 'Eroare', detail: "Datele nu au putut fi incarcate."});
+        this.messageService.add({severity: 'error', summary: 'Eroare', detail: 'Datele nu au putut fi incarcate.'});
       }
-    )
+    );
   }
 
-  protected getPreviousProviders(): void{
+  protected getPreviousProviders(): void {
     this.pageNumber -= 1;
     this.providerService.getProviders(this.limit, this.pageNumber).subscribe(
       (result) => {
         this.providers = result;
       },
       (error) => {
-        this.messageService.add({severity: 'error', summary: 'Eroare', detail: "Datele nu au putut fi incarcate."});
+        this.messageService.add({severity: 'error', summary: 'Eroare', detail: 'Datele nu au putut fi incarcate.'});
       }
-    )
+    );
   }
 
-  protected onJobAssign(jobId: string): void{
+  protected onJobAssign(jobId: string): void {
     this.providerService.assingJob(jobId, this.selectedProviders).subscribe(
-      (result) =>{
+      (result) => {
         this.displaySuccess();
       },
       (error) => {
-        this.messageService.add({severity: 'error', summary: 'Eroare', detail: "A aparut o eroare, incercati din nou mai tarziu"});
+        this.messageService.add({severity: 'error', summary: 'Eroare', detail: 'A aparut o eroare, incercati din nou mai tarziu'});
       }
-    )
+    );
   }
 
   protected onCheckboxClick(providerId: string) {
-    if(this.selectedProviders.indexOf('5') === -1){
+    if (this.selectedProviders.indexOf('5') === -1) {
       this.selectedProviders.push(providerId);
-    }else{
+    } else {
       this.selectedProviders = this.selectedProviders.filter(id => id !== providerId);
     }
   }
 
 
-  private showDialog(): void{
-    if(this.selectedProviders.length < 1){
+  private showDialog(): void {
+    if (this.selectedProviders.length < 1) {
       this.displayWarning();
     } else {
       this.display = true;
+      console.log(this.display);
     }
   }
 
@@ -94,10 +95,10 @@ export class ProviderListComponent implements OnInit {
   }
 
   private displayWarning() {
-    this.messageService.add({severity:'warn', summary:'Asignare anulata', detail:'Selecteaza un provider'});
+    this.messageService.add({severity: 'warn', summary: 'Asignare anulata', detail: 'Selecteaza un provider'});
   }
 
   private displaySuccess() {
-    this.messageService.add({severity:'success', summary:'Job assigned', detail: 'Job was assigned'});
+    this.messageService.add({severity: 'success', summary: 'Job assigned', detail: 'Job was assigned'});
   }
 }
