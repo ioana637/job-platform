@@ -8,7 +8,14 @@
     <div class="row page-subtitle">
         Filtreaza
     </div>
-
+    <div class="row rating-container">
+            <input type="number"
+            max="5"
+            class="form-control"
+            name="rating"
+            [(ngModel)]="rating"
+            placeholder="Rating"/>
+        </div>
     <form>
     <div class="row filters-container">
         <div class="form-row m-3" style="color: #384A50;font-family: 'Open Sans';font-size: 14px">

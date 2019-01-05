@@ -28,6 +28,10 @@ export class ProviderService {
     return <Observable<any>> this.http.get(`${providerUrl}/abilities=${ids}`, httpOptions);
   }
 
+  public getProvidersWithStar(stars: string): Observable<any> {
+    return <Observable<any>> this.http.get(`${providerUrl}/rating=${stars}`, httpOptions);
+  }
+
   public assingJob(idJob: string, assignedIds: string[]): Observable<any> {
     return <Observable<any>> this.http.post(`${jobUrl}/${idJob}/assign`,{assignedProviders: assignedIds}, httpOptions);
   }

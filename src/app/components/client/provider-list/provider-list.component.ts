@@ -23,6 +23,7 @@ export class ProviderListComponent implements OnInit {
   protected pageNumber: number = 0;
   protected selectedProviders: string[] = [];
   protected display: boolean = false;
+  protected rating: string = '';
 
   constructor(
     private providerService: ProviderService,
@@ -104,9 +105,25 @@ export class ProviderListComponent implements OnInit {
         }
       )
     } else{
-      this.loadData();
+      console.log('Rating: ', this.rating);
+      if(this.rating != null){
+        if(+this.rating > 5 || +this.rating < 0){
+          this.messageService.add({severity:'warn', summary:'Rating incorect', detail:'Rating trebuie sa fie intre 0 si 5'});
+          this.rating = '';
+        } else{
+          this.providerService.getProvidersWithStar(this.rating).subscribe(
+            (result) => {
+              this.providers = result;
+            },
+            (error) => {
+              console.log(error);
+            }
+          )
+        }
+      } else {
+        this.loadData();
+      }
     }
-
   }
 
   private showDialog(): void{

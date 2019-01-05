@@ -34,6 +34,12 @@ html, body{
     justify-content: center;
 }
 
+.rating-container {
+    justify-content: center;
+    max-width: 100px;
+    margin: 0 auto;
+}
+
 .filters-container{
     justify-content: center;
 }
