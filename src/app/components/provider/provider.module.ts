@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ProviderComponent} from './provider/provider.component';
+import {ProviderSearchComponent} from './provider-search/provider-search.component';
 import {ProviderRoutingModule} from './provider-routing.module';
 import {ButtonModule, ToolbarModule} from 'primeng/primeng';
 import {ToolbarProviderComponent} from './toolbar-provider/toolbar-provider.component';
@@ -31,7 +32,8 @@ import {SharedModule} from '../shared/shared.module';
     RequestListComponent,
     ProviderSettingsComponent,
     AddedReviewListComponent,
-    ReceivedReviewListComponent
+    ReceivedReviewListComponent,
+    ProviderSearchComponent
   ],
   exports: [ToolbarProviderComponent,
     ToastModule,

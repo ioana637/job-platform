@@ -5,6 +5,7 @@ import {RequestListComponent} from './request-list/request-list.component';
 import {ProviderSettingsComponent} from './provider-settings/provider-settings.component';
 import {AddedReviewListComponent} from './added-review-list/added-review-list.component';
 import {ReceivedReviewListComponent} from './received-review-list/received-review-list.component';
+import {ProviderSearchComponent} from './provider-search/provider-search.component';
 
 const routes = [
   {
@@ -14,6 +15,10 @@ const routes = [
   {
     path: 'provider/request',
     component: RequestListComponent
+  },
+  {
+    path: 'provider/search',
+    component: ProviderSearchComponent
   },
   {
     path: 'provider/account-settings',
