@@ -11,4 +11,13 @@ export class ToolbarComponent implements OnInit {
   ngOnInit() {
   }
 
+  open() {
+    const x = document.getElementById('myNavbar');
+    console.log(x.className);
+    if (x.className === 'navbar') {
+        x.className += ' responsive';
+    } else {
+        x.className = 'navbar';
+    }
+  }
 }

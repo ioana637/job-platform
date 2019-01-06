@@ -1,0 +1,47 @@
+html, body{
+    height: 100%;
+}
+.page-container{
+    background-color: #f7f7f7;
+    height: 100%;
+}
+
+.provider-card{
+    margin-left: 9%;
+    margin-right: 9%;
+    margin-bottom: 7%;
+    
+    width: 30%;
+    height: auto;
+    background-color: #ffffff;
+
+}
+
+.page-title {
+    color: #384A50;
+    font-size: 24px;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    margin: 2rem;
+    margin-top: 0;
+    padding-top: 2rem;
+    justify-content: center;
+}
+
+.page-subtitle{
+    color: #384A50;
+    font-size: 18px;
+    font-family: 'Open Sans';
+    margin-top: 24px;
+    margin: 2rem;
+    justify-content: center;
+}
+
+
+
+.card-container{
+    /* justify-content: left; */
+    height: 7%;
+    /* margin: 7%; */
+}
+

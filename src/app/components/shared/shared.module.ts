@@ -1,14 +1,21 @@
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {LoginComponent} from './auth/login/login.component';
 import {RegisterComponent} from './auth/register/register.component';
-import {AbilityComponent} from './auth/abilities/ability.component';
 import {CardModule} from 'primeng/card';
-import {FormsModule} from '@angular/forms';
-import {AutoCompleteModule, ButtonModule} from 'primeng/primeng';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {UserInterceptor} from './user.interceptor';
+import {RouterModule} from '@angular/router';
+import {ToastModule} from 'primeng/toast';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ButtonModule} from 'primeng/button';
+import {AutoCompleteModule, CalendarModule, DropdownModule, ToolbarModule} from 'primeng/primeng';
+import {AbilityComponent} from './abilities/ability.component';
 import {ToolbarComponent} from './toolbar/toolbar.component';
-import {UserInterceptor} from './user.interceptor.';
-import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {LogoutComponent} from './auth/logout/logout.component';
+import {ReviewListComponent} from './review-list/review-list.component';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   imports: [
@@ -16,13 +23,24 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
     CardModule,
     ButtonModule,
     FormsModule,
-    AutoCompleteModule
+    ReactiveFormsModule,
+    AutoCompleteModule,
+    CalendarModule,
+    RouterModule,
+    ToastModule,
+    BrowserAnimationsModule,
+    ToolbarModule,
+    DropdownModule,
+    TableModule
   ],
   declarations: [
     LoginComponent,
     RegisterComponent,
     AbilityComponent,
-    ToolbarComponent],
+    ToolbarComponent,
+    LogoutComponent,
+    ReviewListComponent
+    ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
@@ -30,9 +48,8 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
       multi: true
     }
   ],
-  entryComponents: [AbilityComponent],
-
-  exports: [ToolbarComponent, AbilityComponent]
+  entryComponents: [AbilityComponent, LogoutComponent, ReviewListComponent],
+  exports: [ AbilityComponent, LogoutComponent, ReviewListComponent]
 })
 export class SharedModule {
 }

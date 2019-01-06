@@ -1,0 +1,21 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<div class="navbar" id="myNavbar">
+  <form class="navbar-form navbar-left">
+    <img class="logo " src="assets/Logo_Icon.png">
+    <h2 class="left disabled">Jobify</h2>
+  </form>
+  <form class="navbar-form navbar-right">
+
+    <a href="logout">Log Out</a>
+    <a *ngIf='currentUser' href="client/account-settings">{{this.currentUser.username}}</a>
+    <a href="#">Recomandari</a>
+    <a href="client/providerList">Provideri</a>
+
+    <a href="client/job/add">Adauga Job</a>
+    <a style="font-size:10px;" class="icon" (click)="open()">&#9776;</a>
+
+  </form>
+
+</div>
+

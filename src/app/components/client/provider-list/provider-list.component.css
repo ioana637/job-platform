@@ -1,0 +1,71 @@
+html, body{
+    height: 100%;
+}
+.page-container{
+    background-color: #f7f7f7;
+    height: 100%;
+    margin: 20px;
+}
+
+.provider-card{
+    width: 75%;
+    height: auto;
+    background-color: #ffffff;
+
+}
+
+.page-title {
+    color: #384A50;
+    font-size: 24px;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    margin: 2rem;
+    margin-top: 0;
+    padding-top: 2rem;
+    justify-content: center;
+}
+
+.page-subtitle{
+    color: #384A50;
+    font-size: 18px;
+    font-family: 'Open Sans';
+    margin-top: 24px;
+    margin: 2rem;
+    justify-content: center;
+}
+
+.bottom-buttons{
+    justify-content: center;
+}
+
+button {
+    margin: 1rem !important;
+    width: 20%;
+}
+
+.card-container{
+    justify-content: center;
+    height: 7%;
+    margin: 2%;
+}
+.navigate-buttons{
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 80%;
+}
+.next-button{
+    position: absolute;
+    right: 0;
+    margin-right: 15%;
+}
+.previous-button{
+    position: absolute;
+    left: 0;
+    margin-left: 15%;
+}
+.check{
+    display: inline-block;
+    position: absolute;
+    right: 16%;
+    margin-top:25px;
+}

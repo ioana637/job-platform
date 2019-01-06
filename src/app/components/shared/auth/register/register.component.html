@@ -1,3 +1,260 @@
-<p>
-  register works!
-</p>
+<app-toolbar></app-toolbar>
+<div class="row justify-content-center mt-4">
+  <p-card class="col-4">
+    <div class="title-container">
+      <div class='logo'></div>
+      <h3 class="app-title">Jobify</h3>
+    </div>
+    <form name="form" #f="ngForm">
+
+      <div class="form-group"
+           [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+        <input type="text"
+               class="form-control"
+               name="username"
+               [(ngModel)]="model.username"
+               #username="ngModel"
+               placeholder="Username"
+               required/>
+        <div *ngIf="f.submitted && !username.valid"
+             class="help-block">Campul trebuie completat
+        </div>
+      </div>
+
+      <div class="form-group"
+           [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+        <input type="email"
+               class="form-control"
+               name="email"
+               [(ngModel)]="model.email"
+               #email="ngModel"
+               placeholder="Email"
+               required/>
+        <div *ngIf="f.submitted && !email.valid"
+             class="help-block">Campul trebuie completat
+        </div>
+      </div>
+
+      <div class="form-group"
+           [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+        <input type="password"
+               class="form-control"
+               name="password"
+               [(ngModel)]="model.password"
+               #password="ngModel"
+               placeholder="Parola"
+               required/>
+        <div *ngIf="f.submitted && !password.valid"
+             class="help-block">Campul trebuie completat
+        </div>
+      </div>
+
+      <div class="form-group"
+           [ngClass]="{ 'has-error': f.submitted && !confirm_password.valid }">
+        <input type="password"
+               class="form-control"
+               name="confirm_password"
+               [(ngModel)]="model.password"
+               #confirm_password="ngModel"
+               placeholder="Confirmare Parola"
+               required/>
+        <div *ngIf="f.submitted && !confirm_password.valid"
+             class="help-block">Campul trebuie completat
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col"
+             [ngClass]="{ 'has-error': f.submitted && (!surname.valid || !givenname.valid) }">
+
+          <input type="text"
+                 class="form-control"
+                 name="surname"
+                 [(ngModel)]="model.firstName"
+                 #surname="ngModel"
+                 placeholder="Nume"
+                 required/>
+
+          <div *ngIf="f.submitted && (!surname.valid || !givenname.valid)"
+               class="help-block">Campul trebuie completat
+          </div>
+        </div>
+
+
+        <div class="form-group col"
+             [ngClass]="{ 'has-error': f.submitted && !givenname.valid }">
+
+          <input type="text"
+                 class="form-control"
+                 name="givenname"
+                 [(ngModel)]="model.lastName"
+                 #givenname="ngModel"
+                 placeholder="Prenume"
+                 required/>
+
+          <div *ngIf="f.submitted && !givenname.valid"
+               class="help-block">Campul trebuie completat
+          </div>
+        </div>
+
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col"
+             [ngClass]="{ 'has-error': f.submitted && !phoneInput.valid }">
+
+          <input type="text"
+                 class="form-control"
+                 name="phone"
+                 [(ngModel)]="model.phone"
+                 #phoneInput="ngModel"
+                 placeholder="Numar Telefon"
+                 required/>
+
+          <div *ngIf="f.submitted && !phoneInput.valid"
+               class="help-block">Campul trebuie completat
+          </div>
+        </div>
+
+
+        <div class="form-group col"
+             [ngClass]="{ 'has-error': f.submitted && !roleDropdown.valid }">
+          <p-dropdown [options]="roles" [(ngModel)]="model.role" name="role" #roleDropdown></p-dropdown>
+          <div *ngIf="f.submitted && !roleDropdown.valid"
+               class="help-block">Campul trebuie completat
+          </div>
+        </div>
+
+        <div class="form-group col-4">
+
+          <p-calendar
+            inputStyleClass="form-control"
+            name="birthdate"
+            dateFormat="d/m/yy"
+            [(ngModel)]="date"
+            #birthdateCalendar="ngModel"
+            placeholder="Data Nasterii"
+            required
+          ></p-calendar>
+
+        </div>
+
+      </div>
+
+
+      <div class="form-row">
+        <div class="form-group col"
+             [ngClass]="{ 'has-error': f.submitted && !postalCodeInput.valid }">
+
+          <input type="text"
+                 class="form-control"
+                 name="postalCode"
+                 [(ngModel)]="model.postalCode"
+                 #postalCodeInput="ngModel"
+                 placeholder="Cod Postal"
+                 required/>
+
+          <div *ngIf="f.submitted && !postalCodeInput.valid"
+               class="help-block">Campul trebuie completat
+          </div>
+        </div>
+
+        <div class="form-group col"
+             [ngClass]="{ 'has-error': f.submitted && !cityInput.valid }">
+
+          <input type="text"
+                 class="form-control"
+                 name="city"
+                 [(ngModel)]="model.city"
+                 #cityInput="ngModel"
+                 placeholder="Oras"
+                 required/>
+
+          <div *ngIf="f.submitted && !cityInput.valid"
+               class="help-block">Campul trebuie completat
+          </div>
+        </div>
+
+
+        <div class="form-group col"
+             [ngClass]="{ 'has-error': f.submitted && !countryInput.valid }">
+
+          <input type="text"
+                 class="form-control"
+                 name="country"
+                 [(ngModel)]="model.country"
+                 #countryInput="ngModel"
+                 placeholder="Country"
+                 required/>
+
+          <div *ngIf="f.submitted && !countryInput.valid"
+               class="help-block">Campul trebuie completat
+          </div>
+        </div>
+
+      </div>
+
+      <div class="form-group"
+           [ngClass]="{ 'has-error': f.submitted && !addressInput.valid }">
+
+        <input type="text"
+               class="form-control"
+               name="address"
+               [(ngModel)]="model.address"
+               #addressInput="ngModel"
+               placeholder="Adresa"
+               required/>
+
+        <div *ngIf="f.submitted && !addressInput.valid"
+             class="help-block">Campul trebuie completat
+        </div>
+      </div>
+
+      <div class="form-check col">
+        <input type="checkbox" class="form-check-input" id="checkBoxSubscribed"
+               name="subscribed"
+               #checkBox="ngModel"
+               [(ngModel)]="model.subscribed">
+        <label class="form-check-label" for="checkBoxSubscribed">Subscribed</label>
+      </div>
+
+      <div *ngIf="model.role==='PROVIDER'">
+        <div class="form-row m-3" style="color: #384A50;font-family: 'Open Sans';font-size: 14px">
+          <div class="col"  style="color: #29B3F6;font-family: 'Open Sans';font-size: 14px">
+            Adaugă abilități pentru a ușura gasirea unui potențial angajator
+          </div>
+        </div>
+        <div class="form-row m-3" style="color: #384A50;font-family: 'Open Sans';font-size: 14px">
+          <div class="col">
+            <ng-template #abilities></ng-template>
+          </div>
+
+        </div>
+        <div class="form-row m-3">
+          <div class="col" style="color: #29B3F6;font-family: 'Open Sans';font-size: 14px" (click)="addAbilityComponent()">Adaugă abilitate</div>
+        </div>
+      </div>
+      <div class="ui-fluid">
+        <p-button type="submit"
+                  class="register-button"
+                  (onClick)="register()"
+                  label="Register"></p-button>
+      </div>
+
+      <p class="alternative-text">or</p>
+
+      <div class="ui-fluid">
+        <p-button type="submit"
+                  icon="fa fa-facebook-official"
+                  class="facebook-register-button"
+                  label="Register with Facebook"></p-button>
+      </div>
+      <div class="bottom-text">
+        <nav>Ai cont deja? <a class="register-link" routerLink="../login"> Logheaza-te</a></nav>
+        <br>
+
+      </div>
+    </form>
+  </p-card>
+
+</div>

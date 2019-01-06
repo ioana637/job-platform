@@ -1,0 +1,126 @@
+<app-toolbar-provider></app-toolbar-provider>
+<p-toast position="top-right"></p-toast>
+<div class="container-fluid my-div-class">
+  <div class="row mb-3 mt-3">
+    <div class="col text-center">
+      <h3 class="text-center">
+        Profil
+      </h3>
+    </div>
+  </div>
+  <div class="container-fluid my-border mb-4">
+    <form [formGroup]="form">
+
+      <div class="row mt-4 form-group mx-1">
+        <div class="col-md-12">
+          <div class="float-container">
+            <label for="email">Email</label>
+            <input type="email" formControlName="email" class="my-inputs" id="email" type="text" name="email"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="row form-group mx-1">
+        <div class="col-md-6">
+          <div class="float-container">
+            <label for="nume">Nume</label>
+            <input formControlName="lastName" class="my-inputs" id="nume" type="text" name="nume"/>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="float-container">
+            <label for="prenume1">Prenume</label>
+            <input formControlName="firstName" class="my-inputs" id="prenume1" type="text" name="prenume1"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="row form-group mx-1">
+        <div class="col-md-6">
+          <div class="float-container">
+            <label for="telefon">Telefon</label>
+            <input formControlName="phone" class="my-inputs" id="telefon" type="text" name="telefon"/>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="float-container">
+            <label for="data-nasterii">Data nasterii</label>
+            <input formControlName="birthDate" class="my-inputs" type="date" id="data-nasterii" name="data-nasterii"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="row form-group mx-1">
+        <div class="col-md-6">
+          <div class="float-container">
+            <label for="city">Oras</label>
+            <input formControlName="city" class="my-inputs" id="city" type="text" name="adresa"/>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="float-container">
+            <label for="adresa">Adresa</label>
+            <input formControlName="address" class="my-inputs" id="adresa" type="text" name="adresa"/>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+    </form>
+    <div class="form-row m-3" class="abilities">
+      <div class="col" class="add-ability">
+        Adaugă abilități pentru a ușura gasirea unui potențial angajator
+      </div>
+    </div>
+    <div class="form-row m-3" class="abilities">
+      <div class="col">
+        <ng-template #abilities></ng-template>
+      </div>
+    </div>
+    <div class="form-row m-3">
+      <div class="col" class="add-ability" (click)="addAbilityComponent()">
+        Adaugă abilitate
+      </div>
+    </div>
+    <div class="row form-group mx-1">
+      <div class="col">
+        <p class="mt-2" style="color: #00b3f7">
+          Schimba parola:
+        </p>
+      </div>
+    </div>
+
+    <div class="row form-group mx-1">
+      <div class="col-md-8">
+        <input name="parola-veche" class="my-inputs" type="password" [(ngModel)]="this.passwords.oldPassword"
+               placeholder="Parola veche"/>
+      </div>
+      <i *ngIf="this.passwords.oldPassword && this.user.password!==this.passwords.oldPassword"
+         class="fa fa-2x fa-times icon"></i>
+    </div>
+    <div class="row form-group mx-1">
+      <div class="col-md-8">
+        <input name="parola-noua" class="my-inputs" type="password" [(ngModel)]="this.passwords.newPassword"
+               placeholder="Parola noua"/>
+      </div>
+    </div>
+    <div class="row form-group mx-1">
+      <div class="col-md-8">
+        <input name="parola-noua-again" class="my-inputs" type="password" [(ngModel)]="this.passwords.confirmedPassword"
+               placeholder="Confirma parola noua"/>
+      </div>
+      <i
+        *ngIf="this.passwords.newPassword && this.passwords.confirmedPassword&& this.passwords.newPassword!==this.passwords.confirmedPassword"
+        class="fa fa-times fa-2x icon"></i>
+    </div>
+    <div class="row form-group mx-1">
+      <div class="col-md-6">
+        <p-button type="cancel" class="btn-cancel" (onClick)="onCancel()" label="Anulează"></p-button>
+      </div>
+      <div class="col-md-6">
+        <p-button type="submit" class="ui-button-primary" (onClick)="onSubmit()" label="Salvează"></p-button>
+      </div>
+    </div>
+  </div>
+
+</div>

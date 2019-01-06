@@ -1,0 +1,73 @@
+<div class="provider-card-root">
+    <div class="initials">{{getInitials(fullName)}}</div>
+    <div class="fullname">{{fullName}}</div>
+    <div *ngIf="abilitati.length > 0 && abilitati[0].display" class="firstLabel">{{abilitati[0].display}}: </div>
+    <div *ngIf="abilitati.length > 0 && !abilitati[0].display" class="firstLabel">Unknown: </div>
+    <div *ngIf="abilitati.length > 0 && abilitati[0].level" class="ability1">{{abilitati[0].level}}</div>
+    <div *ngIf="abilitati.length > 0 && abilitati[1].display" class="secondLabel">{{abilitati[1].display}}: </div>
+    <div *ngIf="abilitati.length > 0 && !abilitati[1].display" class="secondLabel">Unknown: </div>    
+    <div *ngIf="abilitati.length > 0 && abilitati[1].level" class="ability2">{{abilitati[1].level}}</div>
+    <div class="rating-star">
+        <div *ngIf="rating === '0.5'">
+            <button pButton class="rating-icon" icon="fa fa-star-half"></button>
+        </div>
+        <div *ngIf="rating === '1.5'">
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star-half"></button>
+        </div>
+        <div *ngIf="rating === '1'">
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+        </div>
+        <div *ngIf="rating === '1.5'">
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star-half"></button>
+        </div>
+        <div *ngIf="rating === '2.5'">
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star-half"></button>
+        </div>
+        <div *ngIf="rating === '3.0'">
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+        </div>
+        <div *ngIf="rating === '3.5'">
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star-half"></button>
+        </div>
+        <div *ngIf="rating === '3.0'">
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+        </div>
+        <div *ngIf="rating === '4.0'">
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+        </div>
+        <div *ngIf="rating === '4.5'">
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star-half"></button>
+        </div>
+        <div *ngIf="rating === '5.0'">
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>
+            <button pButton class="rating-icon" icon="fa fa-star"></button>            
+        </div>
+    </div>
+    <div *ngIf="rating" class="rating-text">
+        {{rating}}
+    </div>
+    <div *ngIf="!rating" class="rating-text">
+        0.0
+    </div>
+
+</div>

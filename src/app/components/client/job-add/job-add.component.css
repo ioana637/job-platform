@@ -1,0 +1,55 @@
+.ui-input, textarea {
+  border: 1px solid #CCCCCC !important;
+  background-color: #FFFFFF;
+  width: 100%;
+  font-size: 14px !important;
+  color: #384A50;
+  font-family: "Open Sans";
+  padding: 10px 15px !important;
+}
+
+textarea::placeholder, input::placeholder {
+  font-size: 14px !important;
+  color: #B8B8B8;
+}
+
+p-calendar .ui-inputtext {
+  border: 1px solid #CCCCCC;
+  background-color: #FFFFFF;
+  font-size: 14px !important;
+  color: #384A50;
+  padding: 10px 15px;
+  width: 140%;
+}
+
+p-button {
+  width: 100%;
+}
+
+body .ui-button {
+  width: inherit;
+  padding: 1px;
+}
+
+input.ng-invalid {
+  border-left: 3px solid #FF5D5D !important;
+}
+
+p-calendar.ng-invalid input {
+  border-left: 3px solid #FF5D5D !important;
+}
+
+p-dropdown.ng-invalid div.ui-dropdown {
+  border-left: 3px solid #FF5D5D !important;
+}
+
+p-dropdown .ui-dropdown {
+  border: 1px solid #CCCCCC;
+  width: 100% !important;
+  font-family: "Open Sans" !important;
+  padding: 4px !important;
+}
+
+/*p-dropdown div label::placeholder {*/
+  /*color: #B8B8B8 !important;*/
+/*}*/

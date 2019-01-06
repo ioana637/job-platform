@@ -3,65 +3,36 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {ClientModule} from './components/client/client.module';
-import {RouterModule, Routes} from '@angular/router';
-import {AddJobComponent} from './components/client/add-job/add-job.component';
-import {LoginComponent} from './components/shared/auth/login/login.component';
-import {RegisterComponent} from './components/shared/auth/register/register.component';
-import {AbilityComponent} from './components/shared/auth/abilities/ability.component';
 import {HttpClientModule} from '@angular/common/http';
-import {LoginService} from './services/login.service';
+import {UserService} from './services/user.service';
 import {JobService} from './services/job.service';
 import {SharedModule} from './components/shared/shared.module';
 import {AbilityService} from './services/ability.service';
-import {ClientJobsComponent} from './components/client/client-jobs/client-jobs.component';
-
-
-const routes: Routes = [
-  {
-    path: 'addJob',
-    component: AddJobComponent
-  },
-  {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
-  },
-  {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'register',
-    component: RegisterComponent
-  },
-  {
-    path: 'register/abilities',
-    component: AbilityComponent
-  },
-  {
-    path: 'client-jobs',
-    component: ClientJobsComponent
-  }
-];
+import {AppRoutingModule} from './app-routing.module';
+import {ProviderModule} from './components/provider/provider.module';
+import {ToolbarModule} from 'primeng/primeng';
+import {ReviewService} from './services/review.service';
+import {RequestService} from './services/request.service';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
+    ToolbarModule,
     BrowserModule,
     ClientModule,
+    ProviderModule,
     HttpClientModule,
     SharedModule,
-    RouterModule.forRoot(routes)
-  ],
-  exports: [
-    RouterModule
+    AppRoutingModule
   ],
   providers: [
-    LoginService,
+    UserService,
     JobService,
     AbilityService,
+    RequestService,
+    ReviewService
   ],
   bootstrap: [AppComponent]
 })
