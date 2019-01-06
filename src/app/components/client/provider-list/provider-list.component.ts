@@ -106,7 +106,7 @@ export class ProviderListComponent implements OnInit {
       )
     } else{
       console.log('Rating: ', this.rating);
-      if(this.rating != null){
+      if(this.rating != null && this.rating != ''){
         if(+this.rating > 5 || +this.rating < 0){
           this.messageService.add({severity:'warn', summary:'Rating incorect', detail:'Rating trebuie sa fie intre 0 si 5'});
           this.rating = '';
