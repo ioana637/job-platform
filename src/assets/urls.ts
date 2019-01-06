@@ -10,5 +10,6 @@ export const recommendationUrl = `${baseUrl}/recommendation`;
 export const reviewForUserUrl = `${baseUrl}/review/forUser`;
 export const reviewAddedByUserUrl = `${baseUrl}/review`;
 export const reviewRatingUrl = `${baseUrl}/review/forUserMean`;
+export const statisticsUrl = `${baseUrl}/statistics`;
 
 

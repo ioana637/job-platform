@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {StatisticsService} from '../../../services/statistics.service';
 
 @Component({
     selector: 'app-statistics',
@@ -6,12 +7,40 @@ import {Component, OnInit} from '@angular/core';
     styleUrls: ['./statistics.component.css']
 })
 export class StatisticsComponent implements OnInit {
-  constructor() { }
+  constructor(private statisticsService: StatisticsService) { }
+  availableJobs: number;
+  contractsNo: Object;
+  providersNo: Object;
+  bestClientsNo: Object;
   ngOnInit() {
-    // reset login status
-    // this.login();
-    // get return url from route parameters or default to '/'
-    // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.statisticsService.getAllProviders().subscribe(
+      (result) => {
+        this.providersNo = result;
+      },
+      (error) => {
+        console.log(error);
+      });
+    this.statisticsService.getContracts().subscribe(
+      (result) => {
+        this.contractsNo = result;
+      },
+      (error) => {
+        console.log(error);
+      });
+    this.statisticsService.getAvailableJobs().subscribe(
+      (result) => {
+        this.availableJobs = Object.values(result).length;
+      },
+      (error) => {
+        console.log(error);
+      });
+    this.statisticsService.getClientsWithMaxRating().subscribe(
+      (result) => {
+        this.bestClientsNo = result;
+      },
+      (error) => {
+        console.log(error);
+      });
   }
 }
 
