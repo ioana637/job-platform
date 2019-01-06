@@ -2,7 +2,6 @@
     <p class="title-container">{{jobTitle}}</p>
     <p class="description-container">{{jobDescription}}</p>
     <div class="bottom-container">
-        <p *ngIf="jobStatus == 'AVAILABLE'"class="status">Disponibil</p>
-        <p-button (click)="onBtnClick()"class="assign-btn" label="Asigneaza Job"></p-button>
+        <p class="status">{{jobStatus}}</p>
     </div>
 </div>

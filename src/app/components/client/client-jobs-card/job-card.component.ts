@@ -12,14 +12,8 @@ export class JobCardComponent implements OnInit {
     @Input() jobId: string = '';
     @Input() jobStatus: string = '';
 
-    @Output() assignedClick = new EventEmitter();
-
     ngOnInit(){
 
-    }
-
-    private onBtnClick(): void{
-      this.assignedClick.emit(this.jobId);
     }
 
 }
