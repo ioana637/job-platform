@@ -3,7 +3,7 @@ import { JobService } from 'src/app/services/job.service';
 import { LoginService } from 'src/app/services/login.service';
 import { Job } from '../../shared/model';
 import { Observable } from 'rxjs';
-
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-provider-jobs',
@@ -22,7 +22,8 @@ export class ProviderJobsComponent implements OnInit {
 
   constructor(
     private jobService: JobService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private messageService: MessageService
   ) {
   }
 
@@ -33,10 +34,11 @@ export class ProviderJobsComponent implements OnInit {
   }
 
   private loadData(): Observable<Job[]>{
-    return this.jobService.getJobsForUser(this.userId, this.limit, this.pageNumber);
+    return this.jobService.getJobsForProvider(this.userId);
   }
 
   private onClickAssign(event: string): void {
     this.jobService.assignJob(this.userId, event);
+    this.messageService.add({severity:'success', summary:'Succes', detail: 'Job-ul a fost asignat'});
   }
 }

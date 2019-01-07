@@ -74,4 +74,5 @@ export interface Job {
   hoursPerWeek?: number;
   location: string;
   category: string;
+  providers?:string[];
 }
