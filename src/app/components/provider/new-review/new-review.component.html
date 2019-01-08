@@ -1,9 +1,10 @@
 <app-toolbar-provider></app-toolbar-provider>
+<p-toast [style]="{marginTop: '75px'}"></p-toast>
 
 <div class="main-container">
   <div class="table-container">
     <p>Alege un job!</p>
-      <p-table [value]="jobs">
+      <p-table [value]="jobs" selectionMode="single" [(selection)]="selectedJob">
         <ng-template pTemplate="header">
           <tr>
             <th>Nr Job</th>
@@ -11,22 +12,21 @@
             <th>Angajator</th>
           </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-request>
-          <tr>
-            <!--<td>{{request.nrCerere}}</td>-->
-            <!--<td>{{request.job}}</td>-->
-            <!--<td>{{request.angajator}}</td>-->
-            <!--<td>{{request.peopleRequired}}</td>-->
-            <!--<td>{{request.abilities}}</td>-->
+        <ng-template pTemplate="body" let-rowData>
+          <tr [pSelectableRow]="rowData">
+            <td>{{rowData.id}}</td>
+            <td>{{rowData.title}}</td>
+            <td>{{rowData.description}}</td>
           </tr>
         </ng-template>
       </p-table>
   </div>
   <div class="review-container">
     <p> Adauga un review!</p>
-      <textarea pInputTextarea></textarea>
+      <textarea [(ngModel)]="reviewText" pInputTextarea></textarea>
     <p>Da o nota jobului!</p>
-    <p-rating [(ngModel)]="ratingValue" (onRate)="handleRate($event)" [cancel]="false"></p-rating>
-    <p-button label="Salveaza"></p-button>
+    <p-rating (onRate)="handleRate($event)" [cancel]="false"></p-rating>
+    <p-button label="Salveaza" (click)="submitReview()"></p-button>
   </div>
 </div>
+

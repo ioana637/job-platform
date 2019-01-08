@@ -29,7 +29,7 @@ const routes = [
     component: ReceivedReviewListComponent
   },
   {
-    path: 'provider/review',
+    path: 'provider/review/new-review',
     component: NewReviewComponent
   }
 ];
