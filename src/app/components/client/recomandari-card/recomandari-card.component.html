@@ -1,19 +1,19 @@
 <div class="provider-card-root">
   <div class="initials">MI</div>
-  <div class="fullname">{{fullName}}</div>
-  
+  <div class="fullname">{{recommendation.recommendedProvider.firstName}}</div>
+
   <img class="star " src="assets/star.png">
   <div class="ability">{{rating}}</div>
   <br>
-  <div class="firstLabel">{{label1}}: </div>
-  <div class="ability">{{abilitate1}}</div>
-  <div class="secondLabel">{{label2}}: </div>
-  <div class="ability">{{abilitate2}}</div>
+  <div *ngFor="let abilitate of recommendation.recommendedProvider.abilities">
+    <div class="firstLabel">{{abilitate.display}}: </div>
+    <div class="ability">{{abilitate.level}}</div>
+  </div>
   <br>
   <div class="ability">Recomandat de:</div>
-  <div class="ability">{{numeRecomandat}}</div>
+  <div class="ability">{{recommendation.recommender.firstName}}</div>
   <br>
   <div class="ability"> Mesaj:</div>
   <br>
-  <div class="mesaj">{{mesaj}}</div>
+  <div class="mesaj">{{recommendation.description}}</div>
 </div>

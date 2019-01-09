@@ -3,6 +3,7 @@ import {Observable} from 'rxjs';
 import {Job, Recommendation, User} from '../components/shared/model';
 import {baseUrl, recommendationUrl} from '../../assets/urls';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {UserService} from './user.service';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -30,4 +31,12 @@ export class RecommendationService {
     return <Observable<Recommendation>>this.http.post(recommendationUrl, recommendation, httpOptions);
   }
 
+  public getReceivedRecommendations(userFor: string): Observable<Recommendation[]> {
+    return <Observable<Recommendation[]>>this.http.get('http://localhost:8080/recommendation/recommender/5');
+    // `${recommendationUrl}/recommended/${userFor}`
+  }
+
+  public getGivenRecommendations(recommender: string): Observable<Recommendation[]> {
+    return <Observable<Recommendation[]>>this.http.get(`${recommendationUrl}/recommender/${recommender}`, httpOptions);
+  }
 }
