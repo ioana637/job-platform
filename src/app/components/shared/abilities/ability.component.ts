@@ -75,7 +75,7 @@ export class AbilityComponent implements OnInit {
     return filtered;
   }
 
-  delete() {
+  public delete() {
     this.deleted.emit(true);
   }
 }

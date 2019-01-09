@@ -24,12 +24,16 @@
             </div>
         </div>
         <div class="m-3">
-            <div class="col" style="color: #29B3F6;font-family: 'Open Sans';font-size: 14px" (click)="addAbilityComponent()">Adaugă abilitate</div>
+            <div class="col" style="color: #29B3F6;font-family: 'Open Sans';font-size: 14px"
+                 (click)="addAbilityComponent()">Adaugă abilitate</div>
         </div>
     </div>
     <div class="row filters-container">
-        <button (click)="applyFilters()" pButton class="ui-button-primary" label="Filtreaza"></button>
+      <button (click)="applyFilters()" pButton class="ui-button-primary" label="Filtreaza"></button>
     </div>
+      <div class="row filters-container">
+        <button (click)="clearFilters()" pButton class="ui-button-primary" label="Reset"></button>
+      </div>
     </form>
     
     <div class="row card-container"
