@@ -20,10 +20,10 @@ import {
   // RoundProgressConfig,
   ROUND_PROGRESS_DEFAULTS
   } from 'angular-svg-round-progressbar';
+import {ReviewListComponent} from './review-list/review-list.component';
+import {TableModule} from 'primeng/table';
 
-  
 @NgModule({
-  
   imports: [
     CommonModule,
     CardModule,
@@ -37,6 +37,7 @@ import {
     BrowserAnimationsModule,
     ToolbarModule,
     DropdownModule,
+    TableModule,
     RoundProgressModule
   ],
   declarations: [
@@ -45,11 +46,12 @@ import {
     AbilityComponent,
     ToolbarComponent,
     LogoutComponent,
+    ReviewListComponent,
     StatisticiLeftComponent
     ],
   providers: [
     {
-      provide: HTTP_INTERCEPTORS, 
+      provide: HTTP_INTERCEPTORS,
       useValue: {
         color: '#f00',
         background: '#0f0'
@@ -58,8 +60,8 @@ import {
       multi: true
     }
   ],
-  entryComponents: [AbilityComponent, LogoutComponent],
-  exports: [ AbilityComponent, LogoutComponent]
+  entryComponents: [AbilityComponent, LogoutComponent, ReviewListComponent],
+  exports: [ AbilityComponent, LogoutComponent, ReviewListComponent]
 })
 export class SharedModule {
 }
