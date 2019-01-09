@@ -32,8 +32,7 @@ export class RecommendationService {
   }
 
   public getReceivedRecommendations(userFor: string): Observable<Recommendation[]> {
-    return <Observable<Recommendation[]>>this.http.get('http://localhost:8080/recommendation/recommender/5');
-    // `${recommendationUrl}/recommended/${userFor}`
+    return <Observable<Recommendation[]>>this.http.get(`${recommendationUrl}/recommended/${userFor}`, httpOptions);
   }
 
   public getGivenRecommendations(recommender: string): Observable<Recommendation[]> {
