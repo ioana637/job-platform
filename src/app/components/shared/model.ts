@@ -94,6 +94,14 @@ export interface Recommendation {
   date: string;
 }
 
+export interface RequestForDialog {
+  description?: String;
+  userFrom?: String;
+  phoneNumber?: String;
+  email?: String;
+  location?: String;
+}
+
 export interface Review {
   id?: string;
   stars?: string;
