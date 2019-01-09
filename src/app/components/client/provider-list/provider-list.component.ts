@@ -1,7 +1,8 @@
-import {ViewEncapsulation, Component, OnInit} from '@angular/core';
+import {ViewEncapsulation, Component, OnInit, ViewChild, ViewContainerRef, ComponentRef, ComponentFactoryResolver} from '@angular/core';
 import {ButtonModule} from 'primeng/button';
 import {ProviderService} from '../../../services/provider.service';
 import { MessageService } from 'primeng/api';
+import { AbilityComponent } from '../../shared/abilities/ability.component';
 
 
 @Component({
@@ -13,18 +14,28 @@ import { MessageService } from 'primeng/api';
 
 export class ProviderListComponent implements OnInit {
 
+  abilityNumber = 1;
+  @ViewChild('abilities', {read: ViewContainerRef}) viewContainerRef: ViewContainerRef;
+  abilityComponents: ComponentRef<AbilityComponent>[] = [];
+
   protected providers: any[] = [];
   protected limit: number = 7;
   protected pageNumber: number = 0;
   protected selectedProviders: string[] = [];
   protected display: boolean = false;
+  protected rating: string = '';
 
   constructor(
     private providerService: ProviderService,
+    private factoryResolver: ComponentFactoryResolver,
     private messageService: MessageService,) {
   }
 
   ngOnInit() {
+    this.loadData();
+  }
+
+  private loadData(): void{
     this.pageNumber = 0;
     this.providerService.getProviders(this.limit, this.pageNumber)
     .subscribe(
@@ -80,6 +91,40 @@ export class ProviderListComponent implements OnInit {
     }
   }
 
+  protected applyFilters() {
+    const abilitati: any[] = this.getAbilities();
+    const ids = abilitati.map((abl) => abl.id);
+    if(abilitati.length > 0){
+      this.pageNumber = 0;
+      this.providerService.getFilteredProviders(ids).subscribe(
+        (result) => {
+          this.providers = result;
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
+    } else{
+      console.log('Rating: ', this.rating);
+      if(this.rating != null && this.rating != ''){
+        if(+this.rating > 5 || +this.rating < 0){
+          this.messageService.add({severity:'warn', summary:'Rating incorect', detail:'Rating trebuie sa fie intre 0 si 5'});
+          this.rating = '';
+        } else{
+          this.providerService.getProvidersWithStar(this.rating).subscribe(
+            (result) => {
+              this.providers = result;
+            },
+            (error) => {
+              console.log(error);
+            }
+          )
+        }
+      } else {
+        this.loadData();
+      }
+    }
+  }
 
   private showDialog(): void{
     if(this.selectedProviders.length < 1){
@@ -99,5 +144,49 @@ export class ProviderListComponent implements OnInit {
 
   private displaySuccess() {
     this.messageService.add({severity:'success', summary:'Job assigned', detail: 'Job was assigned'});
+  }
+
+
+  protected addAbilityComponent() {
+    const factory = this.factoryResolver.resolveComponentFactory(AbilityComponent);
+    const ref = this.viewContainerRef.createComponent(factory);
+    const instance = ref.instance;
+    instance.number = this.abilityNumber;
+    instance.deleted.subscribe(value => {
+      if (value) {
+        this.abilityComponents.splice(this.abilityComponents.indexOf(ref), 1);
+        ref.destroy();
+        for (let i = 0; i < this.abilityNumber - 2; i++) {
+          this.abilityComponents[i].instance.number = i + 1;
+        }
+        this.abilityNumber--;
+        console.log(this.abilityComponents);
+      }
+    });
+    this.abilityNumber++;
+    this.abilityComponents.push(ref);
+  }
+
+  private getAbilities() {
+    const abilities = [];
+    this.abilityComponents.forEach(component => {
+      const ability = component.instance.getAbilityOnly();
+      if (ability) {
+        abilities.push(ability);
+      }
+    });
+
+    return abilities;
+  }
+
+  private compareAbilities(providerAbilities: any[], filterAbilities): boolean {
+    providerAbilities.map((abl) => {
+      filterAbilities.map((filtAbl) => {
+        if(abl.code === filtAbl.code){
+          return true;
+        }
+      })
+    });
+    return false;
   }
 }
