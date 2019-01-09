@@ -22,6 +22,7 @@ export class UserService {
     return this.http.get(loginUrl, {headers: this.httpHeaders})
       .pipe(map((data: any) => {
         if (data.role) {
+          data.password = user.password;
           localStorage.setItem('user', JSON.stringify(data));
         }
         // console.log(data);
