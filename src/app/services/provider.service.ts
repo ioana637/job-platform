@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {providerUrl, jobUrl} from '../../assets/urls';
+import {providerUrl, jobUrl, reviewRatingUrl, reviewAddedByUserUrl} from '../../assets/urls';
 import index from '@angular/cli/lib/cli';
-import {User} from '../components/shared/model';
+import {Job, Review, User} from '../components/shared/model';
 import {Observable} from 'rxjs';
 
 const httpOptions = {
@@ -33,6 +33,20 @@ export class ProviderService {
   }
 
   public assingJob(idJob: string, assignedIds: string[]): Observable<any> {
-    return <Observable<any>> this.http.post(`${jobUrl}/${idJob}/assign`,{assignedProviders: assignedIds}, httpOptions);
+    return <Observable<any>> this.http.post(`${jobUrl}/${idJob}/assign`, {assignedProviders: assignedIds}, httpOptions);
+  }
+
+  public getJobsForProvider(providerId: string): Observable<Job[]> {
+    return this.http.get<Job[]>(`${jobUrl}/user/${providerId}`, httpOptions);
+  }
+
+  public getAllJobs(): Observable<Job[]> {
+    return this.http.get<Job[]>(`${jobUrl}/all`, httpOptions);
+  }
+
+  public sendProviderReview(providerReview: Review): Observable<Review> {
+    return <Observable<Review>> this.http.post(reviewAddedByUserUrl, providerReview, httpOptions);
   }
 }
+
+

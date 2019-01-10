@@ -27,12 +27,12 @@ export class ProviderJobsComponent implements OnInit {
 
   ngOnInit() {
     this.userId = this.loginService.getUser().id;
-    this.loadData().subscribe((jobs) => this.availableJobs = jobs.filter(job => job.status == 'AVAILABLE'));
+    this.loadData().subscribe((jobs) => this.availableJobs = jobs.filter(job => job.status === 'AVAILABLE'));
 
   }
 
   private loadData(): Observable<Job[]> {
-    return this.jobService.getJobsForProvider(this.userId);
+    return this.jobService.getAllJobs();
   }
 
   private onClickAssign(event: string): void {

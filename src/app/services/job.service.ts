@@ -55,4 +55,8 @@ export class JobService {
     });
   }
 
+  public getAllJobs(): Observable<Job[]> {
+    return <Observable<Job[]>> this.http.get(`${jobUrl}/all`, httpOptions);
+  }
+
 }
