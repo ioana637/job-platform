@@ -23,7 +23,7 @@ export class JobListComponent implements OnInit {
 
   ngOnInit() {
     this.userId = this.loginService.getUser().id;
-    this.loadData().subscribe((jobs) => this.availableJobs = jobs.filter(job => job.id === this.userId));
+    this.loadData().subscribe((jobs) => this.availableJobs = jobs);
 
   }
 

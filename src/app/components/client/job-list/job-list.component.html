@@ -1,21 +1,20 @@
 <app-toolbar-client></app-toolbar-client>
 
 <div class="page-container">
-    <div class="row page-title"> 
-        Lista Joburi Asignate
+    <div class="row page-title">
+        Lista Joburi Create
     </div>
 
     <div class="card-jobs-container">
         <div class="card-container" *ngFor="let job of availableJobs">
             <app-job-card
-                (assignedClick)="inClickAssign($event)"
                 [jobTitle]="job.title"
                 [jobDescription]="job.description"
                 [jobId]="job.id"
                 [jobStatus]="job.status">
-            
+
             </app-job-card>
         </div>
     </div>
-    
+
 </div>
