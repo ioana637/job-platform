@@ -10,7 +10,7 @@ import {RouterModule} from '@angular/router';
 import {ToastModule} from 'primeng/toast';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ButtonModule} from 'primeng/button';
-import {AutoCompleteModule, CalendarModule, DropdownModule, ToolbarModule} from 'primeng/primeng';
+import {AutoCompleteModule, CalendarModule, DropdownModule, InputTextareaModule, ToolbarModule} from 'primeng/primeng';
 import {AbilityComponent} from './abilities/ability.component';
 import {ToolbarComponent} from './toolbar/toolbar.component';
 import {LogoutComponent} from './auth/logout/logout.component';
@@ -20,6 +20,7 @@ import {
   // RoundProgressConfig,
   ROUND_PROGRESS_DEFAULTS
   } from 'angular-svg-round-progressbar';
+import {StatisticsComponent} from './statistics/statistics.component';
 import {ReviewListComponent} from './review-list/review-list.component';
 import {TableModule} from 'primeng/table';
 
@@ -38,6 +39,7 @@ import {TableModule} from 'primeng/table';
     ToolbarModule,
     DropdownModule,
     TableModule,
+    InputTextareaModule,
     RoundProgressModule
   ],
   declarations: [
@@ -46,6 +48,7 @@ import {TableModule} from 'primeng/table';
     AbilityComponent,
     ToolbarComponent,
     LogoutComponent,
+    StatisticsComponent,
     ReviewListComponent,
     StatisticiLeftComponent
     ],
@@ -60,8 +63,8 @@ import {TableModule} from 'primeng/table';
       multi: true
     }
   ],
-  entryComponents: [AbilityComponent, LogoutComponent, ReviewListComponent],
-  exports: [ AbilityComponent, LogoutComponent, ReviewListComponent]
+  entryComponents: [AbilityComponent, LogoutComponent, ReviewListComponent, StatisticsComponent],
+  exports: [ AbilityComponent, LogoutComponent, ReviewListComponent, StatisticsComponent]
 })
 export class SharedModule {
 }

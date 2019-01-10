@@ -4,7 +4,8 @@ import {LoginComponent} from './components/shared/auth/login/login.component';
 import {RegisterComponent} from './components/shared/auth/register/register.component';
 import {AbilityComponent} from './components/shared/abilities/ability.component';
 import {LogoutComponent} from './components/shared/auth/logout/logout.component';
-import { StatisticiLeftComponent } from './components/shared/statistici-left/statistici-left.component';
+import {StatisticiLeftComponent} from './components/shared/statistici-left/statistici-left.component';
+import {StatisticsComponent} from './components/shared/statistics/statistics.component';
 
 const routes: Routes = [
   {
@@ -33,10 +34,9 @@ const routes: Routes = [
     loadChildren: './components/provider/provider-routing.module#ProviderRoutingModule'
   },
   {
-    path: 'statistici',
-    component: StatisticiLeftComponent
-
-  }
+    path: 'statistics',
+    component: StatisticsComponent
+  },
 ];
 
 @NgModule({

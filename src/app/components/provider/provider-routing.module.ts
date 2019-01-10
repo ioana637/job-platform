@@ -6,6 +6,7 @@ import {ProviderSettingsComponent} from './provider-settings/provider-settings.c
 import {AddedReviewListComponent} from './added-review-list/added-review-list.component';
 import {ReceivedReviewListComponent} from './received-review-list/received-review-list.component';
 import { ProviderJobsComponent } from './provider-jobs/provider-jobs.component';
+import {StatisticsComponent} from '../shared/statistics/statistics.component';
 
 const routes = [
   {
