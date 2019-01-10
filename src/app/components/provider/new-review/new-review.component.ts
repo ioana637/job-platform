@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../../services/user.service';
-import {Job, Review} from '../../shared/model';
+import {Job, Review, User} from '../../shared/model';
 import {ProviderService} from '../../../services/provider.service';
 import {MessageService} from 'primeng/api';
 
@@ -17,7 +17,7 @@ export class NewReviewComponent implements OnInit {
   }
 
   user = this._userService.getUser();
-  providerId = this._userService.getUser().id;
+  providerId = this.user.id;
   jobs: Job[];
   job: Job;
   date: string;
@@ -30,7 +30,7 @@ export class NewReviewComponent implements OnInit {
 
     this.newReview = {
       stars: '',
-      userFor: this.user,
+      userFor: null,
       userFrom: this.user,
       job: null,
       description: null,
@@ -76,9 +76,8 @@ export class NewReviewComponent implements OnInit {
     this.newReview.job = this.selectedJob;
     this.newReview.description = this.reviewText;
     this.newReview.date = this.date.slice(0, this.date.length - 2);
-    if (this.newReview.description != null && this.newReview.job != null && this.newReview.stars != '') {
-
-
+    this.newReview.userFor = <User>{id: this.selectedJob.idClient.toString()};
+    if (this.newReview.description !== null && this.newReview.job !== null && this.newReview.stars !== '') {
       this._providerService.sendProviderReview(this.newReview).subscribe(
         (result) => {
           this._messageService.add({
@@ -86,7 +85,14 @@ export class NewReviewComponent implements OnInit {
             summary: 'Review trimis!',
             detail: 'Review-ul a fost trimis cu succes!'
           });
-
+          this.newReview = {
+            stars: '',
+            userFor: null,
+            userFrom: this.user,
+            job: null,
+            description: null,
+            date: ''
+          };
         },
         (error) => {
           this._messageService.add({
