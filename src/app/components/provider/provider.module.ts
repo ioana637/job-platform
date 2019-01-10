@@ -13,25 +13,30 @@ import { RequestDetailsDialogComponent } from './request-details-dialog/request-
 import {AddedReviewListComponent} from './added-review-list/added-review-list.component';
 import {ReceivedReviewListComponent} from './received-review-list/received-review-list.component';
 import {SharedModule} from '../shared/shared.module';
+import {ProviderJobsComponent} from './provider-jobs/provider-jobs.component';
+import {JobCardComponent} from './job-card/job-card.component';
+import {MessageService} from 'primeng/api';
 
 @NgModule({
   imports: [
     CommonModule,
     ProviderRoutingModule,
-    ToolbarModule,
     TableModule,
     ToastModule,
     FormsModule,
     ReactiveFormsModule,
-    ButtonModule,
     DialogModule,
-    SharedModule
+    SharedModule,
+    ToolbarModule,
+    ButtonModule,
   ],
   declarations: [
-    ProviderComponent, 
-    ToolbarProviderComponent, 
-    RequestListComponent, 
-    ProviderSettingsComponent, 
+    ProviderComponent,
+    ProviderJobsComponent,
+    JobCardComponent,
+    ToolbarProviderComponent,
+    RequestListComponent,
+    ProviderSettingsComponent,
     RequestDetailsDialogComponent,
     AddedReviewListComponent,
     ReceivedReviewListComponent],
@@ -43,7 +48,8 @@ import {SharedModule} from '../shared/shared.module';
   ],
   entryComponents: [
     ProviderComponent,
-    RequestListComponent
+    RequestListComponent,
+    ProviderJobsComponent
   ]
 })
 export class ProviderModule {
