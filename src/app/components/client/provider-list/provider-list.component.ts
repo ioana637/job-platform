@@ -143,6 +143,7 @@ export class ProviderListComponent implements OnInit {
       comp.instance.delete();
     });
     this.abilityComponents = [];
+    this.abilityNumber = 1;
   }
 
   private showDialog(): void {
@@ -172,15 +173,9 @@ export class ProviderListComponent implements OnInit {
     const instance = ref.instance;
     instance.number = this.abilityNumber;
     instance.deleted.subscribe(value => {
-      if (value) {
-        this.abilityComponents.splice(this.abilityComponents.indexOf(ref), 1);
-        ref.destroy();
-        for (let i = 0; i < this.abilityNumber - 2; i++) {
-          this.abilityComponents[i].instance.number = i + 1;
-        }
-        this.abilityNumber--;
-        console.log(this.abilityComponents);
-      }
+      ref.destroy();
+      console.log(this.abilityComponents);
+
     });
     this.abilityNumber++;
     this.abilityComponents.push(ref);
