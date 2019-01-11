@@ -48,7 +48,7 @@ html, body{
     justify-content: center;
 }
 
-button {
+.btn {
     margin: 1rem !important;
     width: 20%;
 }
@@ -79,6 +79,14 @@ button {
     right: 16%;
     margin-top:25px;
 }
+
+
+body .ui-button {
+  width: inherit;
+  padding: 1px;
+}
+
+
 
 
 

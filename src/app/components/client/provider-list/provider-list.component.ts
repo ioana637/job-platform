@@ -140,7 +140,7 @@ export class ProviderListComponent implements OnInit {
     this.rating = null;
     console.log(this.abilityComponents);
     this.abilityComponents.forEach((comp) => {
-      comp.instance.delete();
+      comp.destroy();
     });
     this.abilityComponents = [];
     this.abilityNumber = 1;
@@ -173,9 +173,15 @@ export class ProviderListComponent implements OnInit {
     const instance = ref.instance;
     instance.number = this.abilityNumber;
     instance.deleted.subscribe(value => {
-      ref.destroy();
-      console.log(this.abilityComponents);
-
+      if (value) {
+        this.abilityComponents.splice(this.abilityComponents.indexOf(ref), 1);
+        ref.destroy();
+        for (let i = 0; i < this.abilityNumber - 2; i++) {
+          this.abilityComponents[i].instance.number = i + 1;
+        }
+        this.abilityNumber--;
+        console.log(this.abilityComponents);
+      }
     });
     this.abilityNumber++;
     this.abilityComponents.push(ref);
