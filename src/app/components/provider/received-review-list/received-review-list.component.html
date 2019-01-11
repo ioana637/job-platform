@@ -1,8 +1,10 @@
 <app-toolbar-provider></app-toolbar-provider>
-<div class="row justify-content-center m-5" style="color: #384A50;font-size: 24px;font-family: 'Open Sans'">Reviewurile tale</div>
+<div class="row justify-content-center m-5" style="color: #384A50;font-size: 24px;font-family: 'Open Sans'">Reviewurile
+  tale
+</div>
 <div class="row d-flex justify-content-center">
   <div class="col-8">
-    <app-review-list [type]="'received'" [reviews]="receivedReviews" ></app-review-list>
+    <app-review-list [type]="'received'" [reviews]="receivedReviews"></app-review-list>
   </div>
 </div>
 <div class="row d-flex justify-content-center mt-4"
@@ -12,9 +14,10 @@
   </div>
   <div class="col-4" style="text-align: end;">
     <span>
+      <p-rating [ngModel]="this.rating" readonly="true" stars="10" [cancel]="false"></p-rating>
       <span *ngFor="let item of [].constructor(this.floorRating);">
         <i class="fa fa-star star-icon" aria-hidden="true"></i></span>
-      <span *ngIf="this.rating===this.floorRating && this.rating!==0">
+      <span *ngIf="this.rating===this.floorRating-1 && this.rating!==0">
         <i class="fa fa-star star-icon" aria-hidden="true"></i>
       </span>
       <span *ngIf="this.rating !== this.floorRating">
