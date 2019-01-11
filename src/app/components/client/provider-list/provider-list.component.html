@@ -1,4 +1,11 @@
 <app-toolbar-client></app-toolbar-client>
+<div class="row">
+  <div class="col">
+    <app-ability></app-ability>
+  </div>
+</div>
+
+
 <div class="page-container">
 
     <div class="row page-title">Provider
@@ -18,21 +25,19 @@
         </div>
     <form>
     <div class="row filters-container">
-        <div class="form-row m-3" style="color: #384A50;font-family: 'Open Sans';font-size: 14px">
-            <div class="col">
+        <div class="col-4 m-3" style="color: #384A50;font-family: 'Open Sans';font-size: 14px">
                 <ng-template #abilities></ng-template>
-            </div>
         </div>
-        <div class="m-3">
+        <div class="row m-3">
             <div class="col" style="color: #29B3F6;font-family: 'Open Sans';font-size: 14px"
                  (click)="addAbilityComponent()">Adaugă abilitate</div>
         </div>
     </div>
     <div class="row filters-container">
-      <button (click)="applyFilters()" pButton class="ui-button-primary" label="Filtreaza"></button>
+      <button (click)="applyFilters()" pButton class="ui-button-primary btn" label="Filtreaza"></button>
     </div>
       <div class="row filters-container">
-        <button (click)="clearFilters()" pButton class="ui-button-primary" label="Reset"></button>
+        <button (click)="clearFilters()" pButton class="ui-button-primary btn" label="Reset"></button>
       </div>
     </form>
     
@@ -47,8 +52,8 @@
     </div>
 
     <div class="row bottom-buttons">
-        <button pButton class="ui-button-danger" label="Anuleaza"></button>
-        <button (click)="showDialog()" pButton class="ui-button-primary" label="Asigneaza"></button>
+        <button pButton class="ui-button-danger btn" label="Anuleaza"></button>
+        <button (click)="showDialog()" pButton class="ui-button-primary btn" label="Asigneaza"></button>
     </div>
     <div class="row navigate-buttons">
         <div *ngIf="pageNumber !== 0" class="previous-button" (click)="getPreviousProviders()">Prev</div>

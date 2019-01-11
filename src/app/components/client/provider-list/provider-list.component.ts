@@ -140,9 +140,10 @@ export class ProviderListComponent implements OnInit {
     this.rating = null;
     console.log(this.abilityComponents);
     this.abilityComponents.forEach((comp) => {
-      comp.instance.delete();
+      comp.destroy();
     });
     this.abilityComponents = [];
+    this.abilityNumber = 1;
   }
 
   private showDialog(): void {
