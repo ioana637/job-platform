@@ -45,7 +45,7 @@ export class JobService {
   }
 
   public getFilteredJobs(categoriesForFilter: string[]): Observable<Job[]> {
-    return <Observable<Job[]>>this.http.get(`/categories=${categoriesForFilter}`, httpOptions);
+    return <Observable<Job[]>>this.http.get(`${jobUrl}/categories=${categoriesForFilter}`, httpOptions);
   }
 
 }
