@@ -31,6 +31,7 @@ import {RecommandationAddComponent} from './recommandation-add/recommandation-ad
 import { ReceivedReviewListComponent } from './received-review-list/received-review-list.component';
 import { AddedReviewListComponent } from './added-review-list/added-review-list.component';
 import { NewReviewComponent } from './new-review/new-review.component';
+import { TableModule } from 'primeng/table';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { NewReviewComponent } from './new-review/new-review.component';
     AutoCompleteModule,
     DropdownModule,
     PasswordModule,
-    DialogModule
+    DialogModule,
+    TableModule
   ],
   declarations: [
     ProviderListComponent,

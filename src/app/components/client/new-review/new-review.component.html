@@ -1,3 +1,27 @@
+<app-toolbar-client></app-toolbar-client>
+<div class="main-cantainer">
+  <div><h4 class="title" align="center">Adauga un review</h4></div>
+  <div class="table-container">
+    <p>Alege un job!</p>
+    <p-table [value]="providers" selectionMode="single" [(selection)]="selectedProvider">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Nr Job</th>
+          <th>Job</th>
+          <th>Angajat</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData>
+        <tr [pSelectableRow]="rowData">
+          <td>{{rowData.id}}</td>
+          <td>{{rowData.title}}</td>
+          <td>{{rowData.description}}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+
 <p>
   new-review works!
 </p>
