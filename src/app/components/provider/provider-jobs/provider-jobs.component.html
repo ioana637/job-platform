@@ -1,0 +1,19 @@
+<app-toolbar-provider></app-toolbar-provider>
+
+<div class="page-container">
+    <div class="row page-title">Lista Joburilor
+    </div>
+    <div class="card-jobs-container">
+        <div class="card-container" *ngFor="let job of availableJobs">
+            <app-job-card
+                (assignedClick)="onClickAssign($event)"
+                [jobTitle]="job.title"
+                [jobDescription]="job.description"
+                [jobId]="job.id"
+                [jobStatus]="job.status">
+                
+            </app-job-card>
+        </div>
+    </div>
+    <p-toast class="ui-toast-top-left"></p-toast>
+</div>

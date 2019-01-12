@@ -6,3 +6,8 @@ p {
   font-size:25px;
   margin-left: 20px;
 }
+
+.ui-state-highlight{
+  background-color: salmon !important;
+}
+

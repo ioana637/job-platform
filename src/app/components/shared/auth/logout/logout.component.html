@@ -1,19 +1,23 @@
 <app-toolbar></app-toolbar>
-<p-card *ngIf="layoutSuccess" class="logout-card">
-  <p-header class="header">
-    <div><i class="fa fa-check icon"></i></div>
-    <span>Te-ai delogat cu succes! <br> Mergi inapoi la login!</span>
-  </p-header>
-  <div class="content">
-    <p-button class="login-button" label="Logare" (click)="redirectToLogIn()"></p-button>
-  </div>
-</p-card>
-<p-card *ngIf="layoutError">
-  <p-header class="header">
-    <div><i class="fa fa-times icon fail"></i></div>
-    <span>Nu te-ai delogat!</span>
-  </p-header>
-</p-card>
-<router-outlet></router-outlet>
+<div class="row justify-content-center mt-5">
+  <p-card class="col-3"  *ngIf="layoutSuccess">
+    <p-header class="header">
+      <div><i class="fa fa-check icon"></i></div>
+      <div>Te-ai delogat cu succes!</div>
+      <div> Mergi inapoi la login!</div>
+    </p-header>
+    <div class="content">
+      <p-button class="login-button" label="Logare" (click)="redirectToLogIn()"></p-button>
+    </div>
+  </p-card>
+  <p-card class="col-4" *ngIf="layoutError">
+    <p-header class="header">
+      <div><i class="fa fa-times icon fail"></i></div>
+      <span>Nu te-ai delogat!</span>
+    </p-header>
+  </p-card>
+  <router-outlet></router-outlet>
+</div>
+
 
 

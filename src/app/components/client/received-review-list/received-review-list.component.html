@@ -17,7 +17,7 @@
     <span>
       <span *ngFor="let item of [].constructor(this.floorRating);">
         <i class="fa fa-star star-icon" aria-hidden="true"></i></span>
-      <span *ngIf="this.rating===this.floorRating && this.rating!==0">
+      <span *ngIf="this.rating===this.floorRating-1 && this.rating!==0">
         <i class="fa fa-star star-icon" aria-hidden="true"></i>
       </span>
       <span *ngIf="this.rating !== this.floorRating">

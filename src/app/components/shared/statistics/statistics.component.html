@@ -1,0 +1,68 @@
+<app-toolbar></app-toolbar>
+
+<div>
+  <h3>Aplicatia noastra se mandreste cu:</h3>
+  <br>
+  <div class="row">
+    <div class="col-6">
+      <app-statistici-left></app-statistici-left>
+
+    </div>
+    <div class="col-6">
+      <div class="content">
+        <div class="row">
+          <div class="col-12 m6">
+            <div class="card blue-grey darken-1">
+              <div class="row">
+                <img src="assets/jobs.png" class="logo">
+                <p class="text">{{availableJobs}} job(uri) disponibil(e) </p>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6">
+            <div class="card blue-grey darken-1">
+              <div class="row">
+                <img src="assets/contracts.png" class="logo">
+                <p class="text">{{contractsNo}} contract(e) realizat(e)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col s12 m6">
+            <div class="card blue-grey darken-1">
+              <div class="row">
+                <img src="assets/providers.png" class="logo">
+                <p class="text">{{providersNo}} tineri in cautarea unui job</p>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6">
+            <div class="card blue-grey darken-1">
+              <div class="row">
+                <img src="assets/rating.png" class="logo">
+                <p class="text">{{bestClientsNo}} angajatori cu 5 stele</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h3>Despre noi:</h3>
+      <br>
+      <p-card>bla bla bla</p-card>
+      <div class="register">
+        <div class="row">
+          <div class="col-6"><h3>Inscrie-te si tu!</h3></div>
+          <div class="col-6 d-flex justify-content-end">
+            <p-button label="Inregistreaza-ma" [routerLink]="['../register']"></p-button>
+          </div>
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,7 +1,9 @@
 <app-toolbar-provider></app-toolbar-provider>
 
 <p>Cererile tale</p>
-<p-table [value]="requests">
+<p-table [value]="requests" [metaKeySelection]="false"
+         selectionMode="single"
+         dataKey="Nr Cerere">
   <ng-template pTemplate="header">
     <tr>
       <th>Nr Cerere</th>
@@ -12,7 +14,7 @@
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-request>
-    <tr>
+    <tr (click)="selectedRequest = request.nrCerere;onRowClicked();">
       <td>{{request.nrCerere}}</td>
       <td>{{request.job}}</td>
       <td>{{request.angajator}}</td>
@@ -21,3 +23,9 @@
     </tr>
   </ng-template>
 </p-table>
+
+<app-request-details-dialog
+  [display]="display"
+  [requestId]="selectedRequest"
+  (displayChange)="onDialogClose($event)">
+</app-request-details-dialog>
