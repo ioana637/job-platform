@@ -13,6 +13,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AddedReviewListComponent} from './added-review-list/added-review-list.component';
 import {ReceivedReviewListComponent} from './received-review-list/received-review-list.component';
 import {SharedModule} from '../shared/shared.module';
+import {MultiSelectModule} from 'primeng/multiselect';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import {SharedModule} from '../shared/shared.module';
     FormsModule,
     ReactiveFormsModule,
     ButtonModule,
-    SharedModule
+    SharedModule,
+    MultiSelectModule
   ],
   declarations: [
     ProviderComponent,

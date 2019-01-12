@@ -77,47 +77,8 @@ label {
   border-left: 3px solid #FF5D5D !important;
 }
 
-p-calendar.ng-invalid input {
-  border-left: 3px solid #FF5D5D !important;
-}
 
 p-button {
-  width: 100%;
-}
-
-body .ui-button {
+  position: center;
   width: inherit;
-  padding: 1px;
 }
-
-body .btn-cancel > .ui-button {
-  border: 1px solid #FF6868 !important;
-  background: white !important;
-  color: #FF5D5D !important;
-  font-family: "Open Sans", sans-serif;
-  font-size: 14px !important;
-}
-
-body .btn-cancel > .ui-button:enabled:hover {
-  background: white !important;
-  color: #FF5D5D !important;
-}
-
-.icon {
-  color: #FF5D5D !important;
-  align-items: center;
-  display: flex;
-}
-
-.abilities {
-  color: #384A50;
-  font-family: 'Open Sans';
-  font-size: 14px
-}
-
-.add-ability {
-  color: #29B3F6;
-  font-family: 'Open Sans';
-  font-size: 14px
-}
-

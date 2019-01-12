@@ -44,5 +44,8 @@ export class JobService {
     return map;
   }
 
+  public getFilteredJobs(categoriesForFilter: string[]): Observable<Job[]> {
+    return <Observable<Job[]>>this.http.get(`/categories=${categoriesForFilter}`, httpOptions);
+  }
 
 }

@@ -1,5 +1,6 @@
 <app-toolbar-provider></app-toolbar-provider>
 <p-toast position="top-right"></p-toast>
+
 <div class="container-fluid my-div-class">
   <div class="row mb-3 mt-3">
     <div class="col text-center">
@@ -13,19 +14,20 @@
 
 
 <div class="container-fluid my-border mb-4">
-  <form [formGroup]="form">
-
       <div class="text-center">
           Categorie de căutare:
       </div>
-
-      
-</form>
-
-<!-- <p-multiSelect [options]="categories" [(ngModel)]="selectedCategories" ></p-multiSelect> -->
-
-<div>
-  <p-button label="Filter"></p-button>
-  <p-button label="Reset"></p-button>
 </div>
+
+<div class="row" style="justify-content:center">
+  <div>
+    <p-multiSelect optionLabel="name" [options]="categories" [(ngModel)]="selectedCategories" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+  </div>
+</div>
+<br><br><br><br>
+<div class="row" style="justify-content:center">
+  <div >
+    <p-button label="Reset" (onClick)="onReset()"></p-button>
+    <p-button label="Filter" (onClick)="onFilter()"></p-button>
+  </div>
 </div>

@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Category} from '../../shared/model';
-import {MultiSelectModule} from 'primeng/multiselect';
+import {JobService} from '../../../services/job.service';
 import { AbilityComponent } from '../../shared/abilities/ability.component';
 import {ButtonModule} from 'primeng/button';
 
@@ -21,20 +21,46 @@ import {ButtonModule} from 'primeng/button';
 })
 export class ProviderSearchComponent implements OnInit{
 
-  categories: Category[];
+  categories: any[];
 
   selectedCategories: Category[];
+  
 
-
-  constructor() {
+  constructor(
+    private jobService: JobService
+  ) {
+    
   }
       
   ngOnInit() {
     this.categories = [];
+    
     var enumObject = Object(Category)
     for(var key in enumObject){
-        this.categories.push(enumObject[key]);
-    }
+        this.categories.push({'name': enumObject[key]});
+    }  
+    console.log('Cat: ', this.categories);  
   }
 
+  onFilter(){
+    console.log("Filter");
+    
+    var filterCategories = [];
+    var i;
+
+    for(i = 0; i < this.selectedCategories.length; i++){
+      console.log(this.selectedCategories[i]["name"])
+      filterCategories.push(this.selectedCategories[i]["name"])
+    }
+    
+    console.log(filterCategories)
+
+    var results = this.jobService.getFilteredJobs(filterCategories)
+    console.log("results" + results)
+  }
+
+  onReset(){
+    console.log("Reset");
+    this.selectedCategories = [];
+  }
 }
