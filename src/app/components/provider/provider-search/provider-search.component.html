@@ -30,4 +30,19 @@
     <p-button label="Reset" (onClick)="onReset()"></p-button>
     <p-button label="Filter" (onClick)="onFilter()"></p-button>
   </div>
+
+  <br><br>
+
+  <div class="card-jobs-container">
+    <div class="card-container" *ngFor="let job of jobsFound">
+        <app-job-card
+            (assignedClick)="inClickAssign($event)"
+            [jobTitle]="job.title"
+            [jobDescription]="job.description"
+            [jobId]="job.id"
+            [jobStatus]="job.status">
+        
+        </app-job-card>
+    </div>
+</div>
 </div>

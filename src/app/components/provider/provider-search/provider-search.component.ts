@@ -8,10 +8,11 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Category} from '../../shared/model';
+import {Category, Job} from '../../shared/model';
 import {JobService} from '../../../services/job.service';
 import { AbilityComponent } from '../../shared/abilities/ability.component';
 import {ButtonModule} from 'primeng/button';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-provider-search',
@@ -23,7 +24,8 @@ export class ProviderSearchComponent implements OnInit{
 
   categories: any[];
 
-  selectedCategories: Category[];
+  selectedCategories: Category[] = [];
+  jobsFound: Job[] = [];
   
 
   constructor(
@@ -55,8 +57,12 @@ export class ProviderSearchComponent implements OnInit{
     
     console.log(filterCategories)
 
-    var results = this.jobService.getFilteredJobs(filterCategories)
-    console.log("results" + results)
+    this.loadDataFiltered(filterCategories).subscribe((jobs) => this.jobsFound = jobs)
+    console.log("results" + this.jobsFound) 
+  }
+
+  private loadDataFiltered(filterCategories):Observable<Job[]>{
+      return this.jobService.getFilteredJobs(filterCategories)
   }
 
   onReset(){
