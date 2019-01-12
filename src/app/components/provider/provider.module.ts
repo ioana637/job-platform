@@ -14,7 +14,6 @@ import {AddedReviewListComponent} from './added-review-list/added-review-list.co
 import {ReceivedReviewListComponent} from './received-review-list/received-review-list.component';
 import {SharedModule} from '../shared/shared.module';
 import {MultiSelectModule} from 'primeng/multiselect';
-import {JobCardComponent} from './job-card/job-card.component'
 
 @NgModule({
   imports: [
@@ -37,7 +36,6 @@ import {JobCardComponent} from './job-card/job-card.component'
     AddedReviewListComponent,
     ReceivedReviewListComponent,
     ProviderSearchComponent,
-    JobCardComponent
   ],
   exports: [ToolbarProviderComponent,
     ToastModule,
