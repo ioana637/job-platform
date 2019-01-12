@@ -14,10 +14,31 @@ import { AbilityComponent } from '../../shared/abilities/ability.component';
 import {ButtonModule} from 'primeng/button';
 import { Observable } from 'rxjs';
 
+
+
 @Component({
   selector: 'app-provider-search',
   templateUrl: './provider-search.component.html',
-  styleUrls: ['./provider-search.component.css'],
+  styles: [`
+          :host ::ng-deep .ui-multiselected-item-token,
+          :host ::ng-deep .ui-multiselected-empty-token {
+              padding: 2px 4px;
+              margin: 0 0.286em 0 0;
+              display: inline-block;
+              vertical-align:middle;
+              height: 1.857em;
+          }
+
+          :host ::ng-deep .ui-multiselected-item-token {
+              background: #007ad9;
+              color: #ffffff;
+          }
+
+          :host ::ng-deep .ui-multiselected-empty-token {
+              background: #d95f00;
+              color: #ffffff;
+          }
+      `],
   encapsulation: ViewEncapsulation.None
 })
 export class ProviderSearchComponent implements OnInit{
