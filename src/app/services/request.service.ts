@@ -20,4 +20,9 @@ export class RequestService {
     return this.http.get(`${requestUrl}/provider/${id}`,
       httpOptions);
   }
+
+  public getRequestById(id) {
+    return this.http.get(`${requestUrl}/id=${id}`,
+      httpOptions);
+  }
 }

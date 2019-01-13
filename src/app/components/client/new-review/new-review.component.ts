@@ -10,8 +10,6 @@ import { ProviderService } from '../../../services/provider.service';
   styleUrls: ['./new-review.component.css']
 })
 export class NewReviewComponent implements OnInit {
-  providers: any;
-  selectedProvider: any;
   user = this._userService.getUser();
   clientId = this.user.id;
   jobs: Job[];
@@ -38,7 +36,7 @@ export class NewReviewComponent implements OnInit {
 
     this.jobs = [];
     this.date = new Date().toJSON();
-    this._providerService.getJobsForProvider(this.providerId).subscribe(
+    this._providerService.getJobsForProvider(this.clientId).subscribe(
       result => {
         Object.values(result).forEach(rez => {
           this.job = {
@@ -56,7 +54,8 @@ export class NewReviewComponent implements OnInit {
             hoursPerDay: rez.hoursPerDay,
             hoursPerWeek: rez.hoursPerWeek,
             location: rez.location,
-            category: rez.category
+            category: rez.category,
+            providers: rez.providers
           };
           this.jobs.push(this.job);
         });
@@ -64,6 +63,46 @@ export class NewReviewComponent implements OnInit {
       (error) => {
         console.log(error);
       });
+  }
+
+  handleRate(event) {
+    this.newReview.stars = event.value;
+  }
+
+  submitReview() {
+    // this.newReview.userFor = {...this.newReview.userFor, username: this.selectedJob.providers[0].username};
+    this.newReview.job = this.selectedJob;
+    this.newReview.description = this.reviewText;
+    this.newReview.date = this.date.slice(0, this.date.length - 2);
+    if(this.newReview.description != null && this.newReview.job != null && this.newReview.stars!='') {
+
+
+      this._providerService.sendProviderReview(this.newReview).subscribe(
+        (result) => {
+          this._messageService.add({
+            severity: 'success',
+            summary: 'Review trimis!',
+            detail: 'Review-ul a fost trimis cu succes!'
+          });
+
+        },
+        (error) => {
+          this._messageService.add({
+            severity: 'error',
+            summary: 'Eroare',
+            detail: "A aparut o eroare, incercati din nou mai tarziu!"
+          });
+
+        }
+      )
+    }
+    else {
+      this._messageService.add({
+        severity: 'error',
+        summary: 'Eroare',
+        detail: "Verificati ca toate campurile sa fie completate!"
+      });
+    }
   }
 
 }

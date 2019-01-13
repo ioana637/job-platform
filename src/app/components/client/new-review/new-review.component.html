@@ -1,13 +1,16 @@
 <app-toolbar-client></app-toolbar-client>
-<div class="main-cantainer">
-  <div><h4 class="title" align="center">Adauga un review</h4></div>
+<p-toast [style]="{marginTop: '75px'}"></p-toast>
+<div><h4 class="title">Adauga un review</h4></div>
+
+<div class="main-container">
   <div class="table-container">
     <p>Alege un job!</p>
-    <p-table [value]="providers" selectionMode="single" [(selection)]="selectedProvider">
+    <p-table [value]="jobs" selectionMode="single" [(selection)]="selectedJob">
       <ng-template pTemplate="header">
         <tr>
           <th>Nr Job</th>
           <th>Job</th>
+          <th>Descriere</th>
           <th>Angajat</th>
         </tr>
       </ng-template>
@@ -16,12 +19,20 @@
           <td>{{rowData.id}}</td>
           <td>{{rowData.title}}</td>
           <td>{{rowData.description}}</td>
+          <td>{{rowData.providers[0].username}}</td>
         </tr>
       </ng-template>
     </p-table>
   </div>
+
+<div class="review-container">
+  <p> Adauga un review!</p>
+
+  <textarea [(ngModel)]="reviewText" pInputTextarea></textarea>
+  <p>Da o nota angajatului!</p>
+
+  <p-rating (onRate)="handleRate($event)" [cancel]="false"></p-rating>
+  <p-button label="Salveaza" (click)="submitReview()"></p-button>
+</div>
 </div>
 
-<p>
-  new-review works!
-</p>

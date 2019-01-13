@@ -20,6 +20,13 @@ import {
 import {AbilityComponent} from './abilities/ability.component';
 import {ToolbarComponent} from './toolbar/toolbar.component';
 import {LogoutComponent} from './auth/logout/logout.component';
+import { StatisticiLeftComponent } from './statistici-left/statistici-left.component';
+import {
+  RoundProgressModule,
+  // RoundProgressConfig,
+  ROUND_PROGRESS_DEFAULTS
+  } from 'angular-svg-round-progressbar';
+import {StatisticsComponent} from './statistics/statistics.component';
 import {ReviewListComponent} from './review-list/review-list.component';
 import {TableModule} from 'primeng/table';
 
@@ -38,7 +45,9 @@ import {TableModule} from 'primeng/table';
     ToolbarModule,
     DropdownModule,
     InputTextareaModule,
-    TableModule
+    TableModule,
+    InputTextareaModule,
+    RoundProgressModule
   ],
   declarations: [
     LoginComponent,
@@ -46,17 +55,23 @@ import {TableModule} from 'primeng/table';
     AbilityComponent,
     ToolbarComponent,
     LogoutComponent,
-    ReviewListComponent
+    StatisticsComponent,
+    ReviewListComponent,
+    StatisticiLeftComponent
     ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
+      useValue: {
+        color: '#f00',
+        background: '#0f0'
+      },
       useClass: UserInterceptor,
       multi: true
     }
   ],
-  entryComponents: [AbilityComponent, LogoutComponent, ReviewListComponent],
-  exports: [ AbilityComponent, LogoutComponent, ReviewListComponent]
+  entryComponents: [AbilityComponent, LogoutComponent, ReviewListComponent, StatisticsComponent],
+  exports: [ AbilityComponent, LogoutComponent, ReviewListComponent, StatisticsComponent]
 })
 export class SharedModule {
 }

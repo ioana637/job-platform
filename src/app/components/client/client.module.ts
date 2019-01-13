@@ -9,7 +9,7 @@ import {
   DropdownModule,
   InputTextareaModule,
   MessageService,
-  PasswordModule,
+  PasswordModule, RatingModule,
   ToolbarModule
 } from 'primeng/primeng';
 import {CardModule} from 'primeng/card';
@@ -30,8 +30,11 @@ import {ClientSettingsComponent} from './client-settings/client-settings.compone
 import {RecommandationAddComponent} from './recommandation-add/recommandation-add.component';
 import { ReceivedReviewListComponent } from './received-review-list/received-review-list.component';
 import { AddedReviewListComponent } from './added-review-list/added-review-list.component';
+
 import { NewReviewComponent } from './new-review/new-review.component';
 import { TableModule } from 'primeng/table';
+import { JobCardComponent } from './client-jobs-card/job-card.component';
+
 
 
 @NgModule({
@@ -50,7 +53,8 @@ import { TableModule } from 'primeng/table';
     DropdownModule,
     PasswordModule,
     DialogModule,
-    TableModule
+    TableModule,
+    RatingModule
   ],
   declarations: [
     ProviderListComponent,
@@ -69,6 +73,8 @@ import { TableModule } from 'primeng/table';
     ReceivedReviewListComponent,
     AddedReviewListComponent,
     NewReviewComponent,
+    JobCardComponent
+
   ],
   exports: [ToolbarClientComponent],
   providers: [MessageService],

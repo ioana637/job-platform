@@ -6,6 +6,8 @@ import {ProviderSettingsComponent} from './provider-settings/provider-settings.c
 import { NewReviewComponent } from './new-review/new-review.component';
 import {AddedReviewListComponent} from './added-review-list/added-review-list.component';
 import {ReceivedReviewListComponent} from './received-review-list/received-review-list.component';
+import { ProviderJobsComponent } from './provider-jobs/provider-jobs.component';
+import {StatisticsComponent} from '../shared/statistics/statistics.component';
 
 const routes = [
   {
@@ -29,8 +31,12 @@ const routes = [
     component: ReceivedReviewListComponent
   },
   {
-    path: 'provider/review',
+    path: 'provider/review/new-review',
     component: NewReviewComponent
+  },
+  {
+    path: 'provider/jobs',
+    component: ProviderJobsComponent
   }
 ];
 

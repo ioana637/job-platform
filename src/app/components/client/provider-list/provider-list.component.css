@@ -34,11 +34,21 @@ html, body{
     justify-content: center;
 }
 
+.rating-container {
+    justify-content: center;
+    max-width: 100px;
+    margin: 0 auto;
+}
+
+.filters-container{
+    justify-content: center;
+}
+
 .bottom-buttons{
     justify-content: center;
 }
 
-button {
+.btn {
     margin: 1rem !important;
     width: 20%;
 }
@@ -69,3 +79,14 @@ button {
     right: 16%;
     margin-top:25px;
 }
+
+
+body .ui-button {
+  width: inherit;
+  padding: 1px;
+}
+
+
+
+
+

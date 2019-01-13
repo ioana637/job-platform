@@ -1,0 +1,21 @@
+.main-container{
+  display: flex;
+  padding: 70px;
+}
+
+.table-container{
+  width: 50vw;
+  height: 50vh;
+  padding: 0 40px 0;
+}
+
+.review-container{
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  height: 50vh;
+}
+.title{
+  text-align: center;
+  margin-top: 50px;
+}

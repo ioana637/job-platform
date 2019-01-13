@@ -1,0 +1,30 @@
+.page-container{
+    background-color: #f7f7f7;
+    height: 100%;
+    margin: 20px;
+}
+
+.page-title {
+    color: #384A50;
+    font-size: 24px;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    margin: 2rem;
+    margin-top: 0;
+    padding-top: 2rem;
+    justify-content: center;
+}
+
+.card-container{
+    display: inline-flex;
+    background-color: #ffffff;
+    margin: 50px;
+    border-radius: 8px;
+    padding: 18px;
+    height: 303px;
+    width: 335px;
+}
+.card-jobs-container{
+    margin-right: 213px;
+    margin-left: 213px;
+} 

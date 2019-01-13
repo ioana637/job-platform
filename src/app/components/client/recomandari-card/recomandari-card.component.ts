@@ -1,4 +1,5 @@
 import {Component, OnInit, ViewEncapsulation, Input} from '@angular/core';
+import {Recommendation} from '../../shared/model';
 
 @Component({
   selector: 'app-recomandari-card',
@@ -8,14 +9,7 @@ import {Component, OnInit, ViewEncapsulation, Input} from '@angular/core';
 })
 export class RecomandariCardComponent implements OnInit {
 
-  @Input() public fullName = '';
-  @Input() public abilitate1 = '';
-  @Input() public label1 = '';
-  @Input() public abilitate2 = '';
-  @Input() public label2 = '';
-  @Input() public status = '';
-  @Input() public numeRecomandat = '';
-  @Input() public mesaj = '';
+  @Input() public recommendation: Recommendation;
   @Input() public rating = '';
 
   constructor() {

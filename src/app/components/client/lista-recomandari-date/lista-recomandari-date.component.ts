@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
+import {Recommendation} from '../../shared/model';
+import {RecommendationService} from 'src/app/services/recommendation.service';
+import {UserService} from '../../../services/user.service';
 
 @Component({
   selector: 'app-lista-recomandari-date',
@@ -7,9 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaRecomandariDateComponent implements OnInit {
 
-  constructor() { }
+  public listaRecomandariDate: Recommendation[];
+
+  constructor(private recommendationSerivce: RecommendationService,
+              private userService: UserService) {
+  }
 
   ngOnInit() {
+    // this.userService.getUser().id
+    this.recommendationSerivce.getGivenRecommendations(this.userService.getUser().id).subscribe(resp => {
+      this.listaRecomandariDate = resp;
+      console.log(this.listaRecomandariDate);
+    });
   }
 
 }
