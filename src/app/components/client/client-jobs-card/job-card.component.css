@@ -32,3 +32,11 @@
     display: inline;
     margin-left: 25%;
 }
+
+.title-providers {
+    font-weight: 550;
+}
+
+.providers-label {
+    color: royalblue;
+}

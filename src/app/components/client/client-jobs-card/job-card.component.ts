@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, Provider } from '@angular/core';
 
 @Component({
   selector: 'app-job-card',
@@ -11,9 +11,9 @@ export class JobCardComponent implements OnInit {
     @Input() jobDescription: string = '';
     @Input() jobId: string = '';
     @Input() jobStatus: string = '';
+    @Input() jobProviders: string = '';
 
     ngOnInit(){
 
     }
-
 }
