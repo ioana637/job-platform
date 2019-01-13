@@ -32,7 +32,7 @@ import {JobCardComponent} from './job-card/job-card.component';
     ToolbarModule,
     ButtonModule,
     SharedModule,
-    MultiSelectModule
+    MultiSelectModule,
     InputTextareaModule,
     RatingModule,
   ],

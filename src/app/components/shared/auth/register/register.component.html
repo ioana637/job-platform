@@ -116,13 +116,9 @@
           </div>
         </div>
 
-
         <div class="form-group col"
-             [ngClass]="{ 'has-error': f.submitted && !roleDropdown.valid }">
+             [ngClass]="{ 'has-error': f.submitted}">
           <p-dropdown [options]="roles" [(ngModel)]="model.role" name="role" #roleDropdown></p-dropdown>
-          <div *ngIf="f.submitted && !roleDropdown.valid"
-               class="help-block">Campul trebuie completat
-          </div>
         </div>
 
         <div class="form-group col-4">
@@ -220,7 +216,7 @@
 
       <div *ngIf="model.role==='PROVIDER'">
         <div class="form-row m-3" style="color: #384A50;font-family: 'Open Sans';font-size: 14px">
-          <div class="col"  style="color: #29B3F6;font-family: 'Open Sans';font-size: 14px">
+          <div class="col" style="color: #29B3F6;font-family: 'Open Sans';font-size: 14px">
             Adaugă abilități pentru a ușura gasirea unui potențial angajator
           </div>
         </div>
@@ -231,7 +227,9 @@
 
         </div>
         <div class="form-row m-3">
-          <div class="col" style="color: #29B3F6;font-family: 'Open Sans';font-size: 14px" (click)="addAbilityComponent()">Adaugă abilitate</div>
+          <div class="col" style="color: #29B3F6;font-family: 'Open Sans';font-size: 14px"
+               (click)="addAbilityComponent()">Adaugă abilitate
+          </div>
         </div>
       </div>
       <div class="ui-fluid">

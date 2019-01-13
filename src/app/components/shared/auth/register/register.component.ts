@@ -68,6 +68,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   register() {
     this.model.birthDate = convertDateToString(this.date);
     this.model.role === 'PROVIDER' ? this.model.abilities = this.getAbilities() : this.model.abilities = [];
+    console.log(this.model);
     this.service.register(this.model).subscribe((user) => {
         if (this.model.role === 'PROVIDER') {
           this.abilityComponents.forEach(component => this.destroy(component));
@@ -77,7 +78,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
         }
         this.router.navigate(['../login']);
       },
-      (error => this.messageService.add({severity: 'error', summary: 'Eroare', detail: "A aparut o eroare, incercati din nou mai tarziu"})
+      (error => this.messageService.add({severity: 'error', summary: 'Eroare', detail: 'A aparut o eroare, incercati din nou mai tarziu'})
       ));
   }
 
