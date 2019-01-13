@@ -1,7 +1,7 @@
 export function convertTimestampToDate(ts: Date) {
   const day = Number(ts.getDate()) > 9 ? ts.getDate() : `0${ts.getDate()}`;
-  return `${ts.getFullYear()}-${ts.getMonth() + 1}-${day}`;
-
+  const month = Number(ts.getMonth() + 1) > 9 ? (ts.getMonth() + 1) : `0${(ts.getMonth() + 1)}`;
+  return `${ts.getFullYear()}-${month}-${day}`;
 }
 
 export function convertTimestampToTime(ts: Date) {

@@ -80,6 +80,7 @@ export class JobAddComponent implements OnInit {
         abilities: this.getAbilities(),
         idClient: this.loginService.getUser().id
       };
+      console.log(job);
       Object.keys(job).forEach(key => job[key] = job[key] === '' ? null : job[key]);
       this.jobService.add(job).subscribe(success => {
           this.messageService.add({severity: 'success', summary: 'Success', detail: 'Jobul a fost adaugat cu succes!'});
@@ -90,7 +91,7 @@ export class JobAddComponent implements OnInit {
           this.addAbilityComponent();
         },
         error => {
-          this.messageService.add({severity: 'error', summary: 'Eroare', detail: "A aparut o eroare, incercati din nou mai tarziu"});
+          this.messageService.add({severity: 'error', summary: 'Eroare', detail: 'A aparut o eroare, incercati din nou mai tarziu'});
         });
     } else {
       this.messageService.add({severity: 'error', summary: 'Eroare', detail: 'Trebuie să completați câmpurile obligatorii!'});
