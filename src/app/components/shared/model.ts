@@ -75,7 +75,7 @@ export interface Job {
   hoursPerWeek?: number;
   location: string;
   category: string;
-  providers?:string[];
+  providers?: User[];
 }
 
 export interface Request {
@@ -107,8 +107,8 @@ export interface Review {
   id?: string;
   stars?: string;
   userFrom: User;
-  userFor: User  ;
-  job: Job  ;
+  userFor: User;
+  job: Job;
   description: string;
   date: string;
 }

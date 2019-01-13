@@ -23,14 +23,14 @@ export class StatisticsService {
   }
 
   public getContracts() {
-     return this.http.get(`${statisticsUrl}/contracts`, httpOptions);
+     return this.http.get(`${statisticsUrl}/allJobs`, httpOptions);
   }
 
   public getAllProviders() {
-    return this.http.get(`${statisticsUrl}/noProviders`, httpOptions);
+    return this.http.get(`${statisticsUrl}/providers`, httpOptions);
   }
 
   public getClientsWithMaxRating() {
-    return this.http.get(`${statisticsUrl}/clients/maxRating`, httpOptions);
+    return this.http.get(`${statisticsUrl}/clients`, httpOptions);
   }
 }

@@ -1,17 +1,21 @@
 import {Component, OnInit} from '@angular/core';
 import {StatisticsService} from '../../../services/statistics.service';
+import {Job} from '../model';
 
 @Component({
-    selector: 'app-statistics',
-    templateUrl: './statistics.component.html',
-    styleUrls: ['./statistics.component.css']
+  selector: 'app-statistics',
+  templateUrl: './statistics.component.html',
+  styleUrls: ['./statistics.component.css']
 })
 export class StatisticsComponent implements OnInit {
-  constructor(private statisticsService: StatisticsService) { }
+  constructor(private statisticsService: StatisticsService) {
+  }
+
   availableJobs: number;
   contractsNo: Object;
   providersNo: Object;
   bestClientsNo: Object;
+
   ngOnInit() {
     this.statisticsService.getAllProviders().subscribe(
       (result) => {
@@ -21,8 +25,10 @@ export class StatisticsComponent implements OnInit {
         console.log(error);
       });
     this.statisticsService.getContracts().subscribe(
-      (result) => {
-        this.contractsNo = result;
+      (result: Job[]) => {
+        console.log(result);
+        const contracts = result.filter((job) => (job.providers.length !== 0));
+        this.contractsNo = contracts.length;
       },
       (error) => {
         console.log(error);
@@ -36,6 +42,7 @@ export class StatisticsComponent implements OnInit {
       });
     this.statisticsService.getClientsWithMaxRating().subscribe(
       (result) => {
+        // console.log(result);
         this.bestClientsNo = result;
       },
       (error) => {
