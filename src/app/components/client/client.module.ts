@@ -31,6 +31,7 @@ import {RecommandationAddComponent} from './recommandation-add/recommandation-ad
 import { ReceivedReviewListComponent } from './received-review-list/received-review-list.component';
 import { AddedReviewListComponent } from './added-review-list/added-review-list.component';
 import { JobCardComponent } from './client-jobs-card/job-card.component';
+import { ClientToolbarComponent } from './client-toolbar/client-toolbar.component';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { JobCardComponent } from './client-jobs-card/job-card.component';
     RecommandationAddComponent,
     ReceivedReviewListComponent,
     AddedReviewListComponent,
-    JobCardComponent
+    JobCardComponent,
+    ClientToolbarComponent
   ],
   exports: [ToolbarClientComponent],
   providers: [MessageService],
