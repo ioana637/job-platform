@@ -15,7 +15,7 @@
             <div class="card blue-grey darken-1">
               <div class="row">
                 <img src="assets/jobs.png" class="logo">
-                <p class="text">{{availableJobs}} job(uri) disponibil(e) </p>
+                <a class="text" href="../jobs">{{availableJobs}} job(uri) disponibil(e) </a>
               </div>
             </div>
           </div>
@@ -48,20 +48,21 @@
           </div>
         </div>
       </div>
-      <h3>Despre noi:</h3>
-      <br>
-      <p-card>bla bla bla</p-card>
-      <div class="register">
-        <div class="row">
-          <div class="col-6"><h3>Inscrie-te si tu!</h3></div>
-          <div class="col-6 d-flex justify-content-end">
-            <p-button label="Inregistreaza-ma" [routerLink]="['../register']"></p-button>
-          </div>
-        </div>
-      </div>
-      <br>
     </div>
   </div>
+  <h3 class="m-4 row">Despre noi:</h3>
+  <p-card class="m-4 row">Jobify este o platformă online prin care studenții, și numai aceștia își pot găsi joburi
+    part-time.
+    De asemenea, cei interesați de angajarea unor persoane pe o perioadă scurtă de timp au posibilitatea de a oferii
+    oportunități de angajare.
+  </p-card>
+  <div class="register row">
+    <div class="col-6"><h3>Înscrie-te și tu!</h3></div>
+    <div class="col-6 d-flex justify-content-end">
+      <p-button label="Inregistreaza-ma" [routerLink]="['../register']"></p-button>
+    </div>
+  </div>
+  <br>
 </div>
 
 

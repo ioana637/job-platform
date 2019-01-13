@@ -8,6 +8,7 @@ p-button {
   margin-right: 50px;
 
 }
+
 .content {
   margin-left: 50px;
   margin-right: 50px;
@@ -27,6 +28,10 @@ p {
 .text {
   font-size: 20px;
 }
+
+a .text {
+}
+
 textarea {
   margin-left: 50px;
   margin-right: 50px;

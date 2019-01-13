@@ -1,0 +1,17 @@
+<app-toolbar></app-toolbar>
+
+<div class="page-container">
+  <div class="row page-title">Lista Joburilor disponibile
+  </div>
+  <div class="card-jobs-container">
+    <div class="card-container" *ngFor="let job of availableJobs">
+      <app-job
+        [jobTitle]="job.title"
+        [jobDescription]="job.description"
+        [jobId]="job.id"
+        [jobStatus]="job.status">
+      </app-job>
+    </div>
+  </div>
+  <p-toast class="ui-toast-top-left"></p-toast>
+</div>

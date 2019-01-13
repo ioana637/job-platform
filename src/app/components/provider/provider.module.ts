@@ -28,18 +28,16 @@ import {JobCardComponent} from './job-card/job-card.component';
     FormsModule,
     ReactiveFormsModule,
     DialogModule,
-    SharedModule,
     ToolbarModule,
     ButtonModule,
-    SharedModule,
     MultiSelectModule,
     InputTextareaModule,
     RatingModule,
+    SharedModule
   ],
   declarations: [
     ProviderComponent,
     ProviderJobsComponent,
-    JobCardComponent,
     ToolbarProviderComponent,
     RequestListComponent,
     ProviderSettingsComponent,
@@ -47,7 +45,8 @@ import {JobCardComponent} from './job-card/job-card.component';
     AddedReviewListComponent,
     ReceivedReviewListComponent,
     ProviderSearchComponent,
-    NewReviewComponent
+    NewReviewComponent,
+    JobCardComponent
   ],
   exports: [ToolbarProviderComponent,
     ToastModule,
