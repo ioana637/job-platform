@@ -54,7 +54,8 @@ export class JobService {
 
   public assignJob(idUser: string, idJob: string) {
     this.get(idJob).subscribe((job: Job) => {
-      job.providers.push(idUser);
+      job.providers.push({id: idUser});
+      // TODO: verifica
       this.update(job).subscribe();
     });
   }

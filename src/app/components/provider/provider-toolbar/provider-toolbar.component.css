@@ -1,0 +1,18 @@
+.ui-widget-header {
+  background: rgb(189, 211, 255);
+}
+
+body .ui-toolbar{
+  background: rgb(189, 211, 255)!important;
+
+}
+
+
+.title{
+  color: #1613f2;
+  text-align: start;
+  /*padding: 14px 16px;*/
+  text-decoration: none;
+  font-size: 19px;
+  font-weight: bold;
+}
