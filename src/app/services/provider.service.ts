@@ -35,4 +35,8 @@ export class ProviderService {
   public assingJob(idJob: string, assignedIds: string[]): Observable<any> {
     return <Observable<any>> this.http.post(`${jobUrl}/${idJob}/assign`,{assignedProviders: assignedIds}, httpOptions);
   }
+
+  public getClientsWhoHired(idProvider: string): Observable<any>{
+    return <Observable<any>> this.http.get(`${providerUrl}/${idProvider}/clients`, httpOptions);
+  }
 }
