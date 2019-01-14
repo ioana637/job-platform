@@ -1,14 +1,18 @@
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
 
+<p-toolbar>
+  <div class="ui-toolbar-group-left">
+    <img class="m-0" style="height: 40px;width: 40px" src="assets/Logo_Icon.png">
+    <span class="title">Jobify</span>
+  </div>
+  <div class="ui-toolbar-group-right">
+    <button type="button" class="btn-primary btn m-1" (click)="navigateToJobs()">Jobs</button>
+    <button type="button" class="btn btn-primary m-1" (click)="navigateToProviderList()">Listă de provideri</button>
+    <p-splitButton label="Recomandări" [model]="items" class="m-1"></p-splitButton>
+    <p-splitButton label="Reviews" [model]="itemsReview" class="m-1"
+    ></p-splitButton>
+    <button *ngIf="user" class="btn btn-primary m-1" type="button" (click)="navigateToAccountSettings()">{{user.username}}</button>
+    <button type="button" class="btn btn-primary m-1" (click)="navigateToLogout()">Logout</button>
 
-<ul>
-  <li><a href="client/job">Jobs</a></li>
-  <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">Recomandări</a>
-    <div class="dropdown-content">
-      <a href="client/listaRecomandariPrimite">Listă recomandări primite</a>
-      <a href="client/listaRecomandariDate">Listă recomandări date</a>
-    </div>
-  </li>
-  <li><a href="client/providerList">Provider</a></li>
-</ul>
+  </div>
+</p-toolbar>

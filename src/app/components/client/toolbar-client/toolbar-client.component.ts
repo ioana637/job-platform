@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../../shared/model';
 import {UserService} from '../../../services/user.service';
+import {MenuItem} from 'primeng/api';
 
 @Component({
   selector: 'app-toolbar-client',
@@ -10,8 +11,17 @@ import {UserService} from '../../../services/user.service';
 export class ToolbarClientComponent implements OnInit {
 
   currentUser: User = null;
+  items: MenuItem[];
 
   constructor(private loginService: UserService) {
+    this.items = [
+      {
+        label: 'Listă recomandări primite'
+      },
+      {
+        label: 'Listă recomandări date'
+      }
+    ];
   }
 
   ngOnInit() {

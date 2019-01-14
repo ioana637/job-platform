@@ -10,6 +10,7 @@ import {
   InputTextareaModule,
   MessageService,
   PasswordModule,
+  SplitButtonModule,
   ToolbarModule
 } from 'primeng/primeng';
 import {CardModule} from 'primeng/card';
@@ -38,6 +39,7 @@ import { ClientToolbarComponent } from './client-toolbar/client-toolbar.componen
   imports: [
     ToolbarModule,
     CommonModule,
+    SplitButtonModule,
     FormsModule,
     ClientRoutingModule,
     ReactiveFormsModule,
