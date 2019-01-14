@@ -4,6 +4,7 @@ import {JobService} from 'src/app/services/job.service';
 import {Observable} from 'rxjs';
 import {UserService} from 'src/app/services/user.service';
 import {Router} from '@angular/router';
+import {forEach} from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-job-list',
@@ -33,6 +34,18 @@ export class JobListComponent implements OnInit {
     return this.jobService.getJobsForUser(this.userId, this.limit, this.pageNumber);
   }
 
+  protected setProvidersText(providers): string {
+    if (providers === null || providers.length === 0) {
+      return 'Nici un provider';
+    }
+    var rez = '';
+    providers.forEach(element => {
+      rez += `${element.firstName} ${element.lastName}, `;
+    });
+    // remove last comma
+    return rez.slice(0, -2);
+  }
+
   goToNewJob(): void {
     this.router.navigate(['/client/job/add']);
   }
@@ -41,6 +54,4 @@ export class JobListComponent implements OnInit {
     // console.log(job);
     this.router.navigate([`/client/job/${job.id}`]);
   }
-
-
 }

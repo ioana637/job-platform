@@ -9,6 +9,7 @@ import {Job} from '../../shared/model';
 export class JobCardComponent implements OnInit {
 
   @Input() job: Job = null;
+  @Input() jobProviders: string = '';
 
   @Output() editClicked = new EventEmitter();
 
