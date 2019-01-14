@@ -48,7 +48,7 @@ export class JobService {
     return <Observable<Job[]>>this.http.get(`${jobUrl}/user=${idUser}&limit=${limit}&start=${pageNumber}`, httpOptions);
   }
 
-  public getJobsForProvider(idUser: string): Observable<Job[]> {
+  public getJobsForClient(idUser: string): Observable<Job[]> {
     return <Observable<Job[]>>this.http.get(`${jobUrl}/user/${idUser}`, httpOptions);
   }
 

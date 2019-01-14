@@ -1,7 +1,9 @@
 <div class="job-card-root">
-  <p class="title-container">{{jobTitle}}</p>
-  <p class="description-container">{{jobDescription}}</p>
+  <p class="title-container">{{job.title}}</p>
+  <p class="description-container">{{job.description}}</p>
+  <p class="description-container">{{job.periodStart}} ~ {{job.periodEnd}}</p>
+  <p class="description-container">Oameni asignați jobului: {{job.providers.length}} /{{job.peopleRequired}}</p>
   <div class="bottom-container">
-    <p class="status">{{jobStatus}}</p>
+    <p class="status">{{job.status}}</p>
   </div>
 </div>

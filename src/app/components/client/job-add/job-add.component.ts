@@ -80,7 +80,6 @@ export class JobAddComponent implements OnInit {
         abilities: this.getAbilities(),
         idClient: this.loginService.getUser().id
       };
-      console.log(job);
       Object.keys(job).forEach(key => job[key] = job[key] === '' ? null : job[key]);
       this.jobService.add(job).subscribe(success => {
           this.messageService.add({severity: 'success', summary: 'Success', detail: 'Jobul a fost adaugat cu succes!'});
