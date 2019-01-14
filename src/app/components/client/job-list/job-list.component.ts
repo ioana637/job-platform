@@ -3,6 +3,7 @@ import {Job} from '../../shared/model';
 import {JobService} from 'src/app/services/job.service';
 import {Observable} from 'rxjs';
 import {UserService} from 'src/app/services/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-job-list',
@@ -18,6 +19,7 @@ export class JobListComponent implements OnInit {
   private pageNumber: number = 0;
 
   constructor(private jobService: JobService,
+              private router: Router,
               private loginService: UserService) {
   }
 
@@ -29,6 +31,15 @@ export class JobListComponent implements OnInit {
 
   private loadData(): Observable<Job[]> {
     return this.jobService.getJobsForUser(this.userId, this.limit, this.pageNumber);
+  }
+
+  goToNewJob(): void {
+    this.router.navigate(['/client/job/add']);
+  }
+
+  navigateToEdit(job: Job): void {
+    // console.log(job);
+    this.router.navigate([`/client/job/${job.id}`]);
   }
 
 

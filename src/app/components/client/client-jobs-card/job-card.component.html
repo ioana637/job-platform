@@ -1,7 +1,8 @@
 <div class="job-card-root">
-    <p class="title-container">{{jobTitle}}</p>
-    <p class="description-container">{{jobDescription}}</p>
-    <div class="bottom-container">
-        <p class="status">{{jobStatus}}</p>
-    </div>
+  <p class="title-container">{{job.title}}</p>
+  <p class="description-container">{{job.description}}</p>
+  <div class="bottom-container">
+    <p class="status">{{job.status}}</p>
+    <p-button (click)="onEdit()" class="ui-button-success" label="Edit"></p-button>
+  </div>
 </div>

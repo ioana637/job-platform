@@ -3,6 +3,9 @@
 
   <div class="row page-title">Recomandari Date
   </div>
+  <div class="row justify-content-center m-5">
+    <button type="button" class="btn btn-primary" (click)="goToNewRecommandation()">Adaugă o nouă recomandare</button>
+  </div>
   <div class="row card-container">
       <app-recomandari-card class="provider-card" *ngFor = "let recomandare of listaRecomandariDate" 
       [recommendation]=recomandare

@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {Job} from '../../shared/model';
 
 @Component({
   selector: 'app-job-card',
@@ -7,13 +8,16 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class JobCardComponent implements OnInit {
 
-    @Input() jobTitle: string = '';
-    @Input() jobDescription: string = '';
-    @Input() jobId: string = '';
-    @Input() jobStatus: string = '';
+  @Input() job: Job = null;
 
-    ngOnInit(){
+  @Output() editClicked = new EventEmitter();
 
-    }
+  ngOnInit() {
+
+  }
+
+  private onEdit(): void {
+    this.editClicked.emit(this.job);
+  }
 
 }

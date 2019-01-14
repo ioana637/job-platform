@@ -3,6 +3,7 @@ import {Observable} from 'rxjs';
 import {Recommendation} from '../../shared/model';
 import {RecommendationService} from 'src/app/services/recommendation.service';
 import {UserService} from '../../../services/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-lista-recomandari-date',
@@ -14,6 +15,7 @@ export class ListaRecomandariDateComponent implements OnInit {
   public listaRecomandariDate: Recommendation[];
 
   constructor(private recommendationSerivce: RecommendationService,
+              private router: Router,
               private userService: UserService) {
   }
 
@@ -25,4 +27,7 @@ export class ListaRecomandariDateComponent implements OnInit {
     });
   }
 
+  goToNewRecommandation(): void {
+    this.router.navigate(['/client/recommendation/add']);
+  }
 }
