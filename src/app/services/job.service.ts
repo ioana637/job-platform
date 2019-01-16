@@ -48,15 +48,14 @@ export class JobService {
     return <Observable<Job[]>>this.http.get(`${jobUrl}/user=${idUser}&limit=${limit}&start=${pageNumber}`, httpOptions);
   }
 
-  public getJobsForClient(idUser: string): Observable<Job[]> {
+  public getJobsForProvider(idUser: string): Observable<Job[]> {
     return <Observable<Job[]>>this.http.get(`${jobUrl}/user/${idUser}`, httpOptions);
   }
 
   public assignJob(idUser: string, idJob: string) {
     this.get(idJob).subscribe((job: Job) => {
-      // job.providers.push(idUser);
       job.providers.push({id: idUser});
-
+      // TODO: verifica
       this.update(job).subscribe();
     });
   }

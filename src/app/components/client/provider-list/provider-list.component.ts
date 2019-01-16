@@ -6,12 +6,13 @@ import {
   ViewContainerRef,
   ComponentRef,
   ComponentFactoryResolver,
-  ChangeDetectorRef
+  ChangeDetectorRef, OnDestroy
 } from '@angular/core';
 import {ButtonModule} from 'primeng/button';
 import {ProviderService} from '../../../services/provider.service';
 import {MessageService} from 'primeng/api';
 import {AbilityComponent} from '../../shared/abilities/ability.component';
+import {Subscription} from 'rxjs/index';
 
 
 @Component({
@@ -21,7 +22,7 @@ import {AbilityComponent} from '../../shared/abilities/ability.component';
   encapsulation: ViewEncapsulation.None
 })
 
-export class ProviderListComponent implements OnInit {
+export class ProviderListComponent implements OnInit, OnDestroy {
 
   abilityNumber = 1;
   @ViewChild('abilities', {read: ViewContainerRef}) viewContainerRef: ViewContainerRef;
@@ -34,19 +35,24 @@ export class ProviderListComponent implements OnInit {
   protected display: boolean = false;
   protected rating: string = '';
 
-  constructor(
-    private providerService: ProviderService,
-    private factoryResolver: ComponentFactoryResolver,
-    private messageService: MessageService) {
+  private subs: Subscription[] = [];
+
+  constructor(private providerService: ProviderService,
+              private factoryResolver: ComponentFactoryResolver,
+              private messageService: MessageService) {
   }
 
   ngOnInit() {
     this.loadData();
   }
 
+  ngOnDestroy() {
+    this.subs.forEach((s)=>s.unsubscribe());
+  }
+
   private loadData(): void {
     this.pageNumber = 0;
-    this.providerService.getProviders(this.limit, this.pageNumber)
+    this.subs.push(this.providerService.getProviders(this.limit, this.pageNumber)
       .subscribe(
         (result) => {
           this.providers = result;
@@ -54,42 +60,42 @@ export class ProviderListComponent implements OnInit {
         (error) => {
           this.messageService.add({severity: 'error', summary: 'Eroare', detail: 'Datele nu au putut fi incarcate.'});
         }
-      );
+      ));
   }
 
   protected getNextProvidersPage(): void {
     this.pageNumber += 1;
-    this.providerService.getProviders(this.limit, this.pageNumber).subscribe(
+    this.subs.push(this.providerService.getProviders(this.limit, this.pageNumber).subscribe(
       (result) => {
         this.providers = result;
       },
       (error) => {
         this.messageService.add({severity: 'error', summary: 'Eroare', detail: 'Datele nu au putut fi incarcate.'});
       }
-    );
+    ));
   }
 
   protected getPreviousProviders(): void {
     this.pageNumber -= 1;
-    this.providerService.getProviders(this.limit, this.pageNumber).subscribe(
+    this.subs.push(this.providerService.getProviders(this.limit, this.pageNumber).subscribe(
       (result) => {
         this.providers = result;
       },
       (error) => {
         this.messageService.add({severity: 'error', summary: 'Eroare', detail: 'Datele nu au putut fi incarcate.'});
       }
-    );
+    ));
   }
 
   protected onJobAssign(jobId: string): void {
-    this.providerService.assingJob(jobId, this.selectedProviders).subscribe(
+    this.subs.push(this.providerService.assingJob(jobId, this.selectedProviders).subscribe(
       (result) => {
         this.displaySuccess();
       },
       (error) => {
         this.messageService.add({severity: 'error', summary: 'Eroare', detail: 'A aparut o eroare, incercati din nou mai tarziu'});
       }
-    );
+    ));
   }
 
   protected onCheckboxClick(providerId: string) {
@@ -105,14 +111,14 @@ export class ProviderListComponent implements OnInit {
     const ids = abilitati.map((abl) => abl.id);
     if (abilitati.length > 0) {
       this.pageNumber = 0;
-      this.providerService.getFilteredProviders(ids).subscribe(
+      this.subs.push(this.providerService.getFilteredProviders(ids).subscribe(
         (result) => {
           this.providers = result;
         },
         (error) => {
           console.log(error);
         }
-      );
+      ));
     } else {
       console.log('Rating: ', this.rating);
       if (this.rating != null && this.rating != '') {
@@ -120,14 +126,14 @@ export class ProviderListComponent implements OnInit {
           this.messageService.add({severity: 'warn', summary: 'Rating incorect', detail: 'Rating trebuie sa fie intre 0 si 5'});
           this.rating = '';
         } else {
-          this.providerService.getProvidersWithStar(this.rating).subscribe(
+          this.subs.push(this.providerService.getProvidersWithStar(this.rating).subscribe(
             (result) => {
               this.providers = result;
             },
             (error) => {
               console.log(error);
             }
-          );
+          ));
         }
       } else {
         this.loadData();
@@ -172,7 +178,7 @@ export class ProviderListComponent implements OnInit {
     const ref = this.viewContainerRef.createComponent(factory);
     const instance = ref.instance;
     instance.number = this.abilityNumber;
-    instance.deleted.subscribe(value => {
+    this.subs.push(instance.deleted.subscribe(value => {
       if (value) {
         this.abilityComponents.splice(this.abilityComponents.indexOf(ref), 1);
         ref.destroy();
@@ -182,7 +188,7 @@ export class ProviderListComponent implements OnInit {
         this.abilityNumber--;
         console.log(this.abilityComponents);
       }
-    });
+    }));
     this.abilityNumber++;
     this.abilityComponents.push(ref);
   }

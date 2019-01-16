@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {ProviderComponent} from './provider/provider.component';
 import {ProviderSearchComponent} from './provider-search/provider-search.component';
 import {ProviderRoutingModule} from './provider-routing.module';
-import {ButtonModule, DialogModule, InputTextareaModule, RatingModule, ToolbarModule} from 'primeng/primeng';
+import {ButtonModule, DialogModule, InputTextareaModule, RatingModule, SplitButtonModule, ToolbarModule} from 'primeng/primeng';
 import {ToolbarProviderComponent} from './toolbar-provider/toolbar-provider.component';
 import {RequestListComponent} from './request-list/request-list.component';
 import {TableModule} from 'primeng/table';
@@ -18,6 +18,7 @@ import {SharedModule} from '../shared/shared.module';
 import {MultiSelectModule} from 'primeng/multiselect';
 import {ProviderJobsComponent} from './provider-jobs/provider-jobs.component';
 import {JobCardComponent} from './job-card/job-card.component';
+import {ProviderToolbarComponent} from './provider-toolbar/provider-toolbar.component';
 
 @NgModule({
   imports: [
@@ -28,16 +29,19 @@ import {JobCardComponent} from './job-card/job-card.component';
     FormsModule,
     ReactiveFormsModule,
     DialogModule,
+    SharedModule,
     ToolbarModule,
     ButtonModule,
+    SharedModule,
     MultiSelectModule,
     InputTextareaModule,
     RatingModule,
-    SharedModule
+    SplitButtonModule,
   ],
   declarations: [
     ProviderComponent,
     ProviderJobsComponent,
+    JobCardComponent,
     ToolbarProviderComponent,
     RequestListComponent,
     ProviderSettingsComponent,
@@ -46,7 +50,7 @@ import {JobCardComponent} from './job-card/job-card.component';
     ReceivedReviewListComponent,
     ProviderSearchComponent,
     NewReviewComponent,
-    JobCardComponent
+    ProviderToolbarComponent
   ],
   exports: [ToolbarProviderComponent,
     ToastModule,

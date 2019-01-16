@@ -8,8 +8,13 @@
   <form class="navbar-form navbar-right">
 
     <a href="logout">Log Out</a>
-    <a *ngIf='currentUser' href="client/account-settings">{{this.currentUser.username}}</a>
-    <a href="#">Recomandari</a>
+    <a *ngIf="currentUser" href="client/account-settings">{{this.currentUser.username}}</a>
+    <a class="dropdown"> Recomandări
+      <div class="dropdown-content">
+        <a href="client/listaRecomandariPrimite">Listă recomandări primite</a>
+        <a href="client/listaRecomandariDate">Listă recomandări date</a>
+      </div>
+    </a>
     <a href="client/providerList">Provideri</a>
 
     <a href="client/job/add">Adauga Job</a>

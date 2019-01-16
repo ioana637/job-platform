@@ -1,12 +1,12 @@
-<app-toolbar-client></app-toolbar-client>
+<app-client-toolbar></app-client-toolbar>
 <div class="page-container">
 
   <div class="row page-title">Recomandari Primite
   </div>
   <div class="row card-container">
-    <app-recomandari-card class="provider-card" *ngFor = "let recomandare of listaRecomandariPrimite" 
+    <app-recomandari-card class="provider-card" *ngFor = "let recomandare of listaRecomandariPrimite"
     [recommendation]=recomandare
       [rating]="'3.45'"  ></app-recomandari-card>
-      
+
   </div>
 </div>

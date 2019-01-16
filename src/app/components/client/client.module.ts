@@ -10,6 +10,7 @@ import {
   InputTextareaModule,
   MessageService,
   PasswordModule,
+  SplitButtonModule,
   ToolbarModule
 } from 'primeng/primeng';
 import {CardModule} from 'primeng/card';
@@ -31,12 +32,14 @@ import {RecommandationAddComponent} from './recommandation-add/recommandation-ad
 import { ReceivedReviewListComponent } from './received-review-list/received-review-list.component';
 import { AddedReviewListComponent } from './added-review-list/added-review-list.component';
 import { JobCardComponent } from './client-jobs-card/job-card.component';
+import { ClientToolbarComponent } from './client-toolbar/client-toolbar.component';
 
 
 @NgModule({
   imports: [
     ToolbarModule,
     CommonModule,
+    SplitButtonModule,
     FormsModule,
     ClientRoutingModule,
     ReactiveFormsModule,
@@ -66,7 +69,8 @@ import { JobCardComponent } from './client-jobs-card/job-card.component';
     RecommandationAddComponent,
     ReceivedReviewListComponent,
     AddedReviewListComponent,
-    JobCardComponent
+    JobCardComponent,
+    ClientToolbarComponent
   ],
   exports: [ToolbarClientComponent],
   providers: [MessageService],
