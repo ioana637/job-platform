@@ -6,16 +6,14 @@
     <span class="title_logo_client">Jobify</span>
   </div>
   <div class="ui-toolbar-group-right">
-    <button type="button" class="btn-primary btn m-1" (click)="navigateToJobs()">Jobs</button>
-
-    <button type="button" class="btn btn-primary m-1" (click)="navigateToProviderList()">Listă de provideri</button>
+    <button type="button" class="m-1 btn-primary btn" (click)="navigateToJobs()">Jobs</button>
+    <button type="button" class="m-1 btn btn-primary" (click)="navigateToProviderList()">Listă de provideri</button>
     <p-splitButton label="Recomandări" [model]="items" class="m-1"></p-splitButton>
     <p-splitButton label="Reviews" [model]="itemsReview" class="m-1"
     ></p-splitButton>
-    <button *ngIf="user" class="btn btn-primary m-1" type="button" (click)="navigateToAccountSettings()">
+    <button *ngIf="user" class="m-1 btn btn-primary" type="button" (click)="navigateToAccountSettings()">
       {{user.username}}
     </button>
-    <button type="button" class="btn btn-primary m-1" (click)="navigateToLogout()">Logout</button>
-
+    <button type="button" class="m-1 btn btn-primary" (click)="navigateToLogout()">Logout</button>
   </div>
 </p-toolbar>
