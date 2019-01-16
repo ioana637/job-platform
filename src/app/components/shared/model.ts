@@ -112,3 +112,12 @@ export interface Review {
   description: string;
   date: string;
 }
+
+export interface Statistics {
+  providersWithJobPercantage?: number;
+  noOfProviders?: number;
+  clientsWithJobPercentage?: number;
+  usersWithMaxRating?: number;
+  noOfContracts?: number;
+  noOfAvailableJobs?: number;
+}

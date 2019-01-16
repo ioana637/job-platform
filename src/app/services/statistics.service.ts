@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs/index';
-import {Job} from '../components/shared/model';
-import {statisticsUrl} from '../../assets/urls';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs/index';
+import { Job } from '../components/shared/model';
+import { statisticsUrl } from '../../assets/urls';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -18,19 +18,8 @@ export class StatisticsService {
   constructor(private http: HttpClient) {
   }
 
-  public getAvailableJobs() {
-    return this.http.get(`${statisticsUrl}/availableJobs`, httpOptions);
+  public getStatistics() {
+    return this.http.get(`${statisticsUrl}`, httpOptions);
   }
 
-  public getContracts() {
-     return this.http.get(`${statisticsUrl}/allJobs`, httpOptions);
-  }
-
-  public getAllProviders() {
-    return this.http.get(`${statisticsUrl}/providers`, httpOptions);
-  }
-
-  public getClientsWithMaxRating() {
-    return this.http.get(`${statisticsUrl}/clients`, httpOptions);
-  }
 }

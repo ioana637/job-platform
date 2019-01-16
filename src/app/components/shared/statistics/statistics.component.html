@@ -5,7 +5,45 @@
   <br>
   <div class="row">
     <div class="col-6">
-      <app-statistici-left></app-statistici-left>
+      <div class="provider-card-root">
+        <br>
+        <h4>Cateva statistici utile:</h4>
+        <br><br>
+      
+        <div class="row">
+          <div class="col-md-4 col-sm-5">
+            <div class="c100 p{{angajati}}">
+              <span>{{angajati}}%</span>
+              <div class="slice">
+                <div class="bar"></div>
+                <div class="fill"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-3">
+            <br><br>
+            <h4>dintre angajati au gasit deja persoane interesate</h4>
+          </div>
+        </div>
+      
+        <br>
+        <div class="row">
+          <div class="col-md-4 col-sm-5">
+            <div class="c100 p{{angajatori}}">
+              <span>{{angajatori}}%</span>
+              <div class="slice">
+                <div class="bar"></div>
+                <div class="fill"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-3">
+            <br><br>
+            <h4>dintre angajatori au deja perosane interesate</h4>
+          </div>
+      
+        </div>
+      </div>
 
     </div>
     <div class="col-6">
@@ -42,7 +80,7 @@
             <div class="card blue-grey darken-1">
               <div class="row">
                 <img src="assets/rating.png" class="logo">
-                <p class="text">{{bestClientsNo}} angajatori cu 5 stele</p>
+                <p class="text">{{usersWithMaxRating}} utilizatori cu 5 stele</p>
               </div>
             </div>
           </div>

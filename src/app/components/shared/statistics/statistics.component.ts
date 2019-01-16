@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {StatisticsService} from '../../../services/statistics.service';
-import {Job} from '../model';
+import { Component, OnInit } from '@angular/core';
+import { StatisticsService } from '../../../services/statistics.service';
+import { Job, Statistics } from '../model';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-statistics',
@@ -8,44 +9,29 @@ import {Job} from '../model';
   styleUrls: ['./statistics.component.css']
 })
 export class StatisticsComponent implements OnInit {
-  constructor(private statisticsService: StatisticsService) {
+  constructor(private statisticsService: StatisticsService,
+    private messageService: MessageService,) {
   }
 
-  availableJobs: number;
-  contractsNo: Object;
-  providersNo: Object;
-  bestClientsNo: Object;
+  public angajati: number;
+  public angajatori: number;
+  public usersWithMaxRating: number;
+  public contractsNo: number;
+  public availableJobs: number;
+  public providersNo: number;
 
   ngOnInit() {
-    this.statisticsService.getAllProviders().subscribe(
-      (result) => {
-        this.providersNo = result;
+    this.statisticsService.getStatistics().subscribe(
+      (result: Statistics) => {
+        this.providersNo = result.noOfProviders;
+        this.angajati = result.providersWithJobPercantage;
+        this.angajatori = result.clientsWithJobPercentage;
+        this.usersWithMaxRating = result.usersWithMaxRating;
+        this.contractsNo = result.noOfContracts;
+        this.availableJobs = result.noOfAvailableJobs;
       },
       (error) => {
-        console.log(error);
-      });
-    this.statisticsService.getContracts().subscribe(
-      (result: Job[]) => {
-        console.log(result);
-        const contracts = result.filter((job) => (job.providers.length !== 0));
-        this.contractsNo = contracts.length;
-      },
-      (error) => {
-        console.log(error);
-      });
-    this.statisticsService.getAvailableJobs().subscribe(
-      (result) => {
-        this.availableJobs = Object.values(result).length;
-      },
-      (error) => {
-        console.log(error);
-      });
-    this.statisticsService.getClientsWithMaxRating().subscribe(
-      (result) => {
-        // console.log(result);
-        this.bestClientsNo = result;
-      },
-      (error) => {
+        this.messageService.add({severity: 'error', summary: 'Eroare', detail: "Nu am putut incarca toate datele."});
         console.log(error);
       });
   }
