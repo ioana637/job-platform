@@ -14,7 +14,6 @@ import {AutoCompleteModule, CalendarModule, DropdownModule, InputTextareaModule,
 import {AbilityComponent} from './abilities/ability.component';
 import {ToolbarComponent} from './toolbar/toolbar.component';
 import {LogoutComponent} from './auth/logout/logout.component';
-import {StatisticiLeftComponent} from './statistici-left/statistici-left.component';
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
 import {StatisticsComponent} from './statistics/statistics.component';
 import {ReviewListComponent} from './review-list/review-list.component';
@@ -49,7 +48,6 @@ import { JobComponent } from './job/job.component';
     LogoutComponent,
     StatisticsComponent,
     ReviewListComponent,
-    StatisticiLeftComponent,
     AllJobsComponent,
     JobComponent,
   ],
