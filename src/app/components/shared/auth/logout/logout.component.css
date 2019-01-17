@@ -1,14 +1,22 @@
-.header {
-  font-weight: bold;
-  text-align: center;
+.icon {
+  font-size: 1.5em;
+  color: #11ce0c;
 }
 
-.icon {
-  font-size: 5.5em;
+.icon::before{
+  font-size: 1.5em !important;
   color: #11ce0c;
 }
 
 .icon.fail {
+  vertical-align: middle;
+  font-size: 1.5em;
+  color: #FF5D5D;
+}
+
+.icon.fail::before{
+  vertical-align: middle;
+  font-size: 1.5em;
   color: #FF5D5D;
 }
 
@@ -22,6 +30,20 @@
   text-align: center;
 }
 
+.msgSpan {
+  margin-left: 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.cardContainer {
+  font-weight: bold;
+  display: inline-block;
+}
+
+.spanContainer {
+  flex-direction: row;
+}
 
 /*p-card{*/
 /*height: 400px;*/
