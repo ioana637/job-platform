@@ -11,6 +11,7 @@ export class JobCardComponent implements OnInit {
     @Input() jobDescription: string = '';
     @Input() jobId: string = '';
     @Input() jobStatus: string = '';
+    @Input() jobCategory: string = '';
 
     @Output() assignedClick = new EventEmitter();
 

@@ -22,6 +22,12 @@
     display: inline-block;
 }
 
+.pCategory {
+    padding: 10px;
+    display: inline-block;
+    font-weight: 600;
+}
+
 .bottom-container{
     position: relative;
     top: 0;
@@ -31,4 +37,10 @@
 .assign-btn{
     display: inline;
     margin-left: 25%;
+}
+
+.pContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }

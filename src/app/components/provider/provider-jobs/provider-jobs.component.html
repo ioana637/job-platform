@@ -1,16 +1,25 @@
 <app-provider-toolbar></app-provider-toolbar>
 
 <div class="page-container">
-    <div class="row page-title">Lista Joburilor
+    <span class="row page-title">Lista Joburilor
+    </span>
+
+    <div class="row filterContainer">
+        <span class="filterSpan">Categorie: </span>
+        <p-multiSelect class="filterMultiSelect" aria-placeholder="Categorie" optionLabel="name" [options]="categories" [(ngModel)]="selectedCategories" [panelStyle]="{minWidth:'20em'}"></p-multiSelect>
+        <p-button icon="fa fa-filter" class="filterButton" label="Filtreaza" (onClick)="onFilter()"></p-button>
+        <p-button icon="fa fa-times" class="filterButton" label="Reset" (onClick)="onReset()"></p-button>
+
     </div>
+
     <div class="card-jobs-container">
         <div class="card-container" *ngFor="let job of availableJobs">
-            <app-job-card
-                (assignedClick)="onClickAssign($event)"
-                [jobTitle]="job.title"
-                [jobDescription]="job.description"
-                [jobId]="job.id"
-                [jobStatus]="job.status">
+            <app-job-card (assignedClick)="onClickAssign($event)" 
+            [jobTitle]="job.title" 
+            [jobDescription]="job.description"
+            [jobId]="job.id" 
+            [jobCategory]="job.category"
+            [jobStatus]="job.status">
 
             </app-job-card>
         </div>
