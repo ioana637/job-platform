@@ -33,7 +33,7 @@ export class ProviderService {
   }
 
   public assingJob(idJob: string, assignedIds: string[]): Observable<any> {
-    return <Observable<any>> this.http.post(`${jobUrl}/${idJob}/assign`, {assignedProviders: assignedIds}, httpOptions);
+    return <Observable<any>> this.http.post(`${jobUrl}/${idJob}/assign`,JSON.stringify(assignedIds), httpOptions);
   }
 
   public getJobsForProvider(providerId: string): Observable<Job[]> {

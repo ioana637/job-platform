@@ -8,7 +8,7 @@ import {MessageService} from 'primeng/api';
 @Component({
   selector: 'app-dialog-box',
   templateUrl: './dialog-box.component.html',
-  styleUrls: ['./dialog-box.component.css'],
+  styleUrls: ['./dialog-box.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 
@@ -20,6 +20,7 @@ export class DialogBoxComponent implements OnInit {
 
   private jobs: Job[] = [];
   private user: User | null = null;
+  private selectedJobs: Job [] = [];
 
   constructor(
     private loginService: UserService,
@@ -56,7 +57,7 @@ export class DialogBoxComponent implements OnInit {
   }
 
   private onAssignClick(): void {
-    this.jobAssigned.emit();
+    this.jobAssigned.emit(this.selectedJobs[0]);
   }
 
 }

@@ -10,7 +10,8 @@ import {
   InputTextareaModule,
   MessageService,
   PasswordModule,
-  ToolbarModule
+  ToolbarModule,
+  MultiSelectModule
 } from 'primeng/primeng';
 import {CardModule} from 'primeng/card';
 import {SharedModule} from '../shared/shared.module';
@@ -48,7 +49,8 @@ import { JobCardComponent } from './client-jobs-card/job-card.component';
     AutoCompleteModule,
     DropdownModule,
     PasswordModule,
-    DialogModule
+    DialogModule,
+    MultiSelectModule
   ],
   declarations: [
     ProviderListComponent,

@@ -12,6 +12,7 @@ import {ButtonModule} from 'primeng/button';
 import {ProviderService} from '../../../services/provider.service';
 import {MessageService} from 'primeng/api';
 import {AbilityComponent} from '../../shared/abilities/ability.component';
+import { Job } from '../../shared/model';
 
 
 @Component({
@@ -81,8 +82,8 @@ export class ProviderListComponent implements OnInit {
     );
   }
 
-  protected onJobAssign(jobId: string): void {
-    this.providerService.assingJob(jobId, this.selectedProviders).subscribe(
+  protected onJobAssign(job: Job): void {
+    this.providerService.assingJob(job.id, this.selectedProviders).subscribe(
       (result) => {
         this.displaySuccess();
       },

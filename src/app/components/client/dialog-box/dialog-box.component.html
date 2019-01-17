@@ -1,7 +1,7 @@
-<p-dialog header="Alege jobul pentru asignare" [(visible)]="display" modal="modal" [responsive]="true">
+<p-dialog header="Alege jobul pentru asignare" [(visible)]="display" modal="modal" [responsive]="true" width="380" height="250">
     <div class="ui-fluid dialog-container">
-        <p-autoComplete  [(ngModel)]="jobs" field="display" [size]="10"
-        placeholder="Joburi" [minLength]="1"  [dropdown]="true"></p-autoComplete>
+
+        <p-multiSelect optionLabel="title" [options]="jobs" [(ngModel)]="selectedJobs" [panelStyle]="{minWidth:'16em'}"></p-multiSelect>
         <button pButton (click)="onAssignClick()"class="ui-button-primary" label="Asigneaza"></button>
     </div>
 </p-dialog>

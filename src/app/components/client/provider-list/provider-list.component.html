@@ -54,6 +54,6 @@
         <div class="next-button" (click)="getNextProvidersPage()">Next</div>
     </div>
 
-    <app-dialog-box [display]="display" (displayChange)="onDialogClose($event)" (jobAssigned)="onJobAssign()"></app-dialog-box>
+    <app-dialog-box [display]="display" (displayChange)="onDialogClose($event)" (jobAssigned)="onJobAssign($event)"></app-dialog-box>
     <p-toast class="ui-toast-top-left"></p-toast>
 </div>
