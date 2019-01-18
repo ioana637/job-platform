@@ -27,6 +27,7 @@ export enum Category {
 export interface User {
   username?: string;
   password?: string;
+  passwordConfirm?: string;
   role?: string;
   id?: string;
   firstName?: string;

@@ -36,7 +36,7 @@
       </div>
 
       <div class="form-group"
-           [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+           [ngClass]="{ 'has-error': f.submitted && !password.valid || model.passwordConfirm !== model.password }">
         <input type="password"
                class="form-control"
                name="password"
@@ -44,22 +44,22 @@
                #password="ngModel"
                placeholder="Parola"
                required/>
-        <div *ngIf="f.submitted && !password.valid"
-             class="help-block">Campul trebuie completat
+        <div *ngIf="f.submitted && !password.valid || model.passwordConfirm !== model.password"
+             class="help-block">Campul nu e completat corespunzator
         </div>
       </div>
 
       <div class="form-group"
-           [ngClass]="{ 'has-error': f.submitted && !confirm_password.valid }">
+           [ngClass]="{ 'has-error': f.submitted && !confirm_password.valid || model.passwordConfirm !== model.password}">
         <input type="password"
                class="form-control"
                name="confirm_password"
-               [(ngModel)]="model.password"
+               [(ngModel)]="model.passwordConfirm"
                #confirm_password="ngModel"
                placeholder="Confirmare Parola"
                required/>
-        <div *ngIf="f.submitted && !confirm_password.valid"
-             class="help-block">Campul trebuie completat
+        <div *ngIf="f.submitted && !confirm_password.valid || model.passwordConfirm !== model.password"
+             class="help-block">Campul nu e completat corespunzator
         </div>
       </div>
 

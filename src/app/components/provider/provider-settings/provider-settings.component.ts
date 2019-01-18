@@ -9,7 +9,7 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {User} from '../../shared/model';
+import {Ability, User} from '../../shared/model';
 import {JobService} from '../../../services/job.service';
 import {UserService} from '../../../services/user.service';
 import {MessageService} from 'primeng/api';
@@ -43,7 +43,11 @@ export class ProviderSettingsComponent implements OnInit, OnDestroy {
     this.user = this.userService.getUser();
     console.log(this.user);
     this.buildForm();
-    this.addAbilityComponent();
+    if (this.user && this.user.abilities) {
+      this.user.abilities.forEach(ability => this.addAbilityComponent(ability));
+    } else if (this.user) {
+      this.addAbilityComponent();
+    }
   }
 
   onSubmit() {
@@ -67,7 +71,11 @@ export class ProviderSettingsComponent implements OnInit, OnDestroy {
           this.abilityNumber = 1;
           this.addAbilityComponent();
           this.messageService.add({severity: 'info', summary: 'Informare', detail: 'Datele au fost modificate cu succes!'});
-        }, error => this.messageService.add({severity: 'error', summary: 'Erroare', detail: "A aparut o eroare, incercati din nou mai tarziu"})
+        }, error => this.messageService.add({
+          severity: 'error',
+          summary: 'Erroare',
+          detail: 'A aparut o eroare, incercati din nou mai tarziu'
+        })
       ));
     } else {
       this.messageService.add({severity: 'error', summary: 'Eroare', detail: 'Trebuie să completați câmpurile obligatorii!'});
@@ -114,11 +122,15 @@ export class ProviderSettingsComponent implements OnInit, OnDestroy {
     return abilities;
   }
 
-  addAbilityComponent() {
+  addAbilityComponent(ability?: Ability) {
     const factory = this.factoryResolver.resolveComponentFactory(AbilityComponent);
     const ref = this.viewContainerRef.createComponent(factory);
     const instance = ref.instance;
     instance.number = this.abilityNumber;
+    if (ability) {
+      instance.selectedAbility = ability;
+      instance.selectedLevel = {levelName: ability.level};
+    }
     instance.deleted.subscribe(value => {
       if (value) {
         this.abilityComponents.splice(this.abilityComponents.indexOf(ref), 1);
@@ -127,9 +139,8 @@ export class ProviderSettingsComponent implements OnInit, OnDestroy {
           this.abilityComponents[i].instance.number = i + 1;
         }
         this.abilityNumber--;
-        console.log(this.abilityComponents);
       }
-    }, error => this.messageService.add({severity: 'error', summary: 'Eroare', detail: "A aparut o eroare, incercati din nou mai tarziu"}));
+    }, error => this.messageService.add({severity: 'error', summary: 'Eroare', detail: 'A aparut o eroare, incercati din nou mai tarziu'}));
     this.abilityNumber++;
     this.abilityComponents.push(ref);
   }

@@ -22,7 +22,10 @@ export class AddedReviewListComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscriptions.push(
       this.reviewService.getReviewAddedByUser(
-        this.userService.getUser().id).subscribe(reviews => this.addedReviews = reviews));
+        this.userService.getUser().id).subscribe(reviews => {
+        this.addedReviews = reviews;
+        console.log(this.addedReviews);
+      }));
   }
 
 

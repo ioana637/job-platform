@@ -23,6 +23,7 @@ import {JobComponent} from './job/job.component';
 import {ProviderToolbarComponent} from './provider-toolbar/provider-toolbar.component';
 import {ClientToolbarComponent} from './client-toolbar/client-toolbar.component';
 import {UserService} from '../../services/user.service';
+import {MessageService} from 'primeng/api';
 
 @NgModule({
   imports: [
@@ -68,6 +69,7 @@ import {UserService} from '../../services/user.service';
       multi: true
     },
     UserService,
+    MessageService
   ],
   entryComponents: [AbilityComponent,
     LogoutComponent,

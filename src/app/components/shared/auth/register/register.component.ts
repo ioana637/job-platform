@@ -34,6 +34,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     lastName: '',
     firstName: '',
     password: '',
+    passwordConfirm: '',
     username: '',
     email: '',
     subscribed: false
@@ -49,12 +50,11 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   @ViewChild('abilities', {read: ViewContainerRef}) viewContainerRef: ViewContainerRef;
   abilityComponents: ComponentRef<AbilityComponent>[] = [];
 
-  constructor(
-    private route: ActivatedRoute,
-    private service: UserService,
-    private factoryResolver: ComponentFactoryResolver,
-    private router: Router,
-    private messageService: MessageService) {
+  constructor(private route: ActivatedRoute,
+              private service: UserService,
+              private factoryResolver: ComponentFactoryResolver,
+              private router: Router,
+              private messageService: MessageService) {
   }
 
   ngOnInit() {
@@ -66,20 +66,26 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   }
 
   register() {
-    this.model.birthDate = convertDateToString(this.date);
-    this.model.role === 'PROVIDER' ? this.model.abilities = this.getAbilities() : this.model.abilities = [];
-    console.log(this.model);
-    this.service.register(this.model).subscribe((user) => {
-        if (this.model.role === 'PROVIDER') {
-          this.abilityComponents.forEach(component => this.destroy(component));
-          this.abilityComponents = [];
-          this.abilityNumber = 1;
-          this.addAbilityComponent();
-        }
-        this.router.navigate(['../login']);
-      },
-      (error => this.messageService.add({severity: 'error', summary: 'Eroare', detail: 'A aparut o eroare, incercati din nou mai tarziu'})
-      ));
+    if (this.model.passwordConfirm === this.model.password) {
+      this.model.birthDate = convertDateToString(this.date);
+      this.model.role === 'PROVIDER' ? this.model.abilities = this.getAbilities() : this.model.abilities = [];
+      console.log(this.model);
+      delete this.model.passwordConfirm;
+      this.service.register(this.model).subscribe((user) => {
+          if (this.model.role === 'PROVIDER') {
+            this.abilityComponents.forEach(component => this.destroy(component));
+            this.abilityComponents = [];
+            this.abilityNumber = 1;
+            this.addAbilityComponent();
+          }
+          this.router.navigate(['../login']);
+        },
+        (error => this.messageService.add({severity: 'error', summary: 'Eroare', detail: 'A aparut o eroare, incercati din nou mai tarziu'})
+        ));
+    } else {
+      console.log('Eroare');
+      this.messageService.add({severity: 'error', summary: 'Eroare', detail: 'Parola și confirmarea acesteia nu sunt valide!!!'});
+    }
   }
 
   destroy(ref) {

@@ -28,6 +28,7 @@ export class ReceivedReviewListComponent implements OnInit, OnDestroy {
           this.rating = Math.round(results[1] * 100) / 100;
           this.floorRating = Math.floor(this.rating);
         }
+        console.log(this.receivedReviews);
       }, err => {
       }));
   }
