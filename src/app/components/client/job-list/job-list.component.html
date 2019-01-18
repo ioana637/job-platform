@@ -13,8 +13,8 @@
     <div class="card-container" *ngFor="let job of availableJobs">
       <app-job-card
         [job]="job"
-        [jobProviders]="setProvidersText(job.providers)">
-      (editClicked)="navigateToEdit($event)">
+        [jobProviders]="setProvidersText(job.providers)"
+        (editClicked)="navigateToEdit($event)">
 
       </app-job-card>
     </div>
