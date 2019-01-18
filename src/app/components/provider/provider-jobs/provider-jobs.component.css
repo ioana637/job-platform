@@ -12,6 +12,7 @@
     margin: 2rem;
     margin-top: 0;
     padding-top: 2rem;
+    font-weight: bold;
     justify-content: center;
 }
 
@@ -27,4 +28,26 @@
 .card-jobs-container{
     margin-right: 213px;
     margin-left: 213px;
+}
+
+.filterContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.filterButton {
+    background: transparent !important;
+    margin: 10px;
+}
+
+.filterSpan {
+    margin: 12px;
+    vertical-align: center;
+    font-weight: 600;
+}
+
+.ui-multiselect {
+    width: 8em;
 }

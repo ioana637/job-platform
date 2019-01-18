@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ProviderComponent} from './provider/provider.component';
-import {ProviderSearchComponent} from './provider-search/provider-search.component';
 import {ProviderRoutingModule} from './provider-routing.module';
 import {ButtonModule, DialogModule, InputTextareaModule, RatingModule, SplitButtonModule, ToolbarModule} from 'primeng/primeng';
 import {ToolbarProviderComponent} from './toolbar-provider/toolbar-provider.component';
@@ -48,7 +47,6 @@ import {ProviderToolbarComponent} from './provider-toolbar/provider-toolbar.comp
     RequestDetailsDialogComponent,
     AddedReviewListComponent,
     ReceivedReviewListComponent,
-    ProviderSearchComponent,
     NewReviewComponent,
     ProviderToolbarComponent
   ],
