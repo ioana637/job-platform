@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {jobUrl} from '../../assets/urls';
 import {Observable, of} from 'rxjs';
-import {Category, Job} from '../components/shared/model';
+import {Category, Job, User} from '../components/shared/model';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -52,10 +52,11 @@ export class JobService {
     return <Observable<Job[]>>this.http.get(`${jobUrl}/user/${idUser}`, httpOptions);
   }
 
-  public assignJob(idUser: string, idJob: string) {
+  public assignJob(user: User, idJob: string) {
     this.get(idJob).subscribe((job: Job) => {
-      job.providers.push({id: idUser});
-      // TODO: verifica
+      // job.providers.push(idUser);
+      job.providers.push(user);
+
       this.update(job).subscribe();
     });
   }

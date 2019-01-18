@@ -13,6 +13,7 @@ import {ProviderService} from '../../../services/provider.service';
 import {MessageService} from 'primeng/api';
 import {AbilityComponent} from '../../shared/abilities/ability.component';
 import {Subscription} from 'rxjs/index';
+import { Job } from '../../shared/model';
 
 
 @Component({
@@ -87,8 +88,8 @@ export class ProviderListComponent implements OnInit, OnDestroy {
     ));
   }
 
-  protected onJobAssign(jobId: string): void {
-    this.subs.push(this.providerService.assingJob(jobId, this.selectedProviders).subscribe(
+  protected onJobAssign(job: Job): void {
+    this.subs.push(this.providerService.assingJob(job.id, this.selectedProviders).subscribe(
       (result) => {
         this.displaySuccess();
       },

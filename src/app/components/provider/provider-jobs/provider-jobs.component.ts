@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {JobService} from 'src/app/services/job.service';
-import {Job, Category} from '../../shared/model';
+import {Job, Category, User} from '../../shared/model';
 import {Observable} from 'rxjs';
 import {MessageService} from 'primeng/api';
 import {UserService} from '../../../services/user.service';
@@ -15,7 +15,7 @@ import {UserService} from '../../../services/user.service';
 export class ProviderJobsComponent implements OnInit {
 
   protected availableJobs: Job[] = [];
-  protected userId: string = '';
+  protected user: User;
 
   categories: any[];
   selectedCategories: Category[] = [];
@@ -29,9 +29,10 @@ export class ProviderJobsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userId = this.loginService.getUser().id;
+    this.user = this.loginService.getUser();
     this.loadData();
     this.categories = [];
+
 
     const enumObject = Object(Category);
     for (const key in enumObject) {
@@ -41,14 +42,14 @@ export class ProviderJobsComponent implements OnInit {
 
   private loadData() {
     this.jobService.getAllJobs().subscribe((jobs) => {
-      this.availableJobs = jobs.filter(job => job.status === 'AVAILABLE')
+      this.availableJobs = jobs.filter(job => job.status === 'AVAILABLE');
     },(error) => {
       this.messageService.add({severity: 'error', summary: 'Error', detail: 'Datele nu au putut fi incarcate, incearca din nou'});
     });
   }
 
   private onClickAssign(event: string): void {
-    this.jobService.assignJob(this.userId, event);
+    this.jobService.assignJob(this.user, event);
     this.messageService.add({severity: 'success', summary: 'Succes', detail: 'Job-ul a fost asignat'});
   }
 
