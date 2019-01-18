@@ -12,7 +12,7 @@ import {StatisticsComponent} from '../shared/statistics/statistics.component';
 const routes = [
   {
     path: 'provider',
-    component: ProviderComponent
+    component: ProviderJobsComponent
   },
   {
     path: 'provider/request',
