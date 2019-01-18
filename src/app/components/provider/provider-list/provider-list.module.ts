@@ -1,10 +1,12 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ProviderListComponent} from './provider-list.component';
+import { ToolbarProviderComponent } from '../toolbar-provider/toolbar-provider.component';
 
 @NgModule({
     imports: [
-        CommonModule
+        CommonModule,
+        ToolbarProviderComponent
     ],
     declarations: [
         ProviderListComponent

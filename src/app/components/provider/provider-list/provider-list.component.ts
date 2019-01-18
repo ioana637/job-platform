@@ -10,7 +10,7 @@ import {UserService} from "../../../services/user.service";
 @Component({
     selector: 'provider-list',
     templateUrl: './provider-list.component.html',
-    styleUrls: ['./provider-list.component.styl']
+    styleUrls: ['./provider-list.component.scss']
 })
 export class ProviderListComponent implements OnInit {
   @ViewChild('abilities', {read: ViewContainerRef}) viewContainerRef: ViewContainerRef;
@@ -19,7 +19,7 @@ export class ProviderListComponent implements OnInit {
 
 
 
-  cnstructor(private userService: UserService,
+  constructor(private userService: UserService,
              private messageService: MessageService,
              private providerService: ProviderService) {
   }
@@ -41,8 +41,7 @@ export class ProviderListComponent implements OnInit {
   }
 
 
-  handleClick(){
-    const factory = this.factoryResolver.resolveComponentFactory(ClientComponent);
-    const ref=this.providerService.getClientsWhoHired.createComponent
+  handleClick(clientId: string){
+    //TODO: Add Review functionality
   }
 }

@@ -13,6 +13,8 @@ import { RequestDetailsDialogComponent } from './request-details-dialog/request-
 import {AddedReviewListComponent} from './added-review-list/added-review-list.component';
 import {ReceivedReviewListComponent} from './received-review-list/received-review-list.component';
 import {SharedModule} from '../shared/shared.module';
+import { ProviderListComponent } from './provider-list/provider-list.component';
+import { ProviderCardComponent } from './provider-card/provider-card.component';
 
 @NgModule({
   imports: [
@@ -25,14 +27,16 @@ import {SharedModule} from '../shared/shared.module';
     ReactiveFormsModule,
     ButtonModule,
     DialogModule,
-    SharedModule
+    SharedModule,
   ],
   declarations: [
+    ProviderCardComponent,
     ProviderComponent, 
     ToolbarProviderComponent, 
     RequestListComponent, 
     ProviderSettingsComponent, 
     RequestDetailsDialogComponent,
+    ProviderListComponent,
     AddedReviewListComponent,
     ReceivedReviewListComponent],
   exports: [ToolbarProviderComponent,
@@ -43,7 +47,8 @@ import {SharedModule} from '../shared/shared.module';
   ],
   entryComponents: [
     ProviderComponent,
-    RequestListComponent
+    RequestListComponent,
+    ProviderCardComponent
   ]
 })
 export class ProviderModule {
