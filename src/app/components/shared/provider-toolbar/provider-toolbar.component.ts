@@ -44,4 +44,9 @@ export class ProviderToolbarComponent implements OnInit {
   navigateToLogout() {
     this.router.navigate(['/logout']);
   }
+
+  navigateToClienti() {
+    this.router.navigate(['/provider/clients']);
+  }
+
 }

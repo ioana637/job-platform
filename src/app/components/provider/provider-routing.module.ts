@@ -8,6 +8,7 @@ import {AddedReviewListComponent} from './added-review-list/added-review-list.co
 import {ReceivedReviewListComponent} from './received-review-list/received-review-list.component';
 import { ProviderJobsComponent } from './provider-jobs/provider-jobs.component';
 import {StatisticsComponent} from '../shared/statistics/statistics.component';
+import { ProviderListComponent } from './provider-list/provider-list.component';
 
 const routes = [
   {
@@ -29,6 +30,10 @@ const routes = [
   {
     path: 'provider/review/received',
     component: ReceivedReviewListComponent
+  },
+  {
+    path: 'provider/clients',
+    component: ProviderListComponent
   },
   {
     path: 'provider/review/new-review',

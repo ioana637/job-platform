@@ -1,0 +1,21 @@
+<app-provider-toolbar></app-provider-toolbar>
+<div class="page-container">
+
+    <div class="row page-title">Clientii la care a fost angajat acest provider
+    </div>
+    <div class="row card-container"
+        *ngFor="let provider of providers">
+        <app-provider-card class="provider-card" 
+                            [fullName]="provider.firstName ? provider.firstName + ' ' + provider.lastName : provider.username" 
+                            [abilitati]="provider.abilities"
+                            [rating]="provider.starAvg"
+                            ></app-provider-card>
+        <button pButton class="ui-button-primary add-review" label="Add review" (onClick)="handleClick(provider.id)"></button>
+
+    </div>
+
+</div>
+
+
+
+

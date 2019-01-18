@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ProviderComponent} from './provider/provider.component';
 import {ProviderRoutingModule} from './provider-routing.module';
-import {ButtonModule, DialogModule, InputTextareaModule, RatingModule, SplitButtonModule, ToolbarModule} from 'primeng/primeng';
+import {ButtonModule, DialogModule, InputTextareaModule, RatingModule, ToolbarModule} from 'primeng/primeng';
 import {ToolbarProviderComponent} from './toolbar-provider/toolbar-provider.component';
 import {RequestListComponent} from './request-list/request-list.component';
 import {TableModule} from 'primeng/table';
@@ -17,6 +17,9 @@ import {SharedModule} from '../shared/shared.module';
 import {MultiSelectModule} from 'primeng/multiselect';
 import {ProviderJobsComponent} from './provider-jobs/provider-jobs.component';
 import {JobCardComponent} from './job-card/job-card.component';
+import {ProviderListComponent} from './provider-list/provider-list.component';
+import {ProviderCardComponent} from './provider-card/provider-card.component';
+import {ClientModule} from '../client/client.module';
 
 @NgModule({
   imports: [
@@ -30,10 +33,11 @@ import {JobCardComponent} from './job-card/job-card.component';
     SharedModule,
     ToolbarModule,
     ButtonModule,
-    SharedModule,
     MultiSelectModule,
     InputTextareaModule,
     RatingModule,
+    DialogModule,
+    ClientModule
   ],
   declarations: [
     ProviderComponent,
@@ -42,7 +46,9 @@ import {JobCardComponent} from './job-card/job-card.component';
     ToolbarProviderComponent,
     RequestListComponent,
     ProviderSettingsComponent,
+    ProviderCardComponent,
     RequestDetailsDialogComponent,
+    ProviderListComponent,
     AddedReviewListComponent,
     ReceivedReviewListComponent,
     NewReviewComponent
@@ -58,7 +64,8 @@ import {JobCardComponent} from './job-card/job-card.component';
   entryComponents: [
     ProviderComponent,
     RequestListComponent,
-    ProviderJobsComponent
+    ProviderJobsComponent,
+    ProviderCardComponent
   ]
 })
 export class ProviderModule {

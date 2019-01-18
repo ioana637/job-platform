@@ -47,6 +47,10 @@ export class ProviderService {
   public sendProviderReview(providerReview: Review): Observable<Review> {
     return <Observable<Review>> this.http.post(reviewAddedByUserUrl, providerReview, httpOptions);
   }
+
+  public getClientsWhoHired(idProvider: string): Observable<any>{
+    return <Observable<any>> this.http.get(`${providerUrl}/${idProvider}/clients`, httpOptions);
+  }
 }
 
 

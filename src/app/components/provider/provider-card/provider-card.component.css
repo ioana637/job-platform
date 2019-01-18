@@ -1,0 +1,87 @@
+.card-property {
+    display: inline-block;
+    margin: 20px;
+    margin-right: 5px;
+    margin-left: 10%;
+
+}
+
+.firstLabel{
+    display: inline-block;
+    margin-top: 17px;
+    position: relative;
+    left: 13%;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+}
+.provider-card-root{
+    margin: 5px;
+}
+
+.secondLabel{
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: absolute;
+    right: 45%;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+}
+
+.ability1{
+    display: inline-block;
+    position: absolute;
+    left: 40%;
+    margin-top: 17px;
+}
+.ability2{
+    display: inline-block;
+    position: absolute;
+    right: 38%;
+    margin-top: 17px;
+}
+
+.initials {
+    display: inline-block;
+    color: #ffffff;
+    font-weight: 600;
+    background-color: #00b3f7;
+    border-radius: 12px;
+    height: auto;
+    width: 2%;
+    text-align: center;
+    margin-right: 15px;
+    margin-left: 30px;
+
+}
+
+.provider-card-root{
+    height: 45%;
+}
+
+.fullname{
+    display: inline-block;  
+    font-size: 1.1rem;
+    width: 10%;
+    margin-top: 17px;
+}
+
+.rating-star{
+    display: inline-block;
+    position: absolute;
+    right: 20%;
+    margin-top:10px;
+
+}
+.rating-icon{
+    color:#ffc722 !important;
+    background: #ffffff !important;
+    border-color: #ffffff !important;
+    margin: 0 !important;
+}
+.rating-text{
+    display: inline-block;
+    position: absolute;
+    right: 18%;
+    margin-top:15px;
+}
