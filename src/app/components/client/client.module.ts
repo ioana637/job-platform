@@ -34,6 +34,7 @@ import {ReceivedReviewListComponent} from './received-review-list/received-revie
 import {AddedReviewListComponent} from './added-review-list/added-review-list.component';
 import {JobCardComponent} from './client-jobs-card/job-card.component';
 import { AddReviewClientComponent } from './add-review-client/add-review-client.component';
+import {RatingModule} from 'primeng/rating';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { AddReviewClientComponent } from './add-review-client/add-review-client.
     DropdownModule,
     PasswordModule,
     DialogModule,
-    MultiSelectModule
+    MultiSelectModule,
+    RatingModule,
   ],
   declarations: [
     ProviderListComponent,

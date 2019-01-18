@@ -1,0 +1,21 @@
+.main-container{
+  display: flex;
+  padding: 70px;
+  /*background-color: #00b3f7;*/
+}
+
+.table-container{
+  width: 50vw;
+  height: 50vh;
+  padding: 0 40px 0;
+  /*background-color: #1c3667;*/
+}
+
+.review-container{
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  height: 50vh;
+  /*background-color: #FF5D5D;*/
+  /*justify-content: space-around;*/
+}

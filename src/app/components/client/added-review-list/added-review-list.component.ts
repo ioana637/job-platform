@@ -31,7 +31,7 @@ export class AddedReviewListComponent implements OnInit, OnDestroy {
   }
 
   goToNewReview(): void {
-    this.router.navigate(['/provider/review/new-review']);
+    this.router.navigate(['/client/review/new-review']);
   }
 
 }
