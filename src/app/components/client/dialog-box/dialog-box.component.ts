@@ -1,7 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {Job, User} from '../../shared/model';
 import {JobService} from 'src/app/services/job.service';
-import {Observable} from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 import {UserService} from '../../../services/user.service';
 import {MessageService} from 'primeng/api';
 
@@ -12,7 +12,7 @@ import {MessageService} from 'primeng/api';
   encapsulation: ViewEncapsulation.None
 })
 
-export class DialogBoxComponent implements OnInit {
+export class DialogBoxComponent implements OnInit, OnDestroy {
 
   @Input() display: boolean;
   @Output() displayChange = new EventEmitter();
@@ -21,12 +21,11 @@ export class DialogBoxComponent implements OnInit {
   private jobs: Job[] = [];
   private user: User | null = null;
   private selectedJobs: Job [] = [];
+  private subs: Subscription[] = [];
 
-  constructor(
-    private loginService: UserService,
-    private jobService: JobService,
-    private messageService: MessageService
-  ) {
+  constructor(private loginService: UserService,
+              private jobService: JobService,
+              private messageService: MessageService) {
   }
 
   onClose() {
@@ -36,24 +35,24 @@ export class DialogBoxComponent implements OnInit {
   // Work against memory leak if component is destroyed
   ngOnDestroy() {
     this.displayChange.unsubscribe();
-
+    this.subs.forEach((s) => s.unsubscribe());
   }
 
   public ngOnInit() {
     console.log('User: ', this.loginService.getUser());
     this.user = this.loginService.getUser();
-    this.getJobs().subscribe((currentJobs) => {
-      this.jobs = currentJobs;
+    this.subs.push(this.getJobs().subscribe((currentJobs) => {
+      this.jobs = currentJobs.filter((job) => job.status === 'AVAILABLE');
       console.log('Jobs: ', this.jobs);
     }, error => this.messageService.add({
       severity: 'error',
       summary: 'Erroare',
       detail: 'A aparut o eroare, incercati din nou mai tarziu'
-    }));
+    })));
   }
 
   private getJobs(): Observable<Job[]> {
-    return this.jobService.getJobsForUser(this.user.id, 1000, 0);
+    return this.jobService.getAllJobs();
   }
 
   private onAssignClick(): void {

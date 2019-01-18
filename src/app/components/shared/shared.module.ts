@@ -10,7 +10,7 @@ import {RouterModule} from '@angular/router';
 import {ToastModule} from 'primeng/toast';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ButtonModule} from 'primeng/button';
-import {AutoCompleteModule, CalendarModule, DropdownModule, InputTextareaModule, ToolbarModule} from 'primeng/primeng';
+import {AutoCompleteModule, CalendarModule, DropdownModule, InputTextareaModule, SplitButtonModule, ToolbarModule} from 'primeng/primeng';
 import {AbilityComponent} from './abilities/ability.component';
 import {ToolbarComponent} from './toolbar/toolbar.component';
 import {LogoutComponent} from './auth/logout/logout.component';
@@ -19,12 +19,16 @@ import {StatisticsComponent} from './statistics/statistics.component';
 import {ReviewListComponent} from './review-list/review-list.component';
 import {TableModule} from 'primeng/table';
 import {AllJobsComponent} from './all-jobs/all-jobs.component';
-import { JobComponent } from './job/job.component';
+import {JobComponent} from './job/job.component';
+import {ProviderToolbarComponent} from './provider-toolbar/provider-toolbar.component';
+import {ClientToolbarComponent} from './client-toolbar/client-toolbar.component';
+import {UserService} from '../../services/user.service';
 
 @NgModule({
   imports: [
     CommonModule,
     CardModule,
+    SplitButtonModule,
     ButtonModule,
     FormsModule,
     ReactiveFormsModule,
@@ -38,7 +42,7 @@ import { JobComponent } from './job/job.component';
     InputTextareaModule,
     TableModule,
     InputTextareaModule,
-    RoundProgressModule
+    RoundProgressModule,
   ],
   declarations: [
     LoginComponent,
@@ -50,6 +54,8 @@ import { JobComponent } from './job/job.component';
     ReviewListComponent,
     AllJobsComponent,
     JobComponent,
+    ProviderToolbarComponent,
+    ClientToolbarComponent
   ],
   providers: [
     {
@@ -60,10 +66,20 @@ import { JobComponent } from './job/job.component';
       },
       useClass: UserInterceptor,
       multi: true
-    }
+    },
+    UserService,
   ],
-  entryComponents: [AbilityComponent, LogoutComponent, ReviewListComponent, StatisticsComponent],
-  exports: [AbilityComponent, LogoutComponent, ReviewListComponent, StatisticsComponent]
+  entryComponents: [AbilityComponent,
+    LogoutComponent,
+    ReviewListComponent,
+    StatisticsComponent],
+  exports: [AbilityComponent,
+    LogoutComponent,
+    ReviewListComponent,
+    StatisticsComponent,
+    ProviderToolbarComponent,
+    ClientToolbarComponent,
+    ToolbarComponent]
 })
 export class SharedModule {
 }

@@ -1,4 +1,7 @@
-<app-toolbar></app-toolbar>
+<app-toolbar *ngIf="!user"></app-toolbar>
+<app-provider-toolbar *ngIf="user && user.role ==='PROVIDER'"></app-provider-toolbar>
+<app-client-toolbar *ngIf="user && user.role ==='CLIENT'"></app-client-toolbar>
+
 
 <div class="page-container">
   <div class="row page-title">Lista Joburilor disponibile

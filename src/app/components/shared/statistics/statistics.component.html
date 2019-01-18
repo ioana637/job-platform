@@ -1,4 +1,6 @@
-<app-toolbar></app-toolbar>
+<app-toolbar *ngIf="!user"></app-toolbar>
+<app-provider-toolbar *ngIf="user && user.role ==='PROVIDER'"></app-provider-toolbar>
+<app-client-toolbar *ngIf="user && user.role ==='CLIENT'"></app-client-toolbar>
 
 <div>
   <h3>Aplicatia noastra se mandreste cu:</h3>
@@ -9,7 +11,7 @@
         <br>
         <h4>Cateva statistici utile:</h4>
         <br><br>
-      
+
         <div class="row">
           <div class="col-md-4 col-sm-5">
             <div class="c100 p{{angajati}}">
@@ -25,7 +27,7 @@
             <h4>dintre angajati au gasit deja persoane interesate</h4>
           </div>
         </div>
-      
+
         <br>
         <div class="row">
           <div class="col-md-4 col-sm-5">
@@ -41,7 +43,7 @@
             <br><br>
             <h4>dintre angajatori au deja perosane interesate</h4>
           </div>
-      
+
         </div>
       </div>
 
@@ -94,13 +96,18 @@
     De asemenea, cei interesați de angajarea unor persoane pe o perioadă scurtă de timp au posibilitatea de a oferii
     oportunități de angajare.
   </p-card>
-  <div class="register row">
+  <div class="register row" *ngIf="!user">
     <div class="col-6"><h3>Înscrie-te și tu!</h3></div>
     <div class="col-6 d-flex justify-content-end">
       <p-button label="Inregistreaza-ma" [routerLink]="['../register']"></p-button>
     </div>
   </div>
-  <br>
+  <div class="register row" *ngIf="!user">
+    <div class="col-6"><h3>Ai cont? Autentifică-te!</h3></div>
+    <div class="col-6 d-flex justify-content-end">
+      <p-button label="Autentificare" [routerLink]="['../login']"></p-button>
+    </div>
+  </div>
 </div>
 
 

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MenuItem} from 'primeng/api';
-import {User} from '../../shared/model';
+import {User} from '../model';
 import {UserService} from '../../../services/user.service';
 import {Router} from '@angular/router';
 

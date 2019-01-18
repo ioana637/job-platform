@@ -17,7 +17,6 @@ import {SharedModule} from '../shared/shared.module';
 import {MultiSelectModule} from 'primeng/multiselect';
 import {ProviderJobsComponent} from './provider-jobs/provider-jobs.component';
 import {JobCardComponent} from './job-card/job-card.component';
-import {ProviderToolbarComponent} from './provider-toolbar/provider-toolbar.component';
 
 @NgModule({
   imports: [
@@ -35,7 +34,6 @@ import {ProviderToolbarComponent} from './provider-toolbar/provider-toolbar.comp
     MultiSelectModule,
     InputTextareaModule,
     RatingModule,
-    SplitButtonModule,
   ],
   declarations: [
     ProviderComponent,
@@ -47,8 +45,7 @@ import {ProviderToolbarComponent} from './provider-toolbar/provider-toolbar.comp
     RequestDetailsDialogComponent,
     AddedReviewListComponent,
     ReceivedReviewListComponent,
-    NewReviewComponent,
-    ProviderToolbarComponent
+    NewReviewComponent
   ],
   exports: [ToolbarProviderComponent,
     ToastModule,

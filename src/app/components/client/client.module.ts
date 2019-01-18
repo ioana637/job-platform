@@ -9,10 +9,10 @@ import {
   DropdownModule,
   InputTextareaModule,
   MessageService,
+  MultiSelectModule,
   PasswordModule,
   SplitButtonModule,
-  ToolbarModule,
-  MultiSelectModule
+  ToolbarModule
 } from 'primeng/primeng';
 import {CardModule} from 'primeng/card';
 import {SharedModule} from '../shared/shared.module';
@@ -30,17 +30,15 @@ import {ListaRecomandariPrimiteComponent} from './lista-recomandari-primite/list
 import {DialogBoxComponent} from './dialog-box/dialog-box.component';
 import {ClientSettingsComponent} from './client-settings/client-settings.component';
 import {RecommandationAddComponent} from './recommandation-add/recommandation-add.component';
-import { ReceivedReviewListComponent } from './received-review-list/received-review-list.component';
-import { AddedReviewListComponent } from './added-review-list/added-review-list.component';
-import { JobCardComponent } from './client-jobs-card/job-card.component';
-import { ClientToolbarComponent } from './client-toolbar/client-toolbar.component';
+import {ReceivedReviewListComponent} from './received-review-list/received-review-list.component';
+import {AddedReviewListComponent} from './added-review-list/added-review-list.component';
+import {JobCardComponent} from './client-jobs-card/job-card.component';
 
 
 @NgModule({
   imports: [
     ToolbarModule,
     CommonModule,
-    SplitButtonModule,
     FormsModule,
     ClientRoutingModule,
     ReactiveFormsModule,
@@ -72,7 +70,6 @@ import { ClientToolbarComponent } from './client-toolbar/client-toolbar.componen
     ReceivedReviewListComponent,
     AddedReviewListComponent,
     JobCardComponent,
-    ClientToolbarComponent
   ],
   exports: [ToolbarClientComponent],
   providers: [MessageService],

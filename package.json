@@ -23,7 +23,7 @@
     "@angular/router": "^6.0.2",
     "angular-svg-round-progressbar": "^2.0.0",
     "angular2-jwt": "^0.2.3",
-    "bootstrap": "^4.1.3",
+    "bootstrap": "^4.2.1",
     "core-js": "^2.6.1",
     "font-awesome": "^4.7.0",
     "install": "^0.12.2",

@@ -1,16 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { StatisticsService } from '../../../services/statistics.service';
-import { Job, Statistics } from '../model';
-import { MessageService } from 'primeng/api';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {StatisticsService} from '../../../services/statistics.service';
+import {Job, Statistics, User} from '../model';
+import {MessageService} from 'primeng/api';
+import {UserService} from '../../../services/user.service';
+import {Subscription} from 'rxjs/index';
 
 @Component({
   selector: 'app-statistics',
   templateUrl: './statistics.component.html',
   styleUrls: ['./statistics.component.css']
 })
-export class StatisticsComponent implements OnInit {
+export class StatisticsComponent implements OnInit, OnDestroy {
   constructor(private statisticsService: StatisticsService,
-    private messageService: MessageService,) {
+              private messageService: MessageService,
+              private userService: UserService) {
   }
 
   public angajati: number;
@@ -19,9 +22,14 @@ export class StatisticsComponent implements OnInit {
   public contractsNo: number;
   public availableJobs: number;
   public providersNo: number;
+  private subs: Subscription[] = [];
+
+  public user: User = null;
 
   ngOnInit() {
-    this.statisticsService.getStatistics().subscribe(
+    this.user = this.userService.getUser();
+
+    this.subs.push(this.statisticsService.getStatistics().subscribe(
       (result: Statistics) => {
         this.providersNo = result.noOfProviders;
         this.angajati = result.providersWithJobPercantage;
@@ -31,9 +39,13 @@ export class StatisticsComponent implements OnInit {
         this.availableJobs = result.noOfAvailableJobs;
       },
       (error) => {
-        this.messageService.add({severity: 'error', summary: 'Eroare', detail: "Nu am putut incarca toate datele."});
+        this.messageService.add({severity: 'error', summary: 'Eroare', detail: 'Nu am putut incarca toate datele.'});
         console.log(error);
-      });
+      }));
+  }
+
+  ngOnDestroy() {
+    this.subs.forEach((s) => s.unsubscribe());
   }
 }
 

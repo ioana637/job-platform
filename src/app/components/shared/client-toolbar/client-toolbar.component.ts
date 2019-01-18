@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {MenuItem} from 'primeng/api';
 import {UserService} from '../../../services/user.service';
-import {User} from '../../shared/model';
+import {User} from '../model';
 import {Router} from '@angular/router';
 
 @Component({

@@ -1,6 +1,6 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {User} from '../../shared/model';
-import {forkJoin} from 'rxjs';
+import {forkJoin, Subscription} from 'rxjs';
 import {RecommendationService} from '../../../services/recommendation.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../../services/user.service';
@@ -13,10 +13,12 @@ import {MessageService} from 'primeng/api';
   encapsulation: ViewEncapsulation.None
 
 })
-export class RecommandationAddComponent implements OnInit {
+export class RecommandationAddComponent implements OnInit, OnDestroy {
   clients: User[] = [];
   providers: User[] = [];
   form: FormGroup;
+  user: User = null;
+  subs: Subscription[] = [];
 
   constructor(private service: RecommendationService,
               private formBuilder: FormBuilder,
@@ -26,10 +28,15 @@ export class RecommandationAddComponent implements OnInit {
 
   ngOnInit() {
     this.buildForm();
-    forkJoin(this.service.getClients(), this.service.getProviders()).subscribe(results => {
-      this.clients = results[0];
+    this.user = this.userService.getUser();
+    this.subs.push(forkJoin(this.service.getClients(), this.service.getProviders()).subscribe(results => {
+      this.clients = results[0].filter(cl => cl.id !== this.user.id);
       this.providers = results[1];
-    });
+    }));
+  }
+
+  ngOnDestroy() {
+    this.subs.forEach(s => s.unsubscribe());
   }
 
 
@@ -42,9 +49,8 @@ export class RecommandationAddComponent implements OnInit {
     if (this.form.valid) {
       const {userFor, recommendedProvider, description} = this.form.value;
       const date = new Date().toJSON();
-      const user = this.userService.getUser();
-      this.service.addRecommendation({
-        recommender: user,
+      this.subs.push(this.service.addRecommendation({
+        recommender: this.user,
         recommendedProvider,
         userFor,
         description,
@@ -54,8 +60,8 @@ export class RecommandationAddComponent implements OnInit {
           this.messageService.add({severity: 'info', summary: 'Informare', detail: 'Recomandarea a fost adaugata cu succes!'});
           this.form.reset();
         },
-        error => this.messageService.add({severity: 'error', summary: 'Eroare', detail: "A aparut o eroare, incercati din nou mai tarziu"})
-      );
+        error => this.messageService.add({severity: 'error', summary: 'Eroare', detail: 'A aparut o eroare, incercati din nou mai tarziu'})
+      ));
     } else {
       this.messageService.add({severity: 'error', summary: 'Eroare', detail: 'Trebuie să completați câmpurile obligatorii!'});
     }
