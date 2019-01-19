@@ -20,6 +20,7 @@ import {JobCardComponent} from './job-card/job-card.component';
 import {ProviderListComponent} from './provider-list/provider-list.component';
 import {ProviderCardComponent} from './provider-card/provider-card.component';
 import {ClientModule} from '../client/client.module';
+import { AddReviewProviderComponent } from './add-review-provider/add-review-provider.component';
 
 @NgModule({
   imports: [
@@ -51,7 +52,8 @@ import {ClientModule} from '../client/client.module';
     ProviderListComponent,
     AddedReviewListComponent,
     ReceivedReviewListComponent,
-    NewReviewComponent
+    NewReviewComponent,
+    AddReviewProviderComponent
   ],
   exports: [ToolbarProviderComponent,
     ToastModule,

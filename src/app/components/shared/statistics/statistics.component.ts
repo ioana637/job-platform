@@ -17,9 +17,9 @@ export class StatisticsComponent implements OnInit, OnDestroy {
   }
 
   public angajati: number;
-  public angajatiInt: number;
+  public angajatiInt = 0;
   public angajatori: number;
-  public angajatoriInt: number;
+  public angajatoriInt = 0;
   public usersWithMaxRating: number;
   public contractsNo: number;
   public availableJobs: number;
@@ -38,6 +38,12 @@ export class StatisticsComponent implements OnInit, OnDestroy {
         this.angajatori = result.clientsWithJobPercentage;
         this.angajatiInt = Math.round(this.angajati);
         this.angajatoriInt = Math.round(this.angajatori);
+        if (Number.isNaN(this.angajatiInt)) {
+          this.angajatiInt = 0;
+        }
+        if (Number.isNaN(this.angajatoriInt)) {
+          this.angajatoriInt = 0;
+        }
         this.usersWithMaxRating = result.usersWithMaxRating;
         this.contractsNo = result.noOfContracts;
         this.availableJobs = result.noOfAvailableJobs;

@@ -16,6 +16,12 @@ export class RecomandariCardComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.recommendation.recommendedProvider.starAvg) {
+      this.rating = this.recommendation.recommendedProvider.starAvg;
+    } else {
+      this.rating = '3.45';
+    }
+
   }
 
 }

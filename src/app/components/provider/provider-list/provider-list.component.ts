@@ -3,9 +3,10 @@ import {ProviderService} from '../../../services/provider.service';
 import {User} from '../../shared/model';
 import {MessageService} from 'primeng/api';
 import {UserService} from '../../../services/user.service';
+import {Router} from '@angular/router';
 
 @Component({
-  selector: 'provider-list',
+  selector: 'app-provider-list-clients',
   templateUrl: './provider-list.component.html',
   styleUrls: ['./provider-list.component.scss']
 })
@@ -17,6 +18,7 @@ export class ProviderListComponent implements OnInit {
 
   constructor(private userService: UserService,
               private messageService: MessageService,
+              private router: Router,
               private providerService: ProviderService) {
   }
 
@@ -37,7 +39,8 @@ export class ProviderListComponent implements OnInit {
   }
 
 
-  handleClick(clientId: string) {
-    //TODO: Add Review functionality
+  handleClick(providerId: string) {
+    console.log('clicked');
+    this.router.navigateByUrl('provider/review/add-review');
   }
 }

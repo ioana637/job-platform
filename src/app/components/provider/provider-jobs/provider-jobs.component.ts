@@ -75,5 +75,6 @@ export class ProviderJobsComponent implements OnInit {
 
   onReset() {
     this.selectedCategories = [];
+    this.loadData();
   }
 }
